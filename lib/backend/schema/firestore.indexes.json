@@ -1,0 +1,88 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "learning",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "free_lesson",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "sort",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "learning",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "category",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "sort",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "vaccinations",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "period_vacinating",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "age_of_child_in_days",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "check_list_group_items",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "group",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "sort",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "trackers",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "child_ref",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "tracker_start_time",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "trackers",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "child_ref",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "tracker_title",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ]
+}
