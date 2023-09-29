@@ -253,43 +253,55 @@ class _ChangeTheWeightWidgetState extends State<ChangeTheWeightWidget> {
                                     widget.child!.reference);
 
                             firestoreBatch.update(widget.child!.reference, {
-                              'weight_list': FieldValue.arrayRemove([
-                                getWeightListFirestoreData(
-                                  updateWeightListStruct(
-                                    _model.childRead?.weightList?.last,
-                                    clearUnsetFields: false,
-                                  ),
-                                  true,
-                                )
-                              ]),
+                              ...mapToFirestore(
+                                {
+                                  'weight_list': FieldValue.arrayRemove([
+                                    getWeightListFirestoreData(
+                                      updateWeightListStruct(
+                                        _model.childRead?.weightList?.last,
+                                        clearUnsetFields: false,
+                                      ),
+                                      true,
+                                    )
+                                  ]),
+                                },
+                              ),
                             });
 
                             firestoreBatch.update(widget.child!.reference, {
-                              'weight_list': FieldValue.arrayUnion([
-                                getWeightListFirestoreData(
-                                  createWeightListStruct(
-                                    weight: double.tryParse(
-                                        _model.textController.text),
-                                    date: getCurrentTimestamp,
-                                    clearUnsetFields: false,
-                                  ),
-                                  true,
-                                )
-                              ]),
+                              ...mapToFirestore(
+                                {
+                                  'weight_list': FieldValue.arrayUnion([
+                                    getWeightListFirestoreData(
+                                      createWeightListStruct(
+                                        weight: double.tryParse(
+                                            _model.textController.text),
+                                        date: getCurrentTimestamp,
+                                        clearUnsetFields: false,
+                                      ),
+                                      true,
+                                    )
+                                  ]),
+                                },
+                              ),
                             });
                           } else {
                             firestoreBatch.update(widget.child!.reference, {
-                              'weight_list': FieldValue.arrayUnion([
-                                getWeightListFirestoreData(
-                                  createWeightListStruct(
-                                    weight: double.tryParse(
-                                        _model.textController.text),
-                                    date: getCurrentTimestamp,
-                                    clearUnsetFields: false,
-                                  ),
-                                  true,
-                                )
-                              ]),
+                              ...mapToFirestore(
+                                {
+                                  'weight_list': FieldValue.arrayUnion([
+                                    getWeightListFirestoreData(
+                                      createWeightListStruct(
+                                        weight: double.tryParse(
+                                            _model.textController.text),
+                                        date: getCurrentTimestamp,
+                                        clearUnsetFields: false,
+                                      ),
+                                      true,
+                                    )
+                                  ]),
+                                },
+                              ),
                             });
                           }
 

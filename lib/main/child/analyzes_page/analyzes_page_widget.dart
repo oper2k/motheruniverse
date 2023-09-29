@@ -54,7 +54,9 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -233,12 +235,11 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                       queryBuilder:
                                           (recommendedAnalizesRecord) =>
                                               recommendedAnalizesRecord.where(
-                                                  'week',
-                                                  isEqualTo:
-                                                      containerWeekRecordList[
-                                                              _model
-                                                                  .initialIndex]
-                                                          .weekName),
+                                        'week',
+                                        isEqualTo: containerWeekRecordList[
+                                                _model.initialIndex]
+                                            .weekName,
+                                      ),
                                     ),
                                     builder: (context, snapshot) {
                                       // Customize what your widget looks like when it's loading.
@@ -347,9 +348,13 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                                                               highlightColor: Colors.transparent,
                                                                               onTap: () async {
                                                                                 await containerUsersRecord.reference.update({
-                                                                                  'pass_analizes_string': FieldValue.arrayUnion([
-                                                                                    currentAnalizesItem.reference.id
-                                                                                  ]),
+                                                                                  ...mapToFirestore(
+                                                                                    {
+                                                                                      'pass_analizes_string': FieldValue.arrayUnion([
+                                                                                        currentAnalizesItem.reference.id
+                                                                                      ]),
+                                                                                    },
+                                                                                  ),
                                                                                 });
                                                                               },
                                                                               child: Row(
@@ -434,9 +439,13 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                                                               highlightColor: Colors.transparent,
                                                                               onTap: () async {
                                                                                 await containerUsersRecord.reference.update({
-                                                                                  'pass_analizes_string': FieldValue.arrayRemove([
-                                                                                    currentAnalizesItem.reference.id
-                                                                                  ]),
+                                                                                  ...mapToFirestore(
+                                                                                    {
+                                                                                      'pass_analizes_string': FieldValue.arrayRemove([
+                                                                                        currentAnalizesItem.reference.id
+                                                                                      ]),
+                                                                                    },
+                                                                                  ),
                                                                                 });
                                                                               },
                                                                               child: Row(

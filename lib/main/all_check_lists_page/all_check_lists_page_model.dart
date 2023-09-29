@@ -3,12 +3,13 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'all_check_lists_page_widget.dart' show AllCheckListsPageWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class AllCheckListsPageModel extends FlutterFlowModel {
+class AllCheckListsPageModel extends FlutterFlowModel<AllCheckListsPageWidget> {
   ///  Local state fields for this page.
 
   String filter = '';

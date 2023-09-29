@@ -50,7 +50,9 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
@@ -838,6 +840,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .headlineSmall,
+                                        keyboardType: TextInputType.number,
                                         cursorColor:
                                             FlutterFlowTheme.of(context)
                                                 .overlay,
@@ -934,6 +937,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall,
+                                          keyboardType: TextInputType.number,
                                           cursorColor:
                                               FlutterFlowTheme.of(context)
                                                   .overlay,
@@ -1001,28 +1005,38 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                         FFAppState().tempChild.conceptionDate,
                                     age: FFAppState().tempChild.age,
                                   ),
-                                  'growth_list': [
-                                    getGrowthListFirestoreData(
-                                      createGrowthListStruct(
-                                        growth: FFAppState().tempChild.growth,
-                                        date: FFAppState().tempChild.birthDate,
-                                        clearUnsetFields: false,
-                                        create: true,
-                                      ),
-                                      true,
-                                    )
-                                  ],
-                                  'weight_list': [
-                                    getWeightListFirestoreData(
-                                      createWeightListStruct(
-                                        weight: FFAppState().tempChild.weight,
-                                        date: FFAppState().tempChild.birthDate,
-                                        clearUnsetFields: false,
-                                        create: true,
-                                      ),
-                                      true,
-                                    )
-                                  ],
+                                  ...mapToFirestore(
+                                    {
+                                      'growth_list': [
+                                        getGrowthListFirestoreData(
+                                          createGrowthListStruct(
+                                            growth:
+                                                FFAppState().tempChild.growth,
+                                            date: FFAppState()
+                                                .tempChild
+                                                .birthDate,
+                                            clearUnsetFields: false,
+                                            create: true,
+                                          ),
+                                          true,
+                                        )
+                                      ],
+                                      'weight_list': [
+                                        getWeightListFirestoreData(
+                                          createWeightListStruct(
+                                            weight:
+                                                FFAppState().tempChild.weight,
+                                            date: FFAppState()
+                                                .tempChild
+                                                .birthDate,
+                                            clearUnsetFields: false,
+                                            create: true,
+                                          ),
+                                          true,
+                                        )
+                                      ],
+                                    },
+                                  ),
                                 });
 
                                 await currentUserReference!

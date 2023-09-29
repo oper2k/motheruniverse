@@ -61,7 +61,9 @@ class _NetworkingSearchingUserWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -311,11 +313,16 @@ class _NetworkingSearchingUserWidgetState
                                                             context: context,
                                                             builder: (context) {
                                                               return GestureDetector(
-                                                                onTap: () => FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode),
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -455,14 +462,18 @@ class _NetworkingSearchingUserWidgetState
                               child: StreamBuilder<List<UsersRecord>>(
                                 stream: queryUsersRecord(
                                   queryBuilder: (usersRecord) => usersRecord
-                                      .where('first_name',
-                                          isEqualTo: _model.firstName != ''
-                                              ? _model.firstName
-                                              : null)
-                                      .where('second_name',
-                                          isEqualTo: _model.secondName != ''
-                                              ? _model.secondName
-                                              : null),
+                                      .where(
+                                        'first_name',
+                                        isEqualTo: _model.firstName != ''
+                                            ? _model.firstName
+                                            : null,
+                                      )
+                                      .where(
+                                        'second_name',
+                                        isEqualTo: _model.secondName != ''
+                                            ? _model.secondName
+                                            : null,
+                                      ),
                                 ),
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
@@ -552,11 +563,16 @@ class _NetworkingSearchingUserWidgetState
                                                               builder:
                                                                   (context) {
                                                                 return GestureDetector(
-                                                                  onTap: () => FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode),
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
                                                                       Padding(
                                                                     padding: MediaQuery

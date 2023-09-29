@@ -46,7 +46,9 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -196,9 +198,10 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                             (checkListGroupItemsRecord) =>
                                                 checkListGroupItemsRecord
                                                     .where(
-                                                        'group',
-                                                        isEqualTo: groupsItem
-                                                            .groupName)
+                                                      'group',
+                                                      isEqualTo:
+                                                          groupsItem.groupName,
+                                                    )
                                                     .orderBy('sort'),
                                       ),
                                       builder: (context, snapshot) {
@@ -385,10 +388,13 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                           await usersQueryUsersRecord
                                                                               .reference
                                                                               .update({
-                                                                            'passed_check_list':
-                                                                                FieldValue.arrayUnion([
-                                                                              checkItem.reference.id
-                                                                            ]),
+                                                                            ...mapToFirestore(
+                                                                              {
+                                                                                'passed_check_list': FieldValue.arrayUnion([
+                                                                                  checkItem.reference.id
+                                                                                ]),
+                                                                              },
+                                                                            ),
                                                                           });
                                                                         },
                                                                         child:
@@ -466,10 +472,13 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                           await usersQueryUsersRecord
                                                                               .reference
                                                                               .update({
-                                                                            'passed_check_list':
-                                                                                FieldValue.arrayRemove([
-                                                                              checkItem.reference.id
-                                                                            ]),
+                                                                            ...mapToFirestore(
+                                                                              {
+                                                                                'passed_check_list': FieldValue.arrayRemove([
+                                                                                  checkItem.reference.id
+                                                                                ]),
+                                                                              },
+                                                                            ),
                                                                           });
                                                                         },
                                                                         child:

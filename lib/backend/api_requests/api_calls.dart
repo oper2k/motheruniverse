@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import '../../flutter_flow/flutter_flow_util.dart';
+import '../cloud_functions/cloud_functions.dart';
 
 import 'api_manager.dart';
 
@@ -28,37 +29,28 @@ class CloudpaymentsGroup {
 
 class PayByCardCall {
   Future<ApiCallResponse> call({
-    String? publicId = '',
+    String? publicId = 'pk_95c3539932ce407838c78a72db586',
     int? amount,
     String? cardCryptogramPacket = '',
     String? email = '',
     String? accountId = '',
-  }) {
-    final ffApiRequestBody = '''
-{
-  "publicId": "${publicId}",
-  "Amount": ${amount},
-  "Currency": "RUB",
-  "CardCryptogramPacket": "${cardCryptogramPacket}",
-  "Email": "${email}",
-  "AccountId": "${accountId}"
-}''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'Pay by card',
-      apiUrl: '${CloudpaymentsGroup.baseUrl}/payments/cards/charge',
-      callType: ApiCallType.POST,
-      headers: {
-        ...CloudpaymentsGroup.headers,
-        'Authorization': 'Basic ApiCloud',
+    String? aPIKey = 'MDY0OTdmMmQ5MTFlN2IzNTllMmVmYWEyNWFiYzczNTM=',
+  }) async {
+    final response = await makeCloudCall(
+      _kPrivateApiFunctionName,
+      {
+        'callName': 'PayByCardCall',
+        'variables': {
+          'publicId': publicId,
+          'amount': amount,
+          'cardCryptogramPacket': cardCryptogramPacket,
+          'email': email,
+          'accountId': accountId,
+          'aPIKey': aPIKey,
+        },
       },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: true,
-      decodeUtf8: true,
-      cache: false,
     );
+    return ApiCallResponse.fromCloudCallResponse(response);
   }
 
   dynamic isSuccess(dynamic response) => getJsonField(
@@ -103,28 +95,20 @@ class CheckDSCall {
   Future<ApiCallResponse> call({
     int? transactionId,
     String? paRes = '',
-  }) {
-    final ffApiRequestBody = '''
-{
-  "TransactionId": ${transactionId},
-  "PaRes": "${paRes}"
-}''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'CheckDS',
-      apiUrl: '${CloudpaymentsGroup.baseUrl}/payments/cards/post3ds',
-      callType: ApiCallType.POST,
-      headers: {
-        ...CloudpaymentsGroup.headers,
-        'Authorization': 'Basic ApiCloud',
+    String? aPIKey = 'MDY0OTdmMmQ5MTFlN2IzNTllMmVmYWEyNWFiYzczNTM=',
+  }) async {
+    final response = await makeCloudCall(
+      _kPrivateApiFunctionName,
+      {
+        'callName': 'CheckDSCall',
+        'variables': {
+          'transactionId': transactionId,
+          'paRes': paRes,
+          'aPIKey': aPIKey,
+        },
       },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: true,
-      decodeUtf8: true,
-      cache: false,
     );
+    return ApiCallResponse.fromCloudCallResponse(response);
   }
 
   dynamic message(dynamic response) => getJsonField(
@@ -148,6 +132,8 @@ class CheckDSCall {
 class SubscriptionsCreateCopyCall {
   Future<ApiCallResponse> call({
     String? apiCloud = '',
+    String? publicId = 'pk_95c3539932ce407838c78a72db586',
+    String? aPIKey = 'MDY0OTdmMmQ5MTFlN2IzNTllMmVmYWEyNWFiYzczNTM=',
   }) {
     final ffApiRequestBody = '''
 {
@@ -157,7 +143,7 @@ class SubscriptionsCreateCopyCall {
   "Email": "<Email>",
   "Amount": 0,
   "Currency": "RUB",
-  "publicId": "<publicId>",
+  "publicId": "${publicId}",
   "RequireConfirmation": false,
   "StartDate": "<StartDate>",
   "Interval": "<Interval>",
@@ -168,8 +154,8 @@ class SubscriptionsCreateCopyCall {
       apiUrl: '${CloudpaymentsGroup.baseUrl}/subscriptions/create',
       callType: ApiCallType.POST,
       headers: {
-        ...CloudpaymentsGroup.headers,
-        'Authorization': 'Basic ${apiCloud}',
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ${aPIKey}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -186,6 +172,7 @@ class CheckSubscriptionsCopyCall {
   Future<ApiCallResponse> call({
     String? apiCloud = '',
     String? id = '',
+    String? aPIKey = 'MDY0OTdmMmQ5MTFlN2IzNTllMmVmYWEyNWFiYzczNTM=',
   }) {
     final ffApiRequestBody = '''
 {
@@ -196,8 +183,8 @@ class CheckSubscriptionsCopyCall {
       apiUrl: '${CloudpaymentsGroup.baseUrl}/subscriptions/get',
       callType: ApiCallType.POST,
       headers: {
-        ...CloudpaymentsGroup.headers,
-        'Authorization': 'Basic ${apiCloud}',
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ${aPIKey}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -214,6 +201,7 @@ class CancelSubscriptionsCopyCall {
   Future<ApiCallResponse> call({
     String? apiCloud = '',
     String? id = '',
+    String? aPIKey = 'MDY0OTdmMmQ5MTFlN2IzNTllMmVmYWEyNWFiYzczNTM=',
   }) {
     final ffApiRequestBody = '''
 {
@@ -224,8 +212,8 @@ class CancelSubscriptionsCopyCall {
       apiUrl: '${CloudpaymentsGroup.baseUrl}/subscriptions/cancel',
       callType: ApiCallType.POST,
       headers: {
-        ...CloudpaymentsGroup.headers,
-        'Authorization': 'Basic ${apiCloud}',
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ${aPIKey}',
       },
       params: {},
       body: ffApiRequestBody,

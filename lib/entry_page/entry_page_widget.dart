@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/bottom_sheet/loyalty_bottom_sheet/family_super_power/family_super_power_widget.dart';
 import '/components/bottom_sheet/loyalty_bottom_sheet/remind_to_fill_profile/remind_to_fill_profile_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -30,71 +31,91 @@ class _EntryPageWidgetState extends State<EntryPageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().entryCounter = FFAppState().entryCounter + 1;
-      });
-      if (functions.isTwoFiveOrMultipleOfTen(FFAppState().entryCounter)) {
-        context.goNamed(
-          'MainPage',
-          extra: <String, dynamic>{
-            kTransitionInfoKey: TransitionInfo(
-              hasTransition: true,
-              transitionType: PageTransitionType.fade,
-              duration: Duration(milliseconds: 0),
-            ),
-          },
-        );
-
-        await Future.delayed(const Duration(milliseconds: 200));
-        await showModalBottomSheet(
-          isScrollControlled: true,
-          backgroundColor: Colors.transparent,
-          barrierColor: FlutterFlowTheme.of(context).botomBack,
-          context: context,
-          builder: (context) {
-            return GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: FamilySuperPowerWidget(),
-              ),
-            );
-          },
-        ).then((value) => safeSetState(() {}));
-      } else {
-        if (functions.every5thEntry(FFAppState().entryCounter)) {
-          context.goNamed(
-            'MainPage',
-            extra: <String, dynamic>{
-              kTransitionInfoKey: TransitionInfo(
-                hasTransition: true,
-                transitionType: PageTransitionType.fade,
-                duration: Duration(milliseconds: 0),
-              ),
-            },
-          );
-
-          await Future.delayed(const Duration(milliseconds: 200));
-          await showModalBottomSheet(
-            isScrollControlled: true,
-            backgroundColor: Colors.transparent,
-            barrierColor: FlutterFlowTheme.of(context).botomBack,
-            context: context,
-            builder: (context) {
-              return GestureDetector(
-                onTap: () =>
-                    FocusScope.of(context).requestFocus(_model.unfocusNode),
-                child: Padding(
-                  padding: MediaQuery.viewInsetsOf(context),
-                  child: RemindToFillProfileWidget(),
+      await Future.delayed(const Duration(milliseconds: 300));
+      if (valueOrDefault<bool>(currentUserDocument?.profileIsFilled, false)) {
+        if (valueOrDefault<bool>(
+            currentUserDocument?.atLeastOneChildIsAdded, false)) {
+          setState(() {
+            FFAppState().entryCounter = FFAppState().entryCounter + 1;
+          });
+          if (functions.isTwoFiveOrMultipleOfTen(FFAppState().entryCounter)) {
+            context.goNamed(
+              'MainPage',
+              extra: <String, dynamic>{
+                kTransitionInfoKey: TransitionInfo(
+                  hasTransition: true,
+                  transitionType: PageTransitionType.fade,
+                  duration: Duration(milliseconds: 0),
                 ),
+              },
+            );
+
+            await Future.delayed(const Duration(milliseconds: 200));
+            await showModalBottomSheet(
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              barrierColor: FlutterFlowTheme.of(context).botomBack,
+              context: context,
+              builder: (context) {
+                return GestureDetector(
+                  onTap: () => _model.unfocusNode.canRequestFocus
+                      ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                      : FocusScope.of(context).unfocus(),
+                  child: Padding(
+                    padding: MediaQuery.viewInsetsOf(context),
+                    child: FamilySuperPowerWidget(),
+                  ),
+                );
+              },
+            ).then((value) => safeSetState(() {}));
+          } else {
+            if (functions.every5thEntry(FFAppState().entryCounter)) {
+              context.goNamed(
+                'MainPage',
+                extra: <String, dynamic>{
+                  kTransitionInfoKey: TransitionInfo(
+                    hasTransition: true,
+                    transitionType: PageTransitionType.fade,
+                    duration: Duration(milliseconds: 0),
+                  ),
+                },
               );
-            },
-          ).then((value) => safeSetState(() {}));
+
+              await Future.delayed(const Duration(milliseconds: 200));
+              await showModalBottomSheet(
+                isScrollControlled: true,
+                backgroundColor: Colors.transparent,
+                barrierColor: FlutterFlowTheme.of(context).botomBack,
+                context: context,
+                builder: (context) {
+                  return GestureDetector(
+                    onTap: () => _model.unfocusNode.canRequestFocus
+                        ? FocusScope.of(context)
+                            .requestFocus(_model.unfocusNode)
+                        : FocusScope.of(context).unfocus(),
+                    child: Padding(
+                      padding: MediaQuery.viewInsetsOf(context),
+                      child: RemindToFillProfileWidget(),
+                    ),
+                  );
+                },
+              ).then((value) => safeSetState(() {}));
+            } else {
+              context.goNamed(
+                'MainPage',
+                extra: <String, dynamic>{
+                  kTransitionInfoKey: TransitionInfo(
+                    hasTransition: true,
+                    transitionType: PageTransitionType.fade,
+                    duration: Duration(milliseconds: 0),
+                  ),
+                },
+              );
+            }
+          }
         } else {
           context.goNamed(
-            'MainPage',
+            'ChooseTheGender',
             extra: <String, dynamic>{
               kTransitionInfoKey: TransitionInfo(
                 hasTransition: true,
@@ -104,6 +125,17 @@ class _EntryPageWidgetState extends State<EntryPageWidget> {
             },
           );
         }
+      } else {
+        context.goNamed(
+          'FillProfile',
+          extra: <String, dynamic>{
+            kTransitionInfoKey: TransitionInfo(
+              hasTransition: true,
+              transitionType: PageTransitionType.fade,
+              duration: Duration(milliseconds: 0),
+            ),
+          },
+        );
       }
     });
   }
@@ -120,7 +152,9 @@ class _EntryPageWidgetState extends State<EntryPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,

@@ -58,7 +58,9 @@ class _VaccinationCalendarPageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -295,14 +297,17 @@ class _VaccinationCalendarPageWidgetState
                                                       queryCreatedVaccineRecord(
                                                     parent:
                                                         currentUserReference,
-                                                    queryBuilder: (createdVaccineRecord) =>
-                                                        createdVaccineRecord.where(
-                                                            'period_vaccinating',
-                                                            isEqualTo:
-                                                                ageQueryAgeRecordList[
-                                                                        _model
-                                                                            .initialIndex]
-                                                                    .age),
+                                                    queryBuilder:
+                                                        (createdVaccineRecord) =>
+                                                            createdVaccineRecord
+                                                                .where(
+                                                      'period_vaccinating',
+                                                      isEqualTo:
+                                                          ageQueryAgeRecordList[
+                                                                  _model
+                                                                      .initialIndex]
+                                                              .age,
+                                                    ),
                                                   ),
                                                   builder: (context, snapshot) {
                                                     // Customize what your widget looks like when it's loading.
@@ -336,15 +341,16 @@ class _VaccinationCalendarPageWidgetState
                                                               VaccinationsRecord>>(
                                                         stream:
                                                             queryVaccinationsRecord(
-                                                          queryBuilder: (vaccinationsRecord) =>
-                                                              vaccinationsRecord
-                                                                  .where(
-                                                                      'period_vacinating',
-                                                                      isEqualTo:
-                                                                          ageQueryAgeRecordList[_model.initialIndex]
-                                                                              .age)
-                                                                  .orderBy(
-                                                                      'age_of_child_in_days'),
+                                                          queryBuilder:
+                                                              (vaccinationsRecord) =>
+                                                                  vaccinationsRecord
+                                                                      .where(
+                                                                        'period_vacinating',
+                                                                        isEqualTo:
+                                                                            ageQueryAgeRecordList[_model.initialIndex].age,
+                                                                      )
+                                                                      .orderBy(
+                                                                          'age_of_child_in_days'),
                                                         ),
                                                         builder: (context,
                                                             snapshot) {
@@ -435,7 +441,10 @@ class _VaccinationCalendarPageWidgetState
                                                                                       return StreamBuilder<List<PassedVaccineRecord>>(
                                                                                         stream: queryPassedVaccineRecord(
                                                                                           parent: currentUserReference,
-                                                                                          queryBuilder: (passedVaccineRecord) => passedVaccineRecord.where('id', isEqualTo: currentVaccinesItem.reference.id),
+                                                                                          queryBuilder: (passedVaccineRecord) => passedVaccineRecord.where(
+                                                                                            'id',
+                                                                                            isEqualTo: currentVaccinesItem.reference.id,
+                                                                                          ),
                                                                                         ),
                                                                                         builder: (context, snapshot) {
                                                                                           // Customize what your widget looks like when it's loading.
@@ -617,7 +626,10 @@ class _VaccinationCalendarPageWidgetState
                                                                                           child: StreamBuilder<List<PassedVaccineRecord>>(
                                                                                             stream: queryPassedVaccineRecord(
                                                                                               parent: currentUserReference,
-                                                                                              queryBuilder: (passedVaccineRecord) => passedVaccineRecord.where('id', isEqualTo: usersVaccinesItem.reference.id),
+                                                                                              queryBuilder: (passedVaccineRecord) => passedVaccineRecord.where(
+                                                                                                'id',
+                                                                                                isEqualTo: usersVaccinesItem.reference.id,
+                                                                                              ),
                                                                                             ),
                                                                                             builder: (context, snapshot) {
                                                                                               // Customize what your widget looks like when it's loading.

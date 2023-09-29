@@ -248,43 +248,55 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                                   widget.child!.reference);
 
                           await widget.child!.reference.update({
-                            'growth_list': FieldValue.arrayRemove([
-                              getGrowthListFirestoreData(
-                                updateGrowthListStruct(
-                                  _model.childRead?.growthList?.last,
-                                  clearUnsetFields: false,
-                                ),
-                                true,
-                              )
-                            ]),
+                            ...mapToFirestore(
+                              {
+                                'growth_list': FieldValue.arrayRemove([
+                                  getGrowthListFirestoreData(
+                                    updateGrowthListStruct(
+                                      _model.childRead?.growthList?.last,
+                                      clearUnsetFields: false,
+                                    ),
+                                    true,
+                                  )
+                                ]),
+                              },
+                            ),
                           });
 
                           await widget.child!.reference.update({
-                            'growth_list': FieldValue.arrayUnion([
-                              getGrowthListFirestoreData(
-                                createGrowthListStruct(
-                                  growth:
-                                      int.tryParse(_model.textController.text),
-                                  date: getCurrentTimestamp,
-                                  clearUnsetFields: false,
-                                ),
-                                true,
-                              )
-                            ]),
+                            ...mapToFirestore(
+                              {
+                                'growth_list': FieldValue.arrayUnion([
+                                  getGrowthListFirestoreData(
+                                    createGrowthListStruct(
+                                      growth: int.tryParse(
+                                          _model.textController.text),
+                                      date: getCurrentTimestamp,
+                                      clearUnsetFields: false,
+                                    ),
+                                    true,
+                                  )
+                                ]),
+                              },
+                            ),
                           });
                         } else {
                           await widget.child!.reference.update({
-                            'growth_list': FieldValue.arrayUnion([
-                              getGrowthListFirestoreData(
-                                createGrowthListStruct(
-                                  growth:
-                                      int.tryParse(_model.textController.text),
-                                  date: getCurrentTimestamp,
-                                  clearUnsetFields: false,
-                                ),
-                                true,
-                              )
-                            ]),
+                            ...mapToFirestore(
+                              {
+                                'growth_list': FieldValue.arrayUnion([
+                                  getGrowthListFirestoreData(
+                                    createGrowthListStruct(
+                                      growth: int.tryParse(
+                                          _model.textController.text),
+                                      date: getCurrentTimestamp,
+                                      clearUnsetFields: false,
+                                    ),
+                                    true,
+                                  )
+                                ]),
+                              },
+                            ),
                           });
                         }
 

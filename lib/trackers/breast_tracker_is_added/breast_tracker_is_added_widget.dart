@@ -52,9 +52,13 @@ class _BreastTrackerIsAddedWidgetState
             loyaltyBonuses: functions.addBonusesToUser(
                 valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0), 50.0),
           ),
-          'trackers_adding_dates': functions.clearDateTimeList(
-              (currentUserDocument?.trackersAddingDates?.toList() ?? [])
-                  .toList()),
+          ...mapToFirestore(
+            {
+              'trackers_adding_dates': functions.clearDateTimeList(
+                  (currentUserDocument?.trackersAddingDates?.toList() ?? [])
+                      .toList()),
+            },
+          ),
         });
         await showModalBottomSheet(
           isScrollControlled: true,
@@ -63,8 +67,9 @@ class _BreastTrackerIsAddedWidgetState
           context: context,
           builder: (context) {
             return GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: FillingTrackersBonusWidget(),
@@ -88,7 +93,9 @@ class _BreastTrackerIsAddedWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -139,7 +146,7 @@ class _BreastTrackerIsAddedWidgetState
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(0.0),
                   child: Image.asset(
-                    'assets/images/Frame_12374.webp',
+                    'assets/images/Frame_1237411.webp',
                     width: MediaQuery.sizeOf(context).width * 0.5,
                     fit: BoxFit.cover,
                   ),
@@ -264,8 +271,10 @@ class _BreastTrackerIsAddedWidgetState
                           context: context,
                           builder: (context) {
                             return GestureDetector(
-                              onTap: () => FocusScope.of(context)
-                                  .requestFocus(_model.unfocusNode),
+                              onTap: () => _model.unfocusNode.canRequestFocus
+                                  ? FocusScope.of(context)
+                                      .requestFocus(_model.unfocusNode)
+                                  : FocusScope.of(context).unfocus(),
                               child: Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
                                 child: AddBreastTrackerWidget(
@@ -343,8 +352,10 @@ class _BreastTrackerIsAddedWidgetState
                           context: context,
                           builder: (context) {
                             return GestureDetector(
-                              onTap: () => FocusScope.of(context)
-                                  .requestFocus(_model.unfocusNode),
+                              onTap: () => _model.unfocusNode.canRequestFocus
+                                  ? FocusScope.of(context)
+                                      .requestFocus(_model.unfocusNode)
+                                  : FocusScope.of(context).unfocus(),
                               child: Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
                                 child: ChoseTrackerBreastWidget(

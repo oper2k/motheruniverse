@@ -85,10 +85,28 @@ class _BreastFeedingInfoWidgetState extends State<BreastFeedingInfoWidget> {
                     Expanded(
                       child: Align(
                         alignment: AlignmentDirectional(-1.00, 0.00),
-                        child: Icon(
-                          FFIcons.ktrashCan,
-                          color: FlutterFlowTheme.of(context).error,
-                          size: 24.0,
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await widget.track!.reference.delete();
+                            Navigator.pop(context);
+                          },
+                          child: Container(
+                            width: 38.0,
+                            height: 38.0,
+                            decoration: BoxDecoration(),
+                            child: Align(
+                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              child: Icon(
+                                FFIcons.ktrashCan,
+                                color: FlutterFlowTheme.of(context).error,
+                                size: 24.0,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),

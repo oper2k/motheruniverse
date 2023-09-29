@@ -4,6 +4,7 @@ import '/components/bottom_sheet/loyalty_bottom_sheet/welcome_bonus/welcome_bonu
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'fill_profile_widget.dart' show FillProfileWidget;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -14,7 +15,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
-class FillProfileModel extends FlutterFlowModel {
+class FillProfileModel extends FlutterFlowModel<FillProfileWidget> {
   ///  Local state fields for this page.
 
   bool userAgrees = false;

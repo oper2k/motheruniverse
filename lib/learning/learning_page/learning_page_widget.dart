@@ -61,7 +61,9 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -168,7 +170,6 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                           });
                                         },
                                       ),
-                                      autofocus: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'Найдите нужный урок',
@@ -421,14 +422,18 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                             return StreamBuilder<
                                                 List<LearningRecord>>(
                                               stream: queryLearningRecord(
-                                                queryBuilder: (learningRecord) =>
-                                                    learningRecord
-                                                        .where('category',
-                                                            isEqualTo:
-                                                                categoryItem
-                                                                    .categoryName)
-                                                        .orderBy('sort',
-                                                            descending: true),
+                                                queryBuilder:
+                                                    (learningRecord) =>
+                                                        learningRecord
+                                                            .where(
+                                                              'category',
+                                                              isEqualTo:
+                                                                  categoryItem
+                                                                      .categoryName,
+                                                            )
+                                                            .orderBy('sort',
+                                                                descending:
+                                                                    true),
                                               ),
                                               builder: (context, snapshot) {
                                                 // Customize what your widget looks like when it's loading.

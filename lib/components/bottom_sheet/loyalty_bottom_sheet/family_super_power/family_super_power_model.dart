@@ -5,6 +5,7 @@ import '/components/bottom_sheet/loyalty_bottom_sheet/welcome_bonus/welcome_bonu
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'family_super_power_widget.dart' show FamilySuperPowerWidget;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
@@ -12,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class FamilySuperPowerModel extends FlutterFlowModel {
+class FamilySuperPowerModel extends FlutterFlowModel<FamilySuperPowerWidget> {
   ///  Local state fields for this component.
 
   bool isActive = true;

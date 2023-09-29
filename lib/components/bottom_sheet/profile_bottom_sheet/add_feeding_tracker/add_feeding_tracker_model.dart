@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'add_feeding_tracker_widget.dart' show AddFeedingTrackerWidget;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -13,7 +14,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class AddFeedingTrackerModel extends FlutterFlowModel {
+class AddFeedingTrackerModel extends FlutterFlowModel<AddFeedingTrackerWidget> {
   ///  Local state fields for this component.
 
   bool isGramm = true;

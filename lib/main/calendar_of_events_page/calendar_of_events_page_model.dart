@@ -2,11 +2,13 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'calendar_of_events_page_widget.dart' show CalendarOfEventsPageWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CalendarOfEventsPageModel extends FlutterFlowModel {
+class CalendarOfEventsPageModel
+    extends FlutterFlowModel<CalendarOfEventsPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

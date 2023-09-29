@@ -168,8 +168,10 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                 child: StreamBuilder<List<ChildrenRecord>>(
                   stream: queryChildrenRecord(
                     parent: widget.user?.reference,
-                    queryBuilder: (childrenRecord) =>
-                        childrenRecord.where('childIsBorn', isEqualTo: true),
+                    queryBuilder: (childrenRecord) => childrenRecord.where(
+                      'childIsBorn',
+                      isEqualTo: true,
+                    ),
                   ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.

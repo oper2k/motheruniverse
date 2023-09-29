@@ -62,7 +62,9 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -278,8 +280,11 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget> {
                               context: context,
                               builder: (context) {
                                 return GestureDetector(
-                                  onTap: () => FocusScope.of(context)
-                                      .requestFocus(_model.unfocusNode),
+                                  onTap: () =>
+                                      _model.unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
                                     child: ResetSleepTrackerWidget(),
@@ -291,7 +296,12 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget> {
 
                             if (_model.reset!) {
                               await widget.child!.reference.update({
-                                'temp_start_sleep_time': FieldValue.delete(),
+                                ...mapToFirestore(
+                                  {
+                                    'temp_start_sleep_time':
+                                        FieldValue.delete(),
+                                  },
+                                ),
                               });
                             }
 
@@ -348,8 +358,11 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget> {
                                 context: context,
                                 builder: (context) {
                                   return GestureDetector(
-                                    onTap: () => FocusScope.of(context)
-                                        .requestFocus(_model.unfocusNode),
+                                    onTap: () => _model
+                                            .unfocusNode.canRequestFocus
+                                        ? FocusScope.of(context)
+                                            .requestFocus(_model.unfocusNode)
+                                        : FocusScope.of(context).unfocus(),
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
                                       child: AddSleepingTrackerWidget(
@@ -438,20 +451,28 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget> {
                                               trackersRecordReference1);
 
                                       await widget.child!.reference.update({
-                                        'temp_start_sleep_time':
-                                            FieldValue.delete(),
+                                        ...mapToFirestore(
+                                          {
+                                            'temp_start_sleep_time':
+                                                FieldValue.delete(),
+                                          },
+                                        ),
                                       });
 
                                       await currentUserReference!.update({
-                                        'trackers_adding_dates':
-                                            functions.processDateList(functions
-                                                .processDateList(
-                                                    (currentUserDocument
-                                                                ?.trackersAddingDates
-                                                                ?.toList() ??
-                                                            [])
-                                                        .toList())
-                                                .toList()),
+                                        ...mapToFirestore(
+                                          {
+                                            'trackers_adding_dates': functions
+                                                .processDateList(functions
+                                                    .processDateList(
+                                                        (currentUserDocument
+                                                                    ?.trackersAddingDates
+                                                                    ?.toList() ??
+                                                                [])
+                                                            .toList())
+                                                    .toList()),
+                                          },
+                                        ),
                                       });
 
                                       context.pushNamed(
@@ -558,20 +579,28 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget> {
                                               trackersRecordReference3);
 
                                       await widget.child!.reference.update({
-                                        'temp_start_sleep_time':
-                                            FieldValue.delete(),
+                                        ...mapToFirestore(
+                                          {
+                                            'temp_start_sleep_time':
+                                                FieldValue.delete(),
+                                          },
+                                        ),
                                       });
 
                                       await currentUserReference!.update({
-                                        'trackers_adding_dates':
-                                            functions.processDateList(functions
-                                                .processDateList(
-                                                    (currentUserDocument
-                                                                ?.trackersAddingDates
-                                                                ?.toList() ??
-                                                            [])
-                                                        .toList())
-                                                .toList()),
+                                        ...mapToFirestore(
+                                          {
+                                            'trackers_adding_dates': functions
+                                                .processDateList(functions
+                                                    .processDateList(
+                                                        (currentUserDocument
+                                                                    ?.trackersAddingDates
+                                                                    ?.toList() ??
+                                                                [])
+                                                            .toList())
+                                                    .toList()),
+                                          },
+                                        ),
                                       });
 
                                       context.pushNamed(
@@ -710,8 +739,11 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget> {
                                 context: context,
                                 builder: (context) {
                                   return GestureDetector(
-                                    onTap: () => FocusScope.of(context)
-                                        .requestFocus(_model.unfocusNode),
+                                    onTap: () => _model
+                                            .unfocusNode.canRequestFocus
+                                        ? FocusScope.of(context)
+                                            .requestFocus(_model.unfocusNode)
+                                        : FocusScope.of(context).unfocus(),
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
                                       child: ChoseTrackerSleepingWidget(

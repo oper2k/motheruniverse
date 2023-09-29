@@ -60,7 +60,9 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -383,12 +385,19 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                     0.0),
                                                 widget.usedBonuses!),
                                       ),
-                                      'purchased_lessons': functions.mergeLists(
-                                          (currentUserDocument?.purchasedLessons
-                                                      ?.toList() ??
-                                                  [])
-                                              .toList(),
-                                          widget.lessonsReferences!.toList()),
+                                      ...mapToFirestore(
+                                        {
+                                          'purchased_lessons':
+                                              functions.mergeLists(
+                                                  (currentUserDocument
+                                                              ?.purchasedLessons
+                                                              ?.toList() ??
+                                                          [])
+                                                      .toList(),
+                                                  widget.lessonsReferences!
+                                                      .toList()),
+                                        },
+                                      ),
                                     });
                                     setState(() {
                                       FFAppState().lessonsAddedToCart = [];
@@ -406,12 +415,19 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                     0.0),
                                                 widget.usedBonuses!),
                                       ),
-                                      'purchased_lessons': functions.mergeLists(
-                                          (currentUserDocument?.purchasedLessons
-                                                      ?.toList() ??
-                                                  [])
-                                              .toList(),
-                                          widget.lessonsReferences!.toList()),
+                                      ...mapToFirestore(
+                                        {
+                                          'purchased_lessons':
+                                              functions.mergeLists(
+                                                  (currentUserDocument
+                                                              ?.purchasedLessons
+                                                              ?.toList() ??
+                                                          [])
+                                                      .toList(),
+                                                  widget.lessonsReferences!
+                                                      .toList()),
+                                        },
+                                      ),
                                     });
                                     setState(() {
                                       FFAppState().lessonsAddedToCart = [];
@@ -537,15 +553,20 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                             0.0),
                                                         widget.usedBonuses!),
                                               ),
-                                              'purchased_lessons':
-                                                  functions.mergeLists(
-                                                      (currentUserDocument
-                                                                  ?.purchasedLessons
-                                                                  ?.toList() ??
-                                                              [])
-                                                          .toList(),
-                                                      widget.lessonsReferences!
-                                                          .toList()),
+                                              ...mapToFirestore(
+                                                {
+                                                  'purchased_lessons':
+                                                      functions.mergeLists(
+                                                          (currentUserDocument
+                                                                      ?.purchasedLessons
+                                                                      ?.toList() ??
+                                                                  [])
+                                                              .toList(),
+                                                          widget
+                                                              .lessonsReferences!
+                                                              .toList()),
+                                                },
+                                              ),
                                             });
                                             setState(() {
                                               FFAppState().lessonsAddedToCart =
@@ -565,15 +586,20 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                             0.0),
                                                         widget.usedBonuses!),
                                               ),
-                                              'purchased_lessons':
-                                                  functions.mergeLists(
-                                                      (currentUserDocument
-                                                                  ?.purchasedLessons
-                                                                  ?.toList() ??
-                                                              [])
-                                                          .toList(),
-                                                      widget.lessonsReferences!
-                                                          .toList()),
+                                              ...mapToFirestore(
+                                                {
+                                                  'purchased_lessons':
+                                                      functions.mergeLists(
+                                                          (currentUserDocument
+                                                                      ?.purchasedLessons
+                                                                      ?.toList() ??
+                                                                  [])
+                                                              .toList(),
+                                                          widget
+                                                              .lessonsReferences!
+                                                              .toList()),
+                                                },
+                                              ),
                                             });
                                             setState(() {
                                               FFAppState().lessonsAddedToCart =

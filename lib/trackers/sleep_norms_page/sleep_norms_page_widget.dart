@@ -57,7 +57,9 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -67,6 +69,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
                     padding:
@@ -128,6 +131,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Align(
                             alignment: AlignmentDirectional(1.00, 0.00),
@@ -148,8 +152,12 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                     context: context,
                                     builder: (context) {
                                       return GestureDetector(
-                                        onTap: () => FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode),
+                                        onTap: () => _model
+                                                .unfocusNode.canRequestFocus
+                                            ? FocusScope.of(context)
+                                                .requestFocus(
+                                                    _model.unfocusNode)
+                                            : FocusScope.of(context).unfocus(),
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
@@ -184,12 +192,15 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                     parent: currentUserReference,
                                     queryBuilder: (trackersRecord) =>
                                         trackersRecord
-                                            .where('child_ref',
-                                                isEqualTo:
-                                                    widget.child?.reference)
-                                            .where('tracker_title',
-                                                isNotEqualTo:
-                                                    'Кормление грудью'),
+                                            .where(
+                                              'child_ref',
+                                              isEqualTo:
+                                                  widget.child?.reference,
+                                            )
+                                            .where(
+                                              'tracker_title',
+                                              isNotEqualTo: 'Кормление грудью',
+                                            ),
                                   ),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
@@ -260,18 +271,8 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                             timeRanges: functions.getDateTimeDifferenceInSeconds(
                                                 monthTrackersRecordList
                                                     .where((e) =>
-                                                        (e.trackerTitle != 'Прикорм') &&
-                                                        (e.trackerStartTime! >=
-                                                            functions.startOfMonth(
-                                                                getCurrentTimestamp)))
-                                                    .toList()
-                                                    .map((e) =>
-                                                        e.trackerStartTime)
-                                                    .withoutNulls
-                                                    .toList(),
-                                                monthTrackersRecordList
-                                                    .where((e) =>
-                                                        (e.trackerTitle != 'Прикорм') &&
+                                                        (e.trackerTitle !=
+                                                            'Прикорм') &&
                                                         (e.trackerStartTime! >=
                                                             functions.addMonthsToBirthday(
                                                                 widget.child!
@@ -280,8 +281,18 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                                     .pickedMonthIndex)) &&
                                                         (e.trackerStartTime! <
                                                             functions.addMonthsToBirthday(
-                                                                widget.child!.birthDate!,
-                                                                _model.pickedMonthIndex + 1)))
+                                                                widget.child!
+                                                                    .birthDate!,
+                                                                _model.pickedMonthIndex +
+                                                                    1)))
+                                                    .toList()
+                                                    .map((e) =>
+                                                        e.trackerStartTime)
+                                                    .withoutNulls
+                                                    .toList(),
+                                                monthTrackersRecordList
+                                                    .where((e) =>
+                                                        (e.trackerTitle != 'Прикорм') && (e.trackerStartTime! >= functions.addMonthsToBirthday(widget.child!.birthDate!, _model.pickedMonthIndex)) && (e.trackerStartTime! < functions.addMonthsToBirthday(widget.child!.birthDate!, _model.pickedMonthIndex + 1)))
                                                     .toList()
                                                     .map((e) => e.sleepEndTime)
                                                     .withoutNulls
@@ -298,12 +309,15 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                     parent: currentUserReference,
                                     queryBuilder: (trackersRecord) =>
                                         trackersRecord
-                                            .where('child_ref',
-                                                isEqualTo:
-                                                    widget.child?.reference)
-                                            .where('tracker_title',
-                                                isNotEqualTo:
-                                                    'Кормление грудью'),
+                                            .where(
+                                              'child_ref',
+                                              isEqualTo:
+                                                  widget.child?.reference,
+                                            )
+                                            .where(
+                                              'tracker_title',
+                                              isNotEqualTo: 'Кормление грудью',
+                                            ),
                                   ),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
@@ -403,12 +417,15 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                     parent: currentUserReference,
                                     queryBuilder: (trackersRecord) =>
                                         trackersRecord
-                                            .where('child_ref',
-                                                isEqualTo:
-                                                    widget.child?.reference)
-                                            .where('tracker_title',
-                                                isNotEqualTo:
-                                                    'Кормление грудью'),
+                                            .where(
+                                              'child_ref',
+                                              isEqualTo:
+                                                  widget.child?.reference,
+                                            )
+                                            .where(
+                                              'tracker_title',
+                                              isNotEqualTo: 'Кормление грудью',
+                                            ),
                                   ),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
@@ -504,6 +521,171 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                 );
                               }
                             },
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-1.00, 0.00),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 12.0, 20.0, 0.0),
+                              child: Builder(
+                                builder: (context) {
+                                  if (FFAppState().viewSleepNorms == 0) {
+                                    return Builder(
+                                      builder: (context) {
+                                        if (_model.pickedMonthIndex == 0) {
+                                          return Text(
+                                            'Продолжительность времени бодрствования до 1 месяца: 20-50 минут\nКоличество дневных снов до 1 месяца: 4-8',
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 14.0,
+                                                  lineHeight: 1.28,
+                                                ),
+                                          );
+                                        } else if ((_model.pickedMonthIndex ==
+                                                1) ||
+                                            (_model.pickedMonthIndex == 2)) {
+                                          return Text(
+                                            'Продолжительность времени бодрствования 3 месяца: 1  час 20  мин -  1 час 40 мин.\nКоличество дневных снов 1-2 месяца: 4-5',
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 14.0,
+                                                  lineHeight: 1.28,
+                                                ),
+                                          );
+                                        } else if (_model.pickedMonthIndex ==
+                                            3) {
+                                          return Text(
+                                            'Продолжительность времени бодрствования 3 месяца: 1 час  20 мин - 1 час 40 мин.\nКоличество дневных снов 3 месяца: 3-4',
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 14.0,
+                                                  lineHeight: 1.28,
+                                                ),
+                                          );
+                                        } else if (_model.pickedMonthIndex ==
+                                            4) {
+                                          return Text(
+                                            'Продолжительность времени бодрствования 4 месяца: 1 час 30 мин - 2 часа.\nКоличество дневных снов 4 месяца: 3-4',
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 14.0,
+                                                  lineHeight: 1.28,
+                                                ),
+                                          );
+                                        } else if ((_model.pickedMonthIndex ==
+                                                5) ||
+                                            (_model.pickedMonthIndex == 6)) {
+                                          return Text(
+                                            'Продолжительность времени бодрствования 5-6 месяцев: 1 час 45 мин - 2 часа 15 мин.\nКоличество дневных снов 5-6 месяцев: 3',
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 14.0,
+                                                  lineHeight: 1.28,
+                                                ),
+                                          );
+                                        } else if (_model.pickedMonthIndex ==
+                                            7) {
+                                          return Text(
+                                            'Продолжительность времени бодрствования 6-7 месяцев: 2 часа 30 мин - 3 часа.\nКоличество дневных снов 6-7 месяцев: 2-3',
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 14.0,
+                                                  lineHeight: 1.28,
+                                                ),
+                                          );
+                                        } else if ((_model.pickedMonthIndex >=
+                                                8) &&
+                                            (_model.pickedMonthIndex < 10)) {
+                                          return Text(
+                                            'Продолжительность времени бодрствования 8-10 месяцев: 3 часа - 3 часа 45 мин.\nКоличество дневных снов 8-10 месяцев: 2',
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 14.0,
+                                                  lineHeight: 1.28,
+                                                ),
+                                          );
+                                        } else if ((_model.pickedMonthIndex >=
+                                                10) &&
+                                            (_model.pickedMonthIndex < 12)) {
+                                          return Text(
+                                            'Продолжительность времени бодрствования 10-12 месяцев: 3 часа 30 мин - 4 часа 30 мин.\nКоличество дневных снов 10-12 месяцев: 2 (редко 1)',
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 14.0,
+                                                  lineHeight: 1.28,
+                                                ),
+                                          );
+                                        } else if ((_model.pickedMonthIndex >=
+                                                12) &&
+                                            (_model.pickedMonthIndex < 18)) {
+                                          return Text(
+                                            'Продолжительность времени бодрствования 12-18 месяцев: 4 часа - 5 часов 50 мин.\nКоличество дневных снов 12-18 месяцев: 1-2',
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 14.0,
+                                                  lineHeight: 1.28,
+                                                ),
+                                          );
+                                        } else if (_model.pickedMonthIndex <
+                                            36) {
+                                          return Text(
+                                            'Продолжительность времени бодрствования 2 года: 4-6 ч.\nКоличество дневных снов 2 года: 1',
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 14.0,
+                                                  lineHeight: 1.28,
+                                                ),
+                                          );
+                                        } else {
+                                          return Text(
+                                            'Продолжительность времени бодрствования 3 года: 5-6 ч.\nКоличество дневных 3 года: 1',
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 14.0,
+                                                  lineHeight: 1.28,
+                                                ),
+                                          );
+                                        }
+                                      },
+                                    );
+                                  } else if (FFAppState().viewSleepNorms == 1) {
+                                    return Text(
+                                      'Hello World',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    );
+                                  } else {
+                                    return Text(
+                                      'Hello World',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    );
+                                  }
+                                },
+                              ),
+                            ),
                           ),
                         ],
                       ),

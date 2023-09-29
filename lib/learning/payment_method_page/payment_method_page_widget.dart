@@ -55,7 +55,9 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -260,15 +262,19 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                                             lessonItem.revenueCatID);
                                     if (_model.revenuePurch!) {
                                       await currentUserReference!.update({
-                                        'purchased_lessons':
-                                            functions.mergeLists(
-                                                (currentUserDocument
-                                                            ?.purchasedLessons
-                                                            ?.toList() ??
-                                                        [])
-                                                    .toList(),
-                                                widget.lessonsReferences!
-                                                    .toList()),
+                                        ...mapToFirestore(
+                                          {
+                                            'purchased_lessons':
+                                                functions.mergeLists(
+                                                    (currentUserDocument
+                                                                ?.purchasedLessons
+                                                                ?.toList() ??
+                                                            [])
+                                                        .toList(),
+                                                    widget.lessonsReferences!
+                                                        .toList()),
+                                          },
+                                        ),
                                       });
                                       setState(() {
                                         FFAppState().lessonsAddedToCart = [];
@@ -387,7 +393,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Списать ${valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0) > widget.price! ? widget.price?.toString() : valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0).toString()} бонусов',
+                                'Списать ${valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0) > widget.price! ? (widget.price!.round() - 1).toString() : (valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0).round()).toString()} бонусов',
                                 style: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(

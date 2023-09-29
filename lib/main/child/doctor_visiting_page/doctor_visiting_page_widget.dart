@@ -55,7 +55,9 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -279,14 +281,17 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                 stream:
                                                     queryCreatedDoctorVisitingRecord(
                                                   parent: currentUserReference,
-                                                  queryBuilder: (createdDoctorVisitingRecord) =>
-                                                      createdDoctorVisitingRecord.where(
-                                                          'age',
-                                                          isEqualTo:
-                                                              ageQueryAgeRecordList[
-                                                                      _model
-                                                                          .initialIndex]
-                                                                  .age),
+                                                  queryBuilder:
+                                                      (createdDoctorVisitingRecord) =>
+                                                          createdDoctorVisitingRecord
+                                                              .where(
+                                                    'age',
+                                                    isEqualTo:
+                                                        ageQueryAgeRecordList[
+                                                                _model
+                                                                    .initialIndex]
+                                                            .age,
+                                                  ),
                                                 ),
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
@@ -318,13 +323,17 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                         List<DoctorsRecord>>(
                                                       stream:
                                                           queryDoctorsRecord(
-                                                        queryBuilder: (doctorsRecord) =>
-                                                            doctorsRecord.where(
-                                                                'age',
-                                                                isEqualTo:
-                                                                    ageQueryAgeRecordList[
-                                                                            _model.initialIndex]
-                                                                        .age),
+                                                        queryBuilder:
+                                                            (doctorsRecord) =>
+                                                                doctorsRecord
+                                                                    .where(
+                                                          'age',
+                                                          isEqualTo:
+                                                              ageQueryAgeRecordList[
+                                                                      _model
+                                                                          .initialIndex]
+                                                                  .age,
+                                                        ),
                                                       ),
                                                       builder:
                                                           (context, snapshot) {
@@ -429,9 +438,13 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                                     highlightColor: Colors.transparent,
                                                                                                     onTap: () async {
                                                                                                       await usersQueryUsersRecord.reference.update({
-                                                                                                        'passed_doctors': FieldValue.arrayUnion([
-                                                                                                          currentDoctorsItem.reference.id
-                                                                                                        ]),
+                                                                                                        ...mapToFirestore(
+                                                                                                          {
+                                                                                                            'passed_doctors': FieldValue.arrayUnion([
+                                                                                                              currentDoctorsItem.reference.id
+                                                                                                            ]),
+                                                                                                          },
+                                                                                                        ),
                                                                                                       });
                                                                                                     },
                                                                                                     child: Row(
@@ -500,9 +513,13 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                                     highlightColor: Colors.transparent,
                                                                                                     onTap: () async {
                                                                                                       await usersQueryUsersRecord.reference.update({
-                                                                                                        'passed_doctors': FieldValue.arrayRemove([
-                                                                                                          currentDoctorsItem.reference.id
-                                                                                                        ]),
+                                                                                                        ...mapToFirestore(
+                                                                                                          {
+                                                                                                            'passed_doctors': FieldValue.arrayRemove([
+                                                                                                              currentDoctorsItem.reference.id
+                                                                                                            ]),
+                                                                                                          },
+                                                                                                        ),
                                                                                                       });
                                                                                                     },
                                                                                                     child: Row(
@@ -597,9 +614,13 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                                     highlightColor: Colors.transparent,
                                                                                                     onTap: () async {
                                                                                                       await usersQueryUsersRecord.reference.update({
-                                                                                                        'passed_doctors': FieldValue.arrayUnion([
-                                                                                                          usersDoctorsItem.reference.id
-                                                                                                        ]),
+                                                                                                        ...mapToFirestore(
+                                                                                                          {
+                                                                                                            'passed_doctors': FieldValue.arrayUnion([
+                                                                                                              usersDoctorsItem.reference.id
+                                                                                                            ]),
+                                                                                                          },
+                                                                                                        ),
                                                                                                       });
                                                                                                     },
                                                                                                     child: Row(
@@ -668,9 +689,13 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                                     highlightColor: Colors.transparent,
                                                                                                     onTap: () async {
                                                                                                       await usersQueryUsersRecord.reference.update({
-                                                                                                        'passed_doctors': FieldValue.arrayRemove([
-                                                                                                          usersDoctorsItem.reference.id
-                                                                                                        ]),
+                                                                                                        ...mapToFirestore(
+                                                                                                          {
+                                                                                                            'passed_doctors': FieldValue.arrayRemove([
+                                                                                                              usersDoctorsItem.reference.id
+                                                                                                            ]),
+                                                                                                          },
+                                                                                                        ),
                                                                                                       });
                                                                                                     },
                                                                                                     child: Row(

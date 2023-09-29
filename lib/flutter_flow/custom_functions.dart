@@ -1152,7 +1152,7 @@ int monthsSinceBirthday(DateTime birthday) {
 
 List<int> generateList(int num) {
   List<int> result = [];
-  for (int i = 0; i <= num + 2; i++) {
+  for (int i = 1; i <= num + 2; i++) {
     result.add(i);
   }
   return result;

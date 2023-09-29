@@ -58,7 +58,9 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -396,8 +398,10 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                       context: context,
                       builder: (context) {
                         return GestureDetector(
-                          onTap: () => FocusScope.of(context)
-                              .requestFocus(_model.unfocusNode),
+                          onTap: () => _model.unfocusNode.canRequestFocus
+                              ? FocusScope.of(context)
+                                  .requestFocus(_model.unfocusNode)
+                              : FocusScope.of(context).unfocus(),
                           child: Padding(
                             padding: MediaQuery.viewInsetsOf(context),
                             child: ResetFeedingTrackerWidget(),
@@ -458,8 +462,10 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                           context: context,
                           builder: (context) {
                             return GestureDetector(
-                              onTap: () => FocusScope.of(context)
-                                  .requestFocus(_model.unfocusNode),
+                              onTap: () => _model.unfocusNode.canRequestFocus
+                                  ? FocusScope.of(context)
+                                      .requestFocus(_model.unfocusNode)
+                                  : FocusScope.of(context).unfocus(),
                               child: Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
                                 child: AddFeedingTrackerWidget(
@@ -545,14 +551,18 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                                         trackersRecordReference1);
 
                                 await currentUserReference!.update({
-                                  'trackers_adding_dates':
-                                      functions.processDateList(functions
-                                          .processDateList((currentUserDocument
-                                                      ?.trackersAddingDates
-                                                      ?.toList() ??
-                                                  [])
-                                              .toList())
-                                          .toList()),
+                                  ...mapToFirestore(
+                                    {
+                                      'trackers_adding_dates':
+                                          functions.processDateList(functions
+                                              .processDateList((currentUserDocument
+                                                          ?.trackersAddingDates
+                                                          ?.toList() ??
+                                                      [])
+                                                  .toList())
+                                              .toList()),
+                                    },
+                                  ),
                                 });
 
                                 context.goNamed(
@@ -630,14 +640,18 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                                 ));
 
                                 await currentUserReference!.update({
-                                  'trackers_adding_dates':
-                                      functions.processDateList(functions
-                                          .processDateList((currentUserDocument
-                                                      ?.trackersAddingDates
-                                                      ?.toList() ??
-                                                  [])
-                                              .toList())
-                                          .toList()),
+                                  ...mapToFirestore(
+                                    {
+                                      'trackers_adding_dates':
+                                          functions.processDateList(functions
+                                              .processDateList((currentUserDocument
+                                                          ?.trackersAddingDates
+                                                          ?.toList() ??
+                                                      [])
+                                                  .toList())
+                                              .toList()),
+                                    },
+                                  ),
                                 });
 
                                 context.goNamed(
@@ -761,8 +775,10 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                           context: context,
                           builder: (context) {
                             return GestureDetector(
-                              onTap: () => FocusScope.of(context)
-                                  .requestFocus(_model.unfocusNode),
+                              onTap: () => _model.unfocusNode.canRequestFocus
+                                  ? FocusScope.of(context)
+                                      .requestFocus(_model.unfocusNode)
+                                  : FocusScope.of(context).unfocus(),
                               child: Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
                                 child: ChoseTrackerFeedingWidget(

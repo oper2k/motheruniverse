@@ -45,7 +45,9 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -144,8 +146,14 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
               child: StreamBuilder<List<LearningRecord>>(
                 stream: queryLearningRecord(
                   queryBuilder: (learningRecord) => learningRecord
-                      .where('category', isEqualTo: widget.lesson?.category)
-                      .where('free_lesson', isEqualTo: false),
+                      .where(
+                        'category',
+                        isEqualTo: widget.lesson?.category,
+                      )
+                      .where(
+                        'free_lesson',
+                        isEqualTo: false,
+                      ),
                 ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.

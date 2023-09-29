@@ -58,7 +58,9 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -67,8 +69,10 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
             StreamBuilder<List<ChildrenRecord>>(
               stream: queryChildrenRecord(
                 parent: currentUserReference,
-                queryBuilder: (childrenRecord) =>
-                    childrenRecord.where('childIsBorn', isEqualTo: true),
+                queryBuilder: (childrenRecord) => childrenRecord.where(
+                  'childIsBorn',
+                  isEqualTo: true,
+                ),
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
@@ -302,25 +306,29 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                           queryTrackersRecord(
                                                         parent:
                                                             currentUserReference,
-                                                        queryBuilder: (trackersRecord) => trackersRecord
-                                                            .where(
-                                                                'tracker_start_time',
-                                                                isLessThan: functions
-                                                                    .getStartOfNextDay(
-                                                                        _model
-                                                                            .pickedDate!))
-                                                            .where(
-                                                                'tracker_start_time',
-                                                                isGreaterThanOrEqualTo:
-                                                                    functions.getStartOfDay(
-                                                                        _model
-                                                                            .pickedDate!))
-                                                            .where('child_ref',
-                                                                isEqualTo:
-                                                                    childChildrenRecord
-                                                                        .reference)
-                                                            .orderBy(
-                                                                'tracker_start_time'),
+                                                        queryBuilder:
+                                                            (trackersRecord) =>
+                                                                trackersRecord
+                                                                    .where(
+                                                                      'tracker_start_time',
+                                                                      isLessThan:
+                                                                          functions
+                                                                              .getStartOfNextDay(_model.pickedDate!),
+                                                                    )
+                                                                    .where(
+                                                                      'tracker_start_time',
+                                                                      isGreaterThanOrEqualTo:
+                                                                          functions
+                                                                              .getStartOfDay(_model.pickedDate!),
+                                                                    )
+                                                                    .where(
+                                                                      'child_ref',
+                                                                      isEqualTo:
+                                                                          childChildrenRecord
+                                                                              .reference,
+                                                                    )
+                                                                    .orderBy(
+                                                                        'tracker_start_time'),
                                                       ),
                                                       builder:
                                                           (context, snapshot) {
@@ -503,76 +511,77 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                         ],
                                                       ),
                                                     ),
-                                                    InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        setState(() {
-                                                          FFAppState()
-                                                              .viewSleepNorms = 0;
-                                                        });
+                                                    if (false)
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          setState(() {
+                                                            FFAppState()
+                                                                .viewSleepNorms = 0;
+                                                          });
 
-                                                        context.pushNamed(
-                                                          'SleepNormsPage',
-                                                          queryParameters: {
-                                                            'child':
-                                                                serializeParam(
-                                                              childChildrenRecord,
-                                                              ParamType
-                                                                  .Document,
-                                                            ),
-                                                          }.withoutNulls,
-                                                          extra: <String,
-                                                              dynamic>{
-                                                            'child':
+                                                          context.pushNamed(
+                                                            'SleepNormsPage',
+                                                            queryParameters: {
+                                                              'child':
+                                                                  serializeParam(
                                                                 childChildrenRecord,
-                                                          },
-                                                        );
-                                                      },
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Icon(
-                                                            FFIcons.kchart1,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryText,
-                                                            size: 24.0,
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        4.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              'Норма',
-                                                              style: FlutterFlowTheme
+                                                                ParamType
+                                                                    .Document,
+                                                              ),
+                                                            }.withoutNulls,
+                                                            extra: <String,
+                                                                dynamic>{
+                                                              'child':
+                                                                  childChildrenRecord,
+                                                            },
+                                                          );
+                                                        },
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Icon(
+                                                              FFIcons.kchart1,
+                                                              color: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .headlineSmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Inter',
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    lineHeight:
-                                                                        1.25,
-                                                                  ),
+                                                                  .secondaryText,
+                                                              size: 24.0,
                                                             ),
-                                                          ),
-                                                        ],
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Норма',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      lineHeight:
+                                                                          1.25,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
-                                                    ),
                                                   ],
                                                 ),
                                                 Align(
@@ -1096,8 +1105,9 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                       builder:
                                                                           (context) {
                                                                         return GestureDetector(
-                                                                          onTap: () =>
-                                                                              FocusScope.of(context).requestFocus(_model.unfocusNode),
+                                                                          onTap: () => _model.unfocusNode.canRequestFocus
+                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                              : FocusScope.of(context).unfocus(),
                                                                           child:
                                                                               Padding(
                                                                             padding:

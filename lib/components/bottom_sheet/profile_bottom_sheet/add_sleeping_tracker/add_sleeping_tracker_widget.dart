@@ -386,14 +386,18 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                                     trackersRecordReference1);
 
                             await currentUserReference!.update({
-                              'trackers_adding_dates':
-                                  functions.processDateList(functions
-                                      .processDateList((currentUserDocument
-                                                  ?.trackersAddingDates
-                                                  ?.toList() ??
-                                              [])
-                                          .toList())
-                                      .toList()),
+                              ...mapToFirestore(
+                                {
+                                  'trackers_adding_dates':
+                                      functions.processDateList(functions
+                                          .processDateList((currentUserDocument
+                                                      ?.trackersAddingDates
+                                                      ?.toList() ??
+                                                  [])
+                                              .toList())
+                                          .toList()),
+                                },
+                              ),
                             });
 
                             context.goNamed(
@@ -477,14 +481,18 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                                     trackersRecordReference3);
 
                             await currentUserReference!.update({
-                              'trackers_adding_dates':
-                                  functions.processDateList(functions
-                                      .processDateList((currentUserDocument
-                                                  ?.trackersAddingDates
-                                                  ?.toList() ??
-                                              [])
-                                          .toList())
-                                      .toList()),
+                              ...mapToFirestore(
+                                {
+                                  'trackers_adding_dates':
+                                      functions.processDateList(functions
+                                          .processDateList((currentUserDocument
+                                                      ?.trackersAddingDates
+                                                      ?.toList() ??
+                                                  [])
+                                              .toList())
+                                          .toList()),
+                                },
+                              ),
                             });
 
                             context.goNamed(

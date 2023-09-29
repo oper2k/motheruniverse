@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/components/bottom_sheet/profile_bottom_sheet/add_breast_tracker/add_breast_tracker_widget.dart';
 import '/components/bottom_sheet/profile_bottom_sheet/chose_tracker_breast/chose_tracker_breast_widget.dart';
 import '/components/bottom_sheet/profile_bottom_sheet/reset_breast_tracker/reset_breast_tracker_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,6 +12,8 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'breast_tracker_page_model.dart';
@@ -29,10 +32,53 @@ class BreastTrackerPageWidget extends StatefulWidget {
       _BreastTrackerPageWidgetState();
 }
 
-class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
+class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget>
+    with TickerProviderStateMixin {
   late BreastTrackerPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'imageOnPageLoadAnimation1': AnimationInfo(
+      loop: true,
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        ScaleEffect(
+          curve: Curves.easeOut,
+          delay: 0.ms,
+          duration: 3000.ms,
+          begin: Offset(1.5, 1.5),
+          end: Offset(0.85, 0.85),
+        ),
+        ScaleEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 3000.ms,
+          begin: Offset(0.85, 0.85),
+          end: Offset(1.5, 1.5),
+        ),
+      ],
+    ),
+    'imageOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 3000.ms,
+          begin: Offset(1.0, 1.0),
+          end: Offset(0.8, 0.8),
+        ),
+        ScaleEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 3000.ms,
+          begin: Offset(0.8, 0.8),
+          end: Offset(1.0, 1.0),
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -54,7 +100,9 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -182,15 +230,16 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
                           return ClipRRect(
                             borderRadius: BorderRadius.circular(0.0),
                             child: Image.asset(
-                              'assets/images/Frame_12374.webp',
+                              'assets/images/Frame_1237411.webp',
                               width: MediaQuery.sizeOf(context).width * 0.48,
                               fit: BoxFit.cover,
                             ),
-                          );
+                          ).animateOnPageLoad(
+                              animationsMap['imageOnPageLoadAnimation1']!);
                         } else {
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 54.0, 0.0, 0.0),
+                                0.0, 27.0, 0.0, 27.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -202,10 +251,8 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
                                   _model.rightIsActive = false;
                                   _model.timerStarted = true;
                                 });
-                                _model.timerLeftController.onExecute
-                                    .add(StopWatchExecute.start);
-                                _model.timerRightController.onExecute
-                                    .add(StopWatchExecute.stop);
+                                _model.timerLeftController.onStartTimer();
+                                _model.timerRightController.onStopTimer();
                                 if (!(_model.startTime != null)) {
                                   setState(() {
                                     _model.startTime = getCurrentTimestamp;
@@ -232,15 +279,16 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
                           return ClipRRect(
                             borderRadius: BorderRadius.circular(0.0),
                             child: Image.asset(
-                              'assets/images/Frame_12374.webp',
+                              'assets/images/Frame_1237411.webp',
                               width: MediaQuery.sizeOf(context).width * 0.48,
                               fit: BoxFit.cover,
                             ),
-                          );
+                          ).animateOnPageLoad(
+                              animationsMap['imageOnPageLoadAnimation2']!);
                         } else {
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 54.0, 0.0, 0.0),
+                                0.0, 27.0, 0.0, 27.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -252,10 +300,8 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
                                   _model.rightIsActive = true;
                                   _model.timerStarted = true;
                                 });
-                                _model.timerLeftController.onExecute
-                                    .add(StopWatchExecute.stop);
-                                _model.timerRightController.onExecute
-                                    .add(StopWatchExecute.start);
+                                _model.timerLeftController.onStopTimer();
+                                _model.timerRightController.onStartTimer();
                                 if (!(_model.startTime != null)) {
                                   setState(() {
                                     _model.startTime = getCurrentTimestamp;
@@ -310,7 +356,7 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
                                 hours: false,
                                 milliSecond: false,
                               ),
-                              timer: _model.timerLeftController,
+                              controller: _model.timerLeftController,
                               updateStateInterval: Duration(milliseconds: 1000),
                               onChanged: (value, displayTime, shouldUpdate) {
                                 _model.timerLeftMilliseconds = value;
@@ -354,7 +400,7 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
                                 hours: false,
                                 milliSecond: false,
                               ),
-                              timer: _model.timerRightController,
+                              controller: _model.timerRightController,
                               updateStateInterval: Duration(milliseconds: 1000),
                               onChanged: (value, displayTime, shouldUpdate) {
                                 _model.timerRightMilliseconds = value;
@@ -406,8 +452,10 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
                       context: context,
                       builder: (context) {
                         return GestureDetector(
-                          onTap: () => FocusScope.of(context)
-                              .requestFocus(_model.unfocusNode),
+                          onTap: () => _model.unfocusNode.canRequestFocus
+                              ? FocusScope.of(context)
+                                  .requestFocus(_model.unfocusNode)
+                              : FocusScope.of(context).unfocus(),
                           child: Padding(
                             padding: MediaQuery.viewInsetsOf(context),
                             child: ResetBreastTrackerWidget(),
@@ -417,11 +465,9 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
                     ).then((value) => safeSetState(() => _model.reset = value));
 
                     if (_model.reset!) {
-                      _model.timerLeftController.onExecute
-                          .add(StopWatchExecute.reset);
+                      _model.timerLeftController.onResetTimer();
 
-                      _model.timerRightController.onExecute
-                          .add(StopWatchExecute.reset);
+                      _model.timerRightController.onResetTimer();
 
                       setState(() {
                         _model.leftIsActive = false;
@@ -481,8 +527,10 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
                           context: context,
                           builder: (context) {
                             return GestureDetector(
-                              onTap: () => FocusScope.of(context)
-                                  .requestFocus(_model.unfocusNode),
+                              onTap: () => _model.unfocusNode.canRequestFocus
+                                  ? FocusScope.of(context)
+                                      .requestFocus(_model.unfocusNode)
+                                  : FocusScope.of(context).unfocus(),
                               child: Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
                                 child: AddBreastTrackerWidget(
@@ -517,10 +565,8 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              _model.timerLeftController.onExecute
-                                  .add(StopWatchExecute.stop);
-                              _model.timerRightController.onExecute
-                                  .add(StopWatchExecute.stop);
+                              _model.timerLeftController.onStopTimer();
+                              _model.timerRightController.onStopTimer();
                               if (dateTimeFormat(
                                     'Md',
                                     _model.startTime,
@@ -571,14 +617,18 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
                                         trackersRecordReference1);
 
                                 await currentUserReference!.update({
-                                  'trackers_adding_dates':
-                                      functions.processDateList(functions
-                                          .processDateList((currentUserDocument
-                                                      ?.trackersAddingDates
-                                                      ?.toList() ??
-                                                  [])
-                                              .toList())
-                                          .toList()),
+                                  ...mapToFirestore(
+                                    {
+                                      'trackers_adding_dates':
+                                          functions.processDateList(functions
+                                              .processDateList((currentUserDocument
+                                                          ?.trackersAddingDates
+                                                          ?.toList() ??
+                                                      [])
+                                                  .toList())
+                                              .toList()),
+                                    },
+                                  ),
                                 });
 
                                 context.goNamed(
@@ -663,14 +713,18 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
                                 ));
 
                                 await currentUserReference!.update({
-                                  'trackers_adding_dates':
-                                      functions.processDateList(functions
-                                          .processDateList((currentUserDocument
-                                                      ?.trackersAddingDates
-                                                      ?.toList() ??
-                                                  [])
-                                              .toList())
-                                          .toList()),
+                                  ...mapToFirestore(
+                                    {
+                                      'trackers_adding_dates':
+                                          functions.processDateList(functions
+                                              .processDateList((currentUserDocument
+                                                          ?.trackersAddingDates
+                                                          ?.toList() ??
+                                                      [])
+                                                  .toList())
+                                              .toList()),
+                                    },
+                                  ),
                                 });
 
                                 context.goNamed(
@@ -794,8 +848,10 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget> {
                           context: context,
                           builder: (context) {
                             return GestureDetector(
-                              onTap: () => FocusScope.of(context)
-                                  .requestFocus(_model.unfocusNode),
+                              onTap: () => _model.unfocusNode.canRequestFocus
+                                  ? FocusScope.of(context)
+                                      .requestFocus(_model.unfocusNode)
+                                  : FocusScope.of(context).unfocus(),
                               child: Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
                                 child: ChoseTrackerBreastWidget(

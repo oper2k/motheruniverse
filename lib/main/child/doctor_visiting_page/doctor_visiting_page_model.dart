@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'doctor_visiting_page_widget.dart' show DoctorVisitingPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class DoctorVisitingPageModel extends FlutterFlowModel {
+class DoctorVisitingPageModel
+    extends FlutterFlowModel<DoctorVisitingPageWidget> {
   ///  Local state fields for this page.
 
   int initialIndex = 0;

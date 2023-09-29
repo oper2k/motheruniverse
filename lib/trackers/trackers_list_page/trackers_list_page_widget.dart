@@ -66,7 +66,9 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -98,12 +100,16 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                       stream: queryTrackersRecord(
                         parent: currentUserReference,
                         queryBuilder: (trackersRecord) => trackersRecord
-                            .where('tracker_start_time',
-                                isLessThan:
-                                    functions.getStartOfNextDay(_model.date!))
-                            .where('tracker_start_time',
-                                isGreaterThanOrEqualTo:
-                                    functions.getStartOfDay(_model.date!))
+                            .where(
+                              'tracker_start_time',
+                              isLessThan:
+                                  functions.getStartOfNextDay(_model.date!),
+                            )
+                            .where(
+                              'tracker_start_time',
+                              isGreaterThanOrEqualTo:
+                                  functions.getStartOfDay(_model.date!),
+                            )
                             .orderBy('tracker_start_time'),
                       ),
                       builder: (context, snapshot) {
@@ -209,10 +215,16 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                                     context: context,
                                                     builder: (context) {
                                                       return GestureDetector(
-                                                        onTap: () => FocusScope
-                                                                .of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode),
+                                                        onTap: () => _model
+                                                                .unfocusNode
+                                                                .canRequestFocus
+                                                            ? FocusScope.of(
+                                                                    context)
+                                                                .requestFocus(_model
+                                                                    .unfocusNode)
+                                                            : FocusScope.of(
+                                                                    context)
+                                                                .unfocus(),
                                                         child: Padding(
                                                           padding: MediaQuery
                                                               .viewInsetsOf(
@@ -255,11 +267,16 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                                             context: context,
                                                             builder: (context) {
                                                               return GestureDetector(
-                                                                onTap: () => FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode),
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -397,11 +414,16 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                                             context: context,
                                                             builder: (context) {
                                                               return GestureDetector(
-                                                                onTap: () => FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode),
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -836,8 +858,12 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                     context: context,
                                     builder: (context) {
                                       return GestureDetector(
-                                        onTap: () => FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode),
+                                        onTap: () => _model
+                                                .unfocusNode.canRequestFocus
+                                            ? FocusScope.of(context)
+                                                .requestFocus(
+                                                    _model.unfocusNode)
+                                            : FocusScope.of(context).unfocus(),
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),

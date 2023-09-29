@@ -47,8 +47,12 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                 valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0),
                 100.0),
           ),
-          'birthday_bonus_claimed_years': FieldValue.arrayUnion(
-              [functions.extractYearFromDateTime(getCurrentTimestamp)]),
+          ...mapToFirestore(
+            {
+              'birthday_bonus_claimed_years': FieldValue.arrayUnion(
+                  [functions.extractYearFromDateTime(getCurrentTimestamp)]),
+            },
+          ),
         });
         await showModalBottomSheet(
           isScrollControlled: true,
@@ -57,8 +61,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
           context: context,
           builder: (context) {
             return GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: HappyBirthdayWidget(),
@@ -82,7 +87,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1761,7 +1768,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     StreamBuilder<List<LearningRecord>>(
                       stream: queryLearningRecord(
                         queryBuilder: (learningRecord) => learningRecord
-                            .where('free_lesson', isEqualTo: true)
+                            .where(
+                              'free_lesson',
+                              isEqualTo: true,
+                            )
                             .orderBy('sort', descending: true),
                       ),
                       builder: (context, snapshot) {
@@ -2528,11 +2538,13 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                             child: StreamBuilder<List<LearningRecord>>(
                               stream: queryLearningRecord(
                                 queryBuilder: (learningRecord) => learningRecord
-                                    .where('category',
-                                        isEqualTo:
-                                            _model.filterCategoryLearning != ''
-                                                ? _model.filterCategoryLearning
-                                                : null)
+                                    .where(
+                                      'category',
+                                      isEqualTo:
+                                          _model.filterCategoryLearning != ''
+                                              ? _model.filterCategoryLearning
+                                              : null,
+                                    )
                                     .orderBy('sort', descending: true),
                               ),
                               builder: (context, snapshot) {
@@ -2716,97 +2728,156 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                         (learningIndex) {
                                                   final learningItem =
                                                       learning[learningIndex];
-                                                  return Container(
-                                                    width: 120.0,
-                                                    height: 168.0,
-                                                    decoration: BoxDecoration(),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Stack(
-                                                          children: [
-                                                            ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          13.0),
-                                                              child:
-                                                                  Image.network(
-                                                                learningItem
-                                                                    .preview,
-                                                                width: 120.0,
-                                                                height: 120.0,
-                                                                fit: BoxFit
-                                                                    .cover,
+                                                  return InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      if ((currentUserDocument
+                                                                      ?.purchasedLessons
+                                                                      ?.toList() ??
+                                                                  [])
+                                                              .contains(
+                                                                  learningItem
+                                                                      .reference
+                                                                      .id) ||
+                                                          (learningItem
+                                                                  .freeLesson ==
+                                                              true)) {
+                                                        context.pushNamed(
+                                                          'ViewLessonPage',
+                                                          queryParameters: {
+                                                            'lesson':
+                                                                serializeParam(
+                                                              learningItem,
+                                                              ParamType
+                                                                  .Document,
+                                                            ),
+                                                          }.withoutNulls,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            'lesson':
+                                                                learningItem,
+                                                          },
+                                                        );
+                                                      } else {
+                                                        context.pushNamed(
+                                                          'BuyLessonPage',
+                                                          queryParameters: {
+                                                            'lesson':
+                                                                serializeParam(
+                                                              learningItem,
+                                                              ParamType
+                                                                  .Document,
+                                                            ),
+                                                          }.withoutNulls,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            'lesson':
+                                                                learningItem,
+                                                          },
+                                                        );
+                                                      }
+                                                    },
+                                                    child: Container(
+                                                      width: 120.0,
+                                                      height: 168.0,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Stack(
+                                                            children: [
+                                                              ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            13.0),
+                                                                child: Image
+                                                                    .network(
+                                                                  learningItem
+                                                                      .preview,
+                                                                  width: 120.0,
+                                                                  height: 120.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
                                                               ),
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          44.0,
-                                                                          44.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Container(
-                                                                width: 32.0,
-                                                                height: 32.0,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                child: Icon(
-                                                                  Icons
-                                                                      .play_arrow_sharp,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  size: 24.0,
+                                                              Padding(
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        44.0,
+                                                                        44.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                                child:
+                                                                    Container(
+                                                                  width: 32.0,
+                                                                  height: 32.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .play_arrow_sharp,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    size: 24.0,
+                                                                  ),
                                                                 ),
                                                               ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            learningItem.title
-                                                                .maybeHandleOverflow(
-                                                              maxChars: 27,
-                                                              replacement: '…',
-                                                            ),
-                                                            maxLines: 2,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .headlineSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  lineHeight:
-                                                                      1.28,
-                                                                ),
+                                                            ],
                                                           ),
-                                                        ),
-                                                      ],
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        8.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              learningItem.title
+                                                                  .maybeHandleOverflow(
+                                                                maxChars: 27,
+                                                                replacement:
+                                                                    '…',
+                                                              ),
+                                                              maxLines: 2,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .headlineSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    lineHeight:
+                                                                        1.28,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
                                                   );
                                                 })
@@ -2830,37 +2901,39 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                         },
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: 'Купить тему',
-                        options: FFButtonOptions(
-                          width: double.infinity,
-                          height: 56.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).tertiary,
-                          textStyle: FlutterFlowTheme.of(context).headlineLarge,
-                          elevation: 0.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
+                    if (_model.selectedCategory != 0)
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 16.0, 20.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () {
+                            print('Button pressed ...');
+                          },
+                          text: 'Купить тему',
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 56.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).tertiary,
+                            textStyle:
+                                FlutterFlowTheme.of(context).headlineLarge,
+                            elevation: 0.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                            ),
+                            borderRadius: BorderRadius.circular(16.0),
                           ),
-                          borderRadius: BorderRadius.circular(16.0),
                         ),
                       ),
-                    ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          context.pushNamed('GetAllLessonsPage');
                         },
                         text: 'Купить все лекции',
                         options: FFButtonOptions(
