@@ -951,7 +951,7 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
               updateCallback: () => setState(() {}),
               child: NavBarWidget(
                 homeIcon: Icon(
-                  FFIcons.khomeInactive,
+                  FFIcons.khome2,
                   color: FlutterFlowTheme.of(context).grey60,
                 ),
                 calendarIcon: Icon(

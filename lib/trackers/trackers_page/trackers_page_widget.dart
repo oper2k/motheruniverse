@@ -470,6 +470,17 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                               dynamic>{
                                                             'child':
                                                                 childChildrenRecord,
+                                                            kTransitionInfoKey:
+                                                                TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      0),
+                                                            ),
                                                           },
                                                         );
                                                       },
@@ -511,77 +522,76 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                         ],
                                                       ),
                                                     ),
-                                                    if (false)
-                                                      InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          setState(() {
-                                                            FFAppState()
-                                                                .viewSleepNorms = 0;
-                                                          });
+                                                    InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        setState(() {
+                                                          FFAppState()
+                                                              .viewSleepNorms = 0;
+                                                        });
 
-                                                          context.pushNamed(
-                                                            'SleepNormsPage',
-                                                            queryParameters: {
-                                                              'child':
-                                                                  serializeParam(
+                                                        context.pushNamed(
+                                                          'SleepNormsPage',
+                                                          queryParameters: {
+                                                            'child':
+                                                                serializeParam(
+                                                              childChildrenRecord,
+                                                              ParamType
+                                                                  .Document,
+                                                            ),
+                                                          }.withoutNulls,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            'child':
                                                                 childChildrenRecord,
-                                                                ParamType
-                                                                    .Document,
-                                                              ),
-                                                            }.withoutNulls,
-                                                            extra: <String,
-                                                                dynamic>{
-                                                              'child':
-                                                                  childChildrenRecord,
-                                                            },
-                                                          );
-                                                        },
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Icon(
-                                                              FFIcons.kchart1,
-                                                              color: FlutterFlowTheme
+                                                          },
+                                                        );
+                                                      },
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Icon(
+                                                            FFIcons.kchart1,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 24.0,
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        4.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              'Норма',
+                                                              style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .secondaryText,
-                                                              size: 24.0,
+                                                                  .headlineSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    lineHeight:
+                                                                        1.25,
+                                                                  ),
                                                             ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          4.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Text(
-                                                                'Норма',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineSmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Inter',
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                      lineHeight:
-                                                                          1.25,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
+                                                          ),
+                                                        ],
                                                       ),
+                                                    ),
                                                   ],
                                                 ),
                                                 Align(
@@ -1098,8 +1108,6 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                       barrierColor:
                                                                           FlutterFlowTheme.of(context)
                                                                               .botomBack,
-                                                                      enableDrag:
-                                                                          false,
                                                                       context:
                                                                           context,
                                                                       builder:
@@ -1245,7 +1253,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
               updateCallback: () => setState(() {}),
               child: NavBarWidget(
                 homeIcon: Icon(
-                  FFIcons.khomeInactive,
+                  FFIcons.khome2,
                   color: FlutterFlowTheme.of(context).grey60,
                 ),
                 calendarIcon: Icon(

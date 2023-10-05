@@ -95,10 +95,13 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                         width: 38.0,
                         height: 38.0,
                         decoration: BoxDecoration(),
-                        child: Icon(
-                          FFIcons.kleft,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 24.0,
+                        child: Align(
+                          alignment: AlignmentDirectional(-1.00, 0.00),
+                          child: Icon(
+                            FFIcons.kleft,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            size: 24.0,
+                          ),
                         ),
                       ),
                     ),
@@ -137,7 +140,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                         child: Align(
                           alignment: AlignmentDirectional(1.00, 0.00),
                           child: Icon(
-                            FFIcons.ktrashCan,
+                            FFIcons.kdel,
                             color: FlutterFlowTheme.of(context).error,
                             size: 24.0,
                           ),

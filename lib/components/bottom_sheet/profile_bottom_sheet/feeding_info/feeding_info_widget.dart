@@ -99,7 +99,7 @@ class _FeedingInfoWidgetState extends State<FeedingInfoWidget> {
                             child: Align(
                               alignment: AlignmentDirectional(-1.00, 0.00),
                               child: Icon(
-                                FFIcons.ktrashCan,
+                                FFIcons.kdel,
                                 color: FlutterFlowTheme.of(context).error,
                                 size: 24.0,
                               ),

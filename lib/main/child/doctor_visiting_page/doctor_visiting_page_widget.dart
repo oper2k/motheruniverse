@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'doctor_visiting_page_model.dart';
@@ -34,13 +33,6 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DoctorVisitingPageModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        _model.initialIndex = widget.currentWeek!;
-      });
-    });
   }
 
   @override

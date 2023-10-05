@@ -19,8 +19,6 @@ class AddSleepingTrackerModel
     extends FlutterFlowModel<AddSleepingTrackerWidget> {
   ///  Local state fields for this component.
 
-  bool isGramm = true;
-
   DateTime? time;
 
   ///  State fields for stateful widgets in this component.

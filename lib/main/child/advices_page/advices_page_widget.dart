@@ -94,7 +94,7 @@ class _AdvicesPageWidgetState extends State<AdvicesPageWidget> {
                       child: StreamBuilder<List<AdvicesRecord>>(
                         stream: queryAdvicesRecord(
                           queryBuilder: (advicesRecord) =>
-                              advicesRecord.orderBy('weeks'),
+                              advicesRecord.orderBy('sort'),
                         ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
@@ -267,28 +267,31 @@ class _AdvicesPageWidgetState extends State<AdvicesPageWidget> {
                                                                     CrossAxisAlignment
                                                                         .start,
                                                                 children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        Container(
-                                                                      width:
-                                                                          5.0,
-                                                                      height:
-                                                                          5.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryText,
-                                                                        shape: BoxShape
-                                                                            .circle,
+                                                                  if (advicesItem
+                                                                          .listOfAdvices
+                                                                          .length >
+                                                                      1)
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          10.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            5.0,
+                                                                        height:
+                                                                            5.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                          shape:
+                                                                              BoxShape.circle,
+                                                                        ),
                                                                       ),
                                                                     ),
-                                                                  ),
                                                                   Expanded(
                                                                     child:
                                                                         Padding(

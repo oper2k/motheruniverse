@@ -33,6 +33,7 @@ import 'schema/event_entry_record.dart';
 import 'schema/trackers_record.dart';
 import 'schema/buy_all_content_record.dart';
 import 'schema/feedback_screenshots_record.dart';
+import 'schema/vaccinate_period_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -68,6 +69,7 @@ export 'schema/event_entry_record.dart';
 export 'schema/trackers_record.dart';
 export 'schema/buy_all_content_record.dart';
 export 'schema/feedback_screenshots_record.dart';
+export 'schema/vaccinate_period_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -1118,6 +1120,43 @@ Future<List<FeedbackScreenshotsRecord>> queryFeedbackScreenshotsRecordOnce({
     queryCollectionOnce(
       FeedbackScreenshotsRecord.collection,
       FeedbackScreenshotsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query VaccinatePeriodRecords (as a Stream and as a Future).
+Future<int> queryVaccinatePeriodRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      VaccinatePeriodRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<VaccinatePeriodRecord>> queryVaccinatePeriodRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      VaccinatePeriodRecord.collection,
+      VaccinatePeriodRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<VaccinatePeriodRecord>> queryVaccinatePeriodRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      VaccinatePeriodRecord.collection,
+      VaccinatePeriodRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

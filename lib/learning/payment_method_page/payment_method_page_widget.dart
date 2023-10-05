@@ -119,12 +119,12 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                                           currentUserDocument?.loyaltyBonuses,
                                           0.0) <=
                                       widget.price!
-                                  ? 1.0
-                                  : functions.returnDifferenceBetwenTwoDouble(
+                                  ? functions.returnDifferenceBetwenTwoDouble(
                                       widget.price!,
                                       valueOrDefault(
                                           currentUserDocument?.loyaltyBonuses,
-                                          0.0)))
+                                          0.0))
+                                  : 1.0)
                               : widget.price,
                           ParamType.double,
                         ),

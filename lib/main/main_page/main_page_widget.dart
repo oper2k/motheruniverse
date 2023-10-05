@@ -1539,85 +1539,91 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                               snapshot.data!;
                           return Container(
                             decoration: BoxDecoration(),
-                            child: Builder(
-                              builder: (context) {
-                                final checkList =
-                                    containerCheckListRecordList.toList();
-                                return SingleChildScrollView(
-                                  scrollDirection: Axis.horizontal,
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: List.generate(checkList.length,
-                                            (checkListIndex) {
-                                      final checkListItem =
-                                          checkList[checkListIndex];
-                                      return InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          context.pushNamed(
-                                            'CheckViewPage',
-                                            queryParameters: {
-                                              'checkListParent': serializeParam(
-                                                checkListItem,
-                                                ParamType.Document,
-                                              ),
-                                            }.withoutNulls,
-                                            extra: <String, dynamic>{
-                                              'checkListParent': checkListItem,
-                                            },
-                                          );
-                                        },
-                                        child: Container(
-                                          width: 124.0,
-                                          decoration: BoxDecoration(),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(20.0),
-                                                child: Image.network(
-                                                  checkListItem.image,
-                                                  width: 124.0,
-                                                  height: 124.0,
-                                                  fit: BoxFit.cover,
+                            child: Align(
+                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              child: Builder(
+                                builder: (context) {
+                                  final checkList =
+                                      containerCheckListRecordList.toList();
+                                  return SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: List.generate(checkList.length,
+                                              (checkListIndex) {
+                                        final checkListItem =
+                                            checkList[checkListIndex];
+                                        return InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              'CheckViewPage',
+                                              queryParameters: {
+                                                'checkListParent':
+                                                    serializeParam(
+                                                  checkListItem,
+                                                  ParamType.Document,
                                                 ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 8.0, 0.0, 0.0),
-                                                child: Text(
-                                                  checkListItem.title,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .headlineSmall
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        lineHeight: 1.25,
-                                                      ),
+                                              }.withoutNulls,
+                                              extra: <String, dynamic>{
+                                                'checkListParent':
+                                                    checkListItem,
+                                              },
+                                            );
+                                          },
+                                          child: Container(
+                                            width: 124.0,
+                                            decoration: BoxDecoration(),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          20.0),
+                                                  child: Image.network(
+                                                    checkListItem.image,
+                                                    width: 124.0,
+                                                    height: 124.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    checkListItem.title,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          lineHeight: 1.25,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      );
-                                    })
-                                        .divide(SizedBox(width: 12.0))
-                                        .addToStart(SizedBox(width: 20.0))
-                                        .addToEnd(SizedBox(width: 20.0)),
-                                  ),
-                                );
-                              },
+                                        );
+                                      })
+                                          .divide(SizedBox(width: 12.0))
+                                          .addToStart(SizedBox(width: 20.0))
+                                          .addToEnd(SizedBox(width: 20.0)),
+                                    ),
+                                  );
+                                },
+                              ),
                             ),
                           );
                         },
@@ -1887,7 +1893,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                   },
                                                   child: Container(
                                                     width: 120.0,
-                                                    height: 164.0,
+                                                    height: 168.0,
                                                     decoration: BoxDecoration(),
                                                     child: Column(
                                                       mainAxisSize:
@@ -2128,7 +2134,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                         children: [
                                           Container(
                                             width: 64.0,
-                                            height: 22.0,
+                                            height: 45.0,
                                             decoration: BoxDecoration(),
                                             child: Align(
                                               alignment: AlignmentDirectional(
@@ -2138,6 +2144,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                         eventItem.date != ''
                                                     ? eventItem.date
                                                     : 'Скоро',
+                                                textAlign: TextAlign.center,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineMedium
@@ -2965,7 +2972,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                 updateCallback: () => setState(() {}),
                 child: NavBarWidget(
                   homeIcon: Icon(
-                    FFIcons.khome,
+                    FFIcons.khome1,
                     color: FlutterFlowTheme.of(context).primary,
                   ),
                   calendarIcon: Icon(

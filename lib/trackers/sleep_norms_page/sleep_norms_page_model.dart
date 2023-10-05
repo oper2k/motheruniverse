@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/bottom_sheet/loyalty_bottom_sheet/view_sleep_norms/view_sleep_norms_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -22,13 +21,22 @@ class SleepNormsPageModel extends FlutterFlowModel<SleepNormsPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for Column widget.
+  ScrollController? columnController;
+  // State field(s) for Months widget.
+  ScrollController? months;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    columnController = ScrollController();
+    months = ScrollController();
+  }
 
   void dispose() {
     unfocusNode.dispose();
+    columnController?.dispose();
+    months?.dispose();
   }
 
   /// Action blocks are added here.

@@ -2,10 +2,12 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'registration_model.dart';
@@ -22,6 +24,8 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
   late RegistrationModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  late StreamSubscription<bool> _keyboardVisibilitySubscription;
+  bool _isKeyboardVisible = false;
 
   @override
   void initState() {
@@ -33,6 +37,15 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
       setState(() {});
     });
 
+    if (!isWeb) {
+      _keyboardVisibilitySubscription =
+          KeyboardVisibilityController().onChange.listen((bool visible) {
+        setState(() {
+          _isKeyboardVisible = visible;
+        });
+      });
+    }
+
     _model.emailFieldController ??= TextEditingController();
     _model.passFieldController ??= TextEditingController();
   }
@@ -41,6 +54,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
   void dispose() {
     _model.dispose();
 
+    if (!isWeb) {
+      _keyboardVisibilitySubscription.cancel();
+    }
     super.dispose();
   }
 
@@ -363,44 +379,65 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
             ),
             Align(
               alignment: AlignmentDirectional(0.00, 1.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 45.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    if (_model.formKey.currentState == null ||
-                        !_model.formKey.currentState!.validate()) {
-                      return;
-                    }
-                    GoRouter.of(context).prepareAuthEvent();
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        if (_model.formKey.currentState == null ||
+                            !_model.formKey.currentState!.validate()) {
+                          return;
+                        }
+                        GoRouter.of(context).prepareAuthEvent();
 
-                    final user = await authManager.createAccountWithEmail(
-                      context,
-                      _model.emailFieldController.text,
-                      _model.passFieldController.text,
-                    );
-                    if (user == null) {
-                      return;
-                    }
+                        final user = await authManager.createAccountWithEmail(
+                          context,
+                          _model.emailFieldController.text,
+                          _model.passFieldController.text,
+                        );
+                        if (user == null) {
+                          return;
+                        }
 
-                    context.pushNamedAuth('FillProfile', context.mounted);
-                  },
-                  text: 'Зарегистрироваться',
-                  options: FFButtonOptions(
-                    width: double.infinity,
-                    height: 56.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).displaySmall,
-                    elevation: 0.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
+                        context.pushNamedAuth('FillProfile', context.mounted);
+                      },
+                      text: 'Зарегистрироваться',
+                      options: FFButtonOptions(
+                        width: double.infinity,
+                        height: 56.0,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle: FlutterFlowTheme.of(context).displaySmall,
+                        elevation: 0.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                        ),
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      showLoadingIndicator: false,
                     ),
-                    borderRadius: BorderRadius.circular(16.0),
                   ),
-                  showLoadingIndicator: false,
-                ),
+                  if (isWeb
+                      ? MediaQuery.viewInsetsOf(context).bottom > 0
+                      : _isKeyboardVisible)
+                    Container(
+                      height: 15.0,
+                      decoration: BoxDecoration(),
+                    ),
+                  if (!(isWeb
+                      ? MediaQuery.viewInsetsOf(context).bottom > 0
+                      : _isKeyboardVisible))
+                    Container(
+                      height: 45.0,
+                      decoration: BoxDecoration(),
+                    ),
+                ],
               ),
             ),
           ],

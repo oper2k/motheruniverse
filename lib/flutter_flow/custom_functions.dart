@@ -1157,3 +1157,53 @@ List<int> generateList(int num) {
   }
   return result;
 }
+
+DateTime getStartOfWeek(DateTime date) {
+  // Получаем день недели для переданной даты (0 - воскресенье, 1 - понедельник, ..., 6 - суббота)
+  int dayOfWeek = date.weekday;
+
+  // Вычисляем разницу между днем недели и понедельником (0 дней для понедельника, 1 день для вторника и т. д.)
+  int daysUntilMonday = (dayOfWeek - 1) % 7;
+
+  // Вычитаем разницу из переданной даты, чтобы получить начало понедельника текущей недели
+  DateTime startOfWeek = date.subtract(Duration(days: daysUntilMonday));
+
+  // Устанавливаем время начала дня в 00:00:00
+  startOfWeek = DateTime(startOfWeek.year, startOfWeek.month, startOfWeek.day);
+
+  return startOfWeek;
+}
+
+DateTime getEndOfWeek(DateTime date) {
+  /// принимает Date Time, а возвращает конец той недели, дату которой мы передали
+  // Получаем день недели для переданной даты (0 - воскресенье, 1 - понедельник, ..., 6 - суббота)
+  int dayOfWeek = date.weekday;
+
+  // Вычисляем разницу между днем недели и воскресеньем (0 дней для воскресенья, 1 день для понедельника и т. д.)
+  int daysUntilSunday = (7 - dayOfWeek) % 7;
+
+  // Добавляем разницу к переданной дате и устанавливаем время 23:59:59 для конца недели
+  DateTime endOfWeek = date.add(
+      Duration(days: daysUntilSunday, hours: 23, minutes: 59, seconds: 59));
+
+  return endOfWeek;
+}
+
+bool isWithinNDays(
+  DateTime date,
+  int days,
+) {
+  /// принимает Date Time и число Integer и возвращает True если спустя указанной даты еще не прошло указанное число дней
+  DateTime currentDate = DateTime.now();
+  Duration difference = currentDate.difference(date);
+  return difference.inDays < days;
+}
+
+int calculateSleepDurationInMinutes(
+  DateTime asleepTime,
+  DateTime awakeTime,
+) {
+  /// принимает Date Time когда ребенок уснул и Date Time когда он проснулся, а возвращает Integer количество минут, которые он спал
+  Duration sleepDuration = awakeTime.difference(asleepTime);
+  return sleepDuration.inMinutes;
+}

@@ -716,7 +716,7 @@ class _NetworkingSearchingUserWidgetState
                   updateCallback: () => setState(() {}),
                   child: NavBarWidget(
                     homeIcon: Icon(
-                      FFIcons.khomeInactive,
+                      FFIcons.khome2,
                       color: FlutterFlowTheme.of(context).primaryText,
                     ),
                     calendarIcon: Icon(

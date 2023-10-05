@@ -26,9 +26,15 @@ class AdvicesRecord extends FirestoreRecord {
   List<String> get listOfAdvices => _listOfAdvices ?? const [];
   bool hasListOfAdvices() => _listOfAdvices != null;
 
+  // "sort" field.
+  int? _sort;
+  int get sort => _sort ?? 0;
+  bool hasSort() => _sort != null;
+
   void _initializeFields() {
     _weeks = snapshotData['weeks'] as String?;
     _listOfAdvices = getDataList(snapshotData['listOfAdvices']);
+    _sort = castToType<int>(snapshotData['sort']);
   }
 
   static CollectionReference get collection =>
@@ -67,10 +73,12 @@ class AdvicesRecord extends FirestoreRecord {
 
 Map<String, dynamic> createAdvicesRecordData({
   String? weeks,
+  int? sort,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'weeks': weeks,
+      'sort': sort,
     }.withoutNulls,
   );
 
@@ -84,12 +92,13 @@ class AdvicesRecordDocumentEquality implements Equality<AdvicesRecord> {
   bool equals(AdvicesRecord? e1, AdvicesRecord? e2) {
     const listEquality = ListEquality();
     return e1?.weeks == e2?.weeks &&
-        listEquality.equals(e1?.listOfAdvices, e2?.listOfAdvices);
+        listEquality.equals(e1?.listOfAdvices, e2?.listOfAdvices) &&
+        e1?.sort == e2?.sort;
   }
 
   @override
   int hash(AdvicesRecord? e) =>
-      const ListEquality().hash([e?.weeks, e?.listOfAdvices]);
+      const ListEquality().hash([e?.weeks, e?.listOfAdvices, e?.sort]);
 
   @override
   bool isValidKey(Object? o) => o is AdvicesRecord;

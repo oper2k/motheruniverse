@@ -29,7 +29,7 @@ class CloudpaymentsGroup {
 
 class PayByCardCall {
   Future<ApiCallResponse> call({
-    String? publicId = 'pk_95c3539932ce407838c78a72db586',
+    String? publicId = 'pk_480c7674892e642b5baa1d3d2057a',
     int? amount,
     String? cardCryptogramPacket = '',
     String? email = '',
@@ -155,7 +155,7 @@ class SubscriptionsCreateCopyCall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ${aPIKey}',
+        'Authorization': 'Basic ODM1YTE5MzU2Y2JiYWI3ZTIxYTc1ZDQ2NjcyN2QyNWU=',
       },
       params: {},
       body: ffApiRequestBody,
@@ -184,7 +184,7 @@ class CheckSubscriptionsCopyCall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ${aPIKey}',
+        'Authorization': 'Basic ODM1YTE5MzU2Y2JiYWI3ZTIxYTc1ZDQ2NjcyN2QyNWU=',
       },
       params: {},
       body: ffApiRequestBody,
@@ -213,7 +213,7 @@ class CancelSubscriptionsCopyCall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ${aPIKey}',
+        'Authorization': 'Basic ODM1YTE5MzU2Y2JiYWI3ZTIxYTc1ZDQ2NjcyN2QyNWU=',
       },
       params: {},
       body: ffApiRequestBody,

@@ -289,7 +289,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Icon(
-                                  FFIcons.kheadphones,
+                                  FFIcons.kearphone,
                                   color: FlutterFlowTheme.of(context).purple,
                                   size: 24.0,
                                 ),
@@ -428,7 +428,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Icon(
-                                  FFIcons.kbag3,
+                                  FFIcons.kbuy,
                                   color: FlutterFlowTheme.of(context).primary,
                                   size: 24.0,
                                 ),
@@ -853,7 +853,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
               updateCallback: () => setState(() {}),
               child: NavBarWidget(
                 homeIcon: Icon(
-                  FFIcons.khomeInactive,
+                  FFIcons.khome2,
                   color: FlutterFlowTheme.of(context).primaryText,
                   size: 24.0,
                 ),

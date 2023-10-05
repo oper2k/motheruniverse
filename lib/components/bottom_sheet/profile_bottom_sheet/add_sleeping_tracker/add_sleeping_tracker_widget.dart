@@ -399,6 +399,52 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                                 },
                               ),
                             });
+                            if (functions.isWithinNDays(
+                                    widget.child!.birthDate!, 31) &&
+                                (functions.calculateSleepDurationInMinutes(
+                                        _model.trackerDoc!.trackerStartTime!,
+                                        _model.trackerDoc!.sleepEndTime!) >
+                                    240)) {
+                              await widget.child!.reference.update({
+                                ...mapToFirestore(
+                                  {
+                                    'temp_start_sleep_time':
+                                        FieldValue.delete(),
+                                    'unnormal_sleep_date':
+                                        FieldValue.arrayUnion([
+                                      _model.trackerDoc?.trackerStartTime
+                                    ]),
+                                  },
+                                ),
+                              });
+                            } else if (functions.isWithinNDays(
+                                    widget.child!.birthDate!, 1095) &&
+                                (functions.calculateSleepDurationInMinutes(
+                                        _model.trackerDoc!.trackerStartTime!,
+                                        _model.trackerDoc!.sleepEndTime!) >
+                                    120)) {
+                              await widget.child!.reference.update({
+                                ...mapToFirestore(
+                                  {
+                                    'temp_start_sleep_time':
+                                        FieldValue.delete(),
+                                    'unnormal_sleep_date':
+                                        FieldValue.arrayUnion([
+                                      _model.trackerDoc?.trackerStartTime
+                                    ]),
+                                  },
+                                ),
+                              });
+                            } else {
+                              await widget.child!.reference.update({
+                                ...mapToFirestore(
+                                  {
+                                    'temp_start_sleep_time':
+                                        FieldValue.delete(),
+                                  },
+                                ),
+                              });
+                            }
 
                             context.goNamed(
                               'SleepTrackerIsAdded',

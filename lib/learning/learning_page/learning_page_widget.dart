@@ -354,7 +354,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                             fontFamily: 'Inter',
                                                             color: Colors.white,
                                                           ),
-                                                  elevation: 3.0,
+                                                  elevation: 0.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
@@ -523,155 +523,142 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                         _model
                                                                             .filter))
                                                                     .toList();
-                                                                return Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: List.generate(
-                                                                          lesson
-                                                                              .length,
-                                                                          (lessonIndex) {
-                                                                    final lessonItem =
-                                                                        lesson[
-                                                                            lessonIndex];
-                                                                    return InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        if (containerUsersRecord.purchasedLessons.contains(lessonItem.reference.id) ||
-                                                                            (lessonItem.freeLesson ==
-                                                                                true)) {
-                                                                          context
-                                                                              .pushNamed(
-                                                                            'ViewLessonPage',
-                                                                            queryParameters:
-                                                                                {
-                                                                              'lesson': serializeParam(
-                                                                                lessonItem,
-                                                                                ParamType.Document,
-                                                                              ),
-                                                                            }.withoutNulls,
-                                                                            extra: <String,
-                                                                                dynamic>{
-                                                                              'lesson': lessonItem,
-                                                                            },
-                                                                          );
-                                                                        } else {
-                                                                          context
-                                                                              .pushNamed(
-                                                                            'BuyLessonPage',
-                                                                            queryParameters:
-                                                                                {
-                                                                              'lesson': serializeParam(
-                                                                                lessonItem,
-                                                                                ParamType.Document,
-                                                                              ),
-                                                                            }.withoutNulls,
-                                                                            extra: <String,
-                                                                                dynamic>{
-                                                                              'lesson': lessonItem,
-                                                                            },
-                                                                          );
-                                                                        }
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            120.0,
-                                                                        height:
-                                                                            168.0,
-                                                                        decoration:
-                                                                            BoxDecoration(),
-                                                                        child:
-                                                                            Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.start,
-                                                                          children: [
-                                                                            ClipRRect(
-                                                                              borderRadius: BorderRadius.circular(13.0),
-                                                                              child: Container(
-                                                                                width: 120.0,
-                                                                                height: 120.0,
-                                                                                decoration: BoxDecoration(
-                                                                                  borderRadius: BorderRadius.circular(13.0),
+                                                                return SingleChildScrollView(
+                                                                  scrollDirection:
+                                                                      Axis.horizontal,
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: List.generate(
+                                                                            lesson.length,
+                                                                            (lessonIndex) {
+                                                                      final lessonItem =
+                                                                          lesson[
+                                                                              lessonIndex];
+                                                                      return InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          if (containerUsersRecord.purchasedLessons.contains(lessonItem.reference.id) ||
+                                                                              (lessonItem.freeLesson == true)) {
+                                                                            context.pushNamed(
+                                                                              'ViewLessonPage',
+                                                                              queryParameters: {
+                                                                                'lesson': serializeParam(
+                                                                                  lessonItem,
+                                                                                  ParamType.Document,
                                                                                 ),
-                                                                                child: Stack(
-                                                                                  children: [
-                                                                                    ClipRRect(
-                                                                                      borderRadius: BorderRadius.circular(0.0),
-                                                                                      child: Image.network(
-                                                                                        lessonItem.preview,
-                                                                                        fit: BoxFit.cover,
-                                                                                      ),
+                                                                              }.withoutNulls,
+                                                                              extra: <String, dynamic>{
+                                                                                'lesson': lessonItem,
+                                                                              },
+                                                                            );
+                                                                          } else {
+                                                                            context.pushNamed(
+                                                                              'BuyLessonPage',
+                                                                              queryParameters: {
+                                                                                'lesson': serializeParam(
+                                                                                  lessonItem,
+                                                                                  ParamType.Document,
+                                                                                ),
+                                                                              }.withoutNulls,
+                                                                              extra: <String, dynamic>{
+                                                                                'lesson': lessonItem,
+                                                                              },
+                                                                            );
+                                                                          }
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              120.0,
+                                                                          height:
+                                                                              168.0,
+                                                                          decoration:
+                                                                              BoxDecoration(),
+                                                                          child:
+                                                                              Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.start,
+                                                                            children: [
+                                                                              Stack(
+                                                                                children: [
+                                                                                  ClipRRect(
+                                                                                    borderRadius: BorderRadius.circular(0.0),
+                                                                                    child: Image.network(
+                                                                                      lessonItem.preview,
+                                                                                      width: 120.0,
+                                                                                      height: 120.0,
+                                                                                      fit: BoxFit.cover,
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
-                                                                                      child: Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        children: [
-                                                                                          if (lessonItem.freeLesson == true)
-                                                                                            Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 0.0),
-                                                                                              child: Container(
-                                                                                                decoration: BoxDecoration(
-                                                                                                  color: FlutterFlowTheme.of(context).blue,
-                                                                                                  borderRadius: BorderRadius.circular(20.0),
-                                                                                                ),
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(7.0, 2.0, 6.0, 2.0),
-                                                                                                  child: AutoSizeText(
-                                                                                                    'Беслатно',
-                                                                                                    maxLines: 1,
-                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Inter',
-                                                                                                          color: Colors.white,
-                                                                                                          fontSize: 12.0,
-                                                                                                          fontWeight: FontWeight.w600,
-                                                                                                        ),
-                                                                                                  ),
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                                                                    child: Row(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      children: [
+                                                                                        if (lessonItem.freeLesson == true)
+                                                                                          Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 0.0),
+                                                                                            child: Container(
+                                                                                              decoration: BoxDecoration(
+                                                                                                color: FlutterFlowTheme.of(context).blue,
+                                                                                                borderRadius: BorderRadius.circular(20.0),
+                                                                                              ),
+                                                                                              child: Padding(
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(7.0, 2.0, 6.0, 2.0),
+                                                                                                child: AutoSizeText(
+                                                                                                  'Беслатно',
+                                                                                                  maxLines: 1,
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'Inter',
+                                                                                                        color: Colors.white,
+                                                                                                        fontSize: 12.0,
+                                                                                                        fontWeight: FontWeight.w600,
+                                                                                                      ),
                                                                                                 ),
                                                                                               ),
                                                                                             ),
-                                                                                          if (functions.checkIfLessonIsNew(lessonItem.dateOfPublication!))
-                                                                                            Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 0.0),
-                                                                                              child: Container(
-                                                                                                decoration: BoxDecoration(
-                                                                                                  color: FlutterFlowTheme.of(context).primary,
-                                                                                                  borderRadius: BorderRadius.circular(20.0),
-                                                                                                ),
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(7.0, 2.0, 7.0, 2.0),
-                                                                                                  child: AutoSizeText(
-                                                                                                    'New',
-                                                                                                    maxLines: 1,
-                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Inter',
-                                                                                                          color: Colors.white,
-                                                                                                          fontSize: 12.0,
-                                                                                                          fontWeight: FontWeight.w600,
-                                                                                                        ),
-                                                                                                  ),
+                                                                                          ),
+                                                                                        if (functions.checkIfLessonIsNew(lessonItem.dateOfPublication!))
+                                                                                          Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 0.0),
+                                                                                            child: Container(
+                                                                                              decoration: BoxDecoration(
+                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                                borderRadius: BorderRadius.circular(20.0),
+                                                                                              ),
+                                                                                              child: Padding(
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(7.0, 2.0, 7.0, 2.0),
+                                                                                                child: AutoSizeText(
+                                                                                                  'New',
+                                                                                                  maxLines: 1,
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'Inter',
+                                                                                                        color: Colors.white,
+                                                                                                        fontSize: 12.0,
+                                                                                                        fontWeight: FontWeight.w600,
+                                                                                                      ),
                                                                                                 ),
                                                                                               ),
                                                                                             ),
-                                                                                        ],
-                                                                                      ),
+                                                                                          ),
+                                                                                      ],
                                                                                     ),
-                                                                                    Builder(
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
+                                                                                    child: Builder(
                                                                                       builder: (context) {
                                                                                         if (containerUsersRecord.purchasedLessons.contains(lessonItem.reference.id) || (lessonItem.freeLesson == true)) {
                                                                                           return Align(
@@ -710,40 +697,40 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                                         }
                                                                                       },
                                                                                     ),
-                                                                                  ],
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                                                                child: AutoSizeText(
+                                                                                  lessonItem.title.maybeHandleOverflow(
+                                                                                    maxChars: 27,
+                                                                                    replacement: '…',
+                                                                                  ),
+                                                                                  maxLines: 2,
+                                                                                  style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                                                                        fontFamily: 'Inter',
+                                                                                        fontSize: 14.0,
+                                                                                        fontWeight: FontWeight.w500,
+                                                                                        lineHeight: 1.28,
+                                                                                      ),
                                                                                 ),
                                                                               ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                                                                              child: AutoSizeText(
-                                                                                lessonItem.title.maybeHandleOverflow(
-                                                                                  maxChars: 27,
-                                                                                  replacement: '…',
-                                                                                ),
-                                                                                maxLines: 2,
-                                                                                style: FlutterFlowTheme.of(context).headlineSmall.override(
-                                                                                      fontFamily: 'Inter',
-                                                                                      fontSize: 14.0,
-                                                                                      fontWeight: FontWeight.w500,
-                                                                                      lineHeight: 1.28,
-                                                                                    ),
-                                                                              ),
-                                                                            ),
-                                                                          ],
+                                                                            ],
+                                                                          ),
                                                                         ),
-                                                                      ),
-                                                                    );
-                                                                  })
-                                                                      .divide(SizedBox(
-                                                                          width:
-                                                                              12.0))
-                                                                      .addToStart(SizedBox(
-                                                                          width:
-                                                                              20.0))
-                                                                      .addToEnd(SizedBox(
-                                                                          width:
-                                                                              20.0)),
+                                                                      );
+                                                                    })
+                                                                        .divide(SizedBox(
+                                                                            width:
+                                                                                12.0))
+                                                                        .addToStart(SizedBox(
+                                                                            width:
+                                                                                20.0))
+                                                                        .addToEnd(SizedBox(
+                                                                            width:
+                                                                                20.0)),
+                                                                  ),
                                                                 );
                                                               },
                                                             ),
@@ -832,7 +819,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                       updateCallback: () => setState(() {}),
                       child: NavBarWidget(
                         homeIcon: Icon(
-                          FFIcons.khomeInactive,
+                          FFIcons.khome2,
                           color: FlutterFlowTheme.of(context).grey60,
                         ),
                         calendarIcon: Icon(

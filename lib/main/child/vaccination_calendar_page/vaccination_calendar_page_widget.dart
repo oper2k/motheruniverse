@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'vaccination_calendar_page_model.dart';
@@ -37,13 +36,6 @@ class _VaccinationCalendarPageWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => VaccinationCalendarPageModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        _model.initialIndex = widget.currentWeek!;
-      });
-    });
   }
 
   @override
@@ -128,10 +120,10 @@ class _VaccinationCalendarPageWidgetState
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 24.0, 0.0, 0.0),
-                              child: StreamBuilder<List<AgeRecord>>(
-                                stream: queryAgeRecord(
-                                  queryBuilder: (ageRecord) =>
-                                      ageRecord.orderBy('sort'),
+                              child: StreamBuilder<List<VaccinatePeriodRecord>>(
+                                stream: queryVaccinatePeriodRecord(
+                                  queryBuilder: (vaccinatePeriodRecord) =>
+                                      vaccinatePeriodRecord.orderBy('sort'),
                                 ),
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
@@ -150,7 +142,8 @@ class _VaccinationCalendarPageWidgetState
                                       ),
                                     );
                                   }
-                                  List<AgeRecord> ageQueryAgeRecordList =
+                                  List<VaccinatePeriodRecord>
+                                      vacinationPeriodQueryVaccinatePeriodRecordList =
                                       snapshot.data!;
                                   return Container(
                                     decoration: BoxDecoration(),
@@ -204,9 +197,9 @@ class _VaccinationCalendarPageWidgetState
                                                     .fromSTEB(
                                                         20.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  ageQueryAgeRecordList[
+                                                  vacinationPeriodQueryVaccinatePeriodRecordList[
                                                           _model.initialIndex]
-                                                      .age,
+                                                      .period,
                                                   textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -303,10 +296,10 @@ class _VaccinationCalendarPageWidgetState
                                                                 .where(
                                                       'period_vaccinating',
                                                       isEqualTo:
-                                                          ageQueryAgeRecordList[
+                                                          vacinationPeriodQueryVaccinatePeriodRecordList[
                                                                   _model
                                                                       .initialIndex]
-                                                              .age,
+                                                              .period,
                                                     ),
                                                   ),
                                                   builder: (context, snapshot) {
@@ -347,7 +340,7 @@ class _VaccinationCalendarPageWidgetState
                                                                       .where(
                                                                         'period_vacinating',
                                                                         isEqualTo:
-                                                                            ageQueryAgeRecordList[_model.initialIndex].age,
+                                                                            vacinationPeriodQueryVaccinatePeriodRecordList[_model.initialIndex].period,
                                                                       )
                                                                       .orderBy(
                                                                           'age_of_child_in_days'),
@@ -384,7 +377,7 @@ class _VaccinationCalendarPageWidgetState
                                                               builder:
                                                                   (context) {
                                                                 final weeksCounter =
-                                                                    ageQueryAgeRecordList
+                                                                    vacinationPeriodQueryVaccinatePeriodRecordList
                                                                         .toList();
                                                                 return Container(
                                                                   width: double

@@ -234,7 +234,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                                                         child:
                                                                             Icon(
                                                                           FFIcons
-                                                                              .ktrashCan,
+                                                                              .kdel,
                                                                           color:
                                                                               FlutterFlowTheme.of(context).error,
                                                                           size:

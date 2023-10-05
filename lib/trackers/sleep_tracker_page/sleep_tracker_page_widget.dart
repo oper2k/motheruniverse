@@ -449,15 +449,55 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget> {
                                                         .tempStartSleepTime,
                                               ),
                                               trackersRecordReference1);
-
-                                      await widget.child!.reference.update({
-                                        ...mapToFirestore(
-                                          {
-                                            'temp_start_sleep_time':
-                                                FieldValue.delete(),
-                                          },
-                                        ),
-                                      });
+                                      if (functions.isWithinNDays(
+                                              widget.child!.birthDate!, 31) &&
+                                          (functions
+                                                  .calculateSleepDurationInMinutes(
+                                                      _model.trackerDoc!
+                                                          .trackerStartTime!,
+                                                      getCurrentTimestamp) >
+                                              240)) {
+                                        await widget.child!.reference.update({
+                                          ...mapToFirestore(
+                                            {
+                                              'temp_start_sleep_time':
+                                                  FieldValue.delete(),
+                                              'unnormal_sleep_date':
+                                                  FieldValue.arrayUnion(
+                                                      [getCurrentTimestamp]),
+                                            },
+                                          ),
+                                        });
+                                      } else if (functions.isWithinNDays(
+                                              widget.child!.birthDate!,
+                                              1095) &&
+                                          (functions
+                                                  .calculateSleepDurationInMinutes(
+                                                      _model.trackerDoc!
+                                                          .trackerStartTime!,
+                                                      getCurrentTimestamp) >
+                                              120)) {
+                                        await widget.child!.reference.update({
+                                          ...mapToFirestore(
+                                            {
+                                              'temp_start_sleep_time':
+                                                  FieldValue.delete(),
+                                              'unnormal_sleep_date':
+                                                  FieldValue.arrayUnion(
+                                                      [getCurrentTimestamp]),
+                                            },
+                                          ),
+                                        });
+                                      } else {
+                                        await widget.child!.reference.update({
+                                          ...mapToFirestore(
+                                            {
+                                              'temp_start_sleep_time':
+                                                  FieldValue.delete(),
+                                            },
+                                          ),
+                                        });
+                                      }
 
                                       await currentUserReference!.update({
                                         ...mapToFirestore(
@@ -475,7 +515,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget> {
                                         ),
                                       });
 
-                                      context.pushNamed(
+                                      context.goNamed(
                                         'SleepTrackerIsAdded',
                                         queryParameters: {
                                           'tracker': serializeParam(
@@ -603,7 +643,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget> {
                                         ),
                                       });
 
-                                      context.pushNamed(
+                                      context.goNamed(
                                         'SleepTrackerIsAdded',
                                         queryParameters: {
                                           'tracker': serializeParam(

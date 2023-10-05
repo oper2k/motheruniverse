@@ -289,8 +289,12 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                                               weeksCounter
                                                                       .length -
                                                                   1)),
-                                                  onPageChanged: (_) =>
-                                                      setState(() {}),
+                                                  onPageChanged: (_) async {
+                                                    setState(() {
+                                                      _model.initialIndex = _model
+                                                          .pageViewCurrentIndex;
+                                                    });
+                                                  },
                                                   scrollDirection:
                                                       Axis.horizontal,
                                                   itemCount:

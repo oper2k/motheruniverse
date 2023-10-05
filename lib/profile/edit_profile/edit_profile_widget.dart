@@ -142,7 +142,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           child: Align(
                             alignment: AlignmentDirectional(1.00, 0.00),
                             child: Icon(
-                              FFIcons.ktrashCan,
+                              FFIcons.kdel,
                               color: FlutterFlowTheme.of(context).error,
                               size: 24.0,
                             ),

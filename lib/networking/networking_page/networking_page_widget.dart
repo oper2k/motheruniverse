@@ -108,7 +108,7 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
             return Container(
               decoration: BoxDecoration(),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: Stack(
                   children: [
                     FlutterFlowGoogleMap(
@@ -231,7 +231,7 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
                       updateCallback: () => setState(() {}),
                       child: NavBarWidget(
                         homeIcon: Icon(
-                          FFIcons.khomeInactive,
+                          FFIcons.khome2,
                           color: FlutterFlowTheme.of(context).primaryText,
                         ),
                         calendarIcon: Icon(

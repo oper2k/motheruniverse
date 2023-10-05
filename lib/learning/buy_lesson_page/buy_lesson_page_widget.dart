@@ -90,7 +90,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 0.0),
                           child: Text(
-                            '${widget.lesson?.price?.toString()} рублей',
+                            '${(widget.lesson!.price.round()).toString()} рублей',
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(

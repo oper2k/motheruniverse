@@ -532,6 +532,15 @@ class LegendWidget extends StatelessWidget {
         ),
         const SizedBox(width: 8),
         Text('ВБ'),
+        const SizedBox(width: 16),
+        ClipOval(
+          child: SizedBox.square(
+            dimension: 12,
+            child: ColoredBox(color: Color(0xFFE28C13)),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Text('Отклонение от нормы'),
       ],
     );
   }
