@@ -220,7 +220,7 @@ class FFAppState extends ChangeNotifier {
     prefs.setInt('ff_entryCounter', _value);
   }
 
-  String _cloudPublicID = 'pk_95c3539932ce407838c78a72db586';
+  String _cloudPublicID = 'pk_480c7674892e642b5baa1d3d2057a';
   String get cloudPublicID => _cloudPublicID;
   set cloudPublicID(String _value) {
     _cloudPublicID = _value;
