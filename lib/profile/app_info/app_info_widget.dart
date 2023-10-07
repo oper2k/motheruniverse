@@ -91,7 +91,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 21.0),
                 child: Text(
-                  'Номер версии из переменной',
+                  '1.0.0',
                   style: FlutterFlowTheme.of(context).headlineSmall.override(
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w500,
@@ -112,7 +112,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 21.0),
                 child: Text(
-                  '\"размер из переменной\" Мб',
+                  '83 Мб',
                   style: FlutterFlowTheme.of(context).headlineSmall.override(
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w500,
@@ -166,8 +166,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    await launchURL(
-                        'https://firebasestorage.googleapis.com/v0/b/mother-universe.appspot.com/o/docs%2F%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0_%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8_%D0%9F%D1%83%D1%82%D1%80%D0%BE%D0%BB%D0%B0%D0%B9%D0%BD%D0%B5%D0%BD_%D0%95_%D0%A1_.pdf?alt=media&token=7454efb0-619c-4e14-a9f7-e8448f6a0941&_gl=1*2d1l4h*_ga*MTA4MTI1NDgxNy4xNjg1MjEwOTA3*_ga_CW55HF8NVT*MTY5NjMzODU3My4zMDAuMS4xNjk2MzM4NjkwLjYwLjAuMA..');
+                    await launchURL('https://dociureva.ru/confident');
                   },
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
@@ -199,8 +198,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  await launchURL(
-                      'https://firebasestorage.googleapis.com/v0/b/mother-universe.appspot.com/o/docs%2F%D0%9F%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B5_%D1%81%D0%BE%D0%B3%D0%BB%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B5_%D0%9F%D1%83%D1%82%D1%80%D0%BE%D0%BB%D0%B0%D0%B9%D0%BD%D0%B5%D0%BD_%D0%95_%D0%A1_.pdf?alt=media&token=2808a7fd-3d6c-4e49-ace7-cbfa74d9bb5c&_gl=1*1xh22wb*_ga*MTA4MTI1NDgxNy4xNjg1MjEwOTA3*_ga_CW55HF8NVT*MTY5NjMzODU3My4zMDAuMS4xNjk2MzM4NzI5LjIxLjAuMA..');
+                  await launchURL('https://dociureva.ru/soglashenie');
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.max,

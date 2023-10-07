@@ -230,26 +230,7 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
                       model: _model.navBarModel,
                       updateCallback: () => setState(() {}),
                       child: NavBarWidget(
-                        homeIcon: Icon(
-                          FFIcons.khome2,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                        ),
-                        calendarIcon: Icon(
-                          FFIcons.kcalendar,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                        ),
-                        learningIcon: Icon(
-                          FFIcons.kbook,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                        ),
-                        networkIcon: Icon(
-                          FFIcons.kcompasActive,
-                          color: FlutterFlowTheme.of(context).primary,
-                        ),
-                        profileIcon: Icon(
-                          FFIcons.kuser,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                        ),
+                        nevBarPage: 4,
                       ),
                     ),
                   ],

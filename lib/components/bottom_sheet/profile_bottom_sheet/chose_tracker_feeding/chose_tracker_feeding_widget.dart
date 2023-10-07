@@ -248,7 +248,7 @@ class _ChoseTrackerFeedingWidgetState extends State<ChoseTrackerFeedingWidget> {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           child: Icon(
-                            FFIcons.kbottle,
+                            FFIcons.kbottle2,
                             color: FlutterFlowTheme.of(context).redIcon,
                             size: 40.0,
                           ),

@@ -1119,7 +1119,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 12.0, 0.0),
                                     child: Icon(
-                                      FFIcons.klink2,
+                                      FFIcons.kchain2,
                                       color:
                                           FlutterFlowTheme.of(context).primary,
                                       size: 24.0,

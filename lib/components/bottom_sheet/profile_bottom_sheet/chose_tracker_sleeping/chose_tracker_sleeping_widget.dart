@@ -248,7 +248,7 @@ class _ChoseTrackerSleepingWidgetState
                               borderRadius: BorderRadius.circular(20.0),
                             ),
                             child: Icon(
-                              FFIcons.kbottle,
+                              FFIcons.kbottle2,
                               color: Colors.white,
                               size: 40.0,
                             ),

@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/components/bottom_sheet/profile_bottom_sheet/add_sleeping_tracker/add_sleeping_tracker_widget.dart';
 import '/components/bottom_sheet/profile_bottom_sheet/chose_tracker_sleeping/chose_tracker_sleeping_widget.dart';
 import '/components/bottom_sheet/profile_bottom_sheet/reset_sleep_tracker/reset_sleep_tracker_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -11,6 +12,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'sleep_tracker_page_model.dart';
@@ -28,10 +30,34 @@ class SleepTrackerPageWidget extends StatefulWidget {
   _SleepTrackerPageWidgetState createState() => _SleepTrackerPageWidgetState();
 }
 
-class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget> {
+class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
+    with TickerProviderStateMixin {
   late SleepTrackerPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'imageOnPageLoadAnimation': AnimationInfo(
+      loop: true,
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        ScaleEffect(
+          curve: Curves.easeOut,
+          delay: 0.ms,
+          duration: 3000.ms,
+          begin: Offset(1.0, 1.0),
+          end: Offset(0.8, 0.8),
+        ),
+        ScaleEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 3000.ms,
+          begin: Offset(0.8, 0.8),
+          end: Offset(1.0, 1.0),
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -150,7 +176,8 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget> {
                                   width: 190.0,
                                   fit: BoxFit.cover,
                                 ),
-                              ),
+                              ).animateOnPageLoad(
+                                  animationsMap['imageOnPageLoadAnimation']!),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 37.0, 0.0, 0.0),

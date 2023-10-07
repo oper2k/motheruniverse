@@ -874,10 +874,12 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                   ).then((value) => safeSetState(
                                       () => _model.pickedDateOutput = value));
 
-                                  setState(() {
-                                    _model.pickedDayIndex = -1;
-                                    _model.date = _model.pickedDateOutput;
-                                  });
+                                  if (_model.pickedDateOutput != null) {
+                                    setState(() {
+                                      _model.pickedDayIndex = -1;
+                                      _model.date = _model.pickedDateOutput;
+                                    });
+                                  }
 
                                   setState(() {});
                                 },
@@ -950,26 +952,7 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
               model: _model.navBarModel,
               updateCallback: () => setState(() {}),
               child: NavBarWidget(
-                homeIcon: Icon(
-                  FFIcons.khome2,
-                  color: FlutterFlowTheme.of(context).grey60,
-                ),
-                calendarIcon: Icon(
-                  FFIcons.kcalendarActive,
-                  color: FlutterFlowTheme.of(context).primary,
-                ),
-                learningIcon: Icon(
-                  FFIcons.kbook,
-                  color: FlutterFlowTheme.of(context).grey60,
-                ),
-                networkIcon: Icon(
-                  FFIcons.kcompas,
-                  color: FlutterFlowTheme.of(context).grey60,
-                ),
-                profileIcon: Icon(
-                  FFIcons.kuser,
-                  color: FlutterFlowTheme.of(context).grey60,
-                ),
+                nevBarPage: 2,
               ),
             ),
           ],

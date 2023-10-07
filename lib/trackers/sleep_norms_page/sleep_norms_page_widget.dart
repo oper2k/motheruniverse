@@ -700,7 +700,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
                                       child: Text(
-                                        'Hello World',
+                                        'В этом месяце ребенок спал хорошо. Продолжайте в том же духе',
                                         style: FlutterFlowTheme.of(context)
                                             .headlineSmall
                                             .override(

@@ -238,7 +238,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                           borderRadius:
                                               BorderRadius.circular(0.0),
                                           child: Image.asset(
-                                            'assets/images/Weight.webp',
+                                            'assets/images/amrjz-973ls.webp',
                                             width: double.infinity,
                                             height: double.infinity,
                                             fit: BoxFit.fill,

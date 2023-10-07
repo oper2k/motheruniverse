@@ -852,30 +852,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
               model: _model.navBarModel,
               updateCallback: () => setState(() {}),
               child: NavBarWidget(
-                homeIcon: Icon(
-                  FFIcons.khome2,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  size: 24.0,
-                ),
-                calendarIcon: Icon(
-                  FFIcons.kcalendar,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  size: 24.0,
-                ),
-                learningIcon: Icon(
-                  FFIcons.kbook,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  size: 24.0,
-                ),
-                networkIcon: Icon(
-                  FFIcons.kcompas,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  size: 24.0,
-                ),
-                profileIcon: Icon(
-                  FFIcons.kuserActive,
-                  color: FlutterFlowTheme.of(context).iconColor,
-                ),
+                nevBarPage: 5,
               ),
             ),
           ],

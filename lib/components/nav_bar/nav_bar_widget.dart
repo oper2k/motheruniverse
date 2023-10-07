@@ -9,18 +9,10 @@ export 'nav_bar_model.dart';
 class NavBarWidget extends StatefulWidget {
   const NavBarWidget({
     Key? key,
-    this.homeIcon,
-    this.calendarIcon,
-    this.learningIcon,
-    this.networkIcon,
-    this.profileIcon,
+    required this.nevBarPage,
   }) : super(key: key);
 
-  final Widget? homeIcon;
-  final Widget? calendarIcon;
-  final Widget? learningIcon;
-  final Widget? networkIcon;
-  final Widget? profileIcon;
+  final int? nevBarPage;
 
   @override
   _NavBarWidgetState createState() => _NavBarWidgetState();
@@ -94,7 +86,23 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      widget.homeIcon!,
+                      Builder(
+                        builder: (context) {
+                          if (widget.nevBarPage == 1) {
+                            return Icon(
+                              FFIcons.khome1,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 24.0,
+                            );
+                          } else {
+                            return Icon(
+                              FFIcons.khome2,
+                              color: FlutterFlowTheme.of(context).grey60,
+                              size: 24.0,
+                            );
+                          }
+                        },
+                      ),
                     ],
                   ),
                 ),
@@ -120,7 +128,23 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      widget.calendarIcon!,
+                      Builder(
+                        builder: (context) {
+                          if (widget.nevBarPage == 2) {
+                            return Icon(
+                              FFIcons.kcalendar,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 24.0,
+                            );
+                          } else {
+                            return Icon(
+                              FFIcons.kcalendar,
+                              color: FlutterFlowTheme.of(context).grey60,
+                              size: 24.0,
+                            );
+                          }
+                        },
+                      ),
                     ],
                   ),
                 ),
@@ -146,7 +170,23 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      widget.learningIcon!,
+                      Builder(
+                        builder: (context) {
+                          if (widget.nevBarPage == 3) {
+                            return Icon(
+                              FFIcons.kbookActive,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 24.0,
+                            );
+                          } else {
+                            return Icon(
+                              FFIcons.kbook,
+                              color: FlutterFlowTheme.of(context).grey60,
+                              size: 24.0,
+                            );
+                          }
+                        },
+                      ),
                     ],
                   ),
                 ),
@@ -172,7 +212,23 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      widget.networkIcon!,
+                      Builder(
+                        builder: (context) {
+                          if (widget.nevBarPage == 4) {
+                            return Icon(
+                              FFIcons.kcompasActive,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 24.0,
+                            );
+                          } else {
+                            return Icon(
+                              FFIcons.kcompas,
+                              color: FlutterFlowTheme.of(context).grey60,
+                              size: 24.0,
+                            );
+                          }
+                        },
+                      ),
                     ],
                   ),
                 ),
@@ -198,7 +254,23 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      widget.profileIcon!,
+                      Builder(
+                        builder: (context) {
+                          if (widget.nevBarPage == 5) {
+                            return Icon(
+                              FFIcons.kuserActive,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 24.0,
+                            );
+                          } else {
+                            return Icon(
+                              FFIcons.kuser,
+                              color: FlutterFlowTheme.of(context).grey60,
+                              size: 24.0,
+                            );
+                          }
+                        },
+                      ),
                     ],
                   ),
                 ),

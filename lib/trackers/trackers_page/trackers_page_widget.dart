@@ -835,7 +835,8 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                             20.0),
                                                               ),
                                                               child: Icon(
-                                                                FFIcons.kbottle,
+                                                                FFIcons
+                                                                    .kbottle2,
                                                                 color: Colors
                                                                     .white,
                                                                 size: 40.0,
@@ -1252,26 +1253,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
               model: _model.navBarModel,
               updateCallback: () => setState(() {}),
               child: NavBarWidget(
-                homeIcon: Icon(
-                  FFIcons.khome2,
-                  color: FlutterFlowTheme.of(context).grey60,
-                ),
-                calendarIcon: Icon(
-                  FFIcons.kcalendarActive,
-                  color: FlutterFlowTheme.of(context).primary,
-                ),
-                learningIcon: Icon(
-                  FFIcons.kbook,
-                  color: FlutterFlowTheme.of(context).grey60,
-                ),
-                networkIcon: Icon(
-                  FFIcons.kcompas,
-                  color: FlutterFlowTheme.of(context).grey60,
-                ),
-                profileIcon: Icon(
-                  FFIcons.kuser,
-                  color: FlutterFlowTheme.of(context).grey60,
-                ),
+                nevBarPage: 2,
               ),
             ),
           ],

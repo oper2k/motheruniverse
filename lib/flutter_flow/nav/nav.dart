@@ -525,6 +525,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => SleepNormsPageWidget(
             child: params.getParam('child', ParamType.Document),
           ),
+        ),
+        FFRoute(
+          name: 'ChangeChildPersonalisation',
+          path: '/changeChildPersonalisation',
+          asyncParams: {
+            'child': getDoc(['users', 'children'], ChildrenRecord.fromSnapshot),
+          },
+          builder: (context, params) => ChangeChildPersonalisationWidget(
+            child: params.getParam('child', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'CheckViewPDF',
+          path: '/checkViewPDF',
+          asyncParams: {
+            'check': getDoc(['check_list'], CheckListRecord.fromSnapshot),
+          },
+          builder: (context, params) => CheckViewPDFWidget(
+            check: params.getParam('check', ParamType.Document),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

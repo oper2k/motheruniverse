@@ -60,10 +60,11 @@ class _BreastTrackerPageWidgetState extends State<BreastTrackerPageWidget>
       ],
     ),
     'imageOnPageLoadAnimation2': AnimationInfo(
+      loop: true,
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         ScaleEffect(
-          curve: Curves.easeInOut,
+          curve: Curves.easeOut,
           delay: 0.ms,
           duration: 3000.ms,
           begin: Offset(1.0, 1.0),

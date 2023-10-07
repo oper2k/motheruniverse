@@ -110,7 +110,6 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
                             });
                           },
                         ),
-                        autofocus: true,
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Найдите название чеклиста',
@@ -217,22 +216,22 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           context.pushNamed(
-                                            'CheckViewPage',
+                                            'CheckViewPDF',
                                             queryParameters: {
-                                              'checkListParent': serializeParam(
+                                              'check': serializeParam(
                                                 checkListItem,
                                                 ParamType.Document,
                                               ),
                                             }.withoutNulls,
                                             extra: <String, dynamic>{
-                                              'checkListParent': checkListItem,
+                                              'check': checkListItem,
                                             },
                                           );
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(),
                                           child: Column(
-                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisSize: MainAxisSize.min,
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [

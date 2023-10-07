@@ -440,15 +440,18 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                                     ],
                                                                                   ),
                                                                                 ),
-                                                                                Container(
-                                                                                  width: 30.0,
-                                                                                  height: 30.0,
-                                                                                  decoration: BoxDecoration(
-                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                    shape: BoxShape.circle,
-                                                                                    border: Border.all(
-                                                                                      color: FlutterFlowTheme.of(context).grey40,
-                                                                                      width: 1.0,
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                  child: Container(
+                                                                                    width: 30.0,
+                                                                                    height: 30.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                      shape: BoxShape.circle,
+                                                                                      border: Border.all(
+                                                                                        color: FlutterFlowTheme.of(context).grey40,
+                                                                                        width: 1.0,
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -526,21 +529,24 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                                     ],
                                                                                   ),
                                                                                 ),
-                                                                                Container(
-                                                                                  width: 30.0,
-                                                                                  height: 30.0,
-                                                                                  decoration: BoxDecoration(
-                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                    shape: BoxShape.circle,
-                                                                                    border: Border.all(
-                                                                                      color: FlutterFlowTheme.of(context).grey40,
-                                                                                      width: 1.0,
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                  child: Container(
+                                                                                    width: 30.0,
+                                                                                    height: 30.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                      shape: BoxShape.circle,
+                                                                                      border: Border.all(
+                                                                                        color: FlutterFlowTheme.of(context).grey40,
+                                                                                        width: 1.0,
+                                                                                      ),
                                                                                     ),
-                                                                                  ),
-                                                                                  child: Icon(
-                                                                                    FFIcons.kcheckMini,
-                                                                                    color: Colors.white,
-                                                                                    size: 24.0,
+                                                                                    child: Icon(
+                                                                                      FFIcons.kcheckMini,
+                                                                                      color: Colors.white,
+                                                                                      size: 24.0,
+                                                                                    ),
                                                                                   ),
                                                                                 ),
                                                                               ],

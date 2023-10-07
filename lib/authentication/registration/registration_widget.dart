@@ -144,18 +144,18 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                             maxLines: 1,
                             style: FlutterFlowTheme.of(context).displayMedium,
                           ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('SignIn');
-                                },
-                                child: Text(
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('SignIn');
+                            },
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
                                   'выполните вход',
                                   style: FlutterFlowTheme.of(context)
                                       .displayMedium
@@ -167,16 +167,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         lineHeight: 1.25,
                                       ),
                                 ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('SignIn');
-                                },
-                                child: ClipRRect(
+                                ClipRRect(
                                   borderRadius: BorderRadius.circular(0.0),
                                   child: Image.asset(
                                     'assets/images/wawe1.webp',
@@ -184,8 +175,8 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                     fit: BoxFit.contain,
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ],
                       ),

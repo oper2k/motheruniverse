@@ -13,10 +13,6 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start Cloudpayments Group Code
 
 class CloudpaymentsGroup {
-  static String baseUrl = 'https://api.cloudpayments.ru';
-  static Map<String, String> headers = {
-    'Content-Type': 'application/json',
-  };
   static PayByCardCall payByCardCall = PayByCardCall();
   static CheckDSCall checkDSCall = CheckDSCall();
   static SubscriptionsCreateCopyCall subscriptionsCreateCopyCall =
@@ -34,7 +30,6 @@ class PayByCardCall {
     String? cardCryptogramPacket = '',
     String? email = '',
     String? accountId = '',
-    String? aPIKey = 'MDY0OTdmMmQ5MTFlN2IzNTllMmVmYWEyNWFiYzczNTM=',
   }) async {
     final response = await makeCloudCall(
       _kPrivateApiFunctionName,
@@ -46,7 +41,6 @@ class PayByCardCall {
           'cardCryptogramPacket': cardCryptogramPacket,
           'email': email,
           'accountId': accountId,
-          'aPIKey': aPIKey,
         },
       },
     );
@@ -95,7 +89,6 @@ class CheckDSCall {
   Future<ApiCallResponse> call({
     int? transactionId,
     String? paRes = '',
-    String? aPIKey = 'MDY0OTdmMmQ5MTFlN2IzNTllMmVmYWEyNWFiYzczNTM=',
   }) async {
     final response = await makeCloudCall(
       _kPrivateApiFunctionName,
@@ -104,7 +97,6 @@ class CheckDSCall {
         'variables': {
           'transactionId': transactionId,
           'paRes': paRes,
-          'aPIKey': aPIKey,
         },
       },
     );
@@ -131,98 +123,52 @@ class CheckDSCall {
 
 class SubscriptionsCreateCopyCall {
   Future<ApiCallResponse> call({
-    String? apiCloud = '',
     String? publicId = 'pk_95c3539932ce407838c78a72db586',
-    String? aPIKey = 'MDY0OTdmMmQ5MTFlN2IzNTllMmVmYWEyNWFiYzczNTM=',
-  }) {
-    final ffApiRequestBody = '''
-{
-  "Token": "<Token>",
-  "AccountId": "<AccountId>",
-  "Description": "<Description>",
-  "Email": "<Email>",
-  "Amount": 0,
-  "Currency": "RUB",
-  "publicId": "${publicId}",
-  "RequireConfirmation": false,
-  "StartDate": "<StartDate>",
-  "Interval": "<Interval>",
-  "Period": 1
-}''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'Subscriptions create Copy',
-      apiUrl: '${CloudpaymentsGroup.baseUrl}/subscriptions/create',
-      callType: ApiCallType.POST,
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Basic ODM1YTE5MzU2Y2JiYWI3ZTIxYTc1ZDQ2NjcyN2QyNWU=',
+  }) async {
+    final response = await makeCloudCall(
+      _kPrivateApiFunctionName,
+      {
+        'callName': 'SubscriptionsCreateCopyCall',
+        'variables': {
+          'publicId': publicId,
+        },
       },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
     );
+    return ApiCallResponse.fromCloudCallResponse(response);
   }
 }
 
 class CheckSubscriptionsCopyCall {
   Future<ApiCallResponse> call({
-    String? apiCloud = '',
     String? id = '',
-    String? aPIKey = 'MDY0OTdmMmQ5MTFlN2IzNTllMmVmYWEyNWFiYzczNTM=',
-  }) {
-    final ffApiRequestBody = '''
-{
-  "Id": "${id}"
-}''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'Check subscriptions Copy',
-      apiUrl: '${CloudpaymentsGroup.baseUrl}/subscriptions/get',
-      callType: ApiCallType.POST,
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Basic ODM1YTE5MzU2Y2JiYWI3ZTIxYTc1ZDQ2NjcyN2QyNWU=',
+  }) async {
+    final response = await makeCloudCall(
+      _kPrivateApiFunctionName,
+      {
+        'callName': 'CheckSubscriptionsCopyCall',
+        'variables': {
+          'id': id,
+        },
       },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
     );
+    return ApiCallResponse.fromCloudCallResponse(response);
   }
 }
 
 class CancelSubscriptionsCopyCall {
   Future<ApiCallResponse> call({
-    String? apiCloud = '',
     String? id = '',
-    String? aPIKey = 'MDY0OTdmMmQ5MTFlN2IzNTllMmVmYWEyNWFiYzczNTM=',
-  }) {
-    final ffApiRequestBody = '''
-{
-  "Id": "${id}"
-}''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'Cancel subscriptions Copy',
-      apiUrl: '${CloudpaymentsGroup.baseUrl}/subscriptions/cancel',
-      callType: ApiCallType.POST,
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Basic ODM1YTE5MzU2Y2JiYWI3ZTIxYTc1ZDQ2NjcyN2QyNWU=',
+  }) async {
+    final response = await makeCloudCall(
+      _kPrivateApiFunctionName,
+      {
+        'callName': 'CancelSubscriptionsCopyCall',
+        'variables': {
+          'id': id,
+        },
       },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
     );
+    return ApiCallResponse.fromCloudCallResponse(response);
   }
 }
 

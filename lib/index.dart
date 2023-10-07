@@ -46,7 +46,7 @@ export '/main/all_videos_page/all_videos_page_widget.dart'
 export '/main/vid_view_page/vid_view_page_widget.dart' show VidViewPageWidget;
 export '/main/all_check_lists_page/all_check_lists_page_widget.dart'
     show AllCheckListsPageWidget;
-export '/main/check_view_page/check_view_page_widget.dart'
+export '/not_use/check_view_page/check_view_page_widget.dart'
     show CheckViewPageWidget;
 export '/main/new_view_page/new_view_page_widget.dart' show NewViewPageWidget;
 export '/main/free_lessons_page/free_lessons_page_widget.dart'
@@ -104,3 +104,6 @@ export '/networking/networking_searching_user/networking_searching_user_widget.d
 export '/entry_page/entry_page_widget.dart' show EntryPageWidget;
 export '/trackers/sleep_norms_page/sleep_norms_page_widget.dart'
     show SleepNormsPageWidget;
+export '/profile_form/change_child_personalisation/change_child_personalisation_widget.dart'
+    show ChangeChildPersonalisationWidget;
+export '/check_view_p_d_f/check_view_p_d_f_widget.dart' show CheckViewPDFWidget;

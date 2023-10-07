@@ -156,9 +156,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                   child: Container(
                     width: double.infinity,
                     height: 56.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
+                    decoration: BoxDecoration(),
                     child: Align(
                       alignment: AlignmentDirectional(0.00, 0.00),
                       child: Text(

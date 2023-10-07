@@ -818,26 +818,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                       model: _model.navBarModel,
                       updateCallback: () => setState(() {}),
                       child: NavBarWidget(
-                        homeIcon: Icon(
-                          FFIcons.khome2,
-                          color: FlutterFlowTheme.of(context).grey60,
-                        ),
-                        calendarIcon: Icon(
-                          FFIcons.kcalendar,
-                          color: FlutterFlowTheme.of(context).grey60,
-                        ),
-                        learningIcon: Icon(
-                          FFIcons.kbookActive,
-                          color: FlutterFlowTheme.of(context).primary,
-                        ),
-                        networkIcon: Icon(
-                          FFIcons.kcompas,
-                          color: FlutterFlowTheme.of(context).grey60,
-                        ),
-                        profileIcon: Icon(
-                          FFIcons.kuser,
-                          color: FlutterFlowTheme.of(context).grey60,
-                        ),
+                        nevBarPage: 3,
                       ),
                     ),
                 ],
