@@ -150,7 +150,7 @@ class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          await launchURL('');
+                                          await launchURL(podcastsItem.link);
                                         },
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,

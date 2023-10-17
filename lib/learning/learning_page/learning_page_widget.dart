@@ -155,7 +155,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                               Expanded(
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20.0, 0.0, 0.0, 0.0),
+                                      20.0, 0.0, 20.0, 0.0),
                                   child: Container(
                                     width: 142.0,
                                     child: TextFormField(
@@ -236,7 +236,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                               if (_model.filter != null && _model.filter != '')
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 20.0, 0.0),
+                                      0.0, 0.0, 20.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,

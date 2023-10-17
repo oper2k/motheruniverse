@@ -40,6 +40,14 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _cloudPublicID = prefs.getString('ff_cloudPublicID') ?? _cloudPublicID;
     });
+    _safeInit(() {
+      _randomSleepTip =
+          prefs.getStringList('ff_randomSleepTip') ?? _randomSleepTip;
+    });
+    _safeInit(() {
+      _firstTipWasShowed =
+          prefs.getInt('ff_firstTipWasShowed') ?? _firstTipWasShowed;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -231,6 +239,59 @@ class FFAppState extends ChangeNotifier {
   int get viewSleepNorms => _viewSleepNorms;
   set viewSleepNorms(int _value) {
     _viewSleepNorms = _value;
+  }
+
+  List<String> _randomSleepTip = [
+    'Ой-ё-ёй. Кажется что-то не так. В системе малышарика произошёл сбой. Сон совсем разгулялся. \nОбрати внимание на отклонения от нормы. Наладить режим и вернуть спокойный и регулярный сон помогут наши лекции. Переходи, изучай и спите сладко.',
+    'Так-так, кажется у кого-то произошли отклонения в режиме сна. Не волнуйся, мы вместе вернём сон малыша в норму. А помогут нам лекции, переходи. ',
+    'Присмотрись, режим ушёл от нормы, давай вернём его в строй. Ответы на все вопросы ты найдёшь в наших лекциях, переходи. ',
+    'Похоже что-то пошло не так. Сон твоего малыша совсем распоясался. Обрати на это внимание. Мы всегда рядом и готовы помочь. Наладить сон и спать спокойно помогут наши лекции. ',
+    'Кажется режим сна твоего малыша сбился. Без паники, мы всегда на страже. \nПомочь в регулировке сна могут наши лекции. Переходи, изучай и сладких вам снов.',
+    'Даже если с режимом пошло что-то не так, ты всегда можешь рассчитывать на нашу помощь. В перенастройке сна помогут наши лекции. Переходи, изучай и да пребудет с вами сладкий сон.',
+    'Если в настройках режим и сна что-то пошло не так, не расстраивайся, ты самая лучшая мам для своего малыша. Во всех остальных вопросах мы поможем, переходи к лекциям.',
+    'Кажется режим малыша снова сбился и мы понимаем как тебе не просто, ведь твой сон и самочувствие это важно.\nМы готовы тебя поддержать, переходи к лекциям.',
+    'Даже если с режимом что-то идёт не так, не забывай о себе и своём состоянии, мы знаем как порой бывает не просто и готовы помочь в любом вопросе.',
+    'Если не сил и ты чувствуешь себя опустошенной, мы хотим в этот момент быть твоим островком поддержки и помощи. Загляни в нашу библиотеку.'
+  ];
+  List<String> get randomSleepTip => _randomSleepTip;
+  set randomSleepTip(List<String> _value) {
+    _randomSleepTip = _value;
+    prefs.setStringList('ff_randomSleepTip', _value);
+  }
+
+  void addToRandomSleepTip(String _value) {
+    _randomSleepTip.add(_value);
+    prefs.setStringList('ff_randomSleepTip', _randomSleepTip);
+  }
+
+  void removeFromRandomSleepTip(String _value) {
+    _randomSleepTip.remove(_value);
+    prefs.setStringList('ff_randomSleepTip', _randomSleepTip);
+  }
+
+  void removeAtIndexFromRandomSleepTip(int _index) {
+    _randomSleepTip.removeAt(_index);
+    prefs.setStringList('ff_randomSleepTip', _randomSleepTip);
+  }
+
+  void updateRandomSleepTipAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _randomSleepTip[_index] = updateFn(_randomSleepTip[_index]);
+    prefs.setStringList('ff_randomSleepTip', _randomSleepTip);
+  }
+
+  void insertAtIndexInRandomSleepTip(int _index, String _value) {
+    _randomSleepTip.insert(_index, _value);
+    prefs.setStringList('ff_randomSleepTip', _randomSleepTip);
+  }
+
+  int _firstTipWasShowed = 0;
+  int get firstTipWasShowed => _firstTipWasShowed;
+  set firstTipWasShowed(int _value) {
+    _firstTipWasShowed = _value;
+    prefs.setInt('ff_firstTipWasShowed', _value);
   }
 }
 

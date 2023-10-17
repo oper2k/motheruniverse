@@ -1207,3 +1207,36 @@ int calculateSleepDurationInMinutes(
   Duration sleepDuration = awakeTime.difference(asleepTime);
   return sleepDuration.inMinutes;
 }
+
+int countDates(List<DateTime> dateList) {
+  /// принимает список объектов DateTime и возвращает количество дат, которые равны сегодняшнему, вчерашнему или позавчерашнему дню:
+  DateTime today = DateTime.now();
+  DateTime yesterday = today.subtract(Duration(days: 1));
+  DateTime dayBeforeYesterday = today.subtract(Duration(days: 2));
+
+  int count = 0;
+  for (DateTime date in dateList) {
+    if (date.year == today.year &&
+        date.month == today.month &&
+        date.day == today.day) {
+      count++;
+    } else if (date.year == yesterday.year &&
+        date.month == yesterday.month &&
+        date.day == yesterday.day) {
+      count++;
+    } else if (date.year == dayBeforeYesterday.year &&
+        date.month == dayBeforeYesterday.month &&
+        date.day == dayBeforeYesterday.day) {
+      count++;
+    }
+  }
+  return count;
+}
+
+String getRandomElement(List<String> list) {
+  /// принимает список строк (List<String>) и возвращает случайный элемент из этого списка:
+
+  int currentTime = DateTime.now().millisecondsSinceEpoch;
+  int randomIndex = currentTime % list.length;
+  return list[randomIndex];
+}

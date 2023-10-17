@@ -599,7 +599,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               borderRadius:
                                                   BorderRadius.circular(0.0),
                                               child: Image.asset(
-                                                'assets/images/profile_rate_app.webp',
+                                                'assets/images/Screenshot_2023-06-09_at_23.57_12.webp',
                                                 height: double.infinity,
                                                 fit: BoxFit.contain,
                                               ),

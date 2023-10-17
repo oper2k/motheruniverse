@@ -150,6 +150,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              if (Navigator.of(context).canPop()) {
+                                context.pop();
+                              }
                               context.pushNamed('SignIn');
                             },
                             child: Column(

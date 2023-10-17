@@ -47,6 +47,32 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
         duration: Duration(milliseconds: 300),
         curve: Curves.ease,
       );
+      if (functions.isWithinNDays(widget.child!.birthDate!, 31) &&
+          (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
+              8) &&
+          (FFAppState().firstTipWasShowed == 0)) {
+        FFAppState().firstTipWasShowed = 1;
+      } else if (functions.isWithinNDays(widget.child!.birthDate!, 61) &&
+          (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
+              5) &&
+          (FFAppState().firstTipWasShowed == 0)) {
+        FFAppState().firstTipWasShowed = 1;
+      } else if (functions.isWithinNDays(widget.child!.birthDate!, 122) &&
+          (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
+              4) &&
+          (FFAppState().firstTipWasShowed == 0)) {
+        FFAppState().firstTipWasShowed = 1;
+      } else if (functions.isWithinNDays(widget.child!.birthDate!, 212) &&
+          (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
+              3) &&
+          (FFAppState().firstTipWasShowed == 0)) {
+        FFAppState().firstTipWasShowed = 1;
+      } else if (functions.isWithinNDays(widget.child!.birthDate!, 1095) &&
+          (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
+              2) &&
+          (FFAppState().firstTipWasShowed == 0)) {
+        FFAppState().firstTipWasShowed = 1;
+      }
     });
   }
 
@@ -696,18 +722,255 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                         ),
                                       ],
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'В этом месяце ребенок спал хорошо. Продолжайте в том же духе',
-                                        style: FlutterFlowTheme.of(context)
-                                            .headlineSmall
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              lineHeight: 1.5,
+                                    Builder(
+                                      builder: (context) {
+                                        if (functions.isWithinNDays(widget.child!.birthDate!, 31) &&
+                                            (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
+                                                8) &&
+                                            (FFAppState().firstTipWasShowed ==
+                                                0)) {
+                                          return Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 8.0, 0.0, 0.0),
+                                            child: AuthUserStreamWidget(
+                                              builder: (context) => Text(
+                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != null && valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          lineHeight: 1.5,
+                                                        ),
+                                              ),
                                             ),
-                                      ),
+                                          );
+                                        } else if (functions.isWithinNDays(
+                                                widget.child!.birthDate!, 61) &&
+                                            (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
+                                                5) &&
+                                            (FFAppState().firstTipWasShowed ==
+                                                0)) {
+                                          return Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 8.0, 0.0, 0.0),
+                                            child: AuthUserStreamWidget(
+                                              builder: (context) => Text(
+                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != null && valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          lineHeight: 1.5,
+                                                        ),
+                                              ),
+                                            ),
+                                          );
+                                        } else if (functions.isWithinNDays(widget.child!.birthDate!, 122) &&
+                                            (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
+                                                4) &&
+                                            (FFAppState().firstTipWasShowed ==
+                                                0)) {
+                                          return Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 8.0, 0.0, 0.0),
+                                            child: AuthUserStreamWidget(
+                                              builder: (context) => Text(
+                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != null && valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          lineHeight: 1.5,
+                                                        ),
+                                              ),
+                                            ),
+                                          );
+                                        } else if (functions.isWithinNDays(
+                                                widget.child!.birthDate!,
+                                                212) &&
+                                            (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
+                                                3) &&
+                                            (FFAppState().firstTipWasShowed ==
+                                                0)) {
+                                          return Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 8.0, 0.0, 0.0),
+                                            child: AuthUserStreamWidget(
+                                              builder: (context) => Text(
+                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != null && valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          lineHeight: 1.5,
+                                                        ),
+                                              ),
+                                            ),
+                                          );
+                                        } else if (functions.isWithinNDays(
+                                                widget.child!.birthDate!, 1095) &&
+                                            (functions.countDates(widget.child!.unnormalSleepDate.toList()) >= 2) &&
+                                            (FFAppState().firstTipWasShowed == 0)) {
+                                          return Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 8.0, 0.0, 0.0),
+                                            child: AuthUserStreamWidget(
+                                              builder: (context) => Text(
+                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != null && valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          lineHeight: 1.5,
+                                                        ),
+                                              ),
+                                            ),
+                                          );
+                                        } else {
+                                          return Builder(
+                                            builder: (context) {
+                                              if (functions.isWithinNDays(
+                                                      widget.child!.birthDate!,
+                                                      31) &&
+                                                  (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
+                                                      8)) {
+                                                return Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    functions.getRandomElement(
+                                                        FFAppState()
+                                                            .randomSleepTip
+                                                            .toList()),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          lineHeight: 1.5,
+                                                        ),
+                                                  ),
+                                                );
+                                              } else if (functions.isWithinNDays(
+                                                      widget.child!.birthDate!,
+                                                      61) &&
+                                                  (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
+                                                      5)) {
+                                                return Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    functions.getRandomElement(
+                                                        FFAppState()
+                                                            .randomSleepTip
+                                                            .toList()),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          lineHeight: 1.5,
+                                                        ),
+                                                  ),
+                                                );
+                                              } else if (functions.isWithinNDays(
+                                                      widget.child!.birthDate!,
+                                                      122) &&
+                                                  (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
+                                                      4)) {
+                                                return Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    functions.getRandomElement(
+                                                        FFAppState()
+                                                            .randomSleepTip
+                                                            .toList()),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          lineHeight: 1.5,
+                                                        ),
+                                                  ),
+                                                );
+                                              } else if (functions.isWithinNDays(
+                                                      widget.child!.birthDate!,
+                                                      212) &&
+                                                  (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
+                                                      3)) {
+                                                return Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    functions.getRandomElement(
+                                                        FFAppState()
+                                                            .randomSleepTip
+                                                            .toList()),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          lineHeight: 1.5,
+                                                        ),
+                                                  ),
+                                                );
+                                              } else if (functions.countDates(widget.child!.unnormalSleepDate.toList()) >= 2) {
+                                                return Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    functions.getRandomElement(
+                                                        FFAppState()
+                                                            .randomSleepTip
+                                                            .toList()),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          lineHeight: 1.5,
+                                                        ),
+                                                  ),
+                                                );
+                                              } else {
+                                                return Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    'В этом месяце ребенок спал хорошо. Продолжайте в том же духе',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          lineHeight: 1.5,
+                                                        ),
+                                                  ),
+                                                );
+                                              }
+                                            },
+                                          );
+                                        }
+                                      },
                                     ),
                                   ],
                                 ),

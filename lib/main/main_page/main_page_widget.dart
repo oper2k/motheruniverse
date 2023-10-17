@@ -306,7 +306,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 20.0, 0.0),
                       child: StreamBuilder<List<ChildrenRecord>>(
                         stream: queryChildrenRecord(
                           parent: currentUserReference,
@@ -670,93 +670,97 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   .bodyMedium,
                                                             ),
                                                           ),
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Icon(
-                                                                FFIcons.kexpand,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                size: 24.0,
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  '${valueOrDefault<String>(
-                                                                    childItem
-                                                                        .growthList
-                                                                        .last
-                                                                        .growth
-                                                                        .toString(),
-                                                                    '-',
-                                                                  )}  см',
-                                                                  style: FlutterFlowTheme.of(
+                                                          Expanded(
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Icon(
+                                                                  FFIcons
+                                                                      .kexpand,
+                                                                  color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .headlineSmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Inter',
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        lineHeight:
-                                                                            1.28,
-                                                                      ),
+                                                                      .secondaryText,
+                                                                  size: 24.0,
                                                                 ),
-                                                              ),
-                                                            ],
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    '${valueOrDefault<String>(
+                                                                      childItem
+                                                                          .growthList
+                                                                          .last
+                                                                          .growth
+                                                                          .toString(),
+                                                                      '-',
+                                                                    )}  см',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineSmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          lineHeight:
+                                                                              1.28,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
                                                           ),
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Icon(
-                                                                FFIcons.kweight,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                size: 24.0,
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  '${valueOrDefault<String>(
-                                                                    childItem
-                                                                        .weightList
-                                                                        .last
-                                                                        .weight
-                                                                        .toString(),
-                                                                    '-',
-                                                                  )}  кг',
-                                                                  style: FlutterFlowTheme.of(
+                                                          Expanded(
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Icon(
+                                                                  FFIcons
+                                                                      .kweight,
+                                                                  color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .headlineSmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Inter',
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        lineHeight:
-                                                                            1.28,
-                                                                      ),
+                                                                      .secondaryText,
+                                                                  size: 24.0,
                                                                 ),
-                                                              ),
-                                                            ],
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    '${valueOrDefault<String>(
+                                                                      childItem
+                                                                          .weightList
+                                                                          .last
+                                                                          .weight
+                                                                          .toString(),
+                                                                      '-',
+                                                                    )}  кг',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineSmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          lineHeight:
+                                                                              1.28,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
                                                           ),
                                                           Padding(
                                                             padding:
@@ -1111,10 +1115,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   0.0),
                                                       child: Column(
                                                         mainAxisSize:
-                                                            MainAxisSize.max,
+                                                            MainAxisSize.min,
                                                         mainAxisAlignment:
                                                             MainAxisAlignment
-                                                                .spaceBetween,
+                                                                .start,
                                                         crossAxisAlignment:
                                                             CrossAxisAlignment
                                                                 .start,
@@ -1160,41 +1164,21 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   ),
                                                             ),
                                                           ),
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Text(
-                                                                functions.extractDay(
-                                                                    functions.formatDateAfter40Weeks(
-                                                                        childItem
-                                                                            .conceptionDate!)),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineSmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Inter',
-                                                                      fontSize:
-                                                                          24.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                      lineHeight:
-                                                                          1.16,
-                                                                    ),
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            2.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  functions.extractMonth(
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        12.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Text(
+                                                                  functions.extractDay(
                                                                       functions.formatDateAfter40Weeks(
                                                                           childItem
                                                                               .conceptionDate!)),
@@ -1204,101 +1188,118 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
+                                                                        fontSize:
+                                                                            24.0,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
                                                                         lineHeight:
-                                                                            1.5,
+                                                                            1.16,
                                                                       ),
                                                                 ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        4.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              'Примерная дата родов',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .headlineMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Inter',
-                                                                    lineHeight:
-                                                                        1.28,
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          2.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    functions.extractMonth(
+                                                                        functions
+                                                                            .formatDateAfter40Weeks(childItem.conceptionDate!)),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineSmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          lineHeight:
+                                                                              1.5,
+                                                                        ),
                                                                   ),
+                                                                ),
+                                                              ],
                                                             ),
                                                           ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        18.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child:
-                                                                FFButtonWidget(
-                                                              onPressed:
-                                                                  () async {
-                                                                context
-                                                                    .pushNamed(
-                                                                  'UnbornChildPage',
-                                                                  queryParameters:
-                                                                      {
-                                                                    'child':
-                                                                        serializeParam(
-                                                                      childItem,
-                                                                      ParamType
-                                                                          .Document,
+                                                          Expanded(
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Примерная дата родов',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      lineHeight:
+                                                                          1.28,
                                                                     ),
-                                                                  }.withoutNulls,
-                                                                  extra: <String,
-                                                                      dynamic>{
-                                                                    'child':
-                                                                        childItem,
-                                                                  },
-                                                                );
-                                                              },
-                                                              text: 'Подробнее',
-                                                              options:
-                                                                  FFButtonOptions(
-                                                                width: 100.0,
-                                                                height: 36.0,
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                iconPadding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .tertiary,
-                                                                textStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineLarge,
-                                                                elevation: 0.0,
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            10.0),
                                                               ),
+                                                            ),
+                                                          ),
+                                                          FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              context.pushNamed(
+                                                                'UnbornChildPage',
+                                                                queryParameters:
+                                                                    {
+                                                                  'child':
+                                                                      serializeParam(
+                                                                    childItem,
+                                                                    ParamType
+                                                                        .Document,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                                extra: <String,
+                                                                    dynamic>{
+                                                                  'child':
+                                                                      childItem,
+                                                                },
+                                                              );
+                                                            },
+                                                            text: 'Подробнее',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: 100.0,
+                                                              height: 36.0,
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .tertiary,
+                                                              textStyle: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .headlineLarge,
+                                                              elevation: 0.0,
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          10.0),
                                                             ),
                                                           ),
                                                         ],
@@ -2498,26 +2499,44 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 32.0, 20.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'ОБУЧЕНИЕ',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w600,
-                                  lineHeight: 1.28,
-                                ),
-                          ),
-                          Icon(
-                            FFIcons.kright10,
-                            color: FlutterFlowTheme.of(context).primary,
-                            size: 24.0,
-                          ),
-                        ],
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                            'LearningPage',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
+                              ),
+                            },
+                          );
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'ОБУЧЕНИЕ',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w600,
+                                    lineHeight: 1.28,
+                                  ),
+                            ),
+                            Icon(
+                              FFIcons.kright10,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 24.0,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Padding(

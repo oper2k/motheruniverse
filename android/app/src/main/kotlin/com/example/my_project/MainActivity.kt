@@ -1,5 +1,4 @@
-package pro.appful.fraubalance
+package pro.appful.motheruniverse
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 
-class MainActivity: FlutterFragmentActivity() {}
