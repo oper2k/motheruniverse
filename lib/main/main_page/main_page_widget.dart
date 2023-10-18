@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -406,10 +407,19 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       BorderRadius
                                                                           .circular(
                                                                               16.0),
-                                                                  child: Image
-                                                                      .network(
-                                                                    childItem
-                                                                        .photo,
+                                                                  child:
+                                                                      CachedNetworkImage(
+                                                                    fadeInDuration:
+                                                                        Duration(
+                                                                            milliseconds:
+                                                                                200),
+                                                                    fadeOutDuration:
+                                                                        Duration(
+                                                                            milliseconds:
+                                                                                200),
+                                                                    imageUrl:
+                                                                        childItem
+                                                                            .photo,
                                                                     width:
                                                                         120.0,
                                                                     height:
@@ -724,7 +734,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                               children: [
                                                                 Icon(
                                                                   FFIcons
-                                                                      .kweight,
+                                                                      .kunion,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
@@ -891,10 +901,19 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       BorderRadius
                                                                           .circular(
                                                                               16.0),
-                                                                  child: Image
-                                                                      .network(
-                                                                    childItem
-                                                                        .photo,
+                                                                  child:
+                                                                      CachedNetworkImage(
+                                                                    fadeInDuration:
+                                                                        Duration(
+                                                                            milliseconds:
+                                                                                200),
+                                                                    fadeOutDuration:
+                                                                        Duration(
+                                                                            milliseconds:
+                                                                                200),
+                                                                    imageUrl:
+                                                                        childItem
+                                                                            .photo,
                                                                     width:
                                                                         120.0,
                                                                     height:
@@ -1072,8 +1091,16 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       .circular(
                                                                           0.0),
                                                               child:
-                                                                  Image.network(
-                                                                childItem
+                                                                  CachedNetworkImage(
+                                                                fadeInDuration:
+                                                                    Duration(
+                                                                        milliseconds:
+                                                                            500),
+                                                                fadeOutDuration:
+                                                                    Duration(
+                                                                        milliseconds:
+                                                                            500),
+                                                                imageUrl: childItem
                                                                     .imageLeft,
                                                                 width: 50.0,
                                                                 height: 50.0,
@@ -1094,8 +1121,16 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                     .circular(
                                                                         0.0),
                                                             child:
-                                                                Image.network(
-                                                              childItem
+                                                                CachedNetworkImage(
+                                                              fadeInDuration:
+                                                                  Duration(
+                                                                      milliseconds:
+                                                                          500),
+                                                              fadeOutDuration:
+                                                                  Duration(
+                                                                      milliseconds:
+                                                                          500),
+                                                              imageUrl: childItem
                                                                   .imageRight,
                                                               width: 50.0,
                                                               height: 50.0,
@@ -1423,8 +1458,12 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                               ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(12.0),
-                                                child: Image.network(
-                                                  videoItem.preview,
+                                                child: CachedNetworkImage(
+                                                  fadeInDuration: Duration(
+                                                      milliseconds: 200),
+                                                  fadeOutDuration: Duration(
+                                                      milliseconds: 200),
+                                                  imageUrl: videoItem.preview,
                                                   width: 240.0,
                                                   height: 136.0,
                                                   fit: BoxFit.cover,
@@ -1587,8 +1626,13 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           20.0),
-                                                  child: Image.network(
-                                                    checkListItem.image,
+                                                  child: CachedNetworkImage(
+                                                    fadeInDuration: Duration(
+                                                        milliseconds: 200),
+                                                    fadeOutDuration: Duration(
+                                                        milliseconds: 200),
+                                                    imageUrl:
+                                                        checkListItem.image,
                                                     width: 124.0,
                                                     height: 124.0,
                                                     fit: BoxFit.cover,
@@ -1743,8 +1787,12 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             16.0),
-                                                    child: Image.network(
-                                                      newsItem.image,
+                                                    child: CachedNetworkImage(
+                                                      fadeInDuration: Duration(
+                                                          milliseconds: 200),
+                                                      fadeOutDuration: Duration(
+                                                          milliseconds: 200),
+                                                      imageUrl: newsItem.image,
                                                       width: 300.0,
                                                       height: 160.0,
                                                       fit: BoxFit.fill,
@@ -1913,10 +1961,19 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                     BorderRadius
                                                                         .circular(
                                                                             13.0),
-                                                                child: Image
-                                                                    .network(
-                                                                  lessonsItem
-                                                                      .preview,
+                                                                child:
+                                                                    CachedNetworkImage(
+                                                                  fadeInDuration:
+                                                                      Duration(
+                                                                          milliseconds:
+                                                                              200),
+                                                                  fadeOutDuration:
+                                                                      Duration(
+                                                                          milliseconds:
+                                                                              200),
+                                                                  imageUrl:
+                                                                      lessonsItem
+                                                                          .preview,
                                                                   width: 120.0,
                                                                   height: 120.0,
                                                                   fit: BoxFit
@@ -2436,8 +2493,12 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                               ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(16.0),
-                                                child: Image.network(
-                                                  podcastsItem.image,
+                                                child: CachedNetworkImage(
+                                                  fadeInDuration: Duration(
+                                                      milliseconds: 200),
+                                                  fadeOutDuration: Duration(
+                                                      milliseconds: 200),
+                                                  imageUrl: podcastsItem.image,
                                                   width: 124.0,
                                                   height: 124.0,
                                                   fit: BoxFit.cover,
@@ -2836,10 +2897,19 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                     BorderRadius
                                                                         .circular(
                                                                             13.0),
-                                                                child: Image
-                                                                    .network(
-                                                                  learningItem
-                                                                      .preview,
+                                                                child:
+                                                                    CachedNetworkImage(
+                                                                  fadeInDuration:
+                                                                      Duration(
+                                                                          milliseconds:
+                                                                              200),
+                                                                  fadeOutDuration:
+                                                                      Duration(
+                                                                          milliseconds:
+                                                                              200),
+                                                                  imageUrl:
+                                                                      learningItem
+                                                                          .preview,
                                                                   width: 120.0,
                                                                   height: 120.0,
                                                                   fit: BoxFit

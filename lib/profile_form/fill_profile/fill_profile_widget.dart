@@ -41,6 +41,8 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
     _model.nameFieldController ??= TextEditingController();
     _model.secondNameFieldController ??= TextEditingController();
     _model.phoneNumberFieldController ??= TextEditingController();
+    _model.telegramController ??= TextEditingController();
+    _model.instagramController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.phoneNumberFieldController?.text = '+7';
         }));
@@ -357,6 +359,146 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                             ),
                           ),
                         ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 16.0, 0.0, 0.0),
+                          child: Container(
+                            width: double.infinity,
+                            child: TextFormField(
+                              controller: _model.telegramController,
+                              onChanged: (_) => EasyDebounce.debounce(
+                                '_model.telegramController',
+                                Duration(milliseconds: 2000),
+                                () => setState(() {}),
+                              ),
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                labelText: 'Telegram',
+                                labelStyle:
+                                    FlutterFlowTheme.of(context).headlineSmall,
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).divider,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 22.0, 16.0, 22.0),
+                                suffixIcon: _model
+                                        .telegramController!.text.isNotEmpty
+                                    ? InkWell(
+                                        onTap: () async {
+                                          _model.telegramController?.clear();
+                                          setState(() {});
+                                        },
+                                        child: Icon(
+                                          Icons.clear,
+                                          color: FlutterFlowTheme.of(context)
+                                              .grey40,
+                                          size: 24.0,
+                                        ),
+                                      )
+                                    : null,
+                              ),
+                              style: FlutterFlowTheme.of(context).headlineSmall,
+                              cursorColor: FlutterFlowTheme.of(context).overlay,
+                              validator: _model.telegramControllerValidator
+                                  .asValidator(context),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 16.0, 0.0, 0.0),
+                          child: Container(
+                            width: double.infinity,
+                            child: TextFormField(
+                              controller: _model.instagramController,
+                              onChanged: (_) => EasyDebounce.debounce(
+                                '_model.instagramController',
+                                Duration(milliseconds: 2000),
+                                () => setState(() {}),
+                              ),
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                labelText: 'Instagram',
+                                labelStyle:
+                                    FlutterFlowTheme.of(context).headlineSmall,
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).divider,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 22.0, 16.0, 22.0),
+                                suffixIcon: _model
+                                        .instagramController!.text.isNotEmpty
+                                    ? InkWell(
+                                        onTap: () async {
+                                          _model.instagramController?.clear();
+                                          setState(() {});
+                                        },
+                                        child: Icon(
+                                          Icons.clear,
+                                          color: FlutterFlowTheme.of(context)
+                                              .grey40,
+                                          size: 24.0,
+                                        ),
+                                      )
+                                    : null,
+                              ),
+                              style: FlutterFlowTheme.of(context).headlineSmall,
+                              cursorColor: FlutterFlowTheme.of(context).overlay,
+                              validator: _model.instagramControllerValidator
+                                  .asValidator(context),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -550,6 +692,8 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                         phoneNumber: _model.phoneNumberFieldController.text,
                         email: currentUserEmail,
                         firstName: _model.nameFieldController.text,
+                        telegram: _model.telegramController.text,
+                        instagram: _model.instagramController.text,
                       ));
                       if (_model.userAgrees) {
                         await currentUserReference!

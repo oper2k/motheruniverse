@@ -1240,3 +1240,15 @@ String getRandomElement(List<String> list) {
   int randomIndex = currentTime % list.length;
   return list[randomIndex];
 }
+
+String getWordForPoints(double points) {
+  /// принимает значение типа double и возвращает строку "балл" в нужной форме в зависимости от значения:
+  if (points % 10 == 1 && points % 100 != 11) {
+    return 'балл';
+  } else if ((points % 10 == 2 || points % 10 == 3 || points % 10 == 4) &&
+      (points % 100 != 12 && points % 100 != 13 && points % 100 != 14)) {
+    return 'балла';
+  } else {
+    return 'баллов';
+  }
+}

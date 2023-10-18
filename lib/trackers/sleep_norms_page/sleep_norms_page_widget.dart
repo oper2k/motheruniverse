@@ -547,7 +547,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 12.0, 20.0, 0.0),
+                                20.0, 0.0, 20.0, 0.0),
                             child: Builder(
                               builder: (context) {
                                 if (_model.pickedMonthIndex == 0) {
@@ -564,7 +564,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                 } else if ((_model.pickedMonthIndex == 1) ||
                                     (_model.pickedMonthIndex == 2)) {
                                   return Text(
-                                    'Продолжительность времени бодрствования 3 месяца: 1  час 20  мин -  1 час 40 мин.\nКоличество дневных снов 1-2 месяца: 4-5',
+                                    'Продолжительность времени бодрствования 3 месяца: 1 час 20 мин - 1 час 40 мин.\nКоличество дневных снов 1-2 месяца: 4-5',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(
@@ -575,7 +575,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                   );
                                 } else if (_model.pickedMonthIndex == 3) {
                                   return Text(
-                                    'Продолжительность времени бодрствования 3 месяца: 1 час  20 мин - 1 час 40 мин.\nКоличество дневных снов 3 месяца: 3-4',
+                                    'Продолжительность времени бодрствования 3 месяца: 1 час 20 мин - 1 час 40 мин.\nКоличество дневных снов 3 месяца: 3-4',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(

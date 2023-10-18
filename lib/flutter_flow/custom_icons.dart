@@ -14,6 +14,7 @@ class FFIcons {
   static const String _myFlutterAppFamily = 'MyFlutterApp';
   static const String _icomoon22Family = 'Icomoon22';
   static const String _icomoon14Family = 'Icomoon14';
+  static const String _icomoon30Family = 'Icomoon30';
 
   // icomoon
   static const IconData kleft = IconData(0xe900, fontFamily: _icomoonFamily);
@@ -135,4 +136,7 @@ class FFIcons {
       IconData(0xe900, fontFamily: _icomoon14Family);
   static const IconData kchain2 =
       IconData(0xe901, fontFamily: _icomoon14Family);
+
+  // icomoon30
+  static const IconData kunion = IconData(0xe900, fontFamily: _icomoon30Family);
 }

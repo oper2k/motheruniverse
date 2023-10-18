@@ -69,6 +69,13 @@ class FillProfileModel extends FlutterFlowModel<FillProfileWidget> {
     return null;
   }
 
+  // State field(s) for Telegram widget.
+  TextEditingController? telegramController;
+  String? Function(BuildContext, String?)? telegramControllerValidator;
+  // State field(s) for Instagram widget.
+  TextEditingController? instagramController;
+  String? Function(BuildContext, String?)? instagramControllerValidator;
+
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
@@ -82,6 +89,8 @@ class FillProfileModel extends FlutterFlowModel<FillProfileWidget> {
     nameFieldController?.dispose();
     secondNameFieldController?.dispose();
     phoneNumberFieldController?.dispose();
+    telegramController?.dispose();
+    instagramController?.dispose();
   }
 
   /// Action blocks are added here.

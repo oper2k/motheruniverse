@@ -37,7 +37,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
-        _model.initialIndex = widget.currentWeek!;
+        _model.initialIndex = 0;
       });
     });
   }

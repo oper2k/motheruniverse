@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -231,14 +232,37 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Программа лояльности',
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineSmall
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            lineHeight: 1.5,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Программа лояльности',
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineSmall
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                lineHeight: 1.5,
+                                              ),
+                                        ),
+                                        if (valueOrDefault<bool>(
+                                            currentUserDocument
+                                                ?.loyaltyProgramActivated,
+                                            false))
+                                          AuthUserStreamWidget(
+                                            builder: (context) => Text(
+                                              'Баланс: ${(valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0).round()).toString()} ${functions.getWordForPoints(valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0))}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        lineHeight: 1.28,
+                                                      ),
+                                            ),
                                           ),
+                                      ],
                                     ),
                                   ),
                                 ),

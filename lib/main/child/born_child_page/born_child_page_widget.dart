@@ -618,7 +618,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                         ),
                                                       ),
                                                       Icon(
-                                                        FFIcons.kweight,
+                                                        FFIcons.kunion,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)

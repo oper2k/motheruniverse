@@ -521,9 +521,9 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                               .showSnackBar(
                                             SnackBar(
                                               content: Text(
-                                                CloudpaymentsGroup.payByCardCall
-                                                    .successMessage(
-                                                      (_model.apiResult2li
+                                                CloudpaymentsGroup.checkDSCall
+                                                    .message(
+                                                      (_model.apiResult5ny
                                                               ?.jsonBody ??
                                                           ''),
                                                     )
