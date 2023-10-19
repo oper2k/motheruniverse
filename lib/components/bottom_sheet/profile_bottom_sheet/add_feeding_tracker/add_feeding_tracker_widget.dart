@@ -10,6 +10,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'add_feeding_tracker_model.dart';
@@ -50,7 +51,9 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
     });
 
     _model.feedingNameController ??= TextEditingController();
+    _model.feedingNameFocusNode ??= FocusNode();
     _model.amountController ??= TextEditingController();
+    _model.amountFocusNode ??= FocusNode();
   }
 
   @override
@@ -307,6 +310,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                   width: double.infinity,
                   child: TextFormField(
                     controller: _model.feedingNameController,
+                    focusNode: _model.feedingNameFocusNode,
                     onChanged: (_) => EasyDebounce.debounce(
                       '_model.feedingNameController',
                       Duration(milliseconds: 100),
@@ -364,6 +368,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                   width: double.infinity,
                   child: TextFormField(
                     controller: _model.amountController,
+                    focusNode: _model.amountFocusNode,
                     onChanged: (_) => EasyDebounce.debounce(
                       '_model.amountController',
                       Duration(milliseconds: 100),

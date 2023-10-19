@@ -16,6 +16,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'edit_profile_model.dart';
@@ -47,15 +48,21 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
 
     _model.nameController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.firstName, ''));
+    _model.nameFocusNode ??= FocusNode();
     _model.secondNameController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.secondName, ''));
+    _model.secondNameFocusNode ??= FocusNode();
     _model.phoneController ??= TextEditingController(text: currentPhoneNumber);
+    _model.phoneFocusNode ??= FocusNode();
     _model.telegramController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.telegram, ''));
+    _model.telegramFocusNode ??= FocusNode();
     _model.instagramController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.instagram, ''));
+    _model.instagramFocusNode ??= FocusNode();
     _model.userInfoController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.userInfo, ''));
+    _model.userInfoFocusNode ??= FocusNode();
   }
 
   @override
@@ -67,6 +74,15 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -395,6 +411,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller: _model.nameController,
+                                        focusNode: _model.nameFocusNode,
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.nameController',
                                           Duration(milliseconds: 2000),
@@ -488,6 +505,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                         child: TextFormField(
                                           controller:
                                               _model.secondNameController,
+                                          focusNode: _model.secondNameFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.secondNameController',
@@ -586,6 +604,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model.phoneController,
+                                          focusNode: _model.phoneFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.phoneController',
@@ -681,6 +700,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model.telegramController,
+                                          focusNode: _model.telegramFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.telegramController',
@@ -779,6 +799,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                         child: TextFormField(
                                           controller:
                                               _model.instagramController,
+                                          focusNode: _model.instagramFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.instagramController',
@@ -878,6 +899,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                 1.0,
                                         child: TextFormField(
                                           controller: _model.userInfoController,
+                                          focusNode: _model.userInfoFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.userInfoController',

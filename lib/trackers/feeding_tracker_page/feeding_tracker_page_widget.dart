@@ -10,6 +10,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'feeding_tracker_page_model.dart';
@@ -39,8 +40,11 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
     _model = createModel(context, () => FeedingTrackerPageModel());
 
     _model.feedingNameController ??= TextEditingController();
+    _model.feedingNameFocusNode ??= FocusNode();
     _model.amountController ??= TextEditingController();
+    _model.amountFocusNode ??= FocusNode();
     _model.textController3 ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.textController3?.text = '15 минут';
         }));
@@ -55,6 +59,15 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -116,6 +129,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                   width: double.infinity,
                   child: TextFormField(
                     controller: _model.feedingNameController,
+                    focusNode: _model.feedingNameFocusNode,
                     onChanged: (_) => EasyDebounce.debounce(
                       '_model.feedingNameController',
                       Duration(milliseconds: 100),
@@ -184,6 +198,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                   width: double.infinity,
                   child: TextFormField(
                     controller: _model.amountController,
+                    focusNode: _model.amountFocusNode,
                     onChanged: (_) => EasyDebounce.debounce(
                       '_model.amountController',
                       Duration(milliseconds: 100),
@@ -332,6 +347,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                   width: double.infinity,
                   child: TextFormField(
                     controller: _model.textController3,
+                    focusNode: _model.textFieldFocusNode,
                     readOnly: true,
                     obscureText: false,
                     decoration: InputDecoration(

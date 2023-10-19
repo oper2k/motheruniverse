@@ -11,6 +11,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -25,9 +26,11 @@ class AddFeedingTrackerModel extends FlutterFlowModel<AddFeedingTrackerWidget> {
 
   DateTime? datePicked;
   // State field(s) for FeedingName widget.
+  FocusNode? feedingNameFocusNode;
   TextEditingController? feedingNameController;
   String? Function(BuildContext, String?)? feedingNameControllerValidator;
   // State field(s) for Amount widget.
+  FocusNode? amountFocusNode;
   TextEditingController? amountController;
   String? Function(BuildContext, String?)? amountControllerValidator;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
@@ -40,7 +43,10 @@ class AddFeedingTrackerModel extends FlutterFlowModel<AddFeedingTrackerWidget> {
   void initState(BuildContext context) {}
 
   void dispose() {
+    feedingNameFocusNode?.dispose();
     feedingNameController?.dispose();
+
+    amountFocusNode?.dispose();
     amountController?.dispose();
   }
 

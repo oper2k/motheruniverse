@@ -12,6 +12,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'edit_child_info_page_model.dart';
@@ -48,6 +49,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
     });
 
     _model.textController ??= TextEditingController(text: widget.child?.name);
+    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -59,6 +61,15 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -433,6 +444,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                             width: double.infinity,
                             child: TextFormField(
                               controller: _model.textController,
+                              focusNode: _model.textFieldFocusNode,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Имя',

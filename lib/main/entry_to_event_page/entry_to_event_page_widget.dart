@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'entry_to_event_page_model.dart';
@@ -34,10 +35,15 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
 
     _model.textController1 ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.firstName, ''));
+    _model.textFieldFocusNode1 ??= FocusNode();
     _model.textController2 ??= TextEditingController(text: currentPhoneNumber);
+    _model.textFieldFocusNode2 ??= FocusNode();
     _model.textController3 ??= TextEditingController(text: currentUserEmail);
+    _model.textFieldFocusNode3 ??= FocusNode();
     _model.textController4 ??= TextEditingController();
+    _model.textFieldFocusNode4 ??= FocusNode();
     _model.textController5 ??= TextEditingController();
+    _model.textFieldFocusNode5 ??= FocusNode();
   }
 
   @override
@@ -49,6 +55,15 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -131,6 +146,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                 width: double.infinity,
                                 child: TextFormField(
                                   controller: _model.textController1,
+                                  focusNode: _model.textFieldFocusNode1,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelText: 'Ваше имя',
@@ -194,6 +210,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                 width: double.infinity,
                                 child: TextFormField(
                                   controller: _model.textController2,
+                                  focusNode: _model.textFieldFocusNode2,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelText: 'Номер телефона',
@@ -256,6 +273,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                               width: double.infinity,
                               child: TextFormField(
                                 controller: _model.textController3,
+                                focusNode: _model.textFieldFocusNode3,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Электронная почта',
@@ -315,6 +333,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                               width: double.infinity,
                               child: TextFormField(
                                 controller: _model.textController4,
+                                focusNode: _model.textFieldFocusNode4,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Возраст ребенка',
@@ -374,6 +393,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                               width: double.infinity,
                               child: TextFormField(
                                 controller: _model.textController5,
+                                focusNode: _model.textFieldFocusNode5,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText:

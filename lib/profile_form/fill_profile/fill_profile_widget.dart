@@ -10,6 +10,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
@@ -39,10 +40,15 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
     });
 
     _model.nameFieldController ??= TextEditingController();
+    _model.nameFieldFocusNode ??= FocusNode();
     _model.secondNameFieldController ??= TextEditingController();
+    _model.secondNameFieldFocusNode ??= FocusNode();
     _model.phoneNumberFieldController ??= TextEditingController();
+    _model.phoneNumberFieldFocusNode ??= FocusNode();
     _model.telegramController ??= TextEditingController();
+    _model.telegramFocusNode ??= FocusNode();
     _model.instagramController ??= TextEditingController();
+    _model.instagramFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.phoneNumberFieldController?.text = '+7';
         }));
@@ -57,6 +63,15 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -151,6 +166,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                           width: double.infinity,
                           child: TextFormField(
                             controller: _model.nameFieldController,
+                            focusNode: _model.nameFieldFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.nameFieldController',
                               Duration(milliseconds: 2000),
@@ -220,6 +236,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                             width: double.infinity,
                             child: TextFormField(
                               controller: _model.secondNameFieldController,
+                              focusNode: _model.secondNameFieldFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.secondNameFieldController',
                                 Duration(milliseconds: 2000),
@@ -292,6 +309,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                             width: double.infinity,
                             child: TextFormField(
                               controller: _model.phoneNumberFieldController,
+                              focusNode: _model.phoneNumberFieldFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.phoneNumberFieldController',
                                 Duration(milliseconds: 2000),
@@ -366,6 +384,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                             width: double.infinity,
                             child: TextFormField(
                               controller: _model.telegramController,
+                              focusNode: _model.telegramFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.telegramController',
                                 Duration(milliseconds: 2000),
@@ -436,6 +455,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                             width: double.infinity,
                             child: TextFormField(
                               controller: _model.instagramController,
+                              focusNode: _model.instagramFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.instagramController',
                                 Duration(milliseconds: 2000),

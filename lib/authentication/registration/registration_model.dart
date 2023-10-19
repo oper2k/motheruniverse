@@ -8,6 +8,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,7 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for EmailField widget.
+  FocusNode? emailFieldFocusNode;
   TextEditingController? emailFieldController;
   String? Function(BuildContext, String?)? emailFieldControllerValidator;
   String? _emailFieldControllerValidator(BuildContext context, String? val) {
@@ -36,6 +38,7 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
   }
 
   // State field(s) for PassField widget.
+  FocusNode? passFieldFocusNode;
   TextEditingController? passFieldController;
   late bool passFieldVisibility;
   String? Function(BuildContext, String?)? passFieldControllerValidator;
@@ -61,7 +64,10 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    emailFieldFocusNode?.dispose();
     emailFieldController?.dispose();
+
+    passFieldFocusNode?.dispose();
     passFieldController?.dispose();
   }
 

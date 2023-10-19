@@ -1,9 +1,8 @@
 import 'dart:convert';
 import 'dart:typed_data';
-
-import '../../flutter_flow/flutter_flow_util.dart';
 import '../cloud_functions/cloud_functions.dart';
 
+import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
@@ -21,6 +20,7 @@ class CloudpaymentsGroup {
       CheckSubscriptionsCopyCall();
   static CancelSubscriptionsCopyCall cancelSubscriptionsCopyCall =
       CancelSubscriptionsCopyCall();
+  static RecieptCall recieptCall = RecieptCall();
 }
 
 class PayByCardCall {
@@ -165,6 +165,33 @@ class CancelSubscriptionsCopyCall {
         'callName': 'CancelSubscriptionsCopyCall',
         'variables': {
           'id': id,
+        },
+      },
+    );
+    return ApiCallResponse.fromCloudCallResponse(response);
+  }
+}
+
+class RecieptCall {
+  Future<ApiCallResponse> call({
+    String? inn = '780626332108',
+    String? invoiceId = 'id',
+    String? accountId = 'email',
+    String? label = 'Курсы',
+    int? price = 0,
+    int? taxationSystem = 5,
+  }) async {
+    final response = await makeCloudCall(
+      _kPrivateApiFunctionName,
+      {
+        'callName': 'RecieptCall',
+        'variables': {
+          'inn': inn,
+          'invoiceId': invoiceId,
+          'accountId': accountId,
+          'label': label,
+          'price': price,
+          'taxationSystem': taxationSystem,
         },
       },
     );

@@ -11,6 +11,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +26,7 @@ class FillProfileModel extends FlutterFlowModel<FillProfileWidget> {
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for NameField widget.
+  FocusNode? nameFieldFocusNode;
   TextEditingController? nameFieldController;
   String? Function(BuildContext, String?)? nameFieldControllerValidator;
   String? _nameFieldControllerValidator(BuildContext context, String? val) {
@@ -40,6 +42,7 @@ class FillProfileModel extends FlutterFlowModel<FillProfileWidget> {
   }
 
   // State field(s) for SecondNameField widget.
+  FocusNode? secondNameFieldFocusNode;
   TextEditingController? secondNameFieldController;
   String? Function(BuildContext, String?)? secondNameFieldControllerValidator;
   String? _secondNameFieldControllerValidator(
@@ -56,6 +59,7 @@ class FillProfileModel extends FlutterFlowModel<FillProfileWidget> {
   }
 
   // State field(s) for PhoneNumberField widget.
+  FocusNode? phoneNumberFieldFocusNode;
   TextEditingController? phoneNumberFieldController;
   final phoneNumberFieldMask =
       MaskTextInputFormatter(mask: '+7(###)-###-##-##');
@@ -70,9 +74,11 @@ class FillProfileModel extends FlutterFlowModel<FillProfileWidget> {
   }
 
   // State field(s) for Telegram widget.
+  FocusNode? telegramFocusNode;
   TextEditingController? telegramController;
   String? Function(BuildContext, String?)? telegramControllerValidator;
   // State field(s) for Instagram widget.
+  FocusNode? instagramFocusNode;
   TextEditingController? instagramController;
   String? Function(BuildContext, String?)? instagramControllerValidator;
 
@@ -86,10 +92,19 @@ class FillProfileModel extends FlutterFlowModel<FillProfileWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    nameFieldFocusNode?.dispose();
     nameFieldController?.dispose();
+
+    secondNameFieldFocusNode?.dispose();
     secondNameFieldController?.dispose();
+
+    phoneNumberFieldFocusNode?.dispose();
     phoneNumberFieldController?.dispose();
+
+    telegramFocusNode?.dispose();
     telegramController?.dispose();
+
+    instagramFocusNode?.dispose();
     instagramController?.dispose();
   }
 

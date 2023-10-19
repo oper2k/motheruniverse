@@ -17,6 +17,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -35,21 +36,27 @@ class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
   String uploadedFileUrl = '';
 
   // State field(s) for Name widget.
+  FocusNode? nameFocusNode;
   TextEditingController? nameController;
   String? Function(BuildContext, String?)? nameControllerValidator;
   // State field(s) for SecondName widget.
+  FocusNode? secondNameFocusNode;
   TextEditingController? secondNameController;
   String? Function(BuildContext, String?)? secondNameControllerValidator;
   // State field(s) for Phone widget.
+  FocusNode? phoneFocusNode;
   TextEditingController? phoneController;
   String? Function(BuildContext, String?)? phoneControllerValidator;
   // State field(s) for Telegram widget.
+  FocusNode? telegramFocusNode;
   TextEditingController? telegramController;
   String? Function(BuildContext, String?)? telegramControllerValidator;
   // State field(s) for Instagram widget.
+  FocusNode? instagramFocusNode;
   TextEditingController? instagramController;
   String? Function(BuildContext, String?)? instagramControllerValidator;
   // State field(s) for UserInfo widget.
+  FocusNode? userInfoFocusNode;
   TextEditingController? userInfoController;
   String? Function(BuildContext, String?)? userInfoControllerValidator;
   DateTime? datePicked;
@@ -60,11 +67,22 @@ class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    nameFocusNode?.dispose();
     nameController?.dispose();
+
+    secondNameFocusNode?.dispose();
     secondNameController?.dispose();
+
+    phoneFocusNode?.dispose();
     phoneController?.dispose();
+
+    telegramFocusNode?.dispose();
     telegramController?.dispose();
+
+    instagramFocusNode?.dispose();
     instagramController?.dispose();
+
+    userInfoFocusNode?.dispose();
     userInfoController?.dispose();
   }
 

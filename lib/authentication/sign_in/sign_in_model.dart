@@ -6,6 +6,7 @@ import 'sign_in_widget.dart' show SignInWidget;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +22,7 @@ class SignInModel extends FlutterFlowModel<SignInWidget> {
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for EmailField widget.
+  FocusNode? emailFieldFocusNode;
   TextEditingController? emailFieldController;
   String? Function(BuildContext, String?)? emailFieldControllerValidator;
   String? _emailFieldControllerValidator(BuildContext context, String? val) {
@@ -35,6 +37,7 @@ class SignInModel extends FlutterFlowModel<SignInWidget> {
   }
 
   // State field(s) for PassField widget.
+  FocusNode? passFieldFocusNode;
   TextEditingController? passFieldController;
   late bool passFieldVisibility;
   String? Function(BuildContext, String?)? passFieldControllerValidator;
@@ -60,7 +63,10 @@ class SignInModel extends FlutterFlowModel<SignInWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    emailFieldFocusNode?.dispose();
     emailFieldController?.dispose();
+
+    passFieldFocusNode?.dispose();
     passFieldController?.dispose();
   }
 

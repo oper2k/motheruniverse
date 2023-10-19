@@ -7,6 +7,7 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'sleep_norms_page_model.dart';
@@ -85,6 +86,15 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -726,7 +736,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                       builder: (context) {
                                         if (functions.isWithinNDays(widget.child!.birthDate!, 31) &&
                                             (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
-                                                8) &&
+                                                11) &&
                                             (FFAppState().firstTipWasShowed ==
                                                 0)) {
                                           return Padding(
@@ -749,7 +759,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                         } else if (functions.isWithinNDays(
                                                 widget.child!.birthDate!, 61) &&
                                             (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
-                                                5) &&
+                                                8) &&
                                             (FFAppState().firstTipWasShowed ==
                                                 0)) {
                                           return Padding(
@@ -771,7 +781,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                           );
                                         } else if (functions.isWithinNDays(widget.child!.birthDate!, 122) &&
                                             (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
-                                                4) &&
+                                                7) &&
                                             (FFAppState().firstTipWasShowed ==
                                                 0)) {
                                           return Padding(
@@ -795,7 +805,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                 widget.child!.birthDate!,
                                                 212) &&
                                             (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
-                                                3) &&
+                                                6) &&
                                             (FFAppState().firstTipWasShowed ==
                                                 0)) {
                                           return Padding(
@@ -817,7 +827,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                           );
                                         } else if (functions.isWithinNDays(
                                                 widget.child!.birthDate!, 1095) &&
-                                            (functions.countDates(widget.child!.unnormalSleepDate.toList()) >= 2) &&
+                                            (functions.countDates(widget.child!.unnormalSleepDate.toList()) >= 5) &&
                                             (FFAppState().firstTipWasShowed == 0)) {
                                           return Padding(
                                             padding:
@@ -843,7 +853,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                       widget.child!.birthDate!,
                                                       31) &&
                                                   (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
-                                                      8)) {
+                                                      11)) {
                                                 return Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -866,7 +876,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                       widget.child!.birthDate!,
                                                       61) &&
                                                   (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
-                                                      5)) {
+                                                      8)) {
                                                 return Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -889,7 +899,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                       widget.child!.birthDate!,
                                                       122) &&
                                                   (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
-                                                      4)) {
+                                                      7)) {
                                                 return Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -912,7 +922,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                       widget.child!.birthDate!,
                                                       212) &&
                                                   (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
-                                                      3)) {
+                                                      6)) {
                                                 return Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -931,7 +941,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                         ),
                                                   ),
                                                 );
-                                              } else if (functions.countDates(widget.child!.unnormalSleepDate.toList()) >= 2) {
+                                              } else if (functions.countDates(widget.child!.unnormalSleepDate.toList()) >= 5) {
                                                 return Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(

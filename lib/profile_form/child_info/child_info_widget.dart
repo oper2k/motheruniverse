@@ -11,6 +11,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'child_info_model.dart';
@@ -34,8 +35,11 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
     _model = createModel(context, () => ChildInfoModel());
 
     _model.nameFieldController ??= TextEditingController();
+    _model.nameFieldFocusNode ??= FocusNode();
     _model.growthFieldController ??= TextEditingController();
+    _model.growthFieldFocusNode ??= FocusNode();
     _model.weightFieldController ??= TextEditingController();
+    _model.weightFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -47,6 +51,15 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -611,6 +624,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller: _model.nameFieldController,
+                                        focusNode: _model.nameFieldFocusNode,
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.nameFieldController',
                                           Duration(milliseconds: 2000),
@@ -763,6 +777,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                       child: TextFormField(
                                         controller:
                                             _model.growthFieldController,
+                                        focusNode: _model.growthFieldFocusNode,
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.growthFieldController',
                                           Duration(milliseconds: 2000),
@@ -857,6 +872,8 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                         child: TextFormField(
                                           controller:
                                               _model.weightFieldController,
+                                          focusNode:
+                                              _model.weightFieldFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.weightFieldController',

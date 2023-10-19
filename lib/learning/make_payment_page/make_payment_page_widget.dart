@@ -9,6 +9,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
@@ -22,12 +23,14 @@ class MakePaymentPageWidget extends StatefulWidget {
     this.usedBonuses,
     required this.lessonsReferences,
     required this.buyingAll,
+    this.title,
   }) : super(key: key);
 
   final double? price;
   final double? usedBonuses;
   final List<String>? lessonsReferences;
   final bool? buyingAll;
+  final String? title;
 
   @override
   _MakePaymentPageWidgetState createState() => _MakePaymentPageWidgetState();
@@ -44,8 +47,11 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
     _model = createModel(context, () => MakePaymentPageModel());
 
     _model.textController1 ??= TextEditingController();
+    _model.textFieldFocusNode1 ??= FocusNode();
     _model.textController2 ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
     _model.textController3 ??= TextEditingController();
+    _model.textFieldFocusNode3 ??= FocusNode();
   }
 
   @override
@@ -57,6 +63,15 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -115,6 +130,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                   width: double.infinity,
                   child: TextFormField(
                     controller: _model.textController1,
+                    focusNode: _model.textFieldFocusNode1,
                     onChanged: (_) => EasyDebounce.debounce(
                       '_model.textController1',
                       Duration(milliseconds: 200),
@@ -174,6 +190,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                         width: double.infinity,
                         child: TextFormField(
                           controller: _model.textController2,
+                          focusNode: _model.textFieldFocusNode2,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.textController2',
                             Duration(milliseconds: 200),
@@ -231,6 +248,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                         width: 120.0,
                         child: TextFormField(
                           controller: _model.textController3,
+                          focusNode: _model.textFieldFocusNode3,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.textController3',
                             Duration(milliseconds: 200),
@@ -309,316 +327,605 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                   ),
                 ],
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 0.0, 45.0),
-                child: FFButtonWidget(
-                  onPressed: !((_model.textController1.text != null &&
-                              _model.textController1.text != '') &&
-                          (_model.textController2.text != null &&
-                              _model.textController2.text != '') &&
-                          (_model.textController3.text != null &&
-                              _model.textController3.text != ''))
-                      ? null
-                      : () async {
-                          var _shouldSetState = false;
-                          _model.validateCartNumber =
-                              await actions.validateCardNumber(
-                            _model.textController1.text,
-                          );
-                          _shouldSetState = true;
-                          if (_model.validateCartNumber!) {
-                            _model.validateCardDate =
-                                await actions.validateCardExpireDate(
-                              _model.textController2.text,
-                            );
-                            _shouldSetState = true;
-                            if (_model.validateCardDate!) {
-                              _model.cryptogramCard = await actions
-                                  .returnStringCardCryptogramForCloudpayments(
-                                _model.textController1.text,
-                                _model.textController2.text,
-                                _model.textController3.text,
-                                FFAppState().cloudPublicID,
-                              );
-                              _shouldSetState = true;
-                              _model.apiResult2li =
-                                  await CloudpaymentsGroup.payByCardCall.call(
-                                publicId: FFAppState().cloudPublicID,
-                                amount: widget.price!.round(),
-                                cardCryptogramPacket: _model.cryptogramCard,
-                                email: currentUserEmail,
-                                accountId: currentUserEmail,
-                              );
-                              _shouldSetState = true;
-                              if ((_model.apiResult2li?.succeeded ?? true)) {
-                                if (CloudpaymentsGroup.payByCardCall.isSuccess(
-                                  (_model.apiResult2li?.jsonBody ?? ''),
-                                )) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        CloudpaymentsGroup.payByCardCall
-                                            .successMessage(
-                                              (_model.apiResult2li?.jsonBody ??
-                                                  ''),
-                                            )
-                                            .toString(),
-                                        style: GoogleFonts.getFont(
-                                          'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                        ),
-                                      ),
-                                      duration: Duration(milliseconds: 4000),
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context).tertiary,
-                                    ),
-                                  );
-                                  if (widget.buyingAll!) {
-                                    await currentUserReference!.update({
-                                      ...createUsersRecordData(
-                                        loyaltyBonuses: functions
-                                            .returnDifferenceBetwenTwoDouble(
-                                                valueOrDefault(
-                                                    currentUserDocument
-                                                        ?.loyaltyBonuses,
-                                                    0.0),
-                                                widget.usedBonuses!),
-                                      ),
-                                      ...mapToFirestore(
-                                        {
-                                          'purchased_lessons':
-                                              functions.mergeLists(
-                                                  (currentUserDocument
-                                                              ?.purchasedLessons
-                                                              ?.toList() ??
-                                                          [])
-                                                      .toList(),
-                                                  widget.lessonsReferences!
-                                                      .toList()),
-                                        },
-                                      ),
-                                    });
-                                    setState(() {
-                                      FFAppState().lessonsAddedToCart = [];
-                                    });
+              StreamBuilder<List<LearningRecord>>(
+                stream: queryLearningRecord(),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 50.0,
+                        height: 50.0,
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            FlutterFlowTheme.of(context).primary,
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                  List<LearningRecord> containerLearningRecordList =
+                      snapshot.data!;
+                  return Container(
+                    decoration: BoxDecoration(),
+                    child: Builder(
+                      builder: (context) {
+                        final lesson = containerLearningRecordList
+                            .where((e) =>
+                                e.reference.id ==
+                                widget.lessonsReferences?.first)
+                            .toList();
+                        return Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: List.generate(lesson.length, (lessonIndex) {
+                            final lessonItem = lesson[lessonIndex];
+                            return Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 22.0, 0.0, 45.0),
+                              child: FFButtonWidget(
+                                onPressed: !((_model.textController1.text !=
+                                                null &&
+                                            _model.textController1.text !=
+                                                '') &&
+                                        (_model.textController2.text != null &&
+                                            _model.textController2.text !=
+                                                '') &&
+                                        (_model.textController3.text != null &&
+                                            _model.textController3.text != ''))
+                                    ? null
+                                    : () async {
+                                        var _shouldSetState = false;
+                                        _model.validateCartNumber =
+                                            await actions.validateCardNumber(
+                                          _model.textController1.text,
+                                        );
+                                        _shouldSetState = true;
+                                        if (_model.validateCartNumber!) {
+                                          _model.validateCardDate =
+                                              await actions
+                                                  .validateCardExpireDate(
+                                            _model.textController2.text,
+                                          );
+                                          _shouldSetState = true;
+                                          if (_model.validateCardDate!) {
+                                            _model.cryptogramCard = await actions
+                                                .returnStringCardCryptogramForCloudpayments(
+                                              _model.textController1.text,
+                                              _model.textController2.text,
+                                              _model.textController3.text,
+                                              FFAppState().cloudPublicID,
+                                            );
+                                            _shouldSetState = true;
+                                            _model.apiResult2li =
+                                                await CloudpaymentsGroup
+                                                    .payByCardCall
+                                                    .call(
+                                              publicId:
+                                                  FFAppState().cloudPublicID,
+                                              amount: widget.price!.round(),
+                                              cardCryptogramPacket:
+                                                  _model.cryptogramCard,
+                                              email: currentUserEmail,
+                                              accountId: currentUserEmail,
+                                            );
+                                            _shouldSetState = true;
+                                            if ((_model
+                                                    .apiResult2li?.succeeded ??
+                                                true)) {
+                                              if (CloudpaymentsGroup
+                                                  .payByCardCall
+                                                  .isSuccess(
+                                                (_model.apiResult2li
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )) {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      CloudpaymentsGroup
+                                                          .payByCardCall
+                                                          .successMessage(
+                                                            (_model.apiResult2li
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )
+                                                          .toString(),
+                                                      style:
+                                                          GoogleFonts.getFont(
+                                                        'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                      ),
+                                                    ),
+                                                    duration: Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .tertiary,
+                                                  ),
+                                                );
+                                                if (widget.buyingAll!) {
+                                                  await currentUserReference!
+                                                      .update({
+                                                    ...createUsersRecordData(
+                                                      loyaltyBonuses: functions
+                                                          .returnDifferenceBetwenTwoDouble(
+                                                              valueOrDefault(
+                                                                  currentUserDocument
+                                                                      ?.loyaltyBonuses,
+                                                                  0.0),
+                                                              widget
+                                                                  .usedBonuses!),
+                                                    ),
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'purchased_lessons':
+                                                            functions.mergeLists(
+                                                                (currentUserDocument
+                                                                            ?.purchasedLessons
+                                                                            ?.toList() ??
+                                                                        [])
+                                                                    .toList(),
+                                                                widget
+                                                                    .lessonsReferences!
+                                                                    .toList()),
+                                                      },
+                                                    ),
+                                                  });
+                                                  setState(() {
+                                                    FFAppState()
+                                                        .lessonsAddedToCart = [];
+                                                  });
+                                                  await CloudpaymentsGroup
+                                                      .payByCardCall
+                                                      .call();
+                                                  await CloudpaymentsGroup
+                                                      .recieptCall
+                                                      .call(
+                                                    accountId: currentUserEmail,
+                                                    price:
+                                                        widget.price!.round(),
+                                                    label: 'Лекции',
+                                                  );
 
-                                    context.goNamed('SuccessfulPaymentAll');
-                                  } else {
-                                    await currentUserReference!.update({
-                                      ...createUsersRecordData(
-                                        loyaltyBonuses: functions
-                                            .returnDifferenceBetwenTwoDouble(
-                                                valueOrDefault(
-                                                    currentUserDocument
-                                                        ?.loyaltyBonuses,
-                                                    0.0),
-                                                widget.usedBonuses!),
-                                      ),
-                                      ...mapToFirestore(
-                                        {
-                                          'purchased_lessons':
-                                              functions.mergeLists(
-                                                  (currentUserDocument
-                                                              ?.purchasedLessons
-                                                              ?.toList() ??
-                                                          [])
-                                                      .toList(),
-                                                  widget.lessonsReferences!
-                                                      .toList()),
-                                        },
-                                      ),
-                                    });
-                                    setState(() {
-                                      FFAppState().lessonsAddedToCart = [];
-                                    });
+                                                  context.goNamed(
+                                                      'SuccessfulPaymentAll');
+                                                } else {
+                                                  await currentUserReference!
+                                                      .update({
+                                                    ...createUsersRecordData(
+                                                      loyaltyBonuses: functions
+                                                          .returnDifferenceBetwenTwoDouble(
+                                                              valueOrDefault(
+                                                                  currentUserDocument
+                                                                      ?.loyaltyBonuses,
+                                                                  0.0),
+                                                              widget
+                                                                  .usedBonuses!),
+                                                    ),
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'purchased_lessons':
+                                                            functions.mergeLists(
+                                                                (currentUserDocument
+                                                                            ?.purchasedLessons
+                                                                            ?.toList() ??
+                                                                        [])
+                                                                    .toList(),
+                                                                widget
+                                                                    .lessonsReferences!
+                                                                    .toList()),
+                                                      },
+                                                    ),
+                                                  });
+                                                  setState(() {
+                                                    FFAppState()
+                                                        .lessonsAddedToCart = [];
+                                                  });
+                                                  await CloudpaymentsGroup
+                                                      .recieptCall
+                                                      .call(
+                                                    accountId: currentUserEmail,
+                                                    price:
+                                                        widget.price!.round(),
+                                                    label:
+                                                        widget.lessonsReferences!
+                                                                    .length >
+                                                                1
+                                                            ? 'Лекции'
+                                                            : lessonItem.title,
+                                                  );
 
-                                    context.goNamed('SuccessfulPurchases');
-                                  }
-                                } else {
-                                  if (CloudpaymentsGroup.payByCardCall
-                                          .reasonCode(
-                                        (_model.apiResult2li?.jsonBody ?? ''),
-                                      ) !=
-                                      null) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Что-то пошло не так: ${CloudpaymentsGroup.payByCardCall.message(
-                                                (_model.apiResult2li
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString()}',
-                                          style: GoogleFonts.getFont(
-                                            'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                      ),
-                                    );
-                                    if (_shouldSetState) setState(() {});
-                                    return;
-                                  }
-                                  if (CloudpaymentsGroup.payByCardCall
-                                              .urlForConfirm(
-                                                (_model.apiResult2li
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )
-                                              .toString() !=
-                                          null &&
-                                      CloudpaymentsGroup.payByCardCall
-                                              .urlForConfirm(
-                                                (_model.apiResult2li
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )
-                                              .toString() !=
-                                          '') {
-                                    _model.check3DS =
-                                        await actions.check3DSCloudPayments(
-                                      CloudpaymentsGroup.payByCardCall
-                                          .urlForConfirm(
-                                            (_model.apiResult2li?.jsonBody ??
-                                                ''),
-                                          )
-                                          .toString(),
-                                      CloudpaymentsGroup.payByCardCall
-                                          .transactionId(
-                                            (_model.apiResult2li?.jsonBody ??
-                                                ''),
-                                          )
-                                          .toString(),
-                                      CloudpaymentsGroup.payByCardCall
-                                          .paReq(
-                                            (_model.apiResult2li?.jsonBody ??
-                                                ''),
-                                          )
-                                          .toString(),
-                                    );
-                                    _shouldSetState = true;
-                                    if (_model.check3DS!.length > 0) {
-                                      _model.apiResult5ny =
-                                          await CloudpaymentsGroup.checkDSCall
-                                              .call(
-                                        transactionId:
-                                            int.parse(_model.check3DS!.first),
-                                        paRes: _model.check3DS?.last,
-                                      );
-                                      _shouldSetState = true;
-                                      if ((_model.apiResult5ny?.succeeded ??
-                                          true)) {
-                                        if (CloudpaymentsGroup.checkDSCall
-                                            .isSuccess(
-                                          (_model.apiResult5ny?.jsonBody ?? ''),
-                                        )) {
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                CloudpaymentsGroup.checkDSCall
-                                                    .message(
-                                                      (_model.apiResult5ny
+                                                  context.goNamed(
+                                                      'SuccessfulPurchases');
+                                                }
+                                              } else {
+                                                if (CloudpaymentsGroup
+                                                        .payByCardCall
+                                                        .reasonCode(
+                                                      (_model.apiResult2li
                                                               ?.jsonBody ??
                                                           ''),
-                                                    )
-                                                    .toString(),
-                                                style: GoogleFonts.getFont(
-                                                  'Inter',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
+                                                    ) !=
+                                                    null) {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        'Что-то пошло не так: ${CloudpaymentsGroup.payByCardCall.message(
+                                                              (_model.apiResult2li
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ).toString()}',
+                                                        style:
+                                                            GoogleFonts.getFont(
+                                                          'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                        ),
+                                                      ),
+                                                      duration: Duration(
+                                                          milliseconds: 4000),
+                                                      backgroundColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .tertiary,
+                                                    ),
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (CloudpaymentsGroup
+                                                            .payByCardCall
+                                                            .urlForConfirm(
+                                                              (_model.apiResult2li
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )
+                                                            .toString() !=
+                                                        null &&
+                                                    CloudpaymentsGroup
+                                                            .payByCardCall
+                                                            .urlForConfirm(
+                                                              (_model.apiResult2li
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )
+                                                            .toString() !=
+                                                        '') {
+                                                  _model.check3DS = await actions
+                                                      .check3DSCloudPayments(
+                                                    CloudpaymentsGroup
+                                                        .payByCardCall
+                                                        .urlForConfirm(
+                                                          (_model.apiResult2li
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )
+                                                        .toString(),
+                                                    CloudpaymentsGroup
+                                                        .payByCardCall
+                                                        .transactionId(
+                                                          (_model.apiResult2li
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )
+                                                        .toString(),
+                                                    CloudpaymentsGroup
+                                                        .payByCardCall
+                                                        .paReq(
+                                                          (_model.apiResult2li
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )
+                                                        .toString(),
+                                                  );
+                                                  _shouldSetState = true;
+                                                  if (_model.check3DS!.length >
+                                                      0) {
+                                                    _model.apiResult5ny =
+                                                        await CloudpaymentsGroup
+                                                            .checkDSCall
+                                                            .call(
+                                                      transactionId: int.parse(
+                                                          _model
+                                                              .check3DS!.first),
+                                                      paRes:
+                                                          _model.check3DS?.last,
+                                                    );
+                                                    _shouldSetState = true;
+                                                    if ((_model.apiResult5ny
+                                                            ?.succeeded ??
+                                                        true)) {
+                                                      if (CloudpaymentsGroup
+                                                          .checkDSCall
+                                                          .isSuccess(
+                                                        (_model.apiResult5ny
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )) {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              CloudpaymentsGroup
+                                                                  .checkDSCall
+                                                                  .message(
+                                                                    (_model.apiResult5ny
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )
+                                                                  .toString(),
+                                                              style: GoogleFonts
+                                                                  .getFont(
+                                                                'Inter',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                              ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .tertiary,
+                                                          ),
+                                                        );
+                                                        if (widget.buyingAll!) {
+                                                          await currentUserReference!
+                                                              .update({
+                                                            ...createUsersRecordData(
+                                                              loyaltyBonuses: functions.returnDifferenceBetwenTwoDouble(
+                                                                  valueOrDefault(
+                                                                      currentUserDocument
+                                                                          ?.loyaltyBonuses,
+                                                                      0.0),
+                                                                  widget
+                                                                      .usedBonuses!),
+                                                            ),
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'purchased_lessons': functions.mergeLists(
+                                                                    (currentUserDocument?.purchasedLessons?.toList() ??
+                                                                            [])
+                                                                        .toList(),
+                                                                    widget
+                                                                        .lessonsReferences!
+                                                                        .toList()),
+                                                              },
+                                                            ),
+                                                          });
+                                                          setState(() {
+                                                            FFAppState()
+                                                                .lessonsAddedToCart = [];
+                                                          });
+                                                          await CloudpaymentsGroup
+                                                              .recieptCall
+                                                              .call(
+                                                            accountId:
+                                                                currentUserEmail,
+                                                            price: widget.price!
+                                                                .round(),
+                                                            label: 'Лекции',
+                                                          );
+
+                                                          context.goNamed(
+                                                              'SuccessfulPaymentAll');
+                                                        } else {
+                                                          await currentUserReference!
+                                                              .update({
+                                                            ...createUsersRecordData(
+                                                              loyaltyBonuses: functions.returnDifferenceBetwenTwoDouble(
+                                                                  valueOrDefault(
+                                                                      currentUserDocument
+                                                                          ?.loyaltyBonuses,
+                                                                      0.0),
+                                                                  widget
+                                                                      .usedBonuses!),
+                                                            ),
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'purchased_lessons': functions.mergeLists(
+                                                                    (currentUserDocument?.purchasedLessons?.toList() ??
+                                                                            [])
+                                                                        .toList(),
+                                                                    widget
+                                                                        .lessonsReferences!
+                                                                        .toList()),
+                                                              },
+                                                            ),
+                                                          });
+                                                          setState(() {
+                                                            FFAppState()
+                                                                .lessonsAddedToCart = [];
+                                                          });
+                                                          await CloudpaymentsGroup
+                                                              .recieptCall
+                                                              .call(
+                                                            accountId:
+                                                                currentUserEmail,
+                                                            price: widget.price!
+                                                                .round(),
+                                                            label: widget
+                                                                        .lessonsReferences!
+                                                                        .length >
+                                                                    1
+                                                                ? 'Лекции'
+                                                                : lessonItem
+                                                                    .title,
+                                                          );
+
+                                                          context.goNamed(
+                                                              'SuccessfulPurchases');
+                                                        }
+                                                      } else {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'Что-то пошло не так: ${CloudpaymentsGroup.checkDSCall.message(
+                                                                    (_model.apiResult5ny
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  ).toString()}',
+                                                              style: GoogleFonts
+                                                                  .getFont(
+                                                                'Inter',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                              ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .tertiary,
+                                                          ),
+                                                        );
+                                                      }
+                                                    } else {
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'Что-то пошло не так: ${(_model.apiResult5ny?.statusCode ?? 200).toString()}',
+                                                            style: GoogleFonts
+                                                                .getFont(
+                                                              'Inter',
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                            ),
+                                                          ),
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  4000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .tertiary,
+                                                        ),
+                                                      );
+                                                    }
+                                                  } else {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'Ошибка 3DS',
+                                                          style: GoogleFonts
+                                                              .getFont(
+                                                            'Inter',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                          ),
+                                                        ),
+                                                        duration: Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .tertiary,
+                                                      ),
+                                                    );
+                                                  }
+                                                } else {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        'Что-то пошло не так: ${CloudpaymentsGroup.payByCardCall.message(
+                                                              (_model.apiResult2li
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ).toString()}',
+                                                        style:
+                                                            GoogleFonts.getFont(
+                                                          'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                        ),
+                                                      ),
+                                                      duration: Duration(
+                                                          milliseconds: 4000),
+                                                      backgroundColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .tertiary,
+                                                    ),
+                                                  );
+                                                }
+                                              }
+                                            } else {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    'Что-то пошло не так: ${(_model.apiResult2li?.statusCode ?? 200).toString()}',
+                                                    style: GoogleFonts.getFont(
+                                                      'Inter',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                    ),
+                                                  ),
+                                                  duration: Duration(
+                                                      milliseconds: 4000),
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .tertiary,
                                                 ),
-                                              ),
-                                              duration:
-                                                  Duration(milliseconds: 4000),
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .tertiary,
-                                            ),
-                                          );
-                                          if (widget.buyingAll!) {
-                                            await currentUserReference!.update({
-                                              ...createUsersRecordData(
-                                                loyaltyBonuses: functions
-                                                    .returnDifferenceBetwenTwoDouble(
-                                                        valueOrDefault(
-                                                            currentUserDocument
-                                                                ?.loyaltyBonuses,
-                                                            0.0),
-                                                        widget.usedBonuses!),
-                                              ),
-                                              ...mapToFirestore(
-                                                {
-                                                  'purchased_lessons':
-                                                      functions.mergeLists(
-                                                          (currentUserDocument
-                                                                      ?.purchasedLessons
-                                                                      ?.toList() ??
-                                                                  [])
-                                                              .toList(),
-                                                          widget
-                                                              .lessonsReferences!
-                                                              .toList()),
-                                                },
-                                              ),
-                                            });
-                                            setState(() {
-                                              FFAppState().lessonsAddedToCart =
-                                                  [];
-                                            });
-
-                                            context.goNamed(
-                                                'SuccessfulPaymentAll');
+                                              );
+                                            }
                                           } else {
-                                            await currentUserReference!.update({
-                                              ...createUsersRecordData(
-                                                loyaltyBonuses: functions
-                                                    .returnDifferenceBetwenTwoDouble(
-                                                        valueOrDefault(
-                                                            currentUserDocument
-                                                                ?.loyaltyBonuses,
-                                                            0.0),
-                                                        widget.usedBonuses!),
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Срок карты введен неверно',
+                                                  style: GoogleFonts.getFont(
+                                                    'Inter',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
                                               ),
-                                              ...mapToFirestore(
-                                                {
-                                                  'purchased_lessons':
-                                                      functions.mergeLists(
-                                                          (currentUserDocument
-                                                                      ?.purchasedLessons
-                                                                      ?.toList() ??
-                                                                  [])
-                                                              .toList(),
-                                                          widget
-                                                              .lessonsReferences!
-                                                              .toList()),
-                                                },
-                                              ),
-                                            });
-                                            setState(() {
-                                              FFAppState().lessonsAddedToCart =
-                                                  [];
-                                            });
-
-                                            context
-                                                .goNamed('SuccessfulPurchases');
+                                            );
+                                            if (_shouldSetState)
+                                              setState(() {});
+                                            return;
                                           }
                                         } else {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
                                               content: Text(
-                                                'Что-то пошло не так: ${CloudpaymentsGroup.checkDSCall.message(
-                                                      (_model.apiResult5ny
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ).toString()}',
+                                                'Номер карты введён неверно',
                                                 style: GoogleFonts.getFont(
                                                   'Inter',
                                                   color: FlutterFlowTheme.of(
@@ -633,147 +940,41 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                       .tertiary,
                                             ),
                                           );
+                                          if (_shouldSetState) setState(() {});
+                                          return;
                                         }
-                                      } else {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              'Что-то пошло не так: ${(_model.apiResult5ny?.statusCode ?? 200).toString()}',
-                                              style: GoogleFonts.getFont(
-                                                'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                              ),
-                                            ),
-                                            duration:
-                                                Duration(milliseconds: 4000),
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .tertiary,
-                                          ),
-                                        );
-                                      }
-                                    } else {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'Ошибка 3DS',
-                                            style: GoogleFonts.getFont(
-                                              'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                            ),
-                                          ),
-                                          duration:
-                                              Duration(milliseconds: 4000),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .tertiary,
-                                        ),
-                                      );
-                                    }
-                                  } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Что-то пошло не так: ${CloudpaymentsGroup.payByCardCall.message(
-                                                (_model.apiResult2li
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString()}',
-                                          style: GoogleFonts.getFont(
-                                            'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                      ),
-                                    );
-                                  }
-                                }
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'Что-то пошло не так: ${(_model.apiResult2li?.statusCode ?? 200).toString()}',
-                                      style: GoogleFonts.getFont(
-                                        'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                      ),
-                                    ),
-                                    duration: Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).tertiary,
+
+                                        if (_shouldSetState) setState(() {});
+                                      },
+                                text: 'Продолжить',
+                                options: FFButtonOptions(
+                                  width: double.infinity,
+                                  height: 56.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  textStyle:
+                                      FlutterFlowTheme.of(context).displaySmall,
+                                  elevation: 0.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
                                   ),
-                                );
-                              }
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'Срок карты введен неверно',
-                                    style: GoogleFonts.getFont(
-                                      'Inter',
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                    ),
-                                  ),
-                                  duration: Duration(milliseconds: 4000),
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).tertiary,
+                                  borderRadius: BorderRadius.circular(16.0),
+                                  disabledColor:
+                                      FlutterFlowTheme.of(context).grey20,
+                                  disabledTextColor:
+                                      FlutterFlowTheme.of(context).primaryText,
                                 ),
-                              );
-                              if (_shouldSetState) setState(() {});
-                              return;
-                            }
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Номер карты введён неверно',
-                                  style: GoogleFonts.getFont(
-                                    'Inter',
-                                    color: FlutterFlowTheme.of(context).primary,
-                                  ),
-                                ),
-                                duration: Duration(milliseconds: 4000),
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).tertiary,
                               ),
                             );
-                            if (_shouldSetState) setState(() {});
-                            return;
-                          }
-
-                          if (_shouldSetState) setState(() {});
-                        },
-                  text: 'Продолжить',
-                  options: FFButtonOptions(
-                    width: double.infinity,
-                    height: 56.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).displaySmall,
-                    elevation: 0.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
+                          }),
+                        );
+                      },
                     ),
-                    borderRadius: BorderRadius.circular(16.0),
-                    disabledColor: FlutterFlowTheme.of(context).grey20,
-                    disabledTextColor: FlutterFlowTheme.of(context).primaryText,
-                  ),
-                ),
+                  );
+                },
               ),
             ],
           ),

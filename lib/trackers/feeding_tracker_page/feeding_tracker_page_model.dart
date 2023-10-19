@@ -11,6 +11,7 @@ import 'feeding_tracker_page_widget.dart' show FeedingTrackerPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -24,12 +25,15 @@ class FeedingTrackerPageModel
 
   final unfocusNode = FocusNode();
   // State field(s) for FeedingName widget.
+  FocusNode? feedingNameFocusNode;
   TextEditingController? feedingNameController;
   String? Function(BuildContext, String?)? feedingNameControllerValidator;
   // State field(s) for Amount widget.
+  FocusNode? amountFocusNode;
   TextEditingController? amountController;
   String? Function(BuildContext, String?)? amountControllerValidator;
   // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
   TextEditingController? textController3;
   String? Function(BuildContext, String?)? textController3Validator;
   // Stores action output result for [Bottom Sheet - ResetFeedingTracker] action in Reset widget.
@@ -45,8 +49,13 @@ class FeedingTrackerPageModel
 
   void dispose() {
     unfocusNode.dispose();
+    feedingNameFocusNode?.dispose();
     feedingNameController?.dispose();
+
+    amountFocusNode?.dispose();
     amountController?.dispose();
+
+    textFieldFocusNode?.dispose();
     textController3?.dispose();
   }
 

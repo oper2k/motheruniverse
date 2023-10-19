@@ -7,6 +7,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -63,6 +64,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
     });
 
     _model.emailFieldController ??= TextEditingController();
+    _model.emailFieldFocusNode ??= FocusNode();
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -80,6 +82,15 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -174,6 +185,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
                         width: double.infinity,
                         child: TextFormField(
                           controller: _model.emailFieldController,
+                          focusNode: _model.emailFieldFocusNode,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.emailFieldController',
                             Duration(milliseconds: 2000),

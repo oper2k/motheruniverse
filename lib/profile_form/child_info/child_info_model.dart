@@ -12,6 +12,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -31,6 +32,7 @@ class ChildInfoModel extends FlutterFlowModel<ChildInfoWidget> {
   String uploadedFileUrl = '';
 
   // State field(s) for NameField widget.
+  FocusNode? nameFieldFocusNode;
   TextEditingController? nameFieldController;
   String? Function(BuildContext, String?)? nameFieldControllerValidator;
   String? _nameFieldControllerValidator(BuildContext context, String? val) {
@@ -51,9 +53,11 @@ class ChildInfoModel extends FlutterFlowModel<ChildInfoWidget> {
   // State field(s) for Switch widget.
   bool? switchValue;
   // State field(s) for GrowthField widget.
+  FocusNode? growthFieldFocusNode;
   TextEditingController? growthFieldController;
   String? Function(BuildContext, String?)? growthFieldControllerValidator;
   // State field(s) for WeightField widget.
+  FocusNode? weightFieldFocusNode;
   TextEditingController? weightFieldController;
   String? Function(BuildContext, String?)? weightFieldControllerValidator;
 
@@ -65,8 +69,13 @@ class ChildInfoModel extends FlutterFlowModel<ChildInfoWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    nameFieldFocusNode?.dispose();
     nameFieldController?.dispose();
+
+    growthFieldFocusNode?.dispose();
     growthFieldController?.dispose();
+
+    weightFieldFocusNode?.dispose();
     weightFieldController?.dispose();
   }
 

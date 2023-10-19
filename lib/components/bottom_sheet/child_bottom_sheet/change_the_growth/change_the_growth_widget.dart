@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'change_the_growth_model.dart';
@@ -36,6 +37,8 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChangeTheGrowthModel());
+
+    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -153,6 +156,7 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                           text: containerChildrenRecord.growthList.last.growth
                               .toString(),
                         ),
+                        focusNode: _model.textFieldFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
                           '_model.textController',
                           Duration(milliseconds: 2000),
