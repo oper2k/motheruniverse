@@ -33,8 +33,6 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CheckViewPageModel());
-
-    _model.expandableController = ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -243,8 +241,6 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                             width: double.infinity,
                                             color: Color(0x00000000),
                                             child: ExpandableNotifier(
-                                              controller:
-                                                  _model.expandableController,
                                               child: ExpandablePanel(
                                                 header: Padding(
                                                   padding: EdgeInsetsDirectional

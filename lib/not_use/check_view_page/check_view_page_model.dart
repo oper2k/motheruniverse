@@ -15,8 +15,6 @@ class CheckViewPageModel extends FlutterFlowModel<CheckViewPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for Expandable widget.
-  late ExpandableController expandableController;
 
   /// Initialization and disposal methods.
 
@@ -24,7 +22,6 @@ class CheckViewPageModel extends FlutterFlowModel<CheckViewPageWidget> {
 
   void dispose() {
     unfocusNode.dispose();
-    expandableController.dispose();
   }
 
   /// Action blocks are added here.
