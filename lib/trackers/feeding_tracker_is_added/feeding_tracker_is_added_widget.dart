@@ -179,7 +179,7 @@ class _FeedingTrackerIsAddedWidgetState
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(0.0),
                         child: Image.asset(
-                          'assets/images/Frame_123741.webp',
+                          'assets/images/Frame_123741123123.webp',
                           width: 190.0,
                           fit: BoxFit.cover,
                         ),
@@ -322,7 +322,7 @@ class _FeedingTrackerIsAddedWidgetState
                               width: 166.0,
                               height: 48.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).redLight,
+                                color: FlutterFlowTheme.of(context).warning,
                                 borderRadius: BorderRadius.circular(14.0),
                               ),
                               child: Padding(
@@ -337,7 +337,8 @@ class _FeedingTrackerIsAddedWidgetState
                                           .headlineLarge
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: Color(0xFFFB3A68),
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
                                             fontSize: 16.0,
                                             lineHeight: 1.25,
                                           ),

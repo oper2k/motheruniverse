@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:provider/provider.dart';
 import 'networking_page_model.dart';
 export 'networking_page_model.dart';
@@ -171,76 +172,82 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
                       showTraffic: false,
                       centerMapOnMarkerTap: true,
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 13.0, 20.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.goNamed(
-                            'NetworkingSearchingUser',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 0),
+                    PointerInterceptor(
+                      intercepting: isWeb,
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 13.0, 20.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.goNamed(
+                              'NetworkingSearchingUser',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 0),
+                                ),
+                              },
+                            );
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            height: 42.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(14.0),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).grey20,
+                                width: 1.0,
                               ),
-                            },
-                          );
-                        },
-                        child: Container(
-                          width: double.infinity,
-                          height: 42.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(14.0),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).grey20,
-                              width: 1.0,
                             ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 9.0, 16.0, 9.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Icon(
-                                  FFIcons.ksearch,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 24.0,
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    'Найти людей',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .grey60,
-                                          lineHeight: 1.28,
-                                        ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 9.0, 16.0, 9.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Icon(
+                                    FFIcons.ksearch,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
                                   ),
-                                ),
-                              ],
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      'Найти людей',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .grey60,
+                                            lineHeight: 1.28,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    wrapWithModel(
-                      model: _model.navBarModel,
-                      updateCallback: () => setState(() {}),
-                      child: NavBarWidget(
-                        nevBarPage: 4,
+                    PointerInterceptor(
+                      intercepting: isWeb,
+                      child: wrapWithModel(
+                        model: _model.navBarModel,
+                        updateCallback: () => setState(() {}),
+                        child: NavBarWidget(
+                          nevBarPage: 4,
+                        ),
                       ),
                     ),
                   ],

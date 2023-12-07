@@ -101,13 +101,13 @@ class _FeedbackIsSentWidgetState extends State<FeedbackIsSentWidget> {
                   ),
                 ),
               ),
-              Text(
-                '💌',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Inter',
-                      fontSize: 77.0,
-                      lineHeight: 1.41,
-                    ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(0.0),
+                child: Image.asset(
+                  'assets/images/zl3qp_.webp',
+                  width: 100.0,
+                  fit: BoxFit.cover,
+                ),
               ),
               Text(
                 'Отзыв отправлен!',

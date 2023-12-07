@@ -120,7 +120,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(0.0),
                                     child: Image.asset(
-                                      'assets/images/a5k43-7f7ys.webp',
+                                      'assets/images/___.webp',
                                       width: double.infinity,
                                       fit: BoxFit.cover,
                                     ),

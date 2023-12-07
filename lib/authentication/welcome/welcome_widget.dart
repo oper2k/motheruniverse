@@ -60,12 +60,15 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(0.0),
-                child: Image.asset(
-                  'assets/images/a5k43-7f7ys.webp',
-                  height: MediaQuery.sizeOf(context).height * 0.5,
-                  fit: BoxFit.contain,
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(0.0),
+                  child: Image.asset(
+                    'assets/images/Dobro_Pogalovat.webp',
+                    height: MediaQuery.sizeOf(context).height * 0.5,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
               Expanded(

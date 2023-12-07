@@ -156,7 +156,7 @@ class _BreastTrackerIsAddedWidgetState
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(0.0),
                   child: Image.asset(
-                    'assets/images/Frame_1237411.webp',
+                    'assets/images/afyfv-hgsfh.webp',
                     width: MediaQuery.sizeOf(context).width * 0.5,
                     fit: BoxFit.cover,
                   ),
@@ -335,7 +335,7 @@ class _BreastTrackerIsAddedWidgetState
                             24.0, 0.0, 24.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
+                        color: FlutterFlowTheme.of(context).yellow,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Inter',

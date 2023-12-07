@@ -67,7 +67,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(0.0),
                   child: Image.network(
                     widget.lesson!.preview,
                     width: double.infinity,
@@ -212,13 +212,13 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
-                                          .blueLight,
+                                          .purpleLight,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .displaySmall
                                           .override(
                                             fontFamily: 'Inter',
                                             color: FlutterFlowTheme.of(context)
-                                                .blue,
+                                                .purple,
                                           ),
                                       elevation: 0.0,
                                       borderSide: BorderSide(
@@ -383,7 +383,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                         0.0, 0.0, 0.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).blue,
+                                    color: FlutterFlowTheme.of(context).purple,
                                     textStyle: FlutterFlowTheme.of(context)
                                         .displaySmall,
                                     elevation: 0.0,

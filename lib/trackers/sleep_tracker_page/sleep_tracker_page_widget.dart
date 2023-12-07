@@ -182,7 +182,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(0.0),
                                 child: Image.asset(
-                                  'assets/images/Group_10551.webp',
+                                  'assets/images/Frame_12374s.webp',
                                   width: 190.0,
                                   fit: BoxFit.cover,
                                 ),
@@ -257,7 +257,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(0.0),
                                     child: Image.asset(
-                                      'assets/images/Frame_12374.webp',
+                                      'assets/images/Frame_12374a.webp',
                                       width: 138.0,
                                       fit: BoxFit.cover,
                                     ),

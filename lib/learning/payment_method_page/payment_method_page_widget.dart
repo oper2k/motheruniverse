@@ -392,7 +392,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
-                              'assets/images/Medal.webp',
+                              'assets/images/_.webp',
                               width: 32.0,
                               height: 32.0,
                               fit: BoxFit.cover,

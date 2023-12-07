@@ -31,10 +31,16 @@ class ChildSizeRecord extends FirestoreRecord {
   int get weekNumber => _weekNumber ?? 0;
   bool hasWeekNumber() => _weekNumber != null;
 
+  // "share_image" field.
+  String? _shareImage;
+  String get shareImage => _shareImage ?? '';
+  bool hasShareImage() => _shareImage != null;
+
   void _initializeFields() {
     _image = snapshotData['image'] as String?;
     _object = snapshotData['object'] as String?;
     _weekNumber = castToType<int>(snapshotData['weekNumber']);
+    _shareImage = snapshotData['share_image'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -75,12 +81,14 @@ Map<String, dynamic> createChildSizeRecordData({
   String? image,
   String? object,
   int? weekNumber,
+  String? shareImage,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'image': image,
       'object': object,
       'weekNumber': weekNumber,
+      'share_image': shareImage,
     }.withoutNulls,
   );
 
@@ -94,12 +102,13 @@ class ChildSizeRecordDocumentEquality implements Equality<ChildSizeRecord> {
   bool equals(ChildSizeRecord? e1, ChildSizeRecord? e2) {
     return e1?.image == e2?.image &&
         e1?.object == e2?.object &&
-        e1?.weekNumber == e2?.weekNumber;
+        e1?.weekNumber == e2?.weekNumber &&
+        e1?.shareImage == e2?.shareImage;
   }
 
   @override
-  int hash(ChildSizeRecord? e) =>
-      const ListEquality().hash([e?.image, e?.object, e?.weekNumber]);
+  int hash(ChildSizeRecord? e) => const ListEquality()
+      .hash([e?.image, e?.object, e?.weekNumber, e?.shareImage]);
 
   @override
   bool isValidKey(Object? o) => o is ChildSizeRecord;

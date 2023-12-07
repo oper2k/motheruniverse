@@ -41,14 +41,19 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
 
     _model.nameFieldController ??= TextEditingController();
     _model.nameFieldFocusNode ??= FocusNode();
+
     _model.secondNameFieldController ??= TextEditingController();
     _model.secondNameFieldFocusNode ??= FocusNode();
+
     _model.phoneNumberFieldController ??= TextEditingController();
     _model.phoneNumberFieldFocusNode ??= FocusNode();
+
     _model.telegramController ??= TextEditingController();
     _model.telegramFocusNode ??= FocusNode();
+
     _model.instagramController ??= TextEditingController();
     _model.instagramFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.phoneNumberFieldController?.text = '+7';
         }));

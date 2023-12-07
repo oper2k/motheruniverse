@@ -62,16 +62,7 @@ class BreastTrackerPageModel extends FlutterFlowModel<BreastTrackerPageWidget> {
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {
-    timerLeftController.timer.setPresetTime(
-      mSec: 0,
-      add: false,
-    );
-    timerRightController.timer.setPresetTime(
-      mSec: 0,
-      add: false,
-    );
-  }
+  void initState(BuildContext context) {}
 
   void dispose() {
     unfocusNode.dispose();

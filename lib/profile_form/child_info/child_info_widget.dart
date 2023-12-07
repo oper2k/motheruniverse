@@ -36,8 +36,10 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
 
     _model.nameFieldController ??= TextEditingController();
     _model.nameFieldFocusNode ??= FocusNode();
+
     _model.growthFieldController ??= TextEditingController();
     _model.growthFieldFocusNode ??= FocusNode();
+
     _model.weightFieldController ??= TextEditingController();
     _model.weightFieldFocusNode ??= FocusNode();
   }

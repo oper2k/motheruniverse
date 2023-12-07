@@ -180,7 +180,7 @@ class _SleepTrackerIsAddedWidgetState extends State<SleepTrackerIsAddedWidget> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(0.0),
                         child: Image.asset(
-                          'assets/images/Group_10551.webp',
+                          'assets/images/Frame_12374s.webp',
                           width: 190.0,
                           fit: BoxFit.cover,
                         ),

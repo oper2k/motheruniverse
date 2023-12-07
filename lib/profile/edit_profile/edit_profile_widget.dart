@@ -49,17 +49,22 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
     _model.nameController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.firstName, ''));
     _model.nameFocusNode ??= FocusNode();
+
     _model.secondNameController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.secondName, ''));
     _model.secondNameFocusNode ??= FocusNode();
+
     _model.phoneController ??= TextEditingController(text: currentPhoneNumber);
     _model.phoneFocusNode ??= FocusNode();
+
     _model.telegramController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.telegram, ''));
     _model.telegramFocusNode ??= FocusNode();
+
     _model.instagramController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.instagram, ''));
     _model.instagramFocusNode ??= FocusNode();
+
     _model.userInfoController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.userInfo, ''));
     _model.userInfoFocusNode ??= FocusNode();
@@ -359,7 +364,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           width: 112.0,
                                           height: 112.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFFFE6D9),
+                                            color: FlutterFlowTheme.of(context)
+                                                .tertiary,
                                             shape: BoxShape.circle,
                                           ),
                                           child: Icon(

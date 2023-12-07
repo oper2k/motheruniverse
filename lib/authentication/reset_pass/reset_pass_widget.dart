@@ -65,6 +65,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
 
     _model.emailFieldController ??= TextEditingController();
     _model.emailFieldFocusNode ??= FocusNode();
+
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||

@@ -30,6 +30,7 @@ class _SignInWidgetState extends State<SignInWidget> {
 
     _model.emailFieldController ??= TextEditingController();
     _model.emailFieldFocusNode ??= FocusNode();
+
     _model.passFieldController ??= TextEditingController();
     _model.passFieldFocusNode ??= FocusNode();
   }

@@ -77,7 +77,7 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(0.0),
                       child: Image.asset(
-                        'assets/images/LoyaltyFrame.webp',
+                        'assets/images/Group_12313.webp',
                         fit: BoxFit.cover,
                       ),
                     ),

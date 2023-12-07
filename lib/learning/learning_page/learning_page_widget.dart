@@ -113,7 +113,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(0.0),
                                   child: Image.asset(
-                                    'assets/images/Screenshot_2023-06-09_at_22.57_1.webp',
+                                    'assets/images/w352p_.webp',
                                     width: 206.0,
                                     fit: BoxFit.cover,
                                   ),
@@ -279,7 +279,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                               child: Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFFFFD294),
+                                  color: FlutterFlowTheme.of(context).tertiary,
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 child: Padding(
@@ -292,9 +292,9 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                             AlignmentDirectional(1.00, 0.00),
                                         child: ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(0.0),
                                           child: Image.asset(
-                                            'assets/images/Mask_group.webp',
+                                            'assets/images/___.webp',
                                             height: 163.0,
                                             fit: BoxFit.cover,
                                           ),

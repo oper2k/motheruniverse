@@ -41,10 +41,13 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
 
     _model.feedingNameController ??= TextEditingController();
     _model.feedingNameFocusNode ??= FocusNode();
+
     _model.amountController ??= TextEditingController();
     _model.amountFocusNode ??= FocusNode();
+
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.textController3?.text = '15 минут';
         }));
@@ -270,8 +273,8 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                         height: 36.0,
                         decoration: BoxDecoration(
                           color: _model.isGrams
-                              ? FlutterFlowTheme.of(context).redIcon
-                              : FlutterFlowTheme.of(context).redLight,
+                              ? FlutterFlowTheme.of(context).error
+                              : FlutterFlowTheme.of(context).warning,
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Align(
@@ -312,8 +315,8 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                           height: 36.0,
                           decoration: BoxDecoration(
                             color: _model.isGrams
-                                ? FlutterFlowTheme.of(context).redLight
-                                : FlutterFlowTheme.of(context).redIcon,
+                                ? FlutterFlowTheme.of(context).warning
+                                : FlutterFlowTheme.of(context).error,
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Align(
@@ -701,7 +704,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                               width: 166.0,
                               height: 48.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).redIcon,
+                                color: FlutterFlowTheme.of(context).error,
                                 borderRadius: BorderRadius.circular(14.0),
                               ),
                               child: Padding(

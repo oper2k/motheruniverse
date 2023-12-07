@@ -624,7 +624,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(0.0),
                           child: Image.asset(
-                            'assets/images/Screenshot_2023-06-22_at_23.36_1.webp',
+                            'assets/images/___.webp',
                             width: MediaQuery.sizeOf(context).width * 0.54,
                             fit: BoxFit.cover,
                           ),

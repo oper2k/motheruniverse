@@ -53,6 +53,7 @@ abstract class FlutterFlowTheme {
   late Color redIcon;
   late Color redLight;
   late Color blueWidget;
+  late Color primaryBacking;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -125,21 +126,21 @@ class LightModeTheme extends FlutterFlowTheme {
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
 
-  late Color primary = const Color(0xFFE28C13);
-  late Color secondary = const Color(0xFFAD6B0E);
-  late Color tertiary = const Color(0xFFFFE6D9);
+  late Color primary = const Color(0xFF6C7354);
+  late Color secondary = const Color(0xFF616A44);
+  late Color tertiary = const Color(0xFFE3E3D4);
   late Color alternate = const Color(0xFFE0E3E7);
   late Color primaryText = const Color(0xFF747474);
   late Color secondaryText = const Color(0xFF1C1C1C);
-  late Color primaryBackground = const Color(0xFFFDF5F1);
+  late Color primaryBackground = const Color(0xFFF9F9F2);
   late Color secondaryBackground = const Color(0xFFFFFFFF);
   late Color accent1 = const Color(0x4C4B39EF);
   late Color accent2 = const Color(0x4D39D2C0);
   late Color accent3 = const Color(0x4DEE8B60);
   late Color accent4 = const Color(0xCCFFFFFF);
   late Color success = const Color(0xFF249689);
-  late Color warning = const Color(0xFFFFD9D9);
-  late Color error = const Color(0xFFF84949);
+  late Color warning = const Color(0xFFF2DEDE);
+  late Color error = const Color(0xFFC64141);
   late Color info = const Color(0xFFFFFFFF);
 
   late Color backgroundMain = Color(0xFFFDF5F1);
@@ -147,22 +148,23 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color grey20 = Color(0xFFEBEAEA);
   late Color grey40 = Color(0xFFAAA7A5);
   late Color grey60 = Color(0xFF747474);
-  late Color errorDark = Color(0xFFE41313);
+  late Color errorDark = Color(0xFFB22929);
   late Color divider = Color(0x33000000);
-  late Color gift = Color(0xFF32B495);
-  late Color purple = Color(0xFF9536DF);
-  late Color blue = Color(0xFF5A61F7);
+  late Color gift = Color(0xFF739977);
+  late Color purple = Color(0xFF8765A2);
+  late Color blue = Color(0xFF7195B6);
   late Color iconColor = Color(0xFFFA8449);
   late Color botomBack = Color(0x801C1C1C);
   late Color divider10 = Color(0x1A1C1C1C);
-  late Color yellowLight = Color(0xFFF9EED1);
-  late Color purpleLight = Color(0xFFF1D9F4);
-  late Color successLight = Color(0xFFE0F0D4);
-  late Color blueLight = Color(0xFFD4DFF0);
-  late Color yellow = Color(0xFFD29A0B);
+  late Color yellowLight = Color(0xFFF2ECDC);
+  late Color purpleLight = Color(0xFFEFE9F1);
+  late Color successLight = Color(0xFFDDECDF);
+  late Color blueLight = Color(0xFFDCE3ED);
+  late Color yellow = Color(0xFFB49B72);
   late Color redIcon = Color(0xFFFB3A68);
   late Color redLight = Color(0xFFFFD9D9);
   late Color blueWidget = Color(0xFFCBCAF3);
+  late Color primaryBacking = Color(0xFFE4E5D9);
 }
 
 abstract class Typography {

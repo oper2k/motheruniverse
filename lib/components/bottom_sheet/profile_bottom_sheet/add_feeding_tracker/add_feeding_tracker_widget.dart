@@ -52,6 +52,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
 
     _model.feedingNameController ??= TextEditingController();
     _model.feedingNameFocusNode ??= FocusNode();
+
     _model.amountController ??= TextEditingController();
     _model.amountFocusNode ??= FocusNode();
   }

@@ -56,7 +56,7 @@ class _FreeLessonsPageWidgetState extends State<FreeLessonsPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 45.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

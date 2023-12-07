@@ -205,7 +205,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
-                              'assets/images/profile.webp',
+                              'assets/images/7fis7_.webp',
                               height: 133.0,
                               fit: BoxFit.cover,
                             ),

@@ -727,11 +727,11 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  color: Color(0xFFE7D7C8),
                   child: Center(
                     child: Image.asset(
-                      'assets/images/Frame_12205.jpg',
-                      width: 220.0,
+                      'assets/images/copy.jpg',
+                      width: 200.0,
                       fit: BoxFit.cover,
                     ),
                   ),

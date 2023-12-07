@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -116,7 +117,7 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
                       children: [
                         Expanded(
                           child: Text(
-                            'Примерный размер ребенка',
+                            'Размер плода',
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
@@ -154,14 +155,14 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(0.0),
                       child: Image.network(
                         containerChildSizeRecordList[_model.choseWeekIndex]
                             .image,
-                        width: 77.0,
-                        height: 109.0,
+                        width: 200.0,
+                        height: 200.0,
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -209,190 +210,231 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
                       },
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(0.00, 1.00),
+                  if (_model.choseWeekIndex == widget.currentWeek)
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await actions.shareFirebaseImage(
+                            containerChildSizeRecordList[_model.choseWeekIndex]
+                                .shareImage,
+                            '',
+                          );
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).purple,
+                            borderRadius: BorderRadius.circular(16.0),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 15.0, 24.0, 15.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  'Поделиться',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                        lineHeight: 1.28,
+                                      ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 0.0, 0.0, 0.0),
+                                  child: Icon(
+                                    FFIcons.kshare2,
+                                    color: FlutterFlowTheme.of(context).info,
+                                    size: 24.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 73.0, 0.0, 0.0),
                     child: Container(
                       width: double.infinity,
                       height: 126.0,
                       decoration: BoxDecoration(),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-                        child: Builder(
-                          builder: (context) {
-                            final weeks = containerChildSizeRecordList.toList();
-                            return SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children:
-                                    List.generate(weeks.length, (weeksIndex) {
-                                  final weeksItem = weeks[weeksIndex];
-                                  return Builder(
-                                    builder: (context) {
-                                      if (weeksIndex <= widget.currentWeek!) {
-                                        return InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            setState(() {
-                                              _model.choseWeekIndex =
-                                                  weeksIndex;
-                                              _model.weekInteger =
-                                                  weeksItem.weekNumber;
-                                            });
-                                          },
-                                          child: Container(
-                                            width: 56.0,
-                                            height: 78.0,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(40.0),
-                                              border: Border.all(
-                                                color: _model.choseWeekIndex ==
-                                                        weeksIndex
-                                                    ? FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary
-                                                    : FlutterFlowTheme.of(
-                                                            context)
-                                                        .divider,
-                                                width: 2.0,
-                                              ),
+                      child: Builder(
+                        builder: (context) {
+                          final weeks = containerChildSizeRecordList.toList();
+                          return SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children:
+                                  List.generate(weeks.length, (weeksIndex) {
+                                final weeksItem = weeks[weeksIndex];
+                                return Builder(
+                                  builder: (context) {
+                                    if (weeksIndex <= widget.currentWeek!) {
+                                      return InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          setState(() {
+                                            _model.choseWeekIndex = weeksIndex;
+                                            _model.weekInteger =
+                                                weeksItem.weekNumber;
+                                          });
+                                        },
+                                        child: Container(
+                                          width: 56.0,
+                                          height: 78.0,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(40.0),
+                                            border: Border.all(
+                                              color: _model
+                                                          .choseWeekIndex ==
+                                                      weeksIndex
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .primary
+                                                  : FlutterFlowTheme.of(context)
+                                                      .divider,
+                                              width: 2.0,
                                             ),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  weeksItem.weekNumber
-                                                      .toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .headlineSmall
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        fontSize: 20.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        lineHeight: 1.3,
-                                                      ),
-                                                ),
-                                                Text(
-                                                  'нед',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .displayMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        lineHeight: 1.33,
-                                                      ),
-                                                ),
-                                                if (weeksIndex ==
-                                                    widget.currentWeek)
-                                                  Container(
-                                                    width: 6.0,
-                                                    height: 6.0,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      shape: BoxShape.circle,
-                                                    ),
+                                          ),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                weeksItem.weekNumber.toString(),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          fontSize: 20.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          lineHeight: 1.3,
+                                                        ),
+                                              ),
+                                              Text(
+                                                'нед',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displayMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          lineHeight: 1.33,
+                                                        ),
+                                              ),
+                                              if (weeksIndex ==
+                                                  widget.currentWeek)
+                                                Container(
+                                                  width: 6.0,
+                                                  height: 6.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    shape: BoxShape.circle,
                                                   ),
-                                              ],
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    } else {
+                                      return InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          setState(() {
+                                            _model.choseWeekIndex = weeksIndex;
+                                            _model.weekInteger =
+                                                weeksItem.weekNumber;
+                                          });
+                                        },
+                                        child: Container(
+                                          width: 56.0,
+                                          height: 78.0,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(40.0),
+                                            border: Border.all(
+                                              color: _model
+                                                          .choseWeekIndex ==
+                                                      weeksIndex
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .primary
+                                                  : FlutterFlowTheme.of(context)
+                                                      .divider,
+                                              width: 2.0,
                                             ),
                                           ),
-                                        );
-                                      } else {
-                                        return InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            setState(() {
-                                              _model.choseWeekIndex =
-                                                  weeksIndex;
-                                              _model.weekInteger =
-                                                  weeksItem.weekNumber;
-                                            });
-                                          },
-                                          child: Container(
-                                            width: 56.0,
-                                            height: 78.0,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(40.0),
-                                              border: Border.all(
-                                                color: _model.choseWeekIndex ==
-                                                        weeksIndex
-                                                    ? FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary
-                                                    : FlutterFlowTheme.of(
-                                                            context)
-                                                        .divider,
-                                                width: 2.0,
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                weeksItem.weekNumber.toString(),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .grey40,
+                                                          fontSize: 20.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          lineHeight: 1.3,
+                                                        ),
                                               ),
-                                            ),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  weeksItem.weekNumber
-                                                      .toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .headlineSmall
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .grey40,
-                                                        fontSize: 20.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        lineHeight: 1.3,
-                                                      ),
-                                                ),
-                                                Text(
-                                                  'нед',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .displayMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .grey40,
-                                                        lineHeight: 1.33,
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
+                                              Text(
+                                                'нед',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displayMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .grey40,
+                                                          lineHeight: 1.33,
+                                                        ),
+                                              ),
+                                            ],
                                           ),
-                                        );
-                                      }
-                                    },
-                                  );
-                                })
-                                        .divide(SizedBox(width: 12.0))
-                                        .addToStart(SizedBox(width: 20.0))
-                                        .addToEnd(SizedBox(width: 20.0)),
-                              ),
-                            );
-                          },
-                        ),
+                                        ),
+                                      );
+                                    }
+                                  },
+                                );
+                              })
+                                      .divide(SizedBox(width: 12.0))
+                                      .addToStart(SizedBox(width: 20.0))
+                                      .addToEnd(SizedBox(width: 20.0)),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),
