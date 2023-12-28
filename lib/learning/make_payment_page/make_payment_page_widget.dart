@@ -93,7 +93,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                 height: 38.0,
                 decoration: BoxDecoration(),
                 child: Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -107,7 +107,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                       height: 38.0,
                       decoration: BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(-1.00, 0.00),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Icon(
                           FFIcons.kleft,
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -420,7 +420,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                 (_model.apiResult2li
                                                         ?.jsonBody ??
                                                     ''),
-                                              )) {
+                                              )!) {
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(
                                                   SnackBar(
@@ -432,7 +432,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                                     ?.jsonBody ??
                                                                 ''),
                                                           )
-                                                          .toString(),
+                                                          .toString()!,
                                                       style:
                                                           GoogleFonts.getFont(
                                                         'Inter',
@@ -610,7 +610,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                                   ?.jsonBody ??
                                                               ''),
                                                         )
-                                                        .toString(),
+                                                        .toString()!,
                                                     CloudpaymentsGroup
                                                         .payByCardCall
                                                         .transactionId(
@@ -618,6 +618,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                                   ?.jsonBody ??
                                                               ''),
                                                         )
+                                                        .toString()!
                                                         .toString(),
                                                     CloudpaymentsGroup
                                                         .payByCardCall
@@ -626,7 +627,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                                   ?.jsonBody ??
                                                               ''),
                                                         )
-                                                        .toString(),
+                                                        .toString()!,
                                                   );
                                                   _shouldSetState = true;
                                                   if (_model.check3DS!.length >
@@ -952,8 +953,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 56.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                  padding: EdgeInsets.all(0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,

@@ -94,7 +94,7 @@ class _FailedPaymentWidgetState extends State<FailedPaymentWidget> {
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 56.0,
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsets.all(0.0),
                   iconPadding:
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primary,
@@ -122,7 +122,7 @@ class _FailedPaymentWidgetState extends State<FailedPaymentWidget> {
                     height: 56.0,
                     decoration: BoxDecoration(),
                     child: Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         'На главную',
                         style:

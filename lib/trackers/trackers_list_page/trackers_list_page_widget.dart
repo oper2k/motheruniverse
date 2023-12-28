@@ -153,8 +153,7 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                   height: 38.0,
                                   decoration: BoxDecoration(),
                                   child: Align(
-                                    alignment:
-                                        AlignmentDirectional(-1.00, 0.00),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -169,7 +168,7 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                         decoration: BoxDecoration(),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(-1.00, 0.00),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Icon(
                                             FFIcons.kclose2,
                                             color: FlutterFlowTheme.of(context)
@@ -659,7 +658,7 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.00, 1.00),
+              alignment: AlignmentDirectional(0.0, 1.0),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 93.0),
                 child: Container(

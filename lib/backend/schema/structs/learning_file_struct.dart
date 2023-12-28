@@ -53,8 +53,9 @@ class LearningFileStruct extends FFFirebaseStruct {
         link: data['link'] as String?,
       );
 
-  static LearningFileStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? LearningFileStruct.fromMap(data) : null;
+  static LearningFileStruct? maybeFromMap(dynamic data) => data is Map
+      ? LearningFileStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'file_name': _fileName,

@@ -122,7 +122,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(-1.00, 0.00),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -136,7 +136,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                 height: 38.0,
                                 decoration: BoxDecoration(),
                                 child: Align(
-                                  alignment: AlignmentDirectional(-1.00, 0.00),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Icon(
                                     FFIcons.kleft,
                                     size: 24.0,
@@ -147,7 +147,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                           ),
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     6.0, 0.0, 30.0, 0.0),
@@ -187,8 +187,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    2.0, 2.0, 2.0, 2.0),
+                                padding: EdgeInsets.all(2.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -226,8 +225,8 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               'Месяц',
                                               style: FlutterFlowTheme.of(
@@ -275,8 +274,8 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               'Неделя',
                                               style: FlutterFlowTheme.of(
@@ -700,8 +699,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                 borderRadius: BorderRadius.circular(16.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 16.0, 16.0, 16.0),
+                                padding: EdgeInsets.all(16.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -996,7 +994,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
             ),
             if (FFAppState().viewSleepNorms == 0)
               Align(
-                alignment: AlignmentDirectional(0.00, 1.00),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                   child: Container(

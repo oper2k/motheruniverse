@@ -139,7 +139,7 @@ class _FeedingTrackerIsAddedWidgetState
                       height: 38.0,
                       decoration: BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(-1.00, 0.00),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -153,7 +153,7 @@ class _FeedingTrackerIsAddedWidgetState
                             height: 38.0,
                             decoration: BoxDecoration(),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Icon(
                                 FFIcons.kleft,
                                 color:

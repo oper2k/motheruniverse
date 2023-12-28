@@ -50,7 +50,7 @@ class _DeleteChildProfileWidgetState extends State<DeleteChildProfileWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 1.00),
+      alignment: AlignmentDirectional(0.0, 1.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -164,7 +164,7 @@ class _DeleteChildProfileWidgetState extends State<DeleteChildProfileWidget> {
                     height: 56.0,
                     decoration: BoxDecoration(),
                     child: Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         'Удалить',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -188,7 +188,7 @@ class _DeleteChildProfileWidgetState extends State<DeleteChildProfileWidget> {
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 56.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsets.all(0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).tertiary,

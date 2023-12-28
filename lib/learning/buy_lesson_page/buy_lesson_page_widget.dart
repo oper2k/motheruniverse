@@ -124,7 +124,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
               ],
             ),
             Align(
-              alignment: AlignmentDirectional(1.00, -1.00),
+              alignment: AlignmentDirectional(1.0, -1.0),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 20.0, 0.0),
                 child: InkWell(
@@ -152,7 +152,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.00, 1.00),
+              alignment: AlignmentDirectional(0.0, 1.0),
               child: StreamBuilder<List<LearningRecord>>(
                 stream: queryLearningRecord(
                   queryBuilder: (learningRecord) => learningRecord
@@ -206,8 +206,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                     options: FFButtonOptions(
                                       width: double.infinity,
                                       height: 56.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
+                                      padding: EdgeInsets.all(0.0),
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
@@ -292,8 +291,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                     options: FFButtonOptions(
                                       width: double.infinity,
                                       height: 56.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
+                                      padding: EdgeInsets.all(0.0),
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
@@ -379,8 +377,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     height: 56.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                    padding: EdgeInsets.all(0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).purple,
@@ -408,8 +405,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                     options: FFButtonOptions(
                                       width: double.infinity,
                                       height: 56.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
+                                      padding: EdgeInsets.all(0.0),
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),

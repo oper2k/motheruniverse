@@ -84,7 +84,7 @@ class _CheckViewPDFWidgetState extends State<CheckViewPDFWidget> {
                         height: 38.0,
                         decoration: BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(-1.00, 0.00),
+                          alignment: AlignmentDirectional(-1.0, 0.0),
                           child: Icon(
                             FFIcons.kleft,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -106,7 +106,7 @@ class _CheckViewPDFWidgetState extends State<CheckViewPDFWidget> {
                         height: 38.0,
                         decoration: BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(1.00, 0.00),
+                          alignment: AlignmentDirectional(1.0, 0.0),
                           child: Icon(
                             FFIcons.kcloudDownload,
                             color: FlutterFlowTheme.of(context).primary,

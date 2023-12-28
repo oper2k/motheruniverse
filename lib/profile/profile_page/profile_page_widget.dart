@@ -205,7 +205,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
-                              'assets/images/7fis7_.webp',
+                              'assets/images/profile23.webp',
                               height: 133.0,
                               fit: BoxFit.cover,
                             ),
@@ -277,7 +277,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Icon(
                                     FFIcons.kright2,
                                     color: FlutterFlowTheme.of(context)
@@ -343,7 +343,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Icon(
                                     FFIcons.kright2,
                                     color: FlutterFlowTheme.of(context)
@@ -409,7 +409,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Icon(
                                     FFIcons.kright2,
                                     color: FlutterFlowTheme.of(context)
@@ -482,7 +482,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Icon(
                                     FFIcons.kright2,
                                     color: FlutterFlowTheme.of(context)
@@ -566,7 +566,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Icon(
                                     FFIcons.kright2,
                                     color: FlutterFlowTheme.of(context)
@@ -627,13 +627,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       child: Stack(
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
-                                                1.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(1.0, 0.0),
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(0.0),
                                               child: Image.asset(
-                                                'assets/images/Screenshot_2023-06-09_at_23.57_12.webp',
+                                                'assets/images/hands.webp',
                                                 height: double.infinity,
                                                 fit: BoxFit.contain,
                                               ),
@@ -789,7 +789,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
             if (_model.showPurchasesInfo &&
                 valueOrDefault<bool>(currentUserDocument?.havePurchases, false))
               Align(
-                alignment: AlignmentDirectional(0.00, 1.00),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 97.0),
                   child: AuthUserStreamWidget(
@@ -837,7 +837,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                 !valueOrDefault<bool>(
                     currentUserDocument?.havePurchases, false))
               Align(
-                alignment: AlignmentDirectional(0.00, 1.00),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 97.0),
                   child: AuthUserStreamWidget(

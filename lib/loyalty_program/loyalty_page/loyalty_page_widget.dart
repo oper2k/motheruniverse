@@ -89,7 +89,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -103,8 +103,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                   height: 38.0,
                                   decoration: BoxDecoration(),
                                   child: Align(
-                                    alignment:
-                                        AlignmentDirectional(-1.00, 0.00),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Icon(
                                       FFIcons.kclose2,
                                       color: FlutterFlowTheme.of(context)
@@ -361,7 +360,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 28.0, 0.0, 0.0),
@@ -423,7 +422,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '1',
                                           style: FlutterFlowTheme.of(context)
@@ -513,7 +512,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '2',
                                           style: FlutterFlowTheme.of(context)
@@ -603,7 +602,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '3',
                                           style: FlutterFlowTheme.of(context)
@@ -693,7 +692,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '4',
                                           style: FlutterFlowTheme.of(context)
@@ -783,7 +782,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '5',
                                           style: FlutterFlowTheme.of(context)
@@ -873,7 +872,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '6',
                                           style: FlutterFlowTheme.of(context)
@@ -945,7 +944,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                 (valueOrDefault(currentUserDocument?.firstName, '') != null &&
                     valueOrDefault(currentUserDocument?.firstName, '') != ''))
               Align(
-                alignment: AlignmentDirectional(0.00, 1.00),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: AuthUserStreamWidget(
                   builder: (context) => Container(
                     width: double.infinity,
@@ -1173,8 +1172,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 56.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                padding: EdgeInsets.all(0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primary,

@@ -97,7 +97,7 @@ class _SuccessfulPurchasesWidgetState extends State<SuccessfulPurchasesWidget> {
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 56.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsets.all(0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,

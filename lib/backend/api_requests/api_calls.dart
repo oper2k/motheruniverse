@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import '../cloud_functions/cloud_functions.dart';
+import '../schema/structs/index.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
@@ -47,42 +48,42 @@ class PayByCardCall {
     return ApiCallResponse.fromCloudCallResponse(response);
   }
 
-  dynamic isSuccess(dynamic response) => getJsonField(
+  bool? isSuccess(dynamic response) => castToType<bool>(getJsonField(
         response,
         r'''$.Success''',
-      );
-  dynamic urlForConfirm(dynamic response) => getJsonField(
+      ));
+  String? urlForConfirm(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.Model.AcsUrl''',
-      );
-  dynamic transactionId(dynamic response) => getJsonField(
+      ));
+  int? transactionId(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.Model.TransactionId''',
-      );
-  dynamic paReq(dynamic response) => getJsonField(
+      ));
+  String? paReq(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.Model.PaReq''',
-      );
-  dynamic message(dynamic response) => getJsonField(
+      ));
+  dynamic? message(dynamic response) => getJsonField(
         response,
         r'''$.Message''',
       );
-  dynamic successMessage(dynamic response) => getJsonField(
+  String? successMessage(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.Model.CardHolderMessage''',
-      );
-  dynamic accountId(dynamic response) => getJsonField(
+      ));
+  String? accountId(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.Model.AccountId''',
-      );
-  dynamic token(dynamic response) => getJsonField(
+      ));
+  String? token(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.Model.Token''',
-      );
-  dynamic reasonCode(dynamic response) => getJsonField(
+      ));
+  int? reasonCode(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.Model.ReasonCode''',
-      );
+      ));
 }
 
 class CheckDSCall {

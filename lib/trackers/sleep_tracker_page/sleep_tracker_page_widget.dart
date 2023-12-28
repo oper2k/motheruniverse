@@ -134,7 +134,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                       height: 38.0,
                       decoration: BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(-1.00, 0.00),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -148,7 +148,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                             height: 38.0,
                             decoration: BoxDecoration(),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Icon(
                                 FFIcons.kleft,
                                 color:
@@ -302,7 +302,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                       Spacer(flex: 173),
                     if (containerChildrenRecord.tempStartSleepTime != null)
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,

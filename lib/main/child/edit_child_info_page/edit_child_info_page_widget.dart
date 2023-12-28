@@ -107,7 +107,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                         height: 38.0,
                         decoration: BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(-1.00, 0.00),
+                          alignment: AlignmentDirectional(-1.0, 0.0),
                           child: Icon(
                             FFIcons.kleft,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -149,7 +149,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                         height: 38.0,
                         decoration: BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(1.00, 0.00),
+                          alignment: AlignmentDirectional(1.0, 0.0),
                           child: Icon(
                             FFIcons.kdel,
                             color: FlutterFlowTheme.of(context).error,
@@ -389,7 +389,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Icon(
-                                                FFIcons.kedit3,
+                                                FFIcons.kedit1,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -630,8 +630,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 56.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              padding: EdgeInsets.all(0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,

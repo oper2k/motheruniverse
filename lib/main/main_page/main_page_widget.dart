@@ -303,7 +303,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                               height: 35.0,
                               decoration: BoxDecoration(),
                               child: Align(
-                                alignment: AlignmentDirectional(1.00, 0.00),
+                                alignment: AlignmentDirectional(1.0, 0.0),
                                 child: Icon(
                                   FFIcons.kright15,
                                   color: FlutterFlowTheme.of(context).primary,
@@ -819,11 +819,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                 width: 100.0,
                                                                 height: 36.0,
                                                                 padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
+                                                                    EdgeInsets
+                                                                        .all(
                                                                             0.0),
                                                                 iconPadding:
                                                                     EdgeInsetsDirectional
@@ -1316,12 +1313,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                               width: 100.0,
                                                               height: 36.0,
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                  EdgeInsets
+                                                                      .all(0.0),
                                                               iconPadding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -1590,7 +1583,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                           return Container(
                             decoration: BoxDecoration(),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Builder(
                                 builder: (context) {
                                   final checkList =
@@ -1909,7 +1902,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.00, 0.00),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 12.0, 0.0, 0.0),
@@ -2014,8 +2007,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   child: Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child: Text(
                                                                       'Бесплатно',
                                                                       style: FlutterFlowTheme.of(
@@ -2213,7 +2206,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                             decoration: BoxDecoration(),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  -1.00, 0.00),
+                                                  -1.0, 0.0),
                                               child: Text(
                                                 eventItem.date != null &&
                                                         eventItem.date != ''
@@ -3026,8 +3019,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 56.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
+                            padding: EdgeInsets.all(0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).tertiary,
@@ -3052,8 +3044,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 56.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          padding: EdgeInsets.all(0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
@@ -3072,7 +3063,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.00, 0.00),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: wrapWithModel(
                 model: _model.navBarModel,
                 updateCallback: () => setState(() {}),

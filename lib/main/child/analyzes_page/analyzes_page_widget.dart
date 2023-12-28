@@ -76,7 +76,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: AlignmentDirectional(-1.00, -1.00),
+                alignment: AlignmentDirectional(-1.0, -1.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,

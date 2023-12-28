@@ -517,8 +517,8 @@ class _NetworkingSearchingUserWidgetState
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
-                                                -1.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Text(
                                               '${searchResultsUsersRecordList.length.toString()} ${functions.formOfResultWord(searchResultsUsersRecordList.length)}',
                                               style:

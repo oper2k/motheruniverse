@@ -79,7 +79,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.00, -1.00),
+                  alignment: AlignmentDirectional(-1.0, -1.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 0.0, 0.0),
@@ -109,7 +109,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 79.0, 0.0, 0.0),
@@ -228,8 +228,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                             BorderRadius.circular(16.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 12.0, 12.0, 12.0),
+                                        padding: EdgeInsets.all(12.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
@@ -559,7 +558,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                                                                 true)) {
                                                                           return Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
+                                                                                AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 Container(
                                                                               width: 32.0,
@@ -578,7 +577,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                                                         } else {
                                                                           return Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
+                                                                                AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 Container(
                                                                               width: 32.0,

@@ -112,7 +112,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(-1.00, 0.00),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -128,7 +128,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
                               color: Color(0x00FFFFFF),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Icon(
                                 FFIcons.kleft,
                                 color: FlutterFlowTheme.of(context).overlay,
@@ -257,7 +257,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
             ),
             if (_model.emailIsSent)
               Align(
-                alignment: AlignmentDirectional(0.00, 1.00),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 136.0),
                   child: Container(
@@ -291,7 +291,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
                 ),
               ),
             Align(
-              alignment: AlignmentDirectional(0.00, 1.00),
+              alignment: AlignmentDirectional(0.0, 1.0),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 45.0),
                 child: FFButtonWidget(
@@ -326,7 +326,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 56.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsets.all(0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,

@@ -35,7 +35,7 @@ class AnalysisStruct extends FFFirebaseStruct {
       );
 
   static AnalysisStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? AnalysisStruct.fromMap(data) : null;
+      data is Map ? AnalysisStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'analysis_name': _analysisName,

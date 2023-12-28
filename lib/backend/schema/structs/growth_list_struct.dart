@@ -36,8 +36,9 @@ class GrowthListStruct extends FFFirebaseStruct {
         date: data['date'] as DateTime?,
       );
 
-  static GrowthListStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? GrowthListStruct.fromMap(data) : null;
+  static GrowthListStruct? maybeFromMap(dynamic data) => data is Map
+      ? GrowthListStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'growth': _growth,

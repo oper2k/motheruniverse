@@ -35,7 +35,7 @@ class VaccineStruct extends FFFirebaseStruct {
       );
 
   static VaccineStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? VaccineStruct.fromMap(data) : null;
+      data is Map ? VaccineStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'id': _id,

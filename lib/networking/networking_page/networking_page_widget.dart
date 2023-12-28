@@ -96,7 +96,8 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
         body: FutureBuilder<List<UsersRecord>>(
           future: queryUsersRecordOnce(
             queryBuilder: (usersRecord) => usersRecord
-                .orderBy('last_time_checked_location', descending: true),
+                .orderBy('last_time_checked_location', descending: true)
+                .orderBy('last_location', descending: true),
             limit: 500,
           ),
           builder: (context, snapshot) {

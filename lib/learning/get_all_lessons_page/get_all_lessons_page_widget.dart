@@ -117,8 +117,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment:
-                                        AlignmentDirectional(1.00, -1.00),
+                                    alignment: AlignmentDirectional(1.0, -1.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 55.0, 20.0, 0.0),
@@ -287,7 +286,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          1.00, 1.00),
+                                                          1.0, 1.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -473,8 +472,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(1.00, 1.00),
+                                      alignment: AlignmentDirectional(1.0, 1.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 191.0, 6.0, 0.0),
@@ -527,8 +525,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     height: 56.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                    padding: EdgeInsets.all(0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,

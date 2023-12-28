@@ -98,7 +98,7 @@ class _CreateVaccinePageWidgetState extends State<CreateVaccinePageWidget> {
                         height: 38.0,
                         decoration: BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(-1.00, 0.00),
+                          alignment: AlignmentDirectional(-1.0, 0.0),
                           child: Icon(
                             FFIcons.kleft,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -272,8 +272,7 @@ class _CreateVaccinePageWidgetState extends State<CreateVaccinePageWidget> {
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 16.0),
+                            padding: EdgeInsets.all(16.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -386,7 +385,7 @@ class _CreateVaccinePageWidgetState extends State<CreateVaccinePageWidget> {
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 56.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsets.all(0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,

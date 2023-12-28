@@ -68,7 +68,7 @@ class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
-                alignment: AlignmentDirectional(-1.00, 0.00),
+                alignment: AlignmentDirectional(-1.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,

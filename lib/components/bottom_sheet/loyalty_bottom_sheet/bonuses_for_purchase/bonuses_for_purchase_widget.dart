@@ -48,7 +48,7 @@ class _BonusesForPurchaseWidgetState extends State<BonusesForPurchaseWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 1.00),
+      alignment: AlignmentDirectional(0.0, 1.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -74,7 +74,7 @@ class _BonusesForPurchaseWidgetState extends State<BonusesForPurchaseWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(1.00, 0.00),
+                alignment: AlignmentDirectional(1.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -175,7 +175,7 @@ class _BonusesForPurchaseWidgetState extends State<BonusesForPurchaseWidget> {
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 56.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsets.all(0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).tertiary,

@@ -65,14 +65,14 @@ class _SignInWidgetState extends State<SignInWidget> {
         body: Stack(
           children: [
             Align(
-              alignment: AlignmentDirectional(0.00, 0.00),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(-1.00, 0.00),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -88,7 +88,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                             color: Color(0x00FFFFFF),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(-1.00, 0.00),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Icon(
                               FFIcons.kleft,
                               color: FlutterFlowTheme.of(context).overlay,
@@ -397,7 +397,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(1.00, -1.00),
+                            alignment: AlignmentDirectional(1.0, -1.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 0.0),
@@ -426,7 +426,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                     ),
                     Spacer(),
                     Align(
-                      alignment: AlignmentDirectional(0.00, 1.00),
+                      alignment: AlignmentDirectional(0.0, 1.0),
                       child: Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 45.0),
@@ -471,8 +471,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 56.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
+                            padding: EdgeInsets.all(0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
@@ -493,7 +492,7 @@ class _SignInWidgetState extends State<SignInWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.00, -1.00),
+              alignment: AlignmentDirectional(0.0, -1.0),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 67.0, 100.0, 0.0),
                 child: Image.asset(

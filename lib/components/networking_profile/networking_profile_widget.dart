@@ -49,7 +49,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 1.00),
+      alignment: AlignmentDirectional(0.0, 1.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -77,7 +77,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
               Stack(
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(1.00, 0.00),
+                    alignment: AlignmentDirectional(1.0, 0.0),
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
@@ -113,7 +113,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 26.0, 0.0, 0.0),
@@ -135,7 +135,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                             );
                           } else {
                             return Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Container(
                                 width: 120.0,
                                 height: 120.0,
@@ -314,7 +314,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
@@ -365,7 +365,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
@@ -425,7 +425,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-1.00, 0.00),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 20.0, 0.0, 0.0),
@@ -444,7 +444,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-1.00, 0.00),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 4.0, 0.0, 0.0),

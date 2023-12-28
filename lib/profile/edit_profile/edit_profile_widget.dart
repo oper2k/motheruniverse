@@ -121,7 +121,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           height: 38.0,
                           decoration: BoxDecoration(),
                           child: Align(
-                            alignment: AlignmentDirectional(-1.00, 0.00),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Icon(
                               FFIcons.kleft,
                               color: FlutterFlowTheme.of(context).secondaryText,
@@ -161,7 +161,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           height: 38.0,
                           decoration: BoxDecoration(),
                           child: Align(
-                            alignment: AlignmentDirectional(1.00, 0.00),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             child: Icon(
                               FFIcons.kdel,
                               color: FlutterFlowTheme.of(context).error,
@@ -369,7 +369,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                             shape: BoxShape.circle,
                                           ),
                                           child: Icon(
-                                            FFIcons.kcamera,
+                                            FFIcons.kcamera1,
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
                                             size: 24.0,
@@ -1044,7 +1044,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     if (_model.birthday != null) {
                                       return Align(
                                         alignment:
-                                            AlignmentDirectional(-1.00, 0.00),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1087,7 +1087,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     } else {
                                       return Align(
                                         alignment:
-                                            AlignmentDirectional(-1.00, 0.00),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1180,7 +1180,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.00, 1.00),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 60.0, 0.0, 45.0),
@@ -1269,8 +1269,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 56.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                  padding: EdgeInsets.all(0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,

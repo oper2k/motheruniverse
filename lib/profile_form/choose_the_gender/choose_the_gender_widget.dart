@@ -201,7 +201,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                   alignment: AlignmentDirectional(0.0, 0.0),
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -236,12 +236,12 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                               width: 2.0,
                             ),
                           ),
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Icon(
-                                FFIcons.kman,
+                                FFIcons.kmale,
                                 color: _model.malePicked
                                     ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context)
@@ -294,7 +294,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                   alignment: AlignmentDirectional(0.0, 0.0),
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -329,7 +329,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                               width: 2.0,
                             ),
                           ),
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -464,7 +464,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 56.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsets.all(0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: _model.genderSelected

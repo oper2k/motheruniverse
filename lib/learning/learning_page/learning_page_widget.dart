@@ -120,7 +120,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                 ),
                               if (_model.filter == null || _model.filter == '')
                                 Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 35.0, 20.0, 0.0),
@@ -289,7 +289,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(1.00, 0.00),
+                                            AlignmentDirectional(1.0, 0.0),
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(0.0),
@@ -606,7 +606,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                               Stack(
                                                                                 children: [
                                                                                   ClipRRect(
-                                                                                    borderRadius: BorderRadius.circular(0.0),
+                                                                                    borderRadius: BorderRadius.circular(20.0),
                                                                                     child: Image.network(
                                                                                       lessonItem.preview,
                                                                                       width: 120.0,
@@ -674,7 +674,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                                       builder: (context) {
                                                                                         if (containerUsersRecord.purchasedLessons.contains(lessonItem.reference.id) || (lessonItem.freeLesson == true)) {
                                                                                           return Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Container(
                                                                                               width: 32.0,
                                                                                               height: 32.0,
@@ -691,7 +691,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                                           );
                                                                                         } else {
                                                                                           return Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Container(
                                                                                               width: 32.0,
                                                                                               height: 32.0,
@@ -769,7 +769,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                   ),
                   if (FFAppState().lessonsAddedToCart.length > 0)
                     Align(
-                      alignment: AlignmentDirectional(0.00, 1.00),
+                      alignment: AlignmentDirectional(0.0, 1.0),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 101.0),

@@ -75,7 +75,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                     color: FlutterFlowTheme.of(context).primaryBackground,
                   ),
                   child: Align(
-                    alignment: AlignmentDirectional(-1.00, 0.00),
+                    alignment: AlignmentDirectional(-1.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -89,7 +89,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                         height: 38.0,
                         decoration: BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(-1.00, 0.00),
+                          alignment: AlignmentDirectional(-1.0, 0.0),
                           child: Icon(
                             FFIcons.kleft,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -138,8 +138,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Align(
-                                    alignment:
-                                        AlignmentDirectional(0.00, -1.00),
+                                    alignment: AlignmentDirectional(0.0, -1.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
@@ -463,9 +462,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                   BorderRadius.circular(16.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      14.0, 14.0, 14.0, 14.0),
+                                              padding: EdgeInsets.all(14.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 mainAxisAlignment:
@@ -593,9 +590,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                   BorderRadius.circular(16.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      14.0, 14.0, 14.0, 14.0),
+                                              padding: EdgeInsets.all(14.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 mainAxisAlignment:
@@ -745,9 +740,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                           16.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(14.0, 14.0,
-                                                          14.0, 14.0),
+                                                  padding: EdgeInsets.all(14.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.min,
@@ -1040,9 +1033,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                   BorderRadius.circular(16.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      14.0, 14.0, 14.0, 14.0),
+                                              padding: EdgeInsets.all(14.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 mainAxisAlignment:
@@ -1129,9 +1120,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                   BorderRadius.circular(16.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      14.0, 14.0, 14.0, 14.0),
+                                              padding: EdgeInsets.all(14.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 mainAxisAlignment:

@@ -92,7 +92,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                         height: 38.0,
                         decoration: BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(-1.00, 0.00),
+                          alignment: AlignmentDirectional(-1.0, 0.0),
                           child: Icon(
                             FFIcons.kleft,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -326,11 +326,8 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                       ),
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            12.0,
-                                                                            12.0,
-                                                                            12.0,
-                                                                            12.0),
+                                                                        padding:
+                                                                            EdgeInsets.all(12.0),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
@@ -681,8 +678,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 12.0, 12.0, 12.0),
+                              padding: EdgeInsets.all(12.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,

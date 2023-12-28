@@ -69,7 +69,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 1.00),
+      alignment: AlignmentDirectional(0.0, 1.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -145,7 +145,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.00, 0.00),
+                alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Text(
@@ -292,7 +292,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.00, 0.00),
+                alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 28.0, 0.0, 0.0),
                   child: Text(
@@ -446,7 +446,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
@@ -488,7 +488,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 12.0, 0.0),
@@ -696,8 +696,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 56.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          padding: EdgeInsets.all(0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).redIcon,
@@ -727,8 +726,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 56.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          padding: EdgeInsets.all(0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).grey20,

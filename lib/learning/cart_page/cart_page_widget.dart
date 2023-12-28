@@ -92,7 +92,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                             height: 38.0,
                             decoration: BoxDecoration(),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -106,8 +106,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                   height: 38.0,
                                   decoration: BoxDecoration(),
                                   child: Align(
-                                    alignment:
-                                        AlignmentDirectional(-1.00, 0.00),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Icon(
                                       FFIcons.kleft,
                                       color: FlutterFlowTheme.of(context)
@@ -454,7 +453,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.00, 1.00),
+                      alignment: AlignmentDirectional(0.0, 1.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -565,8 +564,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                     options: FFButtonOptions(
                                       width: double.infinity,
                                       height: 56.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
+                                      padding: EdgeInsets.all(0.0),
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
@@ -595,8 +593,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                     options: FFButtonOptions(
                                       width: double.infinity,
                                       height: 56.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
+                                      padding: EdgeInsets.all(0.0),
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
@@ -620,7 +617,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                     ),
                     if (FFAppState().lessonsAddedToCart.length == 0)
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(0.0),
                           child: Image.asset(

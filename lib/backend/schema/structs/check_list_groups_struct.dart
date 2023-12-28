@@ -36,8 +36,9 @@ class CheckListGroupsStruct extends FFFirebaseStruct {
         sort: castToType<int>(data['sort']),
       );
 
-  static CheckListGroupsStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? CheckListGroupsStruct.fromMap(data) : null;
+  static CheckListGroupsStruct? maybeFromMap(dynamic data) => data is Map
+      ? CheckListGroupsStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'group_name': _groupName,

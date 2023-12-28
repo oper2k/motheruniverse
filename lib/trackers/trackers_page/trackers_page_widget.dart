@@ -303,7 +303,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -606,7 +606,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -892,7 +892,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                             children: [
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 1.00),
+                                                    0.0, 1.0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
