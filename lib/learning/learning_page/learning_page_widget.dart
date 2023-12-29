@@ -77,7 +77,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: StreamBuilder<UsersRecord>(
           stream: UsersRecord.getDocument(currentUserReference!),
           builder: (context, snapshot) {
@@ -606,7 +606,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                               Stack(
                                                                                 children: [
                                                                                   ClipRRect(
-                                                                                    borderRadius: BorderRadius.circular(20.0),
+                                                                                    borderRadius: BorderRadius.circular(13.0),
                                                                                     child: Image.network(
                                                                                       lessonItem.preview,
                                                                                       width: 120.0,
@@ -615,13 +615,13 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 0.0),
                                                                                     child: Row(
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       children: [
                                                                                         if (lessonItem.freeLesson == true)
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 0.0),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                                                                                             child: Container(
                                                                                               decoration: BoxDecoration(
                                                                                                 color: FlutterFlowTheme.of(context).blue,

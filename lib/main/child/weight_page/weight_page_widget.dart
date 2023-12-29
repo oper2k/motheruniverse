@@ -61,7 +61,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: StreamBuilder<ChildrenRecord>(
           stream: ChildrenRecord.getDocument(widget.child!.reference),
           builder: (context, snapshot) {

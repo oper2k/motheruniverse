@@ -60,7 +60,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Stack(
           children: [
             Column(

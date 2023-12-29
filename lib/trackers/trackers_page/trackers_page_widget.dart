@@ -72,7 +72,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Stack(
           children: [
             StreamBuilder<List<ChildrenRecord>>(
@@ -675,7 +675,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                   BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .iconColor,
+                                                                    .yellow,
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
@@ -706,7 +706,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                           'Inter',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .iconColor,
+                                                                          .yellow,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
@@ -756,7 +756,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                   BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .blue,
+                                                                    .purple,
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
@@ -787,7 +787,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                           'Inter',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .blue,
+                                                                          .purple,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
@@ -837,7 +837,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                   BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .redIcon,
+                                                                    .error,
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
@@ -869,7 +869,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                           'Inter',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .redIcon,
+                                                                          .error,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,

@@ -54,7 +54,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: StreamBuilder<List<LearningRecord>>(
           stream: queryLearningRecord(),
           builder: (context, snapshot) {

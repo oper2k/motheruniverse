@@ -56,7 +56,7 @@ class _ChangeTheAgeWidgetState extends State<ChangeTheAgeWidget> {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).primaryBackground,
+          color: FlutterFlowTheme.of(context).backgroundMain,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
@@ -134,7 +134,7 @@ class _ChangeTheAgeWidgetState extends State<ChangeTheAgeWidget> {
                     height: 220.0,
                     horizontalPadding: 0.0,
                     backgroundColor:
-                        FlutterFlowTheme.of(context).primaryBackground,
+                        FlutterFlowTheme.of(context).backgroundMain,
                     lineColor: Colors.transparent,
                     textColor: FlutterFlowTheme.of(context).secondaryText,
                     initialItemIndexFirst: FFAppState().customPickerItemIndex1,

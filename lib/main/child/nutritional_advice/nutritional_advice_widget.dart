@@ -67,7 +67,7 @@ class _NutritionalAdviceWidgetState extends State<NutritionalAdviceWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: StreamBuilder<List<NutritionalAdviceRecord>>(
           stream: queryNutritionalAdviceRecord(
             queryBuilder: (nutritionalAdviceRecord) =>

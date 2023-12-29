@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -38,11 +39,14 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
           await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
-
-      await currentUserReference!.update(createUsersRecordData(
-        lastTimeCheckedLocation: getCurrentTimestamp,
-        lastLocation: currentUserLocationValue,
-      ));
+      unawaited(
+        () async {
+          await currentUserReference!.update(createUsersRecordData(
+            lastTimeCheckedLocation: getCurrentTimestamp,
+            lastLocation: currentUserLocationValue,
+          ));
+        }(),
+      );
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
@@ -92,12 +96,11 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         resizeToAvoidBottomInset: false,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: FutureBuilder<List<UsersRecord>>(
           future: queryUsersRecordOnce(
             queryBuilder: (usersRecord) => usersRecord
-                .orderBy('last_time_checked_location', descending: true)
-                .orderBy('last_location', descending: true),
+                .orderBy('last_time_checked_location', descending: true),
             limit: 500,
           ),
           builder: (context, snapshot) {
@@ -130,6 +133,8 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
                       initialLocation: _model.googleMapsCenter ??=
                           currentUserLocationValue!,
                       markers: containerUsersRecordList
+                          .where((e) => e.lastLocation != null)
+                          .toList()
                           .map(
                             (containerUsersRecord) => FlutterFlowMarker(
                               containerUsersRecord.reference.path,

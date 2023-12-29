@@ -158,7 +158,7 @@ class _ChoseTrackerSleepingWidgetState
                             width: 104.0,
                             height: 56.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).iconColor,
+                              color: FlutterFlowTheme.of(context).yellow,
                               borderRadius: BorderRadius.circular(20.0),
                             ),
                             child: Icon(
@@ -176,8 +176,7 @@ class _ChoseTrackerSleepingWidgetState
                                   .headlineSmall
                                   .override(
                                     fontFamily: 'Inter',
-                                    color:
-                                        FlutterFlowTheme.of(context).iconColor,
+                                    color: FlutterFlowTheme.of(context).yellow,
                                     fontWeight: FontWeight.w600,
                                     lineHeight: 1.25,
                                   ),
@@ -198,7 +197,7 @@ class _ChoseTrackerSleepingWidgetState
                           ),
                           child: Icon(
                             FFIcons.kmoon,
-                            color: FlutterFlowTheme.of(context).blue,
+                            color: FlutterFlowTheme.of(context).purple,
                             size: 40.0,
                           ),
                         ),
@@ -211,7 +210,7 @@ class _ChoseTrackerSleepingWidgetState
                                 .headlineSmall
                                 .override(
                                   fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context).blue,
+                                  color: FlutterFlowTheme.of(context).purple,
                                   fontWeight: FontWeight.w600,
                                   lineHeight: 1.25,
                                 ),
@@ -245,7 +244,7 @@ class _ChoseTrackerSleepingWidgetState
                             width: 104.0,
                             height: 56.0,
                             decoration: BoxDecoration(
-                              color: Color(0xFFFB3A68),
+                              color: FlutterFlowTheme.of(context).error,
                               borderRadius: BorderRadius.circular(20.0),
                             ),
                             child: Icon(
@@ -263,7 +262,7 @@ class _ChoseTrackerSleepingWidgetState
                                   .headlineSmall
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: Color(0xFFFB3A68),
+                                    color: FlutterFlowTheme.of(context).error,
                                     fontWeight: FontWeight.w600,
                                     lineHeight: 1.25,
                                   ),

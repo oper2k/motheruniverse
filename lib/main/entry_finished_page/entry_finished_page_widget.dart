@@ -53,7 +53,7 @@ class _EntryFinishedPageWidgetState extends State<EntryFinishedPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Align(
           alignment: AlignmentDirectional(0.0, 0.0),
           child: Padding(

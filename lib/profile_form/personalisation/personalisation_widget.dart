@@ -89,10 +89,7 @@ class _PersonalisationWidgetState extends State<PersonalisationWidget> {
                         child: Container(
                           width: 38.0,
                           height: 38.0,
-                          decoration: BoxDecoration(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                          ),
+                          decoration: BoxDecoration(),
                           child: Icon(
                             FFIcons.kclose2,
                             color: FlutterFlowTheme.of(context).secondaryText,

@@ -51,7 +51,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
         width: double.infinity,
         height: 85.0,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).primaryBackground,
+          color: FlutterFlowTheme.of(context).backgroundMain,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
@@ -60,7 +60,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 16.0),
+          padding: EdgeInsetsDirectional.fromSTEB(27.0, 16.0, 27.0, 16.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -73,6 +73,8 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
+                    HapticFeedback.mediumImpact();
+
                     context.goNamed(
                       'MainPage',
                       extra: <String, dynamic>{
@@ -86,6 +88,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   },
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Builder(
                         builder: (context) {
@@ -115,6 +118,8 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
+                    HapticFeedback.mediumImpact();
+
                     context.goNamed(
                       'TrackersPage',
                       extra: <String, dynamic>{
@@ -157,6 +162,8 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
+                    HapticFeedback.mediumImpact();
+
                     context.goNamed(
                       'LearningPage',
                       extra: <String, dynamic>{
@@ -199,6 +206,8 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
+                    HapticFeedback.mediumImpact();
+
                     context.goNamed(
                       'NetworkingPage',
                       extra: <String, dynamic>{
@@ -241,6 +250,8 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
+                    HapticFeedback.mediumImpact();
+
                     context.goNamed(
                       'ProfilePage',
                       extra: <String, dynamic>{
@@ -276,7 +287,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   ),
                 ),
               ),
-            ],
+            ].divide(SizedBox(width: 38.0)),
           ),
         ),
       ),

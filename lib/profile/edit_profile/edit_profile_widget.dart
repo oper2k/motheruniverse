@@ -96,7 +96,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Stack(
@@ -279,9 +279,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           final selectedMedia =
                                               await selectMediaWithSourceBottomSheet(
                                             context: context,
-                                            maxWidth: 900.00,
-                                            maxHeight: 900.00,
-                                            imageQuality: 98,
+                                            maxWidth: 360.00,
+                                            maxHeight: 360.00,
+                                            imageQuality: 92,
                                             allowPhoto: true,
                                           );
                                           if (selectedMedia != null &&

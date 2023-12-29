@@ -69,7 +69,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Column(

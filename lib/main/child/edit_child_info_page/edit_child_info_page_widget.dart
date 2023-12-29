@@ -263,9 +263,9 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                                         final selectedMedia =
                                             await selectMediaWithSourceBottomSheet(
                                           context: context,
-                                          maxWidth: 900.00,
-                                          maxHeight: 900.00,
-                                          imageQuality: 95,
+                                          maxWidth: 360.00,
+                                          maxHeight: 360.00,
+                                          imageQuality: 90,
                                           allowPhoto: true,
                                         );
                                         if (selectedMedia != null &&
@@ -342,11 +342,12 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                                         width: 112.0,
                                         height: 112.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFFFFE6D9),
+                                          color: FlutterFlowTheme.of(context)
+                                              .tertiary,
                                           shape: BoxShape.circle,
                                         ),
                                         child: Icon(
-                                          FFIcons.kcamera,
+                                          FFIcons.kcamera1,
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           size: 24.0,

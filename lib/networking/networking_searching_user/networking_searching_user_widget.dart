@@ -77,7 +77,7 @@ class _NetworkingSearchingUserWidgetState
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Container(
           decoration: BoxDecoration(),
           child: Padding(

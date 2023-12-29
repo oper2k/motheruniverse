@@ -53,7 +53,7 @@ class _FeedingInfoWidgetState extends State<FeedingInfoWidget> {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).primaryBackground,
+          color: FlutterFlowTheme.of(context).backgroundMain,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
@@ -113,7 +113,7 @@ class _FeedingInfoWidgetState extends State<FeedingInfoWidget> {
                       width: 14.0,
                       height: 14.0,
                       decoration: BoxDecoration(
-                        color: Color(0xFFFB3A68),
+                        color: FlutterFlowTheme.of(context).error,
                         shape: BoxShape.circle,
                       ),
                     ),

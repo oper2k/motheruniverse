@@ -173,7 +173,7 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                         height: 220.0,
                         horizontalPadding: 0.0,
                         backgroundColor:
-                            FlutterFlowTheme.of(context).primaryBackground,
+                            FlutterFlowTheme.of(context).backgroundMain,
                         lineColor: Colors.transparent,
                         textColor: FlutterFlowTheme.of(context).secondaryText,
                         initialItemIndexFirst: 0,
@@ -198,7 +198,7 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                         height: 220.0,
                         horizontalPadding: 0.0,
                         backgroundColor:
-                            FlutterFlowTheme.of(context).primaryBackground,
+                            FlutterFlowTheme.of(context).backgroundMain,
                         lineColor: Colors.transparent,
                         textColor: FlutterFlowTheme.of(context).secondaryText,
                         initialItemIndexFirst:

@@ -71,20 +71,6 @@
       ]
     },
     {
-      "collectionGroup": "users",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "last_time_checked_location",
-          "order": "DESCENDING"
-        },
-        {
-          "fieldPath": "last_location",
-          "order": "DESCENDING"
-        }
-      ]
-    },
-    {
       "collectionGroup": "trackers",
       "queryScope": "COLLECTION",
       "fields": [

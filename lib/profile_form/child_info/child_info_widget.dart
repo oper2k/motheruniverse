@@ -79,9 +79,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
               Container(
                 width: double.infinity,
                 height: 38.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).primaryBackground,
-                ),
+                decoration: BoxDecoration(),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -260,6 +258,9 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                           final selectedMedia =
                                               await selectMediaWithSourceBottomSheet(
                                             context: context,
+                                            maxWidth: 360.00,
+                                            maxHeight: 360.00,
+                                            imageQuality: 88,
                                             allowPhoto: true,
                                           );
                                           if (selectedMedia != null &&
@@ -345,11 +346,12 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                           width: 112.0,
                                           height: 112.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFFFE6D9),
+                                            color: FlutterFlowTheme.of(context)
+                                                .tertiary,
                                             shape: BoxShape.circle,
                                           ),
                                           child: Icon(
-                                            FFIcons.kcamera,
+                                            FFIcons.kcamera1,
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
                                             size: 24.0,
@@ -382,7 +384,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Icon(
-                                                  FFIcons.kedit3,
+                                                  FFIcons.kedit1,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondary,

@@ -81,7 +81,7 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Stack(
           children: [
             Padding(

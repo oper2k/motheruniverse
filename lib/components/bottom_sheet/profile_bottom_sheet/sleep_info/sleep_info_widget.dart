@@ -114,7 +114,7 @@ class _SleepInfoWidgetState extends State<SleepInfoWidget> {
                       width: 14.0,
                       height: 14.0,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).blue,
+                        color: FlutterFlowTheme.of(context).purple,
                         shape: BoxShape.circle,
                       ),
                     ),

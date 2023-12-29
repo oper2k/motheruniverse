@@ -54,7 +54,7 @@ class _AttachFeedbackBonusWidgetState extends State<AttachFeedbackBonusWidget> {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).primaryBackground,
+          color: FlutterFlowTheme.of(context).backgroundMain,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
@@ -249,7 +249,7 @@ class _AttachFeedbackBonusWidgetState extends State<AttachFeedbackBonusWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Icon(
-                                FFIcons.kcamera,
+                                FFIcons.kcamera1,
                                 color: FlutterFlowTheme.of(context).primary,
                                 size: 24.0,
                               ),

@@ -132,7 +132,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color alternate = const Color(0xFFE0E3E7);
   late Color primaryText = const Color(0xFF747474);
   late Color secondaryText = const Color(0xFF1C1C1C);
-  late Color primaryBackground = const Color(0xFFF9F9F2);
+  late Color primaryBackground = const Color(0xFFF5F5EE);
   late Color secondaryBackground = const Color(0xFFFFFFFF);
   late Color accent1 = const Color(0x4C4B39EF);
   late Color accent2 = const Color(0x4D39D2C0);
@@ -143,7 +143,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color error = const Color(0xFFC64141);
   late Color info = const Color(0xFFFFFFFF);
 
-  late Color backgroundMain = Color(0xFFFDF5F1);
+  late Color backgroundMain = Color(0xFFF5F5EE);
   late Color overlay = Color(0xFF1C1C1C);
   late Color grey20 = Color(0xFFEBEAEA);
   late Color grey40 = Color(0xFFAAA7A5);
@@ -152,7 +152,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color divider = Color(0x33000000);
   late Color gift = Color(0xFF739977);
   late Color purple = Color(0xFF8765A2);
-  late Color blue = Color(0xFF7195B6);
+  late Color blue = Color(0xFF367CBC);
   late Color iconColor = Color(0xFFFA8449);
   late Color botomBack = Color(0x801C1C1C);
   late Color divider10 = Color(0x1A1C1C1C);

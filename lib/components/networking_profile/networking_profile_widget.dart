@@ -53,7 +53,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).primaryBackground,
+          color: FlutterFlowTheme.of(context).backgroundMain,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
@@ -218,7 +218,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                                                 if (childItem.gender ==
                                                     'male') {
                                                   return Icon(
-                                                    FFIcons.kman,
+                                                    FFIcons.kmale,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryText,
