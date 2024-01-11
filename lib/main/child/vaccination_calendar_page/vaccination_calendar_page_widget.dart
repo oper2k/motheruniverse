@@ -119,7 +119,7 @@ class _VaccinationCalendarPageWidgetState
                               ),
                             ),
                             Text(
-                              'Наши рекомедации по прививкам, которые необходимо поставить, разделенные по возросту ребенка',
+                              'Наши рекомедации по прививкам, которые необходимо поставить, разделенные по возрасту ребенка',
                               style: FlutterFlowTheme.of(context)
                                   .displayMedium
                                   .override(

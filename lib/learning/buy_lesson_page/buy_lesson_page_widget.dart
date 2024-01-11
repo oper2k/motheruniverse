@@ -115,6 +115,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                               0.0, 16.0, 0.0, 0.0),
                           child: Html(
                             data: widget.lesson!.description,
+                            onLinkTap: (url, _, __, ___) => launchURL(url!),
                           ),
                         ),
                       ],

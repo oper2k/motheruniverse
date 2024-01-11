@@ -127,7 +127,7 @@ class _BuyingBonusesWidgetState extends State<BuyingBonusesWidget> {
                                 ),
                       ),
                       TextSpan(
-                        text: '100 ₽ = 10 баллов',
+                        text: '1 ₽ = 1 балл',
                         style:
                             FlutterFlowTheme.of(context).headlineSmall.override(
                                   fontFamily: 'Inter',

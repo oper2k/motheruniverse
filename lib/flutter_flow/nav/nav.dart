@@ -228,8 +228,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'DoctorVisitingPage',
           path: '/doctorVisitingPage',
+          asyncParams: {
+            'child': getDoc(['users', 'children'], ChildrenRecord.fromSnapshot),
+          },
           builder: (context, params) => DoctorVisitingPageWidget(
             currentWeek: params.getParam('currentWeek', ParamType.int),
+            child: params.getParam('child', ParamType.Document),
           ),
         ),
         FFRoute(

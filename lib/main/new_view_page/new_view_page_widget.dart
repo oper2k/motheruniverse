@@ -142,6 +142,7 @@ class _NewViewPageWidgetState extends State<NewViewPageWidget> {
                               0.0, 16.0, 0.0, 50.0),
                           child: Html(
                             data: widget.newItem!.theNew,
+                            onLinkTap: (url, _, __, ___) => launchURL(url!),
                           ),
                         ),
                         if (widget.newItem?.link != null &&

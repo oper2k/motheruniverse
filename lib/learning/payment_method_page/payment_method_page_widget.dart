@@ -145,7 +145,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                                         0.0) >=
                                     widget.price!) &&
                                 _model.useBonuses) {
-                              return (widget.price! - 1);
+                              return ((widget.price!) - 1);
                             } else if ((valueOrDefault(
                                         currentUserDocument?.loyaltyBonuses,
                                         0.0) <
@@ -403,7 +403,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Списать ${valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0) > widget.price! ? (widget.price!.round() - 1).toString() : (valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0).round()).toString()} бонусов',
+                                'Списать ${valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0) > widget.price! ? ((widget.price!).round() - 1).toString() : (valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0).round()).toString()} бонусов',
                                 style: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(

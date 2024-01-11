@@ -135,7 +135,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 26.0, 0.0, 0.0),
                                   child: Text(
-                                    'Станут доступны. когда малыш  появится на свет',
+                                    'Станут доступны, когда малыш  появится на свет',
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
                                         .displayMedium

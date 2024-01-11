@@ -674,9 +674,20 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                           lineHeight: 1.28,
                                         ),
                                   );
-                                } else {
+                                } else if (_model.pickedMonthIndex < 48) {
                                   return Text(
                                     'Продолжительность времени бодрствования 3 года: 5-6 ч.\nКоличество дневных снов 3 года: 1',
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: 14.0,
+                                          lineHeight: 1.28,
+                                        ),
+                                  );
+                                } else {
+                                  return Text(
+                                    'Продолжительность времени бодрствования в 4-7 лет: 6 ч. при наличии дневного сна.\nКоличество дневных снов в 4-7 лет: 1',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(

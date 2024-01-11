@@ -404,7 +404,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                     .call(
                                               publicId:
                                                   FFAppState().cloudPublicID,
-                                              amount: widget.price!.round(),
+                                              amount: (widget.price!).round(),
                                               cardCryptogramPacket:
                                                   _model.cryptogramCard,
                                               email: currentUserEmail,
@@ -490,7 +490,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                       .call(
                                                     accountId: currentUserEmail,
                                                     price:
-                                                        widget.price!.round(),
+                                                        (widget.price!).round(),
                                                     label: 'Лекции',
                                                   );
 
@@ -533,7 +533,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                       .call(
                                                     accountId: currentUserEmail,
                                                     price:
-                                                        widget.price!.round(),
+                                                        (widget.price!).round(),
                                                     label:
                                                         widget.lessonsReferences!
                                                                     .length >
@@ -716,8 +716,9 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                               .call(
                                                             accountId:
                                                                 currentUserEmail,
-                                                            price: widget.price!
-                                                                .round(),
+                                                            price:
+                                                                (widget.price!)
+                                                                    .round(),
                                                             label: 'Лекции',
                                                           );
 
@@ -756,8 +757,9 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                               .call(
                                                             accountId:
                                                                 currentUserEmail,
-                                                            price: widget.price!
-                                                                .round(),
+                                                            price:
+                                                                (widget.price!)
+                                                                    .round(),
                                                             label: widget
                                                                         .lessonsReferences!
                                                                         .length >

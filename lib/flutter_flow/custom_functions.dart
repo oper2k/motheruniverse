@@ -1252,3 +1252,35 @@ String getWordForPoints(double points) {
     return 'баллов';
   }
 }
+
+int calculateElapsedMonths(DateTime dateTime) {
+  /// Принимает Date time дату, а возвращает Integer количество целых прошедших месяцев.
+  /// Если прошло меньше месяца с момента переданной даты, то возвращаемое число будет 0. Если больше месяца, но меньше двух, то 1 и т.д.
+  DateTime currentDate = DateTime.now();
+
+  int elapsedMonths = currentDate.month -
+      dateTime.month +
+      (currentDate.year - dateTime.year) * 12;
+
+  if (currentDate.day < dateTime.day) {
+    elapsedMonths--;
+  }
+
+  return elapsedMonths < 0 ? 0 : elapsedMonths;
+}
+
+DateTime addOneYear(DateTime dateTime) {
+  /// принимает Dati time, а возвращает число, которое на год больше
+  // Используем конструктор DateTime для создания нового объекта DateTime с увеличенным годом
+  DateTime newDateTime = DateTime(
+      dateTime.year + 1,
+      dateTime.month,
+      dateTime.day,
+      dateTime.hour,
+      dateTime.minute,
+      dateTime.second,
+      dateTime.millisecond,
+      dateTime.microsecond);
+
+  return newDateTime;
+}
