@@ -734,7 +734,7 @@ class FFRoute {
                   color: Color(0xFFE7D7C8),
                   child: Center(
                     child: Image.asset(
-                      'assets/images/copy.jpg',
+                      'assets/images/abcnr-gs43.webp',
                       width: 200.0,
                       fit: BoxFit.cover,
                     ),

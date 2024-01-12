@@ -16,7 +16,7 @@ import 'package:provider/provider.dart';
 class PaymentMethodPageModel extends FlutterFlowModel<PaymentMethodPageWidget> {
   ///  Local state fields for this page.
 
-  double totalPrice = 0.0;
+  double totalPrice = 0;
 
   bool useBonuses = false;
 

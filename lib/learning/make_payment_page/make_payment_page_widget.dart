@@ -428,11 +428,10 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                       CloudpaymentsGroup
                                                           .payByCardCall
                                                           .successMessage(
-                                                            (_model.apiResult2li
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )
-                                                          .toString()!,
+                                                        (_model.apiResult2li
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )!,
                                                       style:
                                                           GoogleFonts.getFont(
                                                         'Inter',
@@ -586,48 +585,43 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                 if (CloudpaymentsGroup
                                                             .payByCardCall
                                                             .urlForConfirm(
-                                                              (_model.apiResult2li
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )
-                                                            .toString() !=
+                                                          (_model.apiResult2li
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ) !=
                                                         null &&
                                                     CloudpaymentsGroup
                                                             .payByCardCall
                                                             .urlForConfirm(
-                                                              (_model.apiResult2li
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )
-                                                            .toString() !=
+                                                          (_model.apiResult2li
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ) !=
                                                         '') {
                                                   _model.check3DS = await actions
                                                       .check3DSCloudPayments(
                                                     CloudpaymentsGroup
                                                         .payByCardCall
                                                         .urlForConfirm(
-                                                          (_model.apiResult2li
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )
-                                                        .toString()!,
+                                                      (_model.apiResult2li
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!,
                                                     CloudpaymentsGroup
                                                         .payByCardCall
                                                         .transactionId(
                                                           (_model.apiResult2li
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        )
-                                                        .toString()!
+                                                        )!
                                                         .toString(),
                                                     CloudpaymentsGroup
                                                         .payByCardCall
                                                         .paReq(
-                                                          (_model.apiResult2li
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )
-                                                        .toString()!,
+                                                      (_model.apiResult2li
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!,
                                                   );
                                                   _shouldSetState = true;
                                                   if (_model.check3DS!.length >
