@@ -247,7 +247,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                           borderRadius:
                                               BorderRadius.circular(0.0),
                                           child: Image.asset(
-                                            'assets/images/Growth1.webp',
+                                            'assets/images/amrjz-973ls.webp',
                                             width: double.infinity,
                                             height: MediaQuery.sizeOf(context)
                                                     .height *

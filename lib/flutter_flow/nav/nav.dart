@@ -228,12 +228,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'DoctorVisitingPage',
           path: '/doctorVisitingPage',
-          asyncParams: {
-            'child': getDoc(['users', 'children'], ChildrenRecord.fromSnapshot),
-          },
           builder: (context, params) => DoctorVisitingPageWidget(
             currentWeek: params.getParam('currentWeek', ParamType.int),
-            child: params.getParam('child', ParamType.Document),
           ),
         ),
         FFRoute(
@@ -734,7 +730,7 @@ class FFRoute {
                   color: Color(0xFFE7D7C8),
                   child: Center(
                     child: Image.asset(
-                      'assets/images/abcnr-gs43.webp',
+                      'assets/images/a7r86-bu29e.webp',
                       width: 200.0,
                       fit: BoxFit.cover,
                     ),

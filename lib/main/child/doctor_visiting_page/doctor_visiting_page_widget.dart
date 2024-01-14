@@ -3,11 +3,9 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -18,11 +16,9 @@ class DoctorVisitingPageWidget extends StatefulWidget {
   const DoctorVisitingPageWidget({
     Key? key,
     required this.currentWeek,
-    required this.child,
   }) : super(key: key);
 
   final int? currentWeek;
-  final ChildrenRecord? child;
 
   @override
   _DoctorVisitingPageWidgetState createState() =>
@@ -38,89 +34,6 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DoctorVisitingPageModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (functions.calculateElapsedMonths(widget.child!.birthDate!) < 1) {
-        setState(() {
-          _model.initialIndex = 0;
-        });
-      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
-          2) {
-        setState(() {
-          _model.initialIndex = 1;
-        });
-      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
-          3) {
-        setState(() {
-          _model.initialIndex = 2;
-        });
-      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
-          4) {
-        setState(() {
-          _model.initialIndex = 3;
-        });
-      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
-          5) {
-        setState(() {
-          _model.initialIndex = 4;
-        });
-      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
-          6) {
-        setState(() {
-          _model.initialIndex = 5;
-        });
-      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
-          7) {
-        setState(() {
-          _model.initialIndex = 6;
-        });
-      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
-          8) {
-        setState(() {
-          _model.initialIndex = 7;
-        });
-      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
-          9) {
-        setState(() {
-          _model.initialIndex = 8;
-        });
-      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
-          10) {
-        setState(() {
-          _model.initialIndex = 9;
-        });
-      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
-          11) {
-        setState(() {
-          _model.initialIndex = 10;
-        });
-      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
-          12) {
-        setState(() {
-          _model.initialIndex = 11;
-        });
-      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
-          15) {
-        setState(() {
-          _model.initialIndex = 12;
-        });
-      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
-          24) {
-        setState(() {
-          _model.initialIndex = 13;
-        });
-      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
-          36) {
-        setState(() {
-          _model.initialIndex = 14;
-        });
-      } else {
-        setState(() {
-          _model.initialIndex = 15;
-        });
-      }
-    });
   }
 
   @override
