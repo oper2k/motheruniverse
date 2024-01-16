@@ -54,6 +54,7 @@ abstract class FlutterFlowTheme {
   late Color redLight;
   late Color blueWidget;
   late Color primaryBacking;
+  late Color previewApp;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -165,6 +166,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color redLight = Color(0xFFFFD9D9);
   late Color blueWidget = Color(0xFFCBCAF3);
   late Color primaryBacking = Color(0xFFE4E5D9);
+  late Color previewApp = Color(0xFFE7D7C8);
 }
 
 abstract class Typography {

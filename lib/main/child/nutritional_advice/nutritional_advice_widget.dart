@@ -97,79 +97,81 @@ class _NutritionalAdviceWidgetState extends State<NutritionalAdviceWidget> {
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                          ),
-                          child: Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.safePop();
-                              },
-                              child: Container(
-                                width: 38.0,
-                                height: 38.0,
-                                decoration: BoxDecoration(),
-                                child: Icon(
-                                  FFIcons.kleft,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 24.0,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                            ),
+                            child: Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.safePop();
+                                },
+                                child: Container(
+                                  width: 38.0,
+                                  height: 38.0,
+                                  decoration: BoxDecoration(),
+                                  child: Icon(
+                                    FFIcons.kleft,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        SingleChildScrollView(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SingleChildScrollView(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Text(
-                                      'Рекомендации по питанию',
-                                      style: FlutterFlowTheme.of(context)
-                                          .displayLarge,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 24.0, 0.0, 0.0),
-                                      child: Container(
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(),
-                                        child: Text(
-                                          containerNutritionalAdviceRecordList[
-                                                  _model.choseWeekIndex]
-                                              .recommendation,
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineSmall
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                lineHeight: 1.5,
-                                              ),
+                          SingleChildScrollView(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Text(
+                                        'Рекомендации по питанию',
+                                        style: FlutterFlowTheme.of(context)
+                                            .displayLarge,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 24.0, 0.0, 0.0),
+                                        child: Container(
+                                          width: double.infinity,
+                                          decoration: BoxDecoration(),
+                                          child: Text(
+                                            containerNutritionalAdviceRecordList[
+                                                    _model.choseWeekIndex]
+                                                .recommendation,
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  lineHeight: 1.5,
+                                                ),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ].addToEnd(SizedBox(height: 183.0)),
+                      ),
                     ),
                   ),
                   Align(

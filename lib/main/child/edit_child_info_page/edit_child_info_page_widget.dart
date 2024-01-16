@@ -7,9 +7,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'dart:async';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -45,6 +47,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
         _model.tempPhoto = widget.child?.photo;
+        _model.conceptionDate = widget.child?.conceptionDate;
       });
     });
 
@@ -480,7 +483,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 22.0, 16.0, 22.0),
+                                    16.0, 17.0, 16.0, 17.0),
                               ),
                               style: FlutterFlowTheme.of(context).headlineSmall,
                               cursorColor: FlutterFlowTheme.of(context).overlay,
@@ -533,7 +536,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                               },
                               child: Container(
                                 width: double.infinity,
-                                height: 56.0,
+                                height: 59.0,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12.0),
                                   border: Border.all(
@@ -543,7 +546,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 7.0, 16.0, 7.0),
+                                      16.0, 4.0, 16.0, 4.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -593,6 +596,133 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                               ),
                             ),
                           ),
+                        if (widget.child?.birthDate == null)
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 16.0, 0.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                final _datePickedDate = await showDatePicker(
+                                  context: context,
+                                  initialDate:
+                                      (containerChildrenRecord.conceptionDate ??
+                                          DateTime.now()),
+                                  firstDate: DateTime(1900),
+                                  lastDate:
+                                      (getCurrentTimestamp ?? DateTime(2050)),
+                                  builder: (context, child) {
+                                    return wrapInMaterialDatePickerTheme(
+                                      context,
+                                      child!,
+                                      headerBackgroundColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      headerForegroundColor:
+                                          FlutterFlowTheme.of(context).info,
+                                      headerTextStyle:
+                                          FlutterFlowTheme.of(context)
+                                              .headlineLarge
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 32.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                      pickerBackgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                      pickerForegroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                      selectedDateTimeBackgroundColor:
+                                          FlutterFlowTheme.of(context).tertiary,
+                                      selectedDateTimeForegroundColor:
+                                          FlutterFlowTheme.of(context).info,
+                                      actionButtonForegroundColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      iconSize: 24.0,
+                                    );
+                                  },
+                                );
+
+                                if (_datePickedDate != null) {
+                                  safeSetState(() {
+                                    _model.datePicked = DateTime(
+                                      _datePickedDate.year,
+                                      _datePickedDate.month,
+                                      _datePickedDate.day,
+                                    );
+                                  });
+                                }
+                                if (_model.datePicked != null) {
+                                  setState(() {
+                                    _model.conceptionDate = _model.datePicked;
+                                  });
+                                }
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                height: 59.0,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12.0),
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context).divider,
+                                    width: 1.0,
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 4.0, 16.0, 4.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Expanded(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Дата зачатия',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        lineHeight: 1.28,
+                                                      ),
+                                            ),
+                                            Expanded(
+                                              child: Text(
+                                                functions
+                                                    .formatDateInDayNumberMonthStringYearNumber(
+                                                        _model.conceptionDate!),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          lineHeight: 1.5,
+                                                        ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Icon(
+                                        FFIcons.kright3,
+                                        color:
+                                            FlutterFlowTheme.of(context).grey40,
+                                        size: 24.0,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                         if (widget.child?.birthDate != null)
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -608,21 +738,44 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                               0.0, 57.0, 0.0, 45.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              await widget.child!.reference
-                                  .update(createChildrenRecordData(
-                                name: _model.textController.text,
-                              ));
+                              unawaited(
+                                () async {
+                                  await widget.child!.reference
+                                      .update(createChildrenRecordData(
+                                    name: _model.textController.text,
+                                  ));
+                                }(),
+                              );
                               if (_model.tempPhoto != null &&
                                   _model.tempPhoto != '') {
-                                await widget.child!.reference
-                                    .update(createChildrenRecordData(
-                                  photo: _model.tempPhoto,
-                                ));
+                                unawaited(
+                                  () async {
+                                    await widget.child!.reference
+                                        .update(createChildrenRecordData(
+                                      photo: _model.tempPhoto,
+                                    ));
+                                  }(),
+                                );
                               } else {
-                                await widget.child!.reference
-                                    .update(createChildrenRecordData(
-                                  photo: '',
-                                ));
+                                unawaited(
+                                  () async {
+                                    await widget.child!.reference
+                                        .update(createChildrenRecordData(
+                                      photo: '',
+                                    ));
+                                  }(),
+                                );
+                              }
+
+                              if (widget.child?.birthDate == null) {
+                                unawaited(
+                                  () async {
+                                    await widget.child!.reference
+                                        .update(createChildrenRecordData(
+                                      conceptionDate: _model.conceptionDate,
+                                    ));
+                                  }(),
+                                );
                               }
 
                               context.goNamed('MainPage');

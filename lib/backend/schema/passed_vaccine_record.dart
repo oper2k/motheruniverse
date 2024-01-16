@@ -31,12 +31,18 @@ class PassedVaccineRecord extends FirestoreRecord {
   DateTime? get passedDate => _passedDate;
   bool hasPassedDate() => _passedDate != null;
 
+  // "child" field.
+  DocumentReference? _child;
+  DocumentReference? get child => _child;
+  bool hasChild() => _child != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
     _vaccineName = snapshotData['vaccine_name'] as String?;
     _id = snapshotData['id'] as String?;
     _passedDate = snapshotData['passed_date'] as DateTime?;
+    _child = snapshotData['child'] as DocumentReference?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -82,12 +88,14 @@ Map<String, dynamic> createPassedVaccineRecordData({
   String? vaccineName,
   String? id,
   DateTime? passedDate,
+  DocumentReference? child,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'vaccine_name': vaccineName,
       'id': id,
       'passed_date': passedDate,
+      'child': child,
     }.withoutNulls,
   );
 
@@ -102,12 +110,13 @@ class PassedVaccineRecordDocumentEquality
   bool equals(PassedVaccineRecord? e1, PassedVaccineRecord? e2) {
     return e1?.vaccineName == e2?.vaccineName &&
         e1?.id == e2?.id &&
-        e1?.passedDate == e2?.passedDate;
+        e1?.passedDate == e2?.passedDate &&
+        e1?.child == e2?.child;
   }
 
   @override
-  int hash(PassedVaccineRecord? e) =>
-      const ListEquality().hash([e?.vaccineName, e?.id, e?.passedDate]);
+  int hash(PassedVaccineRecord? e) => const ListEquality()
+      .hash([e?.vaccineName, e?.id, e?.passedDate, e?.child]);
 
   @override
   bool isValidKey(Object? o) => o is PassedVaccineRecord;

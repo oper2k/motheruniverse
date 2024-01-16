@@ -256,7 +256,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
-                              'assets/images/_.webp',
+                              'assets/images/mainPagePicture.webp',
                               height: 110.0,
                               fit: BoxFit.contain,
                             ),
@@ -682,7 +682,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                         0.0),
                                                             child: Text(
                                                               functions
-                                                                  .calculateAgeAndMonths(
+                                                                  .ageInYearsMonthsAmdDays(
                                                                       childItem
                                                                           .birthDate!),
                                                               style: FlutterFlowTheme

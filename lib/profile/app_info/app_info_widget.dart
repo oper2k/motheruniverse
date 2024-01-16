@@ -169,7 +169,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 28.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -202,29 +202,32 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
                   ),
                 ),
               ),
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  await launchURL('https://dociureva.ru/soglashenie');
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Пользовательское соглашение',
-                      style: FlutterFlowTheme.of(context).headlineLarge,
-                    ),
-                    Icon(
-                      FFIcons.kright2,
-                      color: FlutterFlowTheme.of(context).grey40,
-                      size: 24.0,
-                    ),
-                  ],
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 28.0, 0.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    await launchURL('https://dociureva.ru/soglashenie');
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Пользовательское соглашение',
+                        style: FlutterFlowTheme.of(context).headlineLarge,
+                      ),
+                      Icon(
+                        FFIcons.kright2,
+                        color: FlutterFlowTheme.of(context).grey40,
+                        size: 24.0,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

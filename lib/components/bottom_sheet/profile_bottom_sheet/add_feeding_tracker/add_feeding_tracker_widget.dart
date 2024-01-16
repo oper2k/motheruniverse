@@ -204,7 +204,6 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        height: 57.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -245,7 +244,6 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               15.0, 0.0, 0.0, 0.0),
                           child: Container(
-                            height: 57.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -259,7 +257,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 7.0, 16.0, 7.0),
                               child: Column(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(

@@ -220,16 +220,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'VaccinationCalendarPage',
           path: '/vaccinationCalendarPage',
+          asyncParams: {
+            'child': getDoc(['users', 'children'], ChildrenRecord.fromSnapshot),
+          },
           builder: (context, params) => VaccinationCalendarPageWidget(
             currentWeek: params.getParam('currentWeek', ParamType.int),
             birthDate: params.getParam('birthDate', ParamType.DateTime),
+            child: params.getParam('child', ParamType.Document),
           ),
         ),
         FFRoute(
           name: 'DoctorVisitingPage',
           path: '/doctorVisitingPage',
+          asyncParams: {
+            'child': getDoc(['users', 'children'], ChildrenRecord.fromSnapshot),
+          },
           builder: (context, params) => DoctorVisitingPageWidget(
             currentWeek: params.getParam('currentWeek', ParamType.int),
+            child: params.getParam('child', ParamType.Document),
           ),
         ),
         FFRoute(
@@ -242,8 +250,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'CreateVaccinePage',
           path: '/createVaccinePage',
+          asyncParams: {
+            'child': getDoc(['users', 'children'], ChildrenRecord.fromSnapshot),
+          },
           builder: (context, params) => CreateVaccinePageWidget(
-            age: params.getParam('age', ParamType.String),
+            period: params.getParam('period', ParamType.String),
+            child: params.getParam('child', ParamType.Document),
           ),
         ),
         FFRoute(
@@ -727,7 +739,7 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Color(0xFFE7D7C8),
+                  color: FlutterFlowTheme.of(context).previewApp,
                   child: Center(
                     child: Image.asset(
                       'assets/images/a7r86-bu29e.webp',

@@ -138,7 +138,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                         builder: (context) {
                           if (widget.nevBarPage == 2) {
                             return Icon(
-                              FFIcons.kcalendar,
+                              FFIcons.kcalendarActive2,
                               color: FlutterFlowTheme.of(context).primary,
                               size: 24.0,
                             );

@@ -237,22 +237,25 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                 height: 326.0,
                                 child: Stack(
                                   children: [
-                                    Container(
-                                      height: 326.0,
-                                      decoration: BoxDecoration(),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 20.0, 0.0),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(0.0),
-                                          child: Image.asset(
-                                            'assets/images/amrjz-973ls.webp',
-                                            width: double.infinity,
-                                            height: MediaQuery.sizeOf(context)
-                                                    .height *
-                                                0.4,
-                                            fit: BoxFit.cover,
+                                    ClipRRect(
+                                      child: Container(
+                                        height: 326.0,
+                                        decoration: BoxDecoration(),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 20.0, 0.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(0.0),
+                                            child: Image.asset(
+                                              'assets/images/Growth1.webp',
+                                              width: double.infinity,
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  0.4,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ),

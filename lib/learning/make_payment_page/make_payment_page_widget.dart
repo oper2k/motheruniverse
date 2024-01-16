@@ -84,7 +84,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 45.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -329,42 +329,42 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                   ),
                 ],
               ),
-              StreamBuilder<List<LearningRecord>>(
-                stream: queryLearningRecord(),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            FlutterFlowTheme.of(context).primary,
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                child: StreamBuilder<List<LearningRecord>>(
+                  stream: queryLearningRecord(),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              FlutterFlowTheme.of(context).primary,
+                            ),
                           ),
                         ),
-                      ),
-                    );
-                  }
-                  List<LearningRecord> containerLearningRecordList =
-                      snapshot.data!;
-                  return Container(
-                    decoration: BoxDecoration(),
-                    child: Builder(
-                      builder: (context) {
-                        final lesson = containerLearningRecordList
-                            .where((e) =>
-                                e.reference.id ==
-                                widget.lessonsReferences?.first)
-                            .toList();
-                        return Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: List.generate(lesson.length, (lessonIndex) {
-                            final lessonItem = lesson[lessonIndex];
-                            return Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 22.0, 0.0, 45.0),
-                              child: FFButtonWidget(
+                      );
+                    }
+                    List<LearningRecord> containerLearningRecordList =
+                        snapshot.data!;
+                    return Container(
+                      decoration: BoxDecoration(),
+                      child: Builder(
+                        builder: (context) {
+                          final lesson = containerLearningRecordList
+                              .where((e) =>
+                                  e.reference.id ==
+                                  widget.lessonsReferences?.first)
+                              .toList();
+                          return Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children:
+                                List.generate(lesson.length, (lessonIndex) {
+                              final lessonItem = lesson[lessonIndex];
+                              return FFButtonWidget(
                                 onPressed: !((_model.textController1.text !=
                                                 null &&
                                             _model.textController1.text !=
@@ -965,14 +965,14 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                   disabledTextColor:
                                       FlutterFlowTheme.of(context).primaryText,
                                 ),
-                              ),
-                            );
-                          }),
-                        );
-                      },
-                    ),
-                  );
-                },
+                              );
+                            }),
+                          );
+                        },
+                      ),
+                    );
+                  },
+                ),
               ),
             ],
           ),

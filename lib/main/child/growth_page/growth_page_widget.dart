@@ -238,20 +238,23 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                 height: 326.0,
                                 child: Stack(
                                   children: [
-                                    Container(
-                                      height: 326.0,
-                                      decoration: BoxDecoration(),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 20.0, 0.0),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(0.0),
-                                          child: Image.asset(
-                                            'assets/images/amrjz-973ls.webp',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
+                                    ClipRRect(
+                                      child: Container(
+                                        height: 326.0,
+                                        decoration: BoxDecoration(),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 20.0, 0.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(0.0),
+                                            child: Image.asset(
+                                              'assets/images/Growth1.webp',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.fill,
+                                            ),
                                           ),
                                         ),
                                       ),

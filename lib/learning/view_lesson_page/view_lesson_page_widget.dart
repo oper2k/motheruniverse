@@ -509,9 +509,9 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                                                                   borderRadius: BorderRadius.circular(20.0),
                                                                                 ),
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(7.0, 2.0, 7.0, 2.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 2.0, 4.0, 2.0),
                                                                                   child: AutoSizeText(
-                                                                                    'Беслатно',
+                                                                                    'Бесплатно',
                                                                                     maxLines: 1,
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Inter',

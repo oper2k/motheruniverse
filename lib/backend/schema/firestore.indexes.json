@@ -29,6 +29,24 @@
       ]
     },
     {
+      "collectionGroup": "created_vaccine",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "period_vaccinating",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "child",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "date",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
       "collectionGroup": "vaccinations",
       "queryScope": "COLLECTION",
       "fields": [

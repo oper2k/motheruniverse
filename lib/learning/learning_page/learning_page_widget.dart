@@ -284,7 +284,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20.0, 0.0, 20.0, 0.0),
+                                      20.0, 0.0, 10.0, 0.0),
                                   child: Stack(
                                     children: [
                                       Align(
@@ -295,7 +295,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                               BorderRadius.circular(0.0),
                                           child: Image.asset(
                                             'assets/images/___.webp',
-                                            height: 163.0,
+                                            height: 147.0,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -628,9 +628,9 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                                                 borderRadius: BorderRadius.circular(20.0),
                                                                                               ),
                                                                                               child: Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(7.0, 2.0, 6.0, 2.0),
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 2.0, 5.0, 2.0),
                                                                                                 child: AutoSizeText(
-                                                                                                  'Беслатно',
+                                                                                                  'Бесплатно',
                                                                                                   maxLines: 1,
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Inter',

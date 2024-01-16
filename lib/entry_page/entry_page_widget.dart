@@ -32,7 +32,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(const Duration(milliseconds: 300));
+      await Future.delayed(const Duration(milliseconds: 1000));
       if (valueOrDefault<bool>(currentUserDocument?.profileIsFilled, false)) {
         if (valueOrDefault<bool>(
             currentUserDocument?.atLeastOneChildIsAdded, false)) {

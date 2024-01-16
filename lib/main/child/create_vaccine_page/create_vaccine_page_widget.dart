@@ -19,10 +19,12 @@ export 'create_vaccine_page_model.dart';
 class CreateVaccinePageWidget extends StatefulWidget {
   const CreateVaccinePageWidget({
     Key? key,
-    required this.age,
+    required this.period,
+    required this.child,
   }) : super(key: key);
 
-  final String? age;
+  final String? period;
+  final ChildrenRecord? child;
 
   @override
   _CreateVaccinePageWidgetState createState() =>
@@ -376,8 +378,9 @@ class _CreateVaccinePageWidgetState extends State<CreateVaccinePageWidget> {
                             vaccineName: _model.dropDownValue == 'Другая'
                                 ? _model.textController.text
                                 : _model.dropDownValue,
-                            periodVaccinating: widget.age,
+                            periodVaccinating: widget.period,
                             date: _model.datePicked,
+                            child: widget.child?.reference,
                           ));
                           context.safePop();
                         },

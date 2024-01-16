@@ -1132,10 +1132,12 @@ DateTime addMonthsToBirthday(
   if (monthsToAdd == 0) {
     return birthday;
   }
-  final newMonth = birthday.month + monthsToAdd;
-  final yearToAdd = newMonth ~/ 12;
-  final month = (newMonth % 12 == 0) ? 12 : newMonth % 12;
-  final year = birthday.year + yearToAdd;
+
+  int newMonth = birthday.month + monthsToAdd - 1;
+  int yearToAdd = newMonth ~/ 12;
+  int month =
+      (newMonth % 12) + 1; // Добавляем 1, так как месяцы в Dart начинаются с 1
+  int year = birthday.year + yearToAdd;
 
   return DateTime(year, month, birthday.day, birthday.hour, birthday.minute,
       birthday.second, birthday.millisecond, birthday.microsecond);
@@ -1251,4 +1253,36 @@ String getWordForPoints(double points) {
   } else {
     return 'баллов';
   }
+}
+
+int calculateElapsedMonths(DateTime dateTime) {
+  /// Принимает Date time дату, а возвращает Integer количество целых прошедших месяцев.
+  /// Если прошло меньше месяца с момента переданной даты, то возвращаемое число будет 0. Если больше месяца, но меньше двух, то 1 и т.д.
+  DateTime currentDate = DateTime.now();
+
+  int elapsedMonths = currentDate.month -
+      dateTime.month +
+      (currentDate.year - dateTime.year) * 12;
+
+  if (currentDate.day < dateTime.day) {
+    elapsedMonths--;
+  }
+
+  return elapsedMonths < 0 ? 0 : elapsedMonths;
+}
+
+DateTime addOneYear(DateTime dateTime) {
+  /// принимает Dati time, а возвращает число, которое на год больше
+  // Используем конструктор DateTime для создания нового объекта DateTime с увеличенным годом
+  DateTime newDateTime = DateTime(
+      dateTime.year + 1,
+      dateTime.month,
+      dateTime.day,
+      dateTime.hour,
+      dateTime.minute,
+      dateTime.second,
+      dateTime.millisecond,
+      dateTime.microsecond);
+
+  return newDateTime;
 }

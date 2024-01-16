@@ -72,7 +72,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 45.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -446,7 +446,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                   ),
                 ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 23.0, 0.0, 50.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 23.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -489,6 +489,25 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                       },
                     ),
                   ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    await launchURL('https://dociureva.ru/oferta');
+                  },
+                  child: Text(
+                    'Договор оферты',
+                    style: FlutterFlowTheme.of(context).headlineLarge.override(
+                          fontFamily: 'Inter',
+                          decoration: TextDecoration.underline,
+                        ),
+                  ),
                 ),
               ),
             ],

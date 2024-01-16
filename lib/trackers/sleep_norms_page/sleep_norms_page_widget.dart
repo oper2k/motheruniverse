@@ -349,12 +349,68 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                         width: 320.0,
                                         height: 300.0,
                                         decoration: BoxDecoration(),
-                                        child: Visibility(
-                                          visible: functions
-                                                  .getDateTimeDifferenceInSeconds(
+                                        child: Stack(
+                                          children: [
+                                            if (functions
+                                                    .getDateTimeDifferenceInSeconds(
+                                                        monthTrackersRecordList
+                                                            .where((e) =>
+                                                                (e.trackerTitle !=
+                                                                    'Прикорм') &&
+                                                                (e.trackerStartTime! >=
+                                                                    functions.addMonthsToBirthday(
+                                                                        widget
+                                                                            .child!
+                                                                            .birthDate!,
+                                                                        _model
+                                                                            .pickedMonthIndex)) &&
+                                                                (e.trackerStartTime! <
+                                                                    functions.addMonthsToBirthday(
+                                                                        widget
+                                                                            .child!
+                                                                            .birthDate!,
+                                                                        _model.pickedMonthIndex +
+                                                                            1)))
+                                                            .toList()
+                                                            .map((e) => e
+                                                                .trackerStartTime)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                        monthTrackersRecordList
+                                                            .where((e) =>
+                                                                (e.trackerTitle !=
+                                                                    'Прикорм') &&
+                                                                (e.trackerStartTime! >=
+                                                                    functions.addMonthsToBirthday(
+                                                                        widget
+                                                                            .child!
+                                                                            .birthDate!,
+                                                                        _model.pickedMonthIndex)) &&
+                                                                (e.trackerStartTime! < functions.addMonthsToBirthday(widget.child!.birthDate!, _model.pickedMonthIndex + 1)))
+                                                            .toList()
+                                                            .map((e) => e.sleepEndTime)
+                                                            .withoutNulls
+                                                            .toList())
+                                                    .length >
+                                                0)
+                                              Container(
+                                                width: double.infinity,
+                                                height: double.infinity,
+                                                child:
+                                                    custom_widgets.TimeSchedule(
+                                                  width: double.infinity,
+                                                  height: double.infinity,
+                                                  scheduleTypeByDays: 31,
+                                                  recommendedRateByMinute:
+                                                      _model.pickedMonthIndex ==
+                                                              0
+                                                          ? 240
+                                                          : 120,
+                                                  timeRanges: functions.getDateTimeDifferenceInSeconds(
                                                       monthTrackersRecordList
                                                           .where((e) =>
-                                                              (e.trackerTitle != 'Прикорм') &&
+                                                              (e.trackerTitle !=
+                                                                  'Прикорм') &&
                                                               (e.trackerStartTime! >=
                                                                   functions.addMonthsToBirthday(
                                                                       widget
@@ -375,61 +431,116 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                           .withoutNulls
                                                           .toList(),
                                                       monthTrackersRecordList
-                                                          .where((e) =>
-                                                              (e.trackerTitle !=
-                                                                  'Прикорм') &&
-                                                              (e.trackerStartTime! >=
-                                                                  functions.addMonthsToBirthday(widget.child!.birthDate!, _model.pickedMonthIndex)) &&
-                                                              (e.trackerStartTime! < functions.addMonthsToBirthday(widget.child!.birthDate!, _model.pickedMonthIndex + 1)))
+                                                          .where(
+                                                              (e) => (e.trackerTitle != 'Прикорм') && (e.trackerStartTime! >= functions.addMonthsToBirthday(widget.child!.birthDate!, _model.pickedMonthIndex)) && (e.trackerStartTime! < functions.addMonthsToBirthday(widget.child!.birthDate!, _model.pickedMonthIndex + 1)))
                                                           .toList()
                                                           .map((e) => e.sleepEndTime)
                                                           .withoutNulls
-                                                          .toList())
-                                                  .length >
-                                              0,
-                                          child: Container(
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            child: custom_widgets.TimeSchedule(
-                                              width: double.infinity,
-                                              height: double.infinity,
-                                              scheduleTypeByDays: 31,
-                                              recommendedRateByMinute:
-                                                  _model.pickedMonthIndex == 0
-                                                      ? 240
-                                                      : 120,
-                                              timeRanges: functions.getDateTimeDifferenceInSeconds(
-                                                  monthTrackersRecordList
-                                                      .where((e) =>
-                                                          (e.trackerTitle != 'Прикорм') &&
-                                                          (e.trackerStartTime! >=
-                                                              functions.addMonthsToBirthday(
-                                                                  widget.child!
-                                                                      .birthDate!,
-                                                                  _model
-                                                                      .pickedMonthIndex)) &&
-                                                          (e.trackerStartTime! <
-                                                              functions.addMonthsToBirthday(
-                                                                  widget.child!
-                                                                      .birthDate!,
-                                                                  _model.pickedMonthIndex +
-                                                                      1)))
-                                                      .toList()
-                                                      .map((e) =>
-                                                          e.trackerStartTime)
-                                                      .withoutNulls
-                                                      .toList(),
-                                                  monthTrackersRecordList
-                                                      .where((e) =>
-                                                          (e.trackerTitle != 'Прикорм') &&
-                                                          (e.trackerStartTime! >= functions.addMonthsToBirthday(widget.child!.birthDate!, _model.pickedMonthIndex)) &&
-                                                          (e.trackerStartTime! < functions.addMonthsToBirthday(widget.child!.birthDate!, _model.pickedMonthIndex + 1)))
-                                                      .toList()
-                                                      .map((e) => e.sleepEndTime)
-                                                      .withoutNulls
-                                                      .toList()),
+                                                          .toList()),
+                                                ),
+                                              ),
+                                            if (functions
+                                                    .getDateTimeDifferenceInSeconds(
+                                                        monthTrackersRecordList
+                                                            .where((e) =>
+                                                                (e.trackerTitle !=
+                                                                    'Прикорм') &&
+                                                                (e.trackerStartTime! >=
+                                                                    functions.addMonthsToBirthday(
+                                                                        widget
+                                                                            .child!
+                                                                            .birthDate!,
+                                                                        _model
+                                                                            .pickedMonthIndex)) &&
+                                                                (e.trackerStartTime! <
+                                                                    functions.addMonthsToBirthday(
+                                                                        widget
+                                                                            .child!
+                                                                            .birthDate!,
+                                                                        _model.pickedMonthIndex +
+                                                                            1)))
+                                                            .toList()
+                                                            .map((e) => e
+                                                                .trackerStartTime)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                        monthTrackersRecordList
+                                                            .where((e) =>
+                                                                (e.trackerTitle !=
+                                                                    'Прикорм') &&
+                                                                (e.trackerStartTime! >=
+                                                                    functions.addMonthsToBirthday(
+                                                                        widget
+                                                                            .child!
+                                                                            .birthDate!,
+                                                                        _model.pickedMonthIndex)) &&
+                                                                (e.trackerStartTime! < functions.addMonthsToBirthday(widget.child!.birthDate!, _model.pickedMonthIndex + 1)))
+                                                            .toList()
+                                                            .map((e) => e.sleepEndTime)
+                                                            .withoutNulls
+                                                            .toList())
+                                                    .length ==
+                                                0)
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Text(
+                                                  'Недостаточно данных',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineSmall
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        lineHeight: 1.28,
+                                                      ),
+                                                ),
+                                              ),
+                                            Text(
+                                              functions
+                                                  .addMonthsToBirthday(
+                                                      widget.child!.birthDate!,
+                                                      _model.pickedMonthIndex)
+                                                  .toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
                                             ),
-                                          ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, -1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 20.0, 0.0, 0.0),
+                                                child: Text(
+                                                  functions
+                                                      .addMonthsToBirthday(
+                                                          widget.child!
+                                                              .birthDate!,
+                                                          _model.pickedMonthIndex +
+                                                              1)
+                                                      .toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, 1.0),
+                                              child: Text(
+                                                valueOrDefault<String>(
+                                                  widget.child?.birthDate
+                                                      ?.toString(),
+                                                  '0',
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       );
                                     },
@@ -475,9 +586,52 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                         width: 320.0,
                                         height: 300.0,
                                         decoration: BoxDecoration(),
-                                        child: Visibility(
-                                          visible: functions
-                                                  .getDateTimeDifferenceInSeconds(
+                                        child: Stack(
+                                          children: [
+                                            if (functions
+                                                    .getDateTimeDifferenceInSeconds(
+                                                        weekTrackersRecordList
+                                                            .where((e) =>
+                                                                (e.trackerTitle !=
+                                                                    'Прикорм') &&
+                                                                (e.trackerStartTime! >=
+                                                                    functions
+                                                                        .getStartOfWeek(
+                                                                            getCurrentTimestamp)))
+                                                            .toList()
+                                                            .map((e) => e
+                                                                .trackerStartTime)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                        weekTrackersRecordList
+                                                            .where((e) =>
+                                                                (e.trackerTitle !=
+                                                                    'Прикорм') &&
+                                                                (e.trackerStartTime! >=
+                                                                    functions
+                                                                        .getStartOfWeek(
+                                                                            getCurrentTimestamp)))
+                                                            .toList()
+                                                            .map((e) =>
+                                                                e.sleepEndTime)
+                                                            .withoutNulls
+                                                            .toList())
+                                                    .length >
+                                                0)
+                                              Container(
+                                                width: double.infinity,
+                                                height: double.infinity,
+                                                child:
+                                                    custom_widgets.TimeSchedule(
+                                                  width: double.infinity,
+                                                  height: double.infinity,
+                                                  scheduleTypeByDays: 7,
+                                                  recommendedRateByMinute:
+                                                      _model.pickedMonthIndex ==
+                                                              0
+                                                          ? 240
+                                                          : 120,
+                                                  timeRanges: functions.getDateTimeDifferenceInSeconds(
                                                       weekTrackersRecordList
                                                           .where((e) =>
                                                               (e.trackerTitle !=
@@ -503,49 +657,54 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                           .map((e) =>
                                                               e.sleepEndTime)
                                                           .withoutNulls
-                                                          .toList())
-                                                  .length >
-                                              0,
-                                          child: Container(
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            child: custom_widgets.TimeSchedule(
-                                              width: double.infinity,
-                                              height: double.infinity,
-                                              scheduleTypeByDays: 7,
-                                              recommendedRateByMinute:
-                                                  _model.pickedMonthIndex == 0
-                                                      ? 240
-                                                      : 120,
-                                              timeRanges: functions.getDateTimeDifferenceInSeconds(
-                                                  weekTrackersRecordList
-                                                      .where((e) =>
-                                                          (e.trackerTitle !=
-                                                              'Прикорм') &&
-                                                          (e.trackerStartTime! >=
-                                                              functions
-                                                                  .getStartOfWeek(
-                                                                      getCurrentTimestamp)))
-                                                      .toList()
-                                                      .map((e) =>
-                                                          e.trackerStartTime)
-                                                      .withoutNulls
-                                                      .toList(),
-                                                  weekTrackersRecordList
-                                                      .where((e) =>
-                                                          (e.trackerTitle !=
-                                                              'Прикорм') &&
-                                                          (e.trackerStartTime! >=
-                                                              functions
-                                                                  .getStartOfWeek(
-                                                                      getCurrentTimestamp)))
-                                                      .toList()
-                                                      .map(
-                                                          (e) => e.sleepEndTime)
-                                                      .withoutNulls
-                                                      .toList()),
-                                            ),
-                                          ),
+                                                          .toList()),
+                                                ),
+                                              ),
+                                            if (functions
+                                                    .getDateTimeDifferenceInSeconds(
+                                                        weekTrackersRecordList
+                                                            .where((e) =>
+                                                                (e.trackerTitle !=
+                                                                    'Прикорм') &&
+                                                                (e.trackerStartTime! >=
+                                                                    functions
+                                                                        .getStartOfWeek(
+                                                                            getCurrentTimestamp)))
+                                                            .toList()
+                                                            .map((e) => e
+                                                                .trackerStartTime)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                        weekTrackersRecordList
+                                                            .where((e) =>
+                                                                (e.trackerTitle !=
+                                                                    'Прикорм') &&
+                                                                (e.trackerStartTime! >=
+                                                                    functions
+                                                                        .getStartOfWeek(
+                                                                            getCurrentTimestamp)))
+                                                            .toList()
+                                                            .map((e) =>
+                                                                e.sleepEndTime)
+                                                            .withoutNulls
+                                                            .toList())
+                                                    .length ==
+                                                0)
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Text(
+                                                  'Недостаточно данных',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineSmall
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        lineHeight: 1.28,
+                                                      ),
+                                                ),
+                                              ),
+                                          ],
                                         ),
                                       );
                                     },
@@ -556,7 +715,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 0.0, 20.0, 0.0),
+                                20.0, 12.0, 20.0, 0.0),
                             child: Builder(
                               builder: (context) {
                                 if (_model.pickedMonthIndex == 0) {
@@ -674,9 +833,20 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                           lineHeight: 1.28,
                                         ),
                                   );
-                                } else {
+                                } else if (_model.pickedMonthIndex < 48) {
                                   return Text(
                                     'Продолжительность времени бодрствования 3 года: 5-6 ч.\nКоличество дневных снов 3 года: 1',
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: 14.0,
+                                          lineHeight: 1.28,
+                                        ),
+                                  );
+                                } else {
+                                  return Text(
+                                    'Продолжительность времени бодрствования в 4-7 лет: 6 ч. при наличии дневного сна.\nКоличество дневных снов в 4-7 лет: 1',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(
@@ -694,8 +864,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                 20.0, 12.0, 20.0, 125.0),
                             child: Container(
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                color: FlutterFlowTheme.of(context).purpleLight,
                                 borderRadius: BorderRadius.circular(16.0),
                               ),
                               child: Padding(

@@ -18,6 +18,7 @@ class FFIcons {
   static const String _share2Family = 'Share2';
   static const String _maleFamily = 'Male';
   static const String _cameraFamily = 'Camera';
+  static const String _calendarActive2Family = 'CalendarActive2';
 
   // icomoon
   static const IconData kleft = IconData(0xe900, fontFamily: _icomoonFamily);
@@ -151,4 +152,8 @@ class FFIcons {
 
   // camera
   static const IconData kcamera1 = IconData(0xe900, fontFamily: _cameraFamily);
+
+  // CalendarActive2
+  static const IconData kcalendarActive2 =
+      IconData(0xe900, fontFamily: _calendarActive2Family);
 }

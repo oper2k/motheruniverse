@@ -14,26 +14,26 @@ class EntryToEventPageModel extends FlutterFlowModel<EntryToEventPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode5;
-  TextEditingController? textController5;
-  String? Function(BuildContext, String?)? textController5Validator;
+  // State field(s) for Name widget.
+  FocusNode? nameFocusNode;
+  TextEditingController? nameController;
+  String? Function(BuildContext, String?)? nameControllerValidator;
+  // State field(s) for Phone widget.
+  FocusNode? phoneFocusNode;
+  TextEditingController? phoneController;
+  String? Function(BuildContext, String?)? phoneControllerValidator;
+  // State field(s) for Email widget.
+  FocusNode? emailFocusNode;
+  TextEditingController? emailController;
+  String? Function(BuildContext, String?)? emailControllerValidator;
+  // State field(s) for ChildAge widget.
+  FocusNode? childAgeFocusNode;
+  TextEditingController? childAgeController;
+  String? Function(BuildContext, String?)? childAgeControllerValidator;
+  // State field(s) for SolvedCase widget.
+  FocusNode? solvedCaseFocusNode;
+  TextEditingController? solvedCaseController;
+  String? Function(BuildContext, String?)? solvedCaseControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -41,20 +41,20 @@ class EntryToEventPageModel extends FlutterFlowModel<EntryToEventPageWidget> {
 
   void dispose() {
     unfocusNode.dispose();
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    nameFocusNode?.dispose();
+    nameController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    phoneFocusNode?.dispose();
+    phoneController?.dispose();
 
-    textFieldFocusNode3?.dispose();
-    textController3?.dispose();
+    emailFocusNode?.dispose();
+    emailController?.dispose();
 
-    textFieldFocusNode4?.dispose();
-    textController4?.dispose();
+    childAgeFocusNode?.dispose();
+    childAgeController?.dispose();
 
-    textFieldFocusNode5?.dispose();
-    textController5?.dispose();
+    solvedCaseFocusNode?.dispose();
+    solvedCaseController?.dispose();
   }
 
   /// Action blocks are added here.

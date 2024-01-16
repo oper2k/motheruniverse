@@ -205,7 +205,6 @@ class _AddBreastTrackerWidgetState extends State<AddBreastTrackerWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        height: 57.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -246,7 +245,6 @@ class _AddBreastTrackerWidgetState extends State<AddBreastTrackerWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               15.0, 0.0, 0.0, 0.0),
                           child: Container(
-                            height: 57.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,

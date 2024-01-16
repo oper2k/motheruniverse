@@ -101,7 +101,7 @@ class _TimeScheduleForDayState extends State<TimeScheduleForDay> {
     for (int i = 0; i < _timeRanges.length; ++i) {
       if (_timeRanges[i].isSleep &&
           _timeRanges[i].rangeByMinutes > widget.recommendedRateByMinute) {
-        _timeRanges[i] = _timeRanges[i].copyWith(color: Color(0xFFE28C13));
+        _timeRanges[i] = _timeRanges[i].copyWith(color: Color(0xFFC64141));
       }
     }
   }
@@ -164,7 +164,7 @@ class _TimeScheduleForWeekState extends State<TimeScheduleForWeek> {
               _TimeRange(
                 startTime: now.startTime,
                 endTime: now.endTime,
-                color: Color(0xffCBCAF3),
+                color: Color(0xffd2c8d7),
                 isSleep: false,
               )
             ]);
@@ -184,7 +184,7 @@ class _TimeScheduleForWeekState extends State<TimeScheduleForWeek> {
             continue;
           }
           _timeRanges[i][j] =
-              _timeRanges[i][j].copyWith(color: Color(0xFFE28C13));
+              _timeRanges[i][j].copyWith(color: Color(0xFFC64141));
         }
       }
     }
@@ -324,7 +324,7 @@ class _TimeScheduleForMonthState extends State<TimeScheduleForMonth> {
               _TimeRange(
                 startTime: now.startTime,
                 endTime: now.endTime,
-                color: Color(0xffCBCAF3),
+                color: Color(0xffd2c8d7),
                 isSleep: false,
               )
             ]);
@@ -344,7 +344,7 @@ class _TimeScheduleForMonthState extends State<TimeScheduleForMonth> {
             continue;
           }
           _timeRanges[i][j] =
-              _timeRanges[i][j].copyWith(color: Color(0xFFE28C13));
+              _timeRanges[i][j].copyWith(color: Color(0xFFC64141));
         }
       }
     }
@@ -518,7 +518,7 @@ class LegendWidget extends StatelessWidget {
         ClipOval(
           child: SizedBox.square(
             dimension: 12,
-            child: ColoredBox(color: Color(0xFF5A61F7)),
+            child: ColoredBox(color: Color(0xFF8765A2)),
           ),
         ),
         const SizedBox(width: 8),
@@ -527,7 +527,7 @@ class LegendWidget extends StatelessWidget {
         ClipOval(
           child: SizedBox.square(
             dimension: 12,
-            child: ColoredBox(color: Color(0xffCBCAF3)),
+            child: ColoredBox(color: Color(0xffd2c8d7)),
           ),
         ),
         const SizedBox(width: 8),
@@ -536,7 +536,7 @@ class LegendWidget extends StatelessWidget {
         ClipOval(
           child: SizedBox.square(
             dimension: 12,
-            child: ColoredBox(color: Color(0xFFE28C13)),
+            child: ColoredBox(color: Color(0xFFC64141)),
           ),
         ),
         const SizedBox(width: 8),
@@ -629,7 +629,7 @@ List<_TimeRange> convertToTimeRanges(List<DateTimeRange> dateTimeRanges) {
         _TimeRange(
           startTime: firstDateTimeStartTime,
           endTime: firstDateTime,
-          color: Color(0xffCBCAF3),
+          color: Color(0xffd2c8d7),
           isSleep: false,
         ));
   }
@@ -647,7 +647,7 @@ List<_TimeRange> convertToTimeRanges(List<DateTimeRange> dateTimeRanges) {
     timeRanges.add(_TimeRange(
       startTime: currentRange.start,
       endTime: currentRange.end,
-      color: Color(0xFF5A61F7),
+      color: Color(0xFF8765A2),
       isSleep: true,
     ));
 
@@ -655,7 +655,7 @@ List<_TimeRange> convertToTimeRanges(List<DateTimeRange> dateTimeRanges) {
       timeRanges.add(_TimeRange(
         startTime: currentRange.end,
         endTime: nextRange.start,
-        color: Color(0xffCBCAF3),
+        color: Color(0xffd2c8d7),
         isSleep: false,
       ));
     }
@@ -668,7 +668,7 @@ List<_TimeRange> convertToTimeRanges(List<DateTimeRange> dateTimeRanges) {
     timeRanges.add(_TimeRange(
       startTime: lastDateTime,
       endTime: lastDateTimeEndTime,
-      color: Color(0xffCBCAF3),
+      color: Color(0xffd2c8d7),
       isSleep: false,
     ));
   }

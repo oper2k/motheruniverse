@@ -154,7 +154,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                 .displayLarge,
                                           ),
                                           Text(
-                                            functions.calculateAgeAndMonths(
+                                            functions.ageInYearsMonthsAmdDays(
                                                 childQueryChildrenRecord
                                                     .birthDate!),
                                             style: FlutterFlowTheme.of(context)
@@ -725,7 +725,14 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                                   .birthDate!),
                                                       ParamType.int,
                                                     ),
+                                                    'child': serializeParam(
+                                                      widget.child,
+                                                      ParamType.Document,
+                                                    ),
                                                   }.withoutNulls,
+                                                  extra: <String, dynamic>{
+                                                    'child': widget.child,
+                                                  },
                                                 );
                                               },
                                               child: Container(
@@ -1019,7 +1026,14 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                   widget.child?.birthDate,
                                                   ParamType.DateTime,
                                                 ),
+                                                'child': serializeParam(
+                                                  widget.child,
+                                                  ParamType.Document,
+                                                ),
                                               }.withoutNulls,
+                                              extra: <String, dynamic>{
+                                                'child': widget.child,
+                                              },
                                             );
                                           },
                                           child: Container(
@@ -1071,93 +1085,6 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        size: 24.0,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Text(
-                                                        'Смотреть',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .headlineSmall
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Inter',
-                                                              fontSize: 14.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              lineHeight: 1.28,
-                                                            ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            context.pushNamed('AdvicesPage');
-                                          },
-                                          child: Container(
-                                            width: 120.0,
-                                            height: 100.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .blueLight,
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsets.all(14.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Expanded(
-                                                        child: AutoSizeText(
-                                                          'Советы',
-                                                          maxLines: 1,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .headlineLarge
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Inter',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .blue,
-                                                                fontSize: 16.0,
-                                                                lineHeight:
-                                                                    1.25,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Icon(
-                                                        FFIcons.kmessageCircle,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .blue,
                                                         size: 24.0,
                                                       ),
                                                     ],

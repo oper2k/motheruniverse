@@ -33,21 +33,21 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
     super.initState();
     _model = createModel(context, () => EntryToEventPageModel());
 
-    _model.textController1 ??= TextEditingController(
+    _model.nameController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.firstName, ''));
-    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.nameFocusNode ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController(text: currentPhoneNumber);
-    _model.textFieldFocusNode2 ??= FocusNode();
+    _model.phoneController ??= TextEditingController(text: currentPhoneNumber);
+    _model.phoneFocusNode ??= FocusNode();
 
-    _model.textController3 ??= TextEditingController(text: currentUserEmail);
-    _model.textFieldFocusNode3 ??= FocusNode();
+    _model.emailController ??= TextEditingController(text: currentUserEmail);
+    _model.emailFocusNode ??= FocusNode();
 
-    _model.textController4 ??= TextEditingController();
-    _model.textFieldFocusNode4 ??= FocusNode();
+    _model.childAgeController ??= TextEditingController();
+    _model.childAgeFocusNode ??= FocusNode();
 
-    _model.textController5 ??= TextEditingController();
-    _model.textFieldFocusNode5 ??= FocusNode();
+    _model.solvedCaseController ??= TextEditingController();
+    _model.solvedCaseFocusNode ??= FocusNode();
   }
 
   @override
@@ -149,8 +149,8 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                               builder: (context) => Container(
                                 width: double.infinity,
                                 child: TextFormField(
-                                  controller: _model.textController1,
-                                  focusNode: _model.textFieldFocusNode1,
+                                  controller: _model.nameController,
+                                  focusNode: _model.nameFocusNode,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelText: 'Ваше имя',
@@ -200,7 +200,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                       .headlineSmall,
                                   cursorColor:
                                       FlutterFlowTheme.of(context).overlay,
-                                  validator: _model.textController1Validator
+                                  validator: _model.nameControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -213,8 +213,8 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                               builder: (context) => Container(
                                 width: double.infinity,
                                 child: TextFormField(
-                                  controller: _model.textController2,
-                                  focusNode: _model.textFieldFocusNode2,
+                                  controller: _model.phoneController,
+                                  focusNode: _model.phoneFocusNode,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelText: 'Номер телефона',
@@ -264,7 +264,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                       .headlineSmall,
                                   cursorColor:
                                       FlutterFlowTheme.of(context).overlay,
-                                  validator: _model.textController2Validator
+                                  validator: _model.phoneControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -276,8 +276,8 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                             child: Container(
                               width: double.infinity,
                               child: TextFormField(
-                                controller: _model.textController3,
-                                focusNode: _model.textFieldFocusNode3,
+                                controller: _model.emailController,
+                                focusNode: _model.emailFocusNode,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Электронная почта',
@@ -325,7 +325,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                     FlutterFlowTheme.of(context).headlineSmall,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).overlay,
-                                validator: _model.textController3Validator
+                                validator: _model.emailControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -336,8 +336,8 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                             child: Container(
                               width: double.infinity,
                               child: TextFormField(
-                                controller: _model.textController4,
-                                focusNode: _model.textFieldFocusNode4,
+                                controller: _model.childAgeController,
+                                focusNode: _model.childAgeFocusNode,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Возраст ребенка',
@@ -385,7 +385,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                     FlutterFlowTheme.of(context).headlineSmall,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).overlay,
-                                validator: _model.textController4Validator
+                                validator: _model.childAgeControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -396,8 +396,8 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                             child: Container(
                               width: double.infinity,
                               child: TextFormField(
-                                controller: _model.textController5,
-                                focusNode: _model.textFieldFocusNode5,
+                                controller: _model.solvedCaseController,
+                                focusNode: _model.solvedCaseFocusNode,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText:
@@ -447,7 +447,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                 maxLines: null,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).overlay,
-                                validator: _model.textController5Validator
+                                validator: _model.solvedCaseControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -464,22 +464,33 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 45.0),
                 child: FFButtonWidget(
-                  onPressed: () async {
-                    await EventEntryRecord.collection
-                        .doc()
-                        .set(createEventEntryRecordData(
-                          eventName: widget.event?.eventName,
-                          eventDate: widget.event?.date,
-                          eventTime: widget.event?.time,
-                          userName: _model.textController1.text,
-                          userEmail: _model.textController3.text,
-                          userPhoneNumber: _model.textController2.text,
-                          childAge: _model.textController4.text,
-                          userCase: _model.textController5.text,
-                        ));
+                  onPressed: ((_model.nameController.text == null ||
+                              _model.nameController.text == '') &&
+                          (_model.phoneController.text == null ||
+                              _model.phoneController.text == '') &&
+                          (_model.emailController.text == null ||
+                              _model.emailController.text == '') &&
+                          (_model.childAgeController.text == null ||
+                              _model.childAgeController.text == '') &&
+                          (_model.solvedCaseController.text == null ||
+                              _model.solvedCaseController.text == ''))
+                      ? null
+                      : () async {
+                          await EventEntryRecord.collection
+                              .doc()
+                              .set(createEventEntryRecordData(
+                                eventName: widget.event?.eventName,
+                                eventDate: widget.event?.date,
+                                eventTime: widget.event?.time,
+                                userName: _model.nameController.text,
+                                userEmail: _model.emailController.text,
+                                userPhoneNumber: _model.phoneController.text,
+                                childAge: _model.childAgeController.text,
+                                userCase: _model.solvedCaseController.text,
+                              ));
 
-                    context.goNamed('EntryFinishedPage');
-                  },
+                          context.goNamed('EntryFinishedPage');
+                        },
                   text: 'Записаться',
                   options: FFButtonOptions(
                     width: double.infinity,
@@ -494,6 +505,8 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                       color: Colors.transparent,
                     ),
                     borderRadius: BorderRadius.circular(16.0),
+                    disabledColor: FlutterFlowTheme.of(context).tertiary,
+                    disabledTextColor: FlutterFlowTheme.of(context).primaryText,
                   ),
                   showLoadingIndicator: false,
                 ),
