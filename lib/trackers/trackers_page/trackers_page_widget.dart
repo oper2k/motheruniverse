@@ -44,6 +44,8 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
         curve: Curves.ease,
       );
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

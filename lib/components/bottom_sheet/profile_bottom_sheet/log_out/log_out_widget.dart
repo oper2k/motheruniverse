@@ -30,6 +30,8 @@ class _LogOutWidgetState extends State<LogOutWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LogOutModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

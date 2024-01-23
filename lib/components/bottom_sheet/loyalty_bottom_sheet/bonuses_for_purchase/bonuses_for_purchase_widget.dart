@@ -34,6 +34,8 @@ class _BonusesForPurchaseWidgetState extends State<BonusesForPurchaseWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BonusesForPurchaseModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

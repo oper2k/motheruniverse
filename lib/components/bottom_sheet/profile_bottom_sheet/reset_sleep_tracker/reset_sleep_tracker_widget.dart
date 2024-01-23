@@ -30,6 +30,8 @@ class _ResetSleepTrackerWidgetState extends State<ResetSleepTrackerWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ResetSleepTrackerModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -29,6 +29,8 @@ class _DeletePhotoWidgetState extends State<DeletePhotoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DeletePhotoModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

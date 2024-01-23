@@ -9,11 +9,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'change_the_growth_model.dart';
-export 'change_the_growth_model.dart';
+import 'create_the_growth_model.dart';
+export 'create_the_growth_model.dart';
 
-class ChangeTheGrowthWidget extends StatefulWidget {
-  const ChangeTheGrowthWidget({
+class CreateTheGrowthWidget extends StatefulWidget {
+  const CreateTheGrowthWidget({
     Key? key,
     required this.child,
   }) : super(key: key);
@@ -21,11 +21,11 @@ class ChangeTheGrowthWidget extends StatefulWidget {
   final ChildrenRecord? child;
 
   @override
-  _ChangeTheGrowthWidgetState createState() => _ChangeTheGrowthWidgetState();
+  _CreateTheGrowthWidgetState createState() => _CreateTheGrowthWidgetState();
 }
 
-class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
-  late ChangeTheGrowthModel _model;
+class _CreateTheGrowthWidgetState extends State<CreateTheGrowthWidget> {
+  late CreateTheGrowthModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -36,7 +36,7 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ChangeTheGrowthModel());
+    _model = createModel(context, () => CreateTheGrowthModel());
 
     _model.textFieldFocusNode ??= FocusNode();
 
@@ -111,7 +111,7 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                       children: [
                         Expanded(
                           child: Text(
-                            'Изменить рост',
+                            'Добавить рост',
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
@@ -239,49 +239,35 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 68.0, 0.0, 45.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        _model.childRead = await ChildrenRecord.getDocumentOnce(
-                            widget.child!.reference);
-                        setState(() {
-                          _model.tempDate =
-                              _model.childRead?.growthList?.last?.date;
-                        });
-
-                        await widget.child!.reference.update({
-                          ...mapToFirestore(
-                            {
-                              'growth_list': FieldValue.arrayRemove([
-                                getGrowthListFirestoreData(
-                                  updateGrowthListStruct(
-                                    _model.childRead?.growthList?.last,
-                                    clearUnsetFields: false,
-                                  ),
-                                  true,
-                                )
-                              ]),
-                            },
-                          ),
-                        });
-
-                        await widget.child!.reference.update({
-                          ...mapToFirestore(
-                            {
-                              'growth_list': FieldValue.arrayUnion([
-                                getGrowthListFirestoreData(
-                                  createGrowthListStruct(
-                                    growth: int.tryParse(
-                                        _model.textController.text),
-                                    date: _model.tempDate,
-                                    clearUnsetFields: false,
-                                  ),
-                                  true,
-                                )
-                              ]),
-                            },
-                          ),
-                        });
+                        if (dateTimeFormat(
+                              'd/M',
+                              containerChildrenRecord.growthList.last.date,
+                              locale: FFLocalizations.of(context).languageCode,
+                            ) !=
+                            dateTimeFormat(
+                              'd/M',
+                              getCurrentTimestamp,
+                              locale: FFLocalizations.of(context).languageCode,
+                            )) {
+                          await widget.child!.reference.update({
+                            ...mapToFirestore(
+                              {
+                                'growth_list': FieldValue.arrayUnion([
+                                  getGrowthListFirestoreData(
+                                    createGrowthListStruct(
+                                      growth: int.tryParse(
+                                          _model.textController.text),
+                                      date: getCurrentTimestamp,
+                                      clearUnsetFields: false,
+                                    ),
+                                    true,
+                                  )
+                                ]),
+                              },
+                            ),
+                          });
+                        }
                         Navigator.pop(context);
-
-                        setState(() {});
                       },
                       text: 'Применить',
                       options: FFButtonOptions(

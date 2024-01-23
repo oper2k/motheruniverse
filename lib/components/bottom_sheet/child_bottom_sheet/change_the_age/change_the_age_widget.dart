@@ -38,6 +38,8 @@ class _ChangeTheAgeWidgetState extends State<ChangeTheAgeWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChangeTheAgeModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

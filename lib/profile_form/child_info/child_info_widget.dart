@@ -42,6 +42,8 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
 
     _model.weightFieldController ??= TextEditingController();
     _model.weightFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -886,7 +888,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                           ),
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            labelText: 'Вес',
+                                            labelText: 'Вес в граммах',
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .headlineSmall,
@@ -1000,8 +1002,9 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                       }()
                                       ..growth = int.tryParse(
                                           _model.growthFieldController.text)
-                                      ..weight = double.tryParse(
-                                          _model.weightFieldController.text),
+                                      ..weight = int.parse(_model
+                                              .weightFieldController.text) /
+                                          1000,
                                   );
                                 });
 

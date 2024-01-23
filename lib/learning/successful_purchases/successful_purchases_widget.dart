@@ -26,6 +26,8 @@ class _SuccessfulPurchasesWidgetState extends State<SuccessfulPurchasesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SuccessfulPurchasesModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

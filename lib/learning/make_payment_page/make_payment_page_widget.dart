@@ -54,6 +54,8 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
 
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

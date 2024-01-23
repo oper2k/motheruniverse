@@ -25,6 +25,8 @@ class _EntryFinishedPageWidgetState extends State<EntryFinishedPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EntryFinishedPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -26,6 +26,8 @@ class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AllPodcastsPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

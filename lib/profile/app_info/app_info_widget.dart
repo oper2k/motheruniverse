@@ -24,6 +24,8 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AppInfoModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

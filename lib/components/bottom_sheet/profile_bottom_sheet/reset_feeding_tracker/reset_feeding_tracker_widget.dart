@@ -30,6 +30,8 @@ class _ResetFeedingTrackerWidgetState extends State<ResetFeedingTrackerWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ResetFeedingTrackerModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

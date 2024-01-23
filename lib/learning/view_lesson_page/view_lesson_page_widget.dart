@@ -34,6 +34,8 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ViewLessonPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

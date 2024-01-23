@@ -139,6 +139,8 @@ class _EntryPageWidgetState extends State<EntryPageWidget> {
         );
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -37,6 +37,8 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LoyaltyPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

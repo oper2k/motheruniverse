@@ -25,6 +25,8 @@ class _FailedPaymentWidgetState extends State<FailedPaymentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FailedPaymentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

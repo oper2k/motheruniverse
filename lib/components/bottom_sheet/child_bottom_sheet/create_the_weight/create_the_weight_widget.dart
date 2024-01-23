@@ -9,11 +9,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'change_the_growth_model.dart';
-export 'change_the_growth_model.dart';
+import 'create_the_weight_model.dart';
+export 'create_the_weight_model.dart';
 
-class ChangeTheGrowthWidget extends StatefulWidget {
-  const ChangeTheGrowthWidget({
+class CreateTheWeightWidget extends StatefulWidget {
+  const CreateTheWeightWidget({
     Key? key,
     required this.child,
   }) : super(key: key);
@@ -21,11 +21,11 @@ class ChangeTheGrowthWidget extends StatefulWidget {
   final ChildrenRecord? child;
 
   @override
-  _ChangeTheGrowthWidgetState createState() => _ChangeTheGrowthWidgetState();
+  _CreateTheWeightWidgetState createState() => _CreateTheWeightWidgetState();
 }
 
-class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
-  late ChangeTheGrowthModel _model;
+class _CreateTheWeightWidgetState extends State<CreateTheWeightWidget> {
+  late CreateTheWeightModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -36,7 +36,7 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ChangeTheGrowthModel());
+    _model = createModel(context, () => CreateTheWeightModel());
 
     _model.textFieldFocusNode ??= FocusNode();
 
@@ -111,7 +111,7 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                       children: [
                         Expanded(
                           child: Text(
-                            'Изменить рост',
+                            'Добавить вес',
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
@@ -155,8 +155,11 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                       child: TextFormField(
                         controller: _model.textController ??=
                             TextEditingController(
-                          text: containerChildrenRecord.growthList.last.growth
-                              .toString(),
+                          text:
+                              ((containerChildrenRecord.weightList.last.weight *
+                                          1000)
+                                      .round())
+                                  .toString(),
                         ),
                         focusNode: _model.textFieldFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
@@ -166,7 +169,7 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                         ),
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Введите рост',
+                          labelText: 'Введите вес в граммах',
                           labelStyle:
                               FlutterFlowTheme.of(context).headlineSmall,
                           enabledBorder: OutlineInputBorder(
@@ -227,7 +230,7 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                     child: Text(
-                      'Текущее значение ${containerChildrenRecord.growthList.last.growth.toString()} см',
+                      'Текущее значение ${((containerChildrenRecord.weightList.last.weight * 1000).round()).toString()} гр',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
                             lineHeight: 1.28,
@@ -239,49 +242,36 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 68.0, 0.0, 45.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        _model.childRead = await ChildrenRecord.getDocumentOnce(
-                            widget.child!.reference);
-                        setState(() {
-                          _model.tempDate =
-                              _model.childRead?.growthList?.last?.date;
-                        });
-
-                        await widget.child!.reference.update({
-                          ...mapToFirestore(
-                            {
-                              'growth_list': FieldValue.arrayRemove([
-                                getGrowthListFirestoreData(
-                                  updateGrowthListStruct(
-                                    _model.childRead?.growthList?.last,
-                                    clearUnsetFields: false,
-                                  ),
-                                  true,
-                                )
-                              ]),
-                            },
-                          ),
-                        });
-
-                        await widget.child!.reference.update({
-                          ...mapToFirestore(
-                            {
-                              'growth_list': FieldValue.arrayUnion([
-                                getGrowthListFirestoreData(
-                                  createGrowthListStruct(
-                                    growth: int.tryParse(
-                                        _model.textController.text),
-                                    date: _model.tempDate,
-                                    clearUnsetFields: false,
-                                  ),
-                                  true,
-                                )
-                              ]),
-                            },
-                          ),
-                        });
+                        if (dateTimeFormat(
+                              'd/M',
+                              containerChildrenRecord.weightList.last.date,
+                              locale: FFLocalizations.of(context).languageCode,
+                            ) !=
+                            dateTimeFormat(
+                              'd/M',
+                              getCurrentTimestamp,
+                              locale: FFLocalizations.of(context).languageCode,
+                            )) {
+                          await widget.child!.reference.update({
+                            ...mapToFirestore(
+                              {
+                                'weight_list': FieldValue.arrayUnion([
+                                  getWeightListFirestoreData(
+                                    createWeightListStruct(
+                                      weight: int.parse(
+                                              _model.textController.text) /
+                                          1000,
+                                      date: getCurrentTimestamp,
+                                      clearUnsetFields: false,
+                                    ),
+                                    true,
+                                  )
+                                ]),
+                              },
+                            ),
+                          });
+                        }
                         Navigator.pop(context);
-
-                        setState(() {});
                       },
                       text: 'Применить',
                       options: FFButtonOptions(

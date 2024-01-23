@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -16,10 +17,10 @@ export 'analyzes_page_model.dart';
 class AnalyzesPageWidget extends StatefulWidget {
   const AnalyzesPageWidget({
     Key? key,
-    required this.currentWeek,
+    required this.child,
   }) : super(key: key);
 
-  final int? currentWeek;
+  final ChildrenRecord? child;
 
   @override
   _AnalyzesPageWidgetState createState() => _AnalyzesPageWidgetState();
@@ -40,7 +41,125 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
       setState(() {
         _model.initialIndex = 0;
       });
+      if (functions.getCountOfDays(widget.child!.conceptionDate!) < 49) {
+        setState(() {
+          _model.initialIndex = 0;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) < 70) {
+        setState(() {
+          _model.initialIndex = 1;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) < 91) {
+        setState(() {
+          _model.initialIndex = 2;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) < 98) {
+        setState(() {
+          _model.initialIndex = 3;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          105) {
+        setState(() {
+          _model.initialIndex = 4;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          112) {
+        setState(() {
+          _model.initialIndex = 5;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          119) {
+        setState(() {
+          _model.initialIndex = 6;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          133) {
+        setState(() {
+          _model.initialIndex = 7;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          147) {
+        setState(() {
+          _model.initialIndex = 8;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          154) {
+        setState(() {
+          _model.initialIndex = 9;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          157) {
+        setState(() {
+          _model.initialIndex = 10;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          161) {
+        setState(() {
+          _model.initialIndex = 11;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          168) {
+        setState(() {
+          _model.initialIndex = 12;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          171) {
+        setState(() {
+          _model.initialIndex = 13;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          175) {
+        setState(() {
+          _model.initialIndex = 14;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          182) {
+        setState(() {
+          _model.initialIndex = 15;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          196) {
+        setState(() {
+          _model.initialIndex = 16;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          203) {
+        setState(() {
+          _model.initialIndex = 17;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          210) {
+        setState(() {
+          _model.initialIndex = 18;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          224) {
+        setState(() {
+          _model.initialIndex = 19;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          252) {
+        setState(() {
+          _model.initialIndex = 20;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          259) {
+        setState(() {
+          _model.initialIndex = 21;
+        });
+      } else if (functions.getCountOfDays(widget.child!.conceptionDate!) <
+          273) {
+        setState(() {
+          _model.initialIndex = 22;
+        });
+      } else {
+        setState(() {
+          _model.initialIndex = 23;
+        });
+      }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -236,7 +355,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                     ),
                                   );
                                 }
-                                final containerUsersRecord = snapshot.data!;
+                                final userUsersRecord = snapshot.data!;
                                 return Container(
                                   decoration: BoxDecoration(),
                                   child: StreamBuilder<
@@ -339,7 +458,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                                                 child: Builder(
                                                                   builder:
                                                                       (context) {
-                                                                    if (!containerUsersRecord
+                                                                    if (!userUsersRecord
                                                                         .passAnalizesString
                                                                         .contains(currentAnalizesItem
                                                                             .reference
@@ -361,7 +480,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                                                               hoverColor: Colors.transparent,
                                                                               highlightColor: Colors.transparent,
                                                                               onTap: () async {
-                                                                                await containerUsersRecord.reference.update({
+                                                                                await userUsersRecord.reference.update({
                                                                                   ...mapToFirestore(
                                                                                     {
                                                                                       'pass_analizes_string': FieldValue.arrayUnion([
@@ -452,7 +571,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                                                               hoverColor: Colors.transparent,
                                                                               highlightColor: Colors.transparent,
                                                                               onTap: () async {
-                                                                                await containerUsersRecord.reference.update({
+                                                                                await userUsersRecord.reference.update({
                                                                                   ...mapToFirestore(
                                                                                     {
                                                                                       'pass_analizes_string': FieldValue.arrayRemove([

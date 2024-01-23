@@ -36,6 +36,8 @@ class _ChoseTrackerFeedingWidgetState extends State<ChoseTrackerFeedingWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChoseTrackerFeedingModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

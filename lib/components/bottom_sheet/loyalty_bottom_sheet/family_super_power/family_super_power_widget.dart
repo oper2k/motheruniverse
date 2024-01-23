@@ -35,6 +35,8 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FamilySuperPowerModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -39,6 +40,8 @@ class _NutritionalAdviceWidgetState extends State<NutritionalAdviceWidget> {
         _model.choseWeekIndex = widget.currentWeek!;
       });
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -182,168 +185,206 @@ class _NutritionalAdviceWidgetState extends State<NutritionalAdviceWidget> {
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
-                      child: Builder(
-                        builder: (context) {
-                          final weeks =
-                              containerNutritionalAdviceRecordList.toList();
-                          return SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children:
-                                  List.generate(weeks.length, (weeksIndex) {
-                                final weeksItem = weeks[weeksIndex];
-                                return Builder(
-                                  builder: (context) {
-                                    if (weeksIndex <= widget.currentWeek!) {
-                                      return InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          setState(() {
-                                            _model.choseWeekIndex = weeksIndex;
-                                          });
-                                        },
-                                        child: Container(
-                                          width: 56.0,
-                                          height: 78.0,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(40.0),
-                                            border: Border.all(
-                                              color: _model
-                                                          .choseWeekIndex ==
-                                                      weeksIndex
-                                                  ? FlutterFlowTheme.of(context)
-                                                      .primary
-                                                  : FlutterFlowTheme.of(context)
-                                                      .divider,
-                                              width: 2.0,
-                                            ),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                weeksItem.weekNumber.toString(),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineSmall
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 20.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          lineHeight: 1.3,
-                                                        ),
-                                              ),
-                                              Text(
-                                                'нед',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .displayMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          lineHeight: 1.33,
-                                                        ),
-                                              ),
-                                              if (weeksIndex ==
-                                                  widget.currentWeek)
-                                                Container(
-                                                  width: 6.0,
-                                                  height: 6.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    shape: BoxShape.circle,
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Builder(
+                              builder: (context) {
+                                final week =
+                                    containerNutritionalAdviceRecordList
+                                        .toList();
+                                return Container(
+                                  width: double.infinity,
+                                  height: 78.0,
+                                  child: CarouselSlider.builder(
+                                    itemCount: week.length,
+                                    itemBuilder: (context, weekIndex, _) {
+                                      final weekItem = week[weekIndex];
+                                      return Builder(
+                                        builder: (context) {
+                                          if (weekIndex <=
+                                              widget.currentWeek!) {
+                                            return InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                setState(() {
+                                                  _model.choseWeekIndex =
+                                                      weekIndex;
+                                                });
+                                              },
+                                              child: Container(
+                                                width: 56.0,
+                                                height: 78.0,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          40.0),
+                                                  border: Border.all(
+                                                    color:
+                                                        _model.choseWeekIndex ==
+                                                                weekIndex
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .divider,
+                                                    width: 2.0,
                                                   ),
                                                 ),
-                                            ],
-                                          ),
-                                        ),
-                                      );
-                                    } else {
-                                      return InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          setState(() {
-                                            _model.choseWeekIndex = weeksIndex;
-                                          });
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      weekItem.weekNumber
+                                                          .toString(),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .headlineSmall
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            fontSize: 20.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            lineHeight: 1.3,
+                                                          ),
+                                                    ),
+                                                    Text(
+                                                      'нед',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .displayMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            lineHeight: 1.33,
+                                                          ),
+                                                    ),
+                                                    if (weekIndex ==
+                                                        widget.currentWeek)
+                                                      Container(
+                                                        width: 6.0,
+                                                        height: 6.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                      ),
+                                                  ],
+                                                ),
+                                              ),
+                                            );
+                                          } else {
+                                            return InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {},
+                                              child: Container(
+                                                width: 56.0,
+                                                height: 78.0,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          40.0),
+                                                  border: Border.all(
+                                                    color:
+                                                        _model.choseWeekIndex ==
+                                                                weekIndex
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .divider,
+                                                    width: 2.0,
+                                                  ),
+                                                ),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      weekItem.weekNumber
+                                                          .toString(),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .headlineSmall
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .grey40,
+                                                            fontSize: 20.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            lineHeight: 1.3,
+                                                          ),
+                                                    ),
+                                                    Text(
+                                                      'нед',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .displayMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .grey40,
+                                                            lineHeight: 1.33,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            );
+                                          }
                                         },
-                                        child: Container(
-                                          width: 56.0,
-                                          height: 78.0,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(40.0),
-                                            border: Border.all(
-                                              color: _model
-                                                          .choseWeekIndex ==
-                                                      weeksIndex
-                                                  ? FlutterFlowTheme.of(context)
-                                                      .primary
-                                                  : FlutterFlowTheme.of(context)
-                                                      .divider,
-                                              width: 2.0,
-                                            ),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                weeksItem.weekNumber.toString(),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineSmall
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .grey40,
-                                                          fontSize: 20.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          lineHeight: 1.3,
-                                                        ),
-                                              ),
-                                              Text(
-                                                'нед',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .displayMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .grey40,
-                                                          lineHeight: 1.33,
-                                                        ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
                                       );
-                                    }
-                                  },
+                                    },
+                                    carouselController:
+                                        _model.carouselController ??=
+                                            CarouselController(),
+                                    options: CarouselOptions(
+                                      initialPage: min(
+                                          valueOrDefault<int>(
+                                            _model.choseWeekIndex,
+                                            0,
+                                          ),
+                                          week.length - 1),
+                                      viewportFraction: 0.2,
+                                      disableCenter: false,
+                                      enlargeCenterPage: false,
+                                      enlargeFactor: 0.0,
+                                      enableInfiniteScroll: false,
+                                      scrollDirection: Axis.horizontal,
+                                      autoPlay: false,
+                                      onPageChanged: (index, _) =>
+                                          _model.carouselCurrentIndex = index,
+                                    ),
+                                  ),
                                 );
-                              })
-                                      .divide(SizedBox(width: 12.0))
-                                      .addToStart(SizedBox(width: 20.0))
-                                      .addToEnd(SizedBox(width: 20.0)),
+                              },
                             ),
-                          );
-                        },
+                          ],
+                        ),
                       ),
                     ),
                   ),

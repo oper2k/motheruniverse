@@ -30,6 +30,8 @@ class _LoyaltyRegistrationBonusWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => LoyaltyRegistrationBonusModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

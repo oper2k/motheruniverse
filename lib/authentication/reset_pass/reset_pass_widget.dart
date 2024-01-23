@@ -72,6 +72,8 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

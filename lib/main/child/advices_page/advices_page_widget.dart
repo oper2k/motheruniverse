@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +11,12 @@ import 'advices_page_model.dart';
 export 'advices_page_model.dart';
 
 class AdvicesPageWidget extends StatefulWidget {
-  const AdvicesPageWidget({Key? key}) : super(key: key);
+  const AdvicesPageWidget({
+    Key? key,
+    required this.initialIndex,
+  }) : super(key: key);
+
+  final int? initialIndex;
 
   @override
   _AdvicesPageWidgetState createState() => _AdvicesPageWidgetState();
@@ -25,6 +31,14 @@ class _AdvicesPageWidgetState extends State<AdvicesPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AdvicesPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await Future.delayed(const Duration(milliseconds: 200));
+      setState(() {});
+    });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -101,8 +115,8 @@ class _AdvicesPageWidgetState extends State<AdvicesPageWidget> {
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 23.0, 0.0, 0.0),
-                      child: StreamBuilder<List<AdvicesRecord>>(
-                        stream: queryAdvicesRecord(
+                      child: FutureBuilder<List<AdvicesRecord>>(
+                        future: queryAdvicesRecordOnce(
                           queryBuilder: (advicesRecord) =>
                               advicesRecord.orderBy('sort'),
                         ),
@@ -230,7 +244,11 @@ class _AdvicesPageWidgetState extends State<AdvicesPageWidget> {
                                               controller: _model
                                                       .pageViewController ??=
                                                   PageController(
-                                                      initialPage: min(0,
+                                                      initialPage: min(
+                                                          valueOrDefault<int>(
+                                                            widget.initialIndex,
+                                                            0,
+                                                          ),
                                                           advices.length - 1)),
                                               onPageChanged: (_) =>
                                                   setState(() {}),

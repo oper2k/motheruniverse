@@ -31,6 +31,8 @@ class _VidViewPageWidgetState extends State<VidViewPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => VidViewPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

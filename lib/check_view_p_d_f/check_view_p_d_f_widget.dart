@@ -31,6 +31,8 @@ class _CheckViewPDFWidgetState extends State<CheckViewPDFWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CheckViewPDFModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -102,15 +104,13 @@ class _CheckViewPDFWidgetState extends State<CheckViewPDFWidget> {
                         await launchURL(widget.check!.file);
                       },
                       child: Container(
-                        width: 38.0,
                         height: 38.0,
                         decoration: BoxDecoration(),
                         child: Align(
                           alignment: AlignmentDirectional(1.0, 0.0),
-                          child: Icon(
-                            FFIcons.kcloudDownload,
-                            color: FlutterFlowTheme.of(context).primary,
-                            size: 24.0,
+                          child: Text(
+                            'Скачать',
+                            style: FlutterFlowTheme.of(context).headlineLarge,
                           ),
                         ),
                       ),

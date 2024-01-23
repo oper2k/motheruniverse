@@ -34,6 +34,8 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {});
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

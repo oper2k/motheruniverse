@@ -39,6 +39,8 @@ class _ChangeTheWeightWidgetState extends State<ChangeTheWeightWidget> {
     _model = createModel(context, () => ChangeTheWeightModel());
 
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -153,8 +155,11 @@ class _ChangeTheWeightWidgetState extends State<ChangeTheWeightWidget> {
                       child: TextFormField(
                         controller: _model.textController ??=
                             TextEditingController(
-                          text: containerChildrenRecord.weightList.last.weight
-                              .toString(),
+                          text:
+                              ((containerChildrenRecord.weightList.last.weight *
+                                          1000)
+                                      .round())
+                                  .toString(),
                         ),
                         focusNode: _model.textFieldFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
@@ -164,7 +169,7 @@ class _ChangeTheWeightWidgetState extends State<ChangeTheWeightWidget> {
                         ),
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Введите вес',
+                          labelText: 'Введите вес в граммах',
                           labelStyle:
                               FlutterFlowTheme.of(context).headlineSmall,
                           enabledBorder: OutlineInputBorder(
@@ -225,7 +230,7 @@ class _ChangeTheWeightWidgetState extends State<ChangeTheWeightWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                     child: Text(
-                      'Текущее значение ${containerChildrenRecord.weightList.last.weight.toString()} кг',
+                      'Текущее значение ${((containerChildrenRecord.weightList.last.weight * 1000).round()).toString()} гр',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
                             lineHeight: 1.28,
@@ -240,75 +245,48 @@ class _ChangeTheWeightWidgetState extends State<ChangeTheWeightWidget> {
                         final firestoreBatch =
                             FirebaseFirestore.instance.batch();
                         try {
-                          if (dateTimeFormat(
-                                'd/M',
-                                containerChildrenRecord.weightList.last.date,
-                                locale:
-                                    FFLocalizations.of(context).languageCode,
-                              ) ==
-                              dateTimeFormat(
-                                'd/M',
-                                getCurrentTimestamp,
-                                locale:
-                                    FFLocalizations.of(context).languageCode,
-                              )) {
-                            _model.childRead =
-                                await ChildrenRecord.getDocumentOnce(
-                                    widget.child!.reference);
+                          _model.childRead =
+                              await ChildrenRecord.getDocumentOnce(
+                                  widget.child!.reference);
+                          setState(() {
+                            _model.tempDate =
+                                _model.childRead?.weightList?.last?.date;
+                          });
 
-                            firestoreBatch.update(widget.child!.reference, {
-                              ...mapToFirestore(
-                                {
-                                  'weight_list': FieldValue.arrayRemove([
-                                    getWeightListFirestoreData(
-                                      updateWeightListStruct(
-                                        _model.childRead?.weightList?.last,
-                                        clearUnsetFields: false,
-                                      ),
-                                      true,
-                                    )
-                                  ]),
-                                },
-                              ),
-                            });
+                          firestoreBatch.update(widget.child!.reference, {
+                            ...mapToFirestore(
+                              {
+                                'weight_list': FieldValue.arrayRemove([
+                                  getWeightListFirestoreData(
+                                    updateWeightListStruct(
+                                      _model.childRead?.weightList?.last,
+                                      clearUnsetFields: false,
+                                    ),
+                                    true,
+                                  )
+                                ]),
+                              },
+                            ),
+                          });
 
-                            firestoreBatch.update(widget.child!.reference, {
-                              ...mapToFirestore(
-                                {
-                                  'weight_list': FieldValue.arrayUnion([
-                                    getWeightListFirestoreData(
-                                      createWeightListStruct(
-                                        weight: double.tryParse(
-                                            _model.textController.text),
-                                        date: getCurrentTimestamp,
-                                        clearUnsetFields: false,
-                                      ),
-                                      true,
-                                    )
-                                  ]),
-                                },
-                              ),
-                            });
-                          } else {
-                            firestoreBatch.update(widget.child!.reference, {
-                              ...mapToFirestore(
-                                {
-                                  'weight_list': FieldValue.arrayUnion([
-                                    getWeightListFirestoreData(
-                                      createWeightListStruct(
-                                        weight: double.tryParse(
-                                            _model.textController.text),
-                                        date: getCurrentTimestamp,
-                                        clearUnsetFields: false,
-                                      ),
-                                      true,
-                                    )
-                                  ]),
-                                },
-                              ),
-                            });
-                          }
-
+                          firestoreBatch.update(widget.child!.reference, {
+                            ...mapToFirestore(
+                              {
+                                'weight_list': FieldValue.arrayUnion([
+                                  getWeightListFirestoreData(
+                                    createWeightListStruct(
+                                      weight: int.parse(
+                                              _model.textController.text) /
+                                          1000,
+                                      date: _model.tempDate,
+                                      clearUnsetFields: false,
+                                    ),
+                                    true,
+                                  )
+                                ]),
+                              },
+                            ),
+                          });
                           Navigator.pop(context);
                         } finally {
                           await firestoreBatch.commit();

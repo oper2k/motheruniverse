@@ -34,6 +34,8 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => UnbornChildPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -689,13 +691,14 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                       context.pushNamed(
                                         'AnalyzesPage',
                                         queryParameters: {
-                                          'currentWeek': serializeParam(
-                                            functions.getNumberFromWeekString(
-                                                functions.getWeeksSince(widget
-                                                    .child!.conceptionDate!)),
-                                            ParamType.int,
+                                          'child': serializeParam(
+                                            widget.child,
+                                            ParamType.Document,
                                           ),
                                         }.withoutNulls,
+                                        extra: <String, dynamic>{
+                                          'child': widget.child,
+                                        },
                                       );
                                     },
                                     child: Container(
@@ -798,9 +801,26 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                         'NutritionalAdvice',
                                         queryParameters: {
                                           'currentWeek': serializeParam(
-                                            functions.getNumberFromWeekString(
-                                                functions.getWeeksSince(widget
-                                                    .child!.conceptionDate!)),
+                                            () {
+                                              if (functions.getCountOfDays(
+                                                      widget.child!
+                                                          .conceptionDate!) <
+                                                  8) {
+                                                return 0;
+                                              } else if (functions
+                                                      .getCountOfDays(widget
+                                                          .child!
+                                                          .conceptionDate!) >=
+                                                  294) {
+                                                return 41;
+                                              } else {
+                                                return functions
+                                                    .getNumberFromWeekString(
+                                                        functions.getWeeksSince(
+                                                            widget.child!
+                                                                .conceptionDate!));
+                                              }
+                                            }(),
                                             ParamType.int,
                                           ),
                                         }.withoutNulls,
@@ -882,7 +902,17 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed('AdvicesPage');
+                                      context.pushNamed(
+                                        'AdvicesPage',
+                                        queryParameters: {
+                                          'initialIndex': serializeParam(
+                                            functions.findNumberOfWeek(widget
+                                                    .child!.conceptionDate!) -
+                                                1,
+                                            ParamType.int,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     },
                                     child: Container(
                                       width: 120.0,

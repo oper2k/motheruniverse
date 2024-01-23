@@ -80,6 +80,8 @@ class _BreastTrackerIsAddedWidgetState
         ).then((value) => safeSetState(() {}));
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

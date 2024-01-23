@@ -33,6 +33,8 @@ class _ChoseTheDateOfTrackerWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => ChoseTheDateOfTrackerModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

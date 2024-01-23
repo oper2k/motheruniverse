@@ -35,6 +35,8 @@ class _DateOfBirthWidgetState extends State<DateOfBirthWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DateOfBirthModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

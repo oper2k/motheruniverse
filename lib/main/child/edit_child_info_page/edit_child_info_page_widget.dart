@@ -53,6 +53,8 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
 
     _model.textController ??= TextEditingController(text: widget.child?.name);
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

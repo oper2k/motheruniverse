@@ -55,6 +55,8 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
 
     _model.amountController ??= TextEditingController();
     _model.amountFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -171,6 +173,34 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                       initialDate: getCurrentTimestamp,
                       firstDate: DateTime(1900),
                       lastDate: getCurrentTimestamp,
+                      builder: (context, child) {
+                        return wrapInMaterialDatePickerTheme(
+                          context,
+                          child!,
+                          headerBackgroundColor:
+                              FlutterFlowTheme.of(context).primary,
+                          headerForegroundColor:
+                              FlutterFlowTheme.of(context).info,
+                          headerTextStyle: FlutterFlowTheme.of(context)
+                              .headlineLarge
+                              .override(
+                                fontFamily: 'Inter',
+                                fontSize: 32.0,
+                                fontWeight: FontWeight.w600,
+                              ),
+                          pickerBackgroundColor:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          pickerForegroundColor:
+                              FlutterFlowTheme.of(context).primaryText,
+                          selectedDateTimeBackgroundColor:
+                              FlutterFlowTheme.of(context).primary,
+                          selectedDateTimeForegroundColor:
+                              FlutterFlowTheme.of(context).info,
+                          actionButtonForegroundColor:
+                              FlutterFlowTheme.of(context).primaryText,
+                          iconSize: 24.0,
+                        );
+                      },
                     );
 
                     TimeOfDay? _datePickedTime;
@@ -179,6 +209,34 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                         context: context,
                         initialTime:
                             TimeOfDay.fromDateTime(getCurrentTimestamp),
+                        builder: (context, child) {
+                          return wrapInMaterialTimePickerTheme(
+                            context,
+                            child!,
+                            headerBackgroundColor:
+                                FlutterFlowTheme.of(context).primary,
+                            headerForegroundColor:
+                                FlutterFlowTheme.of(context).info,
+                            headerTextStyle: FlutterFlowTheme.of(context)
+                                .headlineLarge
+                                .override(
+                                  fontFamily: 'Inter',
+                                  fontSize: 32.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                            pickerBackgroundColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            pickerForegroundColor:
+                                FlutterFlowTheme.of(context).primaryText,
+                            selectedDateTimeBackgroundColor:
+                                FlutterFlowTheme.of(context).primary,
+                            selectedDateTimeForegroundColor:
+                                FlutterFlowTheme.of(context).info,
+                            actionButtonForegroundColor:
+                                FlutterFlowTheme.of(context).primaryText,
+                            iconSize: 24.0,
+                          );
+                        },
                       );
                     }
 
@@ -439,7 +497,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                         height: 36.0,
                         decoration: BoxDecoration(
                           color: _model.isGramm
-                              ? FlutterFlowTheme.of(context).redIcon
+                              ? FlutterFlowTheme.of(context).error
                               : FlutterFlowTheme.of(context).redLight,
                           borderRadius: BorderRadius.circular(10.0),
                         ),
@@ -481,8 +539,8 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                           height: 36.0,
                           decoration: BoxDecoration(
                             color: _model.isGramm
-                                ? FlutterFlowTheme.of(context).redLight
-                                : FlutterFlowTheme.of(context).redIcon,
+                                ? FlutterFlowTheme.of(context).warning
+                                : FlutterFlowTheme.of(context).error,
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Align(
@@ -697,7 +755,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                           padding: EdgeInsets.all(0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).redIcon,
+                          color: FlutterFlowTheme.of(context).error,
                           textStyle: FlutterFlowTheme.of(context)
                               .headlineLarge
                               .override(

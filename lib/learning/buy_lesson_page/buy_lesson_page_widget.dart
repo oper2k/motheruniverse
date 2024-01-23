@@ -32,6 +32,8 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BuyLessonPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -28,6 +28,8 @@ class _FillProfileBonusWidgetState extends State<FillProfileBonusWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FillProfileBonusModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -3,7 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'change_the_weight_widget.dart' show ChangeTheWeightWidget;
+import 'create_the_growth_widget.dart' show CreateTheGrowthWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -11,19 +11,13 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ChangeTheWeightModel extends FlutterFlowModel<ChangeTheWeightWidget> {
-  ///  Local state fields for this component.
-
-  DateTime? tempDate;
-
+class CreateTheGrowthModel extends FlutterFlowModel<CreateTheGrowthWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // Stores action output result for [Backend Call - Read Document] action in Button widget.
-  ChildrenRecord? childRead;
 
   /// Initialization and disposal methods.
 

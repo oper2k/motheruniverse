@@ -52,6 +52,8 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
 
     _model.passFieldController ??= TextEditingController();
     _model.passFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -37,6 +37,8 @@ class _ChoseTrackerSleepingWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => ChoseTrackerSleepingModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

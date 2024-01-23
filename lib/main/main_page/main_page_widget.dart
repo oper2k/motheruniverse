@@ -75,6 +75,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
         ).then((value) => safeSetState(() {}));
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -758,14 +760,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                           0.0,
                                                                           0.0),
                                                                   child: Text(
-                                                                    '${valueOrDefault<String>(
-                                                                      childItem
-                                                                          .weightList
-                                                                          .last
-                                                                          .weight
-                                                                          .toString(),
-                                                                      '-',
-                                                                    )}  кг',
+                                                                    '${((childItem.weightList.last.weight * 1000).round()).toString()}  гр',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .headlineSmall
@@ -1537,7 +1532,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'ЧЕКЛИСТЫ',
+                              'ЧЕК-ЛИСТЫ',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(

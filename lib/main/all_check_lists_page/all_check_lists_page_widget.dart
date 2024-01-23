@@ -31,6 +31,8 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -106,7 +108,7 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: Text(
-                          'Чеклисты',
+                          'Чек-листы',
                           style: FlutterFlowTheme.of(context).displayLarge,
                         ),
                       ),
@@ -124,7 +126,7 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
                         ),
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'Найдите название чеклиста',
+                          hintText: 'Найдите название чек-листа',
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Inter',

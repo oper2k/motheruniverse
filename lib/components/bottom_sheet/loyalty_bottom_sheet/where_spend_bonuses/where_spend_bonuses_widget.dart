@@ -29,6 +29,8 @@ class _WhereSpendBonusesWidgetState extends State<WhereSpendBonusesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => WhereSpendBonusesModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

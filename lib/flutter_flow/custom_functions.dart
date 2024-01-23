@@ -1286,3 +1286,19 @@ DateTime addOneYear(DateTime dateTime) {
 
   return newDateTime;
 }
+
+int getCountOfDays(DateTime birthDate) {
+  /// принимает дату рождения Date Time и возвращает количество пройденных дней
+  DateTime now = DateTime.now();
+  Duration difference = now.difference(birthDate);
+
+  // Разница в днях между текущей датой и датой рождения
+  int daysDifference = difference.inDays;
+
+  return daysDifference;
+}
+
+int findNumberOfWeek(DateTime startDate) {
+  /// Возвращает Int номер недели беременности
+  return DateTime.now().difference(startDate).inDays ~/ 7;
+}

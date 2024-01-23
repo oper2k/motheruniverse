@@ -35,6 +35,8 @@ class _FeedingInfoWidgetState extends State<FeedingInfoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FeedingInfoModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

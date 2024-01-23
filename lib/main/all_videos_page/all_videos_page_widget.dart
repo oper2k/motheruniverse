@@ -27,6 +27,8 @@ class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AllVideosPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

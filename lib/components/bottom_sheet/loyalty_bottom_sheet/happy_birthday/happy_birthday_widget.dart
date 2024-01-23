@@ -28,6 +28,8 @@ class _HappyBirthdayWidgetState extends State<HappyBirthdayWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HappyBirthdayModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

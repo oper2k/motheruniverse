@@ -27,6 +27,8 @@ class _SuccessfulPaymentAllWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => SuccessfulPaymentAllModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

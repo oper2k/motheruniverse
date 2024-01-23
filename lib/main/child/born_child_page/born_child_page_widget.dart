@@ -32,6 +32,8 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BornChildPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -639,14 +641,17 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                         CrossAxisAlignment.end,
                                                     children: [
                                                       Text(
-                                                        valueOrDefault<String>(
-                                                          childQueryChildrenRecord
-                                                              .weightList
-                                                              .last
-                                                              .weight
-                                                              .toString(),
-                                                          '-',
-                                                        ),
+                                                        ((valueOrDefault<
+                                                                        double>(
+                                                                      childQueryChildrenRecord
+                                                                          .weightList
+                                                                          .last
+                                                                          .weight,
+                                                                      0.0,
+                                                                    ) *
+                                                                    1000)
+                                                                .round())
+                                                            .toString(),
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .headlineSmall
@@ -669,7 +674,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          'кг',
+                                                          'гр',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium,

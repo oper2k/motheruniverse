@@ -32,6 +32,8 @@ class _NewViewPageWidgetState extends State<NewViewPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => NewViewPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

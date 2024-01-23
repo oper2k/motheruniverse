@@ -26,6 +26,8 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => GetAllLessonsPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

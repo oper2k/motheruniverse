@@ -30,6 +30,8 @@ class _ResetBreastTrackerWidgetState extends State<ResetBreastTrackerWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ResetBreastTrackerModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -28,6 +28,8 @@ class _CountingSystemWidgetState extends State<CountingSystemWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CountingSystemModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

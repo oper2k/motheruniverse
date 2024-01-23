@@ -27,6 +27,8 @@ class _CalendarOfEventsPageWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => CalendarOfEventsPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -81,6 +81,8 @@ class _SleepTrackerIsAddedWidgetState extends State<SleepTrackerIsAddedWidget> {
         ).then((value) => safeSetState(() {}));
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

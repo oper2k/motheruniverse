@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -39,6 +40,77 @@ class _VaccinationCalendarPageWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => VaccinationCalendarPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (functions.getCountOfDays(widget.birthDate!) < 3) {
+        setState(() {
+          _model.initialIndex = 0;
+        });
+      } else if (functions.getCountOfDays(widget.birthDate!) <= 7) {
+        setState(() {
+          _model.initialIndex = 1;
+        });
+      } else if (functions.getCountOfDays(widget.birthDate!) < 61) {
+        setState(() {
+          _model.initialIndex = 2;
+        });
+      } else if (functions.getCountOfDays(widget.birthDate!) < 91) {
+        setState(() {
+          _model.initialIndex = 3;
+        });
+      } else if (functions.getCountOfDays(widget.birthDate!) < 137) {
+        setState(() {
+          _model.initialIndex = 4;
+        });
+      } else if (functions.getCountOfDays(widget.birthDate!) <= 182) {
+        setState(() {
+          _model.initialIndex = 5;
+        });
+      } else if (functions.getCountOfDays(widget.birthDate!) <= 364) {
+        setState(() {
+          _model.initialIndex = 6;
+        });
+      } else if (functions.getCountOfDays(widget.birthDate!) <= 457) {
+        setState(() {
+          _model.initialIndex = 7;
+        });
+      } else if (functions.getCountOfDays(widget.birthDate!) < 549) {
+        setState(() {
+          _model.initialIndex = 8;
+        });
+      } else if (functions.getCountOfDays(widget.birthDate!) < 609) {
+        setState(() {
+          _model.initialIndex = 9;
+        });
+      } else if (functions.getCountOfDays(widget.birthDate!) < 2191) {
+        setState(() {
+          _model.initialIndex = 10;
+        });
+      } else if (functions.getCountOfDays(widget.birthDate!) < 2556) {
+        setState(() {
+          _model.initialIndex = 11;
+        });
+      } else if (functions.getCountOfDays(widget.birthDate!) < 4748) {
+        setState(() {
+          _model.initialIndex = 12;
+        });
+      } else if (functions.getCountOfDays(widget.birthDate!) < 5113) {
+        setState(() {
+          _model.initialIndex = 13;
+        });
+      } else if (functions.getCountOfDays(widget.birthDate!) < 5844) {
+        setState(() {
+          _model.initialIndex = 14;
+        });
+      } else {
+        setState(() {
+          _model.initialIndex = 15;
+        });
+      }
+    });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -148,7 +220,7 @@ class _VaccinationCalendarPageWidgetState
                                     ),
                                   ),
                                   Text(
-                                    'Наши рекомедации по прививкам, которые необходимо поставить, разделенные по возросту ребенка',
+                                    'Наши рекомедации по прививкам, которые необходимо поставить, разделенные по возрасту ребенка',
                                     style: FlutterFlowTheme.of(context)
                                         .displayMedium
                                         .override(

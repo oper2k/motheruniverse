@@ -28,6 +28,8 @@ class _FeedbackIsSentWidgetState extends State<FeedbackIsSentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FeedbackIsSentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

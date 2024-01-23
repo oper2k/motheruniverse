@@ -29,6 +29,8 @@ class _UsingTrackersBonusWidgetState extends State<UsingTrackersBonusWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => UsingTrackersBonusModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

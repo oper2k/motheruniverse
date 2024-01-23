@@ -35,6 +35,8 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => NetworkingProfileModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

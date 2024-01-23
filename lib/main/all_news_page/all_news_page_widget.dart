@@ -26,6 +26,8 @@ class _AllNewsPageWidgetState extends State<AllNewsPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AllNewsPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

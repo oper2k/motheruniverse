@@ -166,8 +166,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'AnalyzesPage',
           path: '/analyzesPage',
+          asyncParams: {
+            'child': getDoc(['users', 'children'], ChildrenRecord.fromSnapshot),
+          },
           builder: (context, params) => AnalyzesPageWidget(
-            currentWeek: params.getParam('currentWeek', ParamType.int),
+            child: params.getParam('child', ParamType.Document),
           ),
         ),
         FFRoute(
@@ -180,7 +183,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'AdvicesPage',
           path: '/advicesPage',
-          builder: (context, params) => AdvicesPageWidget(),
+          builder: (context, params) => AdvicesPageWidget(
+            initialIndex: params.getParam('initialIndex', ParamType.int),
+          ),
         ),
         FFRoute(
           name: 'MainPage',

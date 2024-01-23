@@ -121,6 +121,8 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
         });
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

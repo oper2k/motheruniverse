@@ -48,6 +48,8 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
 
     _model.solvedCaseController ??= TextEditingController();
     _model.solvedCaseFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -445,6 +447,9 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                 style:
                                     FlutterFlowTheme.of(context).headlineSmall,
                                 maxLines: null,
+                                maxLength: 1500,
+                                maxLengthEnforcement:
+                                    MaxLengthEnforcement.enforced,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).overlay,
                                 validator: _model.solvedCaseControllerValidator

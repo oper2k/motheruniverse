@@ -75,6 +75,8 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
         FFAppState().firstTipWasShowed = 1;
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

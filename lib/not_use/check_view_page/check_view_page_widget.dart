@@ -34,6 +34,8 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CheckViewPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -28,6 +28,8 @@ class _WelcomeBonusWidgetState extends State<WelcomeBonusWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => WelcomeBonusModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

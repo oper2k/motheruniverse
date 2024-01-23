@@ -53,6 +53,8 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
         curve: Curves.ease,
       );
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

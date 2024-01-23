@@ -36,6 +36,8 @@ class _DeleteChildProfileWidgetState extends State<DeleteChildProfileWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DeleteChildProfileModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

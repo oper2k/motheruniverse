@@ -1,5 +1,6 @@
 import '/backend/backend.dart';
 import '/components/bottom_sheet/child_bottom_sheet/change_the_weight/change_the_weight_widget.dart';
+import '/components/bottom_sheet/child_bottom_sheet/create_the_weight/create_the_weight_widget.dart';
 import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -33,6 +34,8 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => WeightPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -164,62 +167,128 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  '${containerChildrenRecord.weightList.last.weight.toString()} кг',
-                                  style: FlutterFlowTheme.of(context)
-                                      .headlineSmall
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 24.0,
-                                        fontWeight: FontWeight.bold,
-                                        lineHeight: 1.16,
-                                      ),
-                                ),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    await showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      barrierColor: FlutterFlowTheme.of(context)
-                                          .botomBack,
-                                      context: context,
-                                      builder: (context) {
-                                        return GestureDetector(
-                                          onTap: () => _model
-                                                  .unfocusNode.canRequestFocus
-                                              ? FocusScope.of(context)
-                                                  .requestFocus(
-                                                      _model.unfocusNode)
-                                              : FocusScope.of(context)
-                                                  .unfocus(),
-                                          child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: ChangeTheWeightWidget(
-                                              child: widget.child!,
-                                            ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      '${((containerChildrenRecord.weightList.last.weight * 1000).round()).toString()} гр',
+                                      style: FlutterFlowTheme.of(context)
+                                          .headlineSmall
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            fontSize: 24.0,
+                                            fontWeight: FontWeight.bold,
+                                            lineHeight: 1.16,
                                           ),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-                                  },
-                                  child: Container(
-                                    width: 40.0,
-                                    height: 40.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(10.0),
                                     ),
-                                    child: Icon(
-                                      FFIcons.kedit1,
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      size: 24.0,
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 0.0, 0.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            barrierColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .botomBack,
+                                            context: context,
+                                            builder: (context) {
+                                              return GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: ChangeTheWeightWidget(
+                                                    child: widget.child!,
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+                                        },
+                                        child: Container(
+                                          width: 40.0,
+                                          height: 40.0,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          child: Icon(
+                                            FFIcons.kedit1,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            size: 24.0,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        barrierColor:
+                                            FlutterFlowTheme.of(context)
+                                                .botomBack,
+                                        context: context,
+                                        builder: (context) {
+                                          return GestureDetector(
+                                            onTap: () => _model
+                                                    .unfocusNode.canRequestFocus
+                                                ? FocusScope.of(context)
+                                                    .requestFocus(
+                                                        _model.unfocusNode)
+                                                : FocusScope.of(context)
+                                                    .unfocus(),
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: CreateTheWeightWidget(
+                                                child: widget.child!,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => safeSetState(() {}));
+                                    },
+                                    child: Container(
+                                      width: 40.0,
+                                      height: 40.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                      ),
+                                      child: Icon(
+                                        FFIcons.kplus2,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        size: 24.0,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -233,197 +302,344 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 14.0, 0.0, 0.0),
-                              child: Container(
-                                height: 326.0,
-                                child: Stack(
-                                  children: [
-                                    ClipRRect(
-                                      child: Container(
-                                        height: 326.0,
-                                        decoration: BoxDecoration(),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 20.0, 0.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(0.0),
-                                            child: Image.asset(
-                                              'assets/images/Growth1.webp',
-                                              width: double.infinity,
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  0.4,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Row(
+                              child: Builder(
+                                builder: (context) {
+                                  if (functions.getCountOfDays(
+                                          widget.child!.birthDate!) <=
+                                      365) {
+                                    return Column(
                                       mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          width: functions
-                                              .calculateResultOfChartWidth(
-                                                  MediaQuery.sizeOf(context)
-                                                      .width,
-                                                  60,
-                                                  containerChildrenRecord
-                                                      .weightList.first.date!,
-                                                  containerChildrenRecord
-                                                      .weightList.last.date!)
-                                              .toDouble(),
-                                          decoration: BoxDecoration(),
-                                          child: Container(
-                                            width: double.infinity,
-                                            height: 326.0,
-                                            child: FlutterFlowLineChart(
-                                              data: [
-                                                FFLineChartData(
-                                                  xData: containerChildrenRecord
-                                                      .weightList
-                                                      .map((e) => e.date)
-                                                      .withoutNulls
-                                                      .toList(),
-                                                  yData: containerChildrenRecord
-                                                      .weightList
-                                                      .map((e) => e.weight)
-                                                      .toList(),
-                                                  settings: LineChartBarData(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .blue,
-                                                    barWidth: 2.0,
-                                                    dotData:
-                                                        FlDotData(show: false),
+                                          height: 326.0,
+                                          child: Stack(
+                                            children: [
+                                              ClipRRect(
+                                                child: Container(
+                                                  height: 326.0,
+                                                  decoration: BoxDecoration(),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                20.0, 0.0),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              0.0),
+                                                      child: Image.asset(
+                                                        'assets/images/Growth1.webp',
+                                                        width: double.infinity,
+                                                        height:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .height *
+                                                                0.4,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
                                                   ),
-                                                )
-                                              ],
-                                              chartStylingInfo:
-                                                  ChartStylingInfo(
-                                                backgroundColor:
-                                                    Color(0x00FFFFFF),
-                                                showBorder: false,
+                                                ),
                                               ),
-                                              axisBounds: AxisBounds(
-                                                minY: 1.0,
-                                                maxY: 17.0,
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  ClipRRect(
+                                                    child: Container(
+                                                      width: functions
+                                                          .calculateResultOfChartWidth(
+                                                              MediaQuery.sizeOf(
+                                                                      context)
+                                                                  .width,
+                                                              60,
+                                                              containerChildrenRecord
+                                                                  .weightList
+                                                                  .first
+                                                                  .date!,
+                                                              containerChildrenRecord
+                                                                  .weightList
+                                                                  .last
+                                                                  .date!)
+                                                          .toDouble(),
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Container(
+                                                        width: double.infinity,
+                                                        height: 326.0,
+                                                        child:
+                                                            FlutterFlowLineChart(
+                                                          data: [
+                                                            FFLineChartData(
+                                                              xData: containerChildrenRecord
+                                                                  .weightList
+                                                                  .map((e) =>
+                                                                      e.date)
+                                                                  .withoutNulls
+                                                                  .toList(),
+                                                              yData: containerChildrenRecord
+                                                                  .weightList
+                                                                  .map((e) =>
+                                                                      e.weight)
+                                                                  .toList(),
+                                                              settings:
+                                                                  LineChartBarData(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .blue,
+                                                                barWidth: 2.0,
+                                                                dotData: FlDotData(
+                                                                    show:
+                                                                        false),
+                                                              ),
+                                                            )
+                                                          ],
+                                                          chartStylingInfo:
+                                                              ChartStylingInfo(
+                                                            backgroundColor:
+                                                                Color(
+                                                                    0x00FFFFFF),
+                                                            showBorder: false,
+                                                          ),
+                                                          axisBounds:
+                                                              AxisBounds(
+                                                            minY: 1.0,
+                                                            maxY: 17.0,
+                                                          ),
+                                                          xAxisLabelInfo:
+                                                              AxisLabelInfo(),
+                                                          yAxisLabelInfo:
+                                                              AxisLabelInfo(),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width: 20.0,
+                                                    height: 326.0,
+                                                    decoration: BoxDecoration(),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          '17',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '16',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '15',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '14',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '13',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '12',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '11',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '10',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '9',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '8',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '7',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '6',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '5',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '4',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '3',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '2',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                        Text(
+                                                          '1',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                              xAxisLabelInfo: AxisLabelInfo(),
-                                              yAxisLabelInfo: AxisLabelInfo(),
-                                            ),
+                                            ],
                                           ),
                                         ),
-                                        Container(
-                                          width: 20.0,
-                                          height: 326.0,
-                                          decoration: BoxDecoration(),
-                                          child: Column(
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 6.0, 20.0, 0.0),
+                                          child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                '17',
+                                                functions.getAbbreviatedMonths(
+                                                    widget
+                                                        .child!.birthDate!)![0],
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
                                               ),
                                               Text(
-                                                '16',
+                                                functions.getAbbreviatedMonths(
+                                                    widget
+                                                        .child!.birthDate!)![1],
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
                                               ),
                                               Text(
-                                                '15',
+                                                functions.getAbbreviatedMonths(
+                                                    widget
+                                                        .child!.birthDate!)![2],
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
                                               ),
                                               Text(
-                                                '14',
+                                                functions.getAbbreviatedMonths(
+                                                    widget
+                                                        .child!.birthDate!)![3],
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
                                               ),
                                               Text(
-                                                '13',
+                                                functions.getAbbreviatedMonths(
+                                                    widget
+                                                        .child!.birthDate!)![4],
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
                                               ),
                                               Text(
-                                                '12',
+                                                functions.getAbbreviatedMonths(
+                                                    widget
+                                                        .child!.birthDate!)![5],
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
                                               ),
                                               Text(
-                                                '11',
+                                                functions.getAbbreviatedMonths(
+                                                    widget
+                                                        .child!.birthDate!)![6],
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
                                               ),
                                               Text(
-                                                '10',
+                                                functions.getAbbreviatedMonths(
+                                                    widget
+                                                        .child!.birthDate!)![7],
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
                                               ),
                                               Text(
-                                                '9',
+                                                functions.getAbbreviatedMonths(
+                                                    widget
+                                                        .child!.birthDate!)![8],
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
                                               ),
                                               Text(
-                                                '8',
+                                                functions.getAbbreviatedMonths(
+                                                    widget
+                                                        .child!.birthDate!)![9],
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
                                               ),
                                               Text(
-                                                '7',
+                                                functions.getAbbreviatedMonths(
+                                                    widget.child!
+                                                        .birthDate!)![10],
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
                                               ),
                                               Text(
-                                                '6',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                              Text(
-                                                '5',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                              Text(
-                                                '4',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                              Text(
-                                                '3',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                              Text(
-                                                '2',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                              Text(
-                                                '1',
+                                                functions.getAbbreviatedMonths(
+                                                    widget.child!
+                                                        .birthDate!)![11],
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
@@ -431,151 +647,87 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                             ],
                                           ),
                                         ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 24.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Container(
+                                                width: 12.0,
+                                                height: 12.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .blue,
+                                                  shape: BoxShape.circle,
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'Вес ребенка',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineSmall
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        fontSize: 14.0,
+                                                        lineHeight: 1.28,
+                                                      ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        39.0, 0.0, 0.0, 0.0),
+                                                child: Container(
+                                                  width: 12.0,
+                                                  height: 12.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'Норма отклонения',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineSmall
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        fontSize: 14.0,
+                                                        lineHeight: 1.28,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 6.0, 20.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    functions.getAbbreviatedMonths(
-                                        widget.child!.birthDate!)![0],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                  Text(
-                                    functions.getAbbreviatedMonths(
-                                        widget.child!.birthDate!)![1],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                  Text(
-                                    functions.getAbbreviatedMonths(
-                                        widget.child!.birthDate!)![2],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                  Text(
-                                    functions.getAbbreviatedMonths(
-                                        widget.child!.birthDate!)![3],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                  Text(
-                                    functions.getAbbreviatedMonths(
-                                        widget.child!.birthDate!)![4],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                  Text(
-                                    functions.getAbbreviatedMonths(
-                                        widget.child!.birthDate!)![5],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                  Text(
-                                    functions.getAbbreviatedMonths(
-                                        widget.child!.birthDate!)![6],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                  Text(
-                                    functions.getAbbreviatedMonths(
-                                        widget.child!.birthDate!)![7],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                  Text(
-                                    functions.getAbbreviatedMonths(
-                                        widget.child!.birthDate!)![8],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                  Text(
-                                    functions.getAbbreviatedMonths(
-                                        widget.child!.birthDate!)![9],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                  Text(
-                                    functions.getAbbreviatedMonths(
-                                        widget.child!.birthDate!)![10],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                  Text(
-                                    functions.getAbbreviatedMonths(
-                                        widget.child!.birthDate!)![11],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 24.0, 0.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Container(
-                                    width: 12.0,
-                                    height: 12.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context).blue,
-                                      shape: BoxShape.circle,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Вес ребенка',
+                                    );
+                                  } else {
+                                    return Text(
+                                      'Ваш ребенок старше отслеживаемого графиком возраста',
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
                                             fontFamily: 'Inter',
-                                            fontSize: 14.0,
                                             lineHeight: 1.28,
                                           ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        39.0, 0.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: 12.0,
-                                      height: 12.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        shape: BoxShape.circle,
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Норма отклонения',
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineSmall
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            fontSize: 14.0,
-                                            lineHeight: 1.28,
-                                          ),
-                                    ),
-                                  ),
-                                ],
+                                    );
+                                  }
+                                },
                               ),
                             ),
                             Padding(
@@ -618,8 +770,12 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                   CrossAxisAlignment.end,
                                               children: [
                                                 Text(
-                                                  containerChildrenRecord
-                                                      .weightList.first.weight
+                                                  ((containerChildrenRecord
+                                                                  .weightList
+                                                                  .first
+                                                                  .weight *
+                                                              1000)
+                                                          .round())
                                                       .toString(),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -637,7 +793,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'кг',
+                                                    'гр',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .headlineMedium
@@ -690,8 +846,12 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                   CrossAxisAlignment.end,
                                               children: [
                                                 Text(
-                                                  containerChildrenRecord
-                                                      .weightList.last.weight
+                                                  ((containerChildrenRecord
+                                                                  .weightList
+                                                                  .last
+                                                                  .weight *
+                                                              1000)
+                                                          .round())
                                                       .toString(),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -709,7 +869,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'кг',
+                                                    'гр',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .headlineMedium
@@ -762,17 +922,25 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                   CrossAxisAlignment.end,
                                               children: [
                                                 Text(
-                                                  functions
-                                                      .calculateWeightChange(
-                                                          widget
-                                                              .child!
-                                                              .weightList
-                                                              .first
-                                                              .weight,
-                                                          containerChildrenRecord
-                                                              .weightList
-                                                              .last
-                                                              .weight),
+                                                  valueOrDefault<String>(
+                                                    functions.calculateWeightChange(
+                                                        ((widget
+                                                                        .child!
+                                                                        .weightList
+                                                                        .first
+                                                                        .weight *
+                                                                    1000)
+                                                                .round())
+                                                            .toDouble(),
+                                                        ((containerChildrenRecord
+                                                                        .weightList
+                                                                        .last
+                                                                        .weight *
+                                                                    1000)
+                                                                .round())
+                                                            .toDouble()),
+                                                    '0',
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .headlineSmall
@@ -789,7 +957,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'кг',
+                                                    'гр',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .headlineMedium

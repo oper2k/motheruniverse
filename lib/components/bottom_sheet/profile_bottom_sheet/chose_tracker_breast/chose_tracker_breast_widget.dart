@@ -36,6 +36,8 @@ class _ChoseTrackerBreastWidgetState extends State<ChoseTrackerBreastWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChoseTrackerBreastModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

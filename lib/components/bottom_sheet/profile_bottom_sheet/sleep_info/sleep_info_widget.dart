@@ -36,6 +36,8 @@ class _SleepInfoWidgetState extends State<SleepInfoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SleepInfoModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

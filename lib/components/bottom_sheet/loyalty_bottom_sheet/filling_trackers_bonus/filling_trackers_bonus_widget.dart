@@ -30,6 +30,8 @@ class _FillingTrackersBonusWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => FillingTrackersBonusModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

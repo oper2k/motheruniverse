@@ -75,6 +75,8 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
         startImmediately: true,
       );
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

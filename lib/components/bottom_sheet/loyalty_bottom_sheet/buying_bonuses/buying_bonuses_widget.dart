@@ -29,6 +29,8 @@ class _BuyingBonusesWidgetState extends State<BuyingBonusesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BuyingBonusesModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

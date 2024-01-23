@@ -28,6 +28,8 @@ class _ProfileIsFilledWidgetState extends State<ProfileIsFilledWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ProfileIsFilledModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

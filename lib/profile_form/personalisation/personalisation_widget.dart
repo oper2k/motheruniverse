@@ -37,6 +37,8 @@ class _PersonalisationWidgetState extends State<PersonalisationWidget> {
         _model.leftPhoto = FFAppState().tempChild.imageLeft;
       });
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

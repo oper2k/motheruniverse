@@ -37,6 +37,8 @@ class _BreastFeedingInfoWidgetState extends State<BreastFeedingInfoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BreastFeedingInfoModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

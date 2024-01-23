@@ -45,6 +45,8 @@ class _ChangeChildPersonalisationWidgetState
         _model.leftPhoto = widget.child?.imageLeft;
       });
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

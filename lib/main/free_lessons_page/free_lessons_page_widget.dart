@@ -26,6 +26,8 @@ class _FreeLessonsPageWidgetState extends State<FreeLessonsPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FreeLessonsPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

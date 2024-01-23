@@ -48,6 +48,8 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
         _model.weekInteger = widget.currentWeek;
       });
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

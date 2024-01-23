@@ -29,6 +29,8 @@ class _RemindToFillProfileWidgetState extends State<RemindToFillProfileWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => RemindToFillProfileModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

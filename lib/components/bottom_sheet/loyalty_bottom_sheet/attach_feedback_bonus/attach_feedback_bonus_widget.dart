@@ -36,6 +36,8 @@ class _AttachFeedbackBonusWidgetState extends State<AttachFeedbackBonusWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AttachFeedbackBonusModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
