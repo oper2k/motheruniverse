@@ -16,10 +16,10 @@ import 'family_super_power_model.dart';
 export 'family_super_power_model.dart';
 
 class FamilySuperPowerWidget extends StatefulWidget {
-  const FamilySuperPowerWidget({Key? key}) : super(key: key);
+  const FamilySuperPowerWidget({super.key});
 
   @override
-  _FamilySuperPowerWidgetState createState() => _FamilySuperPowerWidgetState();
+  State<FamilySuperPowerWidget> createState() => _FamilySuperPowerWidgetState();
 }
 
 class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {

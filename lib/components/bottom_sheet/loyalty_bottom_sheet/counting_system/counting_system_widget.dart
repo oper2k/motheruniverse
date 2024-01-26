@@ -9,10 +9,10 @@ import 'counting_system_model.dart';
 export 'counting_system_model.dart';
 
 class CountingSystemWidget extends StatefulWidget {
-  const CountingSystemWidget({Key? key}) : super(key: key);
+  const CountingSystemWidget({super.key});
 
   @override
-  _CountingSystemWidgetState createState() => _CountingSystemWidgetState();
+  State<CountingSystemWidget> createState() => _CountingSystemWidgetState();
 }
 
 class _CountingSystemWidgetState extends State<CountingSystemWidget> {

@@ -10,10 +10,10 @@ import 'calendar_of_events_page_model.dart';
 export 'calendar_of_events_page_model.dart';
 
 class CalendarOfEventsPageWidget extends StatefulWidget {
-  const CalendarOfEventsPageWidget({Key? key}) : super(key: key);
+  const CalendarOfEventsPageWidget({super.key});
 
   @override
-  _CalendarOfEventsPageWidgetState createState() =>
+  State<CalendarOfEventsPageWidget> createState() =>
       _CalendarOfEventsPageWidgetState();
 }
 

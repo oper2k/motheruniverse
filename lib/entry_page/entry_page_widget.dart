@@ -14,10 +14,10 @@ import 'entry_page_model.dart';
 export 'entry_page_model.dart';
 
 class EntryPageWidget extends StatefulWidget {
-  const EntryPageWidget({Key? key}) : super(key: key);
+  const EntryPageWidget({super.key});
 
   @override
-  _EntryPageWidgetState createState() => _EntryPageWidgetState();
+  State<EntryPageWidget> createState() => _EntryPageWidgetState();
 }
 
 class _EntryPageWidgetState extends State<EntryPageWidget> {

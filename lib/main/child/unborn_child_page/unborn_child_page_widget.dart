@@ -15,14 +15,14 @@ export 'unborn_child_page_model.dart';
 
 class UnbornChildPageWidget extends StatefulWidget {
   const UnbornChildPageWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _UnbornChildPageWidgetState createState() => _UnbornChildPageWidgetState();
+  State<UnbornChildPageWidget> createState() => _UnbornChildPageWidgetState();
 }
 
 class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
@@ -135,7 +135,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                           .displayLarge,
                                     ),
                                     Text(
-                                      'Срок: ${functions.getWeeksSince(widget.child!.conceptionDate!)}',
+                                      '${'Срок: ${functions.getWeeksSince(widget.child!.conceptionDate!).toString()}'} неделя',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
                                     ),
@@ -573,10 +573,16 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                                     childName:
                                                         widget.child!.name,
                                                     currentWeek: functions
-                                                        .getNumberFromWeekString(
-                                                            functions.getWeeksSince(
+                                                                .getWeeksSince(
+                                                                    widget
+                                                                        .child!
+                                                                        .conceptionDate!) >=
+                                                            40
+                                                        ? 39
+                                                        : (functions.getWeeksSince(
                                                                 widget.child!
-                                                                    .conceptionDate!)),
+                                                                    .conceptionDate!) -
+                                                            1),
                                                     gender:
                                                         widget.child!.gender,
                                                   ),
@@ -647,10 +653,11 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                                               0.0),
                                                       child: Image.network(
                                                         containerChildSizeRecordList[
-                                                                functions.getNumberFromWeekString(
-                                                                    functions.getWeeksSince(widget
+                                                                functions.getNumberFromWeekString(functions
+                                                                    .getWeeksSince(widget
                                                                         .child!
-                                                                        .conceptionDate!))]
+                                                                        .conceptionDate!)
+                                                                    .toString())]
                                                             .image,
                                                         height: 28.0,
                                                         fit: BoxFit.contain,
@@ -666,7 +673,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          'Как ${containerChildSizeRecordList[functions.getNumberFromWeekString(functions.getWeeksSince(widget.child!.conceptionDate!))].object}',
+                                                          'Как ${containerChildSizeRecordList[functions.getNumberFromWeekString(functions.getWeeksSince(widget.child!.conceptionDate!).toString())].object}',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium,
@@ -816,9 +823,11 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                               } else {
                                                 return functions
                                                     .getNumberFromWeekString(
-                                                        functions.getWeeksSince(
-                                                            widget.child!
-                                                                .conceptionDate!));
+                                                        functions
+                                                            .getWeeksSince(widget
+                                                                .child!
+                                                                .conceptionDate!)
+                                                            .toString());
                                               }
                                             }(),
                                             ParamType.int,

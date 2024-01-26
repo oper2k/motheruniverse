@@ -10,10 +10,10 @@ import 'get_all_lessons_page_model.dart';
 export 'get_all_lessons_page_model.dart';
 
 class GetAllLessonsPageWidget extends StatefulWidget {
-  const GetAllLessonsPageWidget({Key? key}) : super(key: key);
+  const GetAllLessonsPageWidget({super.key});
 
   @override
-  _GetAllLessonsPageWidgetState createState() =>
+  State<GetAllLessonsPageWidget> createState() =>
       _GetAllLessonsPageWidgetState();
 }
 

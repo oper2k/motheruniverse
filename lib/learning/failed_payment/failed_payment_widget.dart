@@ -10,10 +10,10 @@ import 'failed_payment_model.dart';
 export 'failed_payment_model.dart';
 
 class FailedPaymentWidget extends StatefulWidget {
-  const FailedPaymentWidget({Key? key}) : super(key: key);
+  const FailedPaymentWidget({super.key});
 
   @override
-  _FailedPaymentWidgetState createState() => _FailedPaymentWidgetState();
+  State<FailedPaymentWidget> createState() => _FailedPaymentWidgetState();
 }
 
 class _FailedPaymentWidgetState extends State<FailedPaymentWidget> {

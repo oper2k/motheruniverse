@@ -9,10 +9,10 @@ import 'happy_birthday_model.dart';
 export 'happy_birthday_model.dart';
 
 class HappyBirthdayWidget extends StatefulWidget {
-  const HappyBirthdayWidget({Key? key}) : super(key: key);
+  const HappyBirthdayWidget({super.key});
 
   @override
-  _HappyBirthdayWidgetState createState() => _HappyBirthdayWidgetState();
+  State<HappyBirthdayWidget> createState() => _HappyBirthdayWidgetState();
 }
 
 class _HappyBirthdayWidgetState extends State<HappyBirthdayWidget> {

@@ -16,10 +16,10 @@ import 'trackers_page_model.dart';
 export 'trackers_page_model.dart';
 
 class TrackersPageWidget extends StatefulWidget {
-  const TrackersPageWidget({Key? key}) : super(key: key);
+  const TrackersPageWidget({super.key});
 
   @override
-  _TrackersPageWidgetState createState() => _TrackersPageWidgetState();
+  State<TrackersPageWidget> createState() => _TrackersPageWidgetState();
 }
 
 class _TrackersPageWidgetState extends State<TrackersPageWidget> {

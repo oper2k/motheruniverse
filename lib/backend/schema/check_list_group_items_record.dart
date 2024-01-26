@@ -75,8 +75,8 @@ class CheckListGroupItemsRecord extends FirestoreRecord {
           : FirebaseFirestore.instance
               .collectionGroup('check_list_group_items');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('check_list_group_items').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('check_list_group_items').doc(id);
 
   static Stream<CheckListGroupItemsRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => CheckListGroupItemsRecord.fromSnapshot(s));

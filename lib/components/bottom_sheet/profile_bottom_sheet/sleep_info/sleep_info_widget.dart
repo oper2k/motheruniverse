@@ -13,14 +13,14 @@ export 'sleep_info_model.dart';
 
 class SleepInfoWidget extends StatefulWidget {
   const SleepInfoWidget({
-    Key? key,
+    super.key,
     required this.track,
-  }) : super(key: key);
+  });
 
   final TrackersRecord? track;
 
   @override
-  _SleepInfoWidgetState createState() => _SleepInfoWidgetState();
+  State<SleepInfoWidget> createState() => _SleepInfoWidgetState();
 }
 
 class _SleepInfoWidgetState extends State<SleepInfoWidget> {

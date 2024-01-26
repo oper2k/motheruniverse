@@ -13,18 +13,18 @@ export 'child_size_model.dart';
 
 class ChildSizeWidget extends StatefulWidget {
   const ChildSizeWidget({
-    Key? key,
+    super.key,
     required this.childName,
     required this.currentWeek,
     required this.gender,
-  }) : super(key: key);
+  });
 
   final String? childName;
   final int? currentWeek;
   final String? gender;
 
   @override
-  _ChildSizeWidgetState createState() => _ChildSizeWidgetState();
+  State<ChildSizeWidget> createState() => _ChildSizeWidgetState();
 }
 
 class _ChildSizeWidgetState extends State<ChildSizeWidget> {

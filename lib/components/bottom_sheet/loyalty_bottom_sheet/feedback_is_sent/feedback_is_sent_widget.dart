@@ -9,10 +9,10 @@ import 'feedback_is_sent_model.dart';
 export 'feedback_is_sent_model.dart';
 
 class FeedbackIsSentWidget extends StatefulWidget {
-  const FeedbackIsSentWidget({Key? key}) : super(key: key);
+  const FeedbackIsSentWidget({super.key});
 
   @override
-  _FeedbackIsSentWidgetState createState() => _FeedbackIsSentWidgetState();
+  State<FeedbackIsSentWidget> createState() => _FeedbackIsSentWidgetState();
 }
 
 class _FeedbackIsSentWidgetState extends State<FeedbackIsSentWidget> {

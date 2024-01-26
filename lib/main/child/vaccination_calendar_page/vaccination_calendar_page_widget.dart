@@ -15,18 +15,18 @@ export 'vaccination_calendar_page_model.dart';
 
 class VaccinationCalendarPageWidget extends StatefulWidget {
   const VaccinationCalendarPageWidget({
-    Key? key,
+    super.key,
     required this.currentWeek,
     required this.birthDate,
     required this.child,
-  }) : super(key: key);
+  });
 
   final int? currentWeek;
   final DateTime? birthDate;
   final ChildrenRecord? child;
 
   @override
-  _VaccinationCalendarPageWidgetState createState() =>
+  State<VaccinationCalendarPageWidget> createState() =>
       _VaccinationCalendarPageWidgetState();
 }
 

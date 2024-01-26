@@ -9,14 +9,14 @@ export 'nav_bar_model.dart';
 
 class NavBarWidget extends StatefulWidget {
   const NavBarWidget({
-    Key? key,
+    super.key,
     required this.nevBarPage,
-  }) : super(key: key);
+  });
 
   final int? nevBarPage;
 
   @override
-  _NavBarWidgetState createState() => _NavBarWidgetState();
+  State<NavBarWidget> createState() => _NavBarWidgetState();
 }
 
 class _NavBarWidgetState extends State<NavBarWidget> {

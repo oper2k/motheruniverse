@@ -12,14 +12,14 @@ export 'chose_tracker_sleeping_model.dart';
 
 class ChoseTrackerSleepingWidget extends StatefulWidget {
   const ChoseTrackerSleepingWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _ChoseTrackerSleepingWidgetState createState() =>
+  State<ChoseTrackerSleepingWidget> createState() =>
       _ChoseTrackerSleepingWidgetState();
 }
 

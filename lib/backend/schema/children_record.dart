@@ -128,8 +128,8 @@ class ChildrenRecord extends FirestoreRecord {
           ? parent.collection('children')
           : FirebaseFirestore.instance.collectionGroup('children');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('children').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('children').doc(id);
 
   static Stream<ChildrenRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => ChildrenRecord.fromSnapshot(s));

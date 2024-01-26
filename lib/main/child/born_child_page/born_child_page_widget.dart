@@ -13,14 +13,14 @@ export 'born_child_page_model.dart';
 
 class BornChildPageWidget extends StatefulWidget {
   const BornChildPageWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _BornChildPageWidgetState createState() => _BornChildPageWidgetState();
+  State<BornChildPageWidget> createState() => _BornChildPageWidgetState();
 }
 
 class _BornChildPageWidgetState extends State<BornChildPageWidget> {

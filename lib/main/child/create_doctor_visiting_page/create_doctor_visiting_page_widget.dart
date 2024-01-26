@@ -18,14 +18,14 @@ export 'create_doctor_visiting_page_model.dart';
 
 class CreateDoctorVisitingPageWidget extends StatefulWidget {
   const CreateDoctorVisitingPageWidget({
-    Key? key,
+    super.key,
     required this.age,
-  }) : super(key: key);
+  });
 
   final String? age;
 
   @override
-  _CreateDoctorVisitingPageWidgetState createState() =>
+  State<CreateDoctorVisitingPageWidget> createState() =>
       _CreateDoctorVisitingPageWidgetState();
 }
 

@@ -17,10 +17,10 @@ import 'choose_the_gender_model.dart';
 export 'choose_the_gender_model.dart';
 
 class ChooseTheGenderWidget extends StatefulWidget {
-  const ChooseTheGenderWidget({Key? key}) : super(key: key);
+  const ChooseTheGenderWidget({super.key});
 
   @override
-  _ChooseTheGenderWidgetState createState() => _ChooseTheGenderWidgetState();
+  State<ChooseTheGenderWidget> createState() => _ChooseTheGenderWidgetState();
 }
 
 class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {

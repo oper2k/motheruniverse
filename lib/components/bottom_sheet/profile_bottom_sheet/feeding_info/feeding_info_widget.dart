@@ -12,14 +12,14 @@ export 'feeding_info_model.dart';
 
 class FeedingInfoWidget extends StatefulWidget {
   const FeedingInfoWidget({
-    Key? key,
+    super.key,
     required this.track,
-  }) : super(key: key);
+  });
 
   final TrackersRecord? track;
 
   @override
-  _FeedingInfoWidgetState createState() => _FeedingInfoWidgetState();
+  State<FeedingInfoWidget> createState() => _FeedingInfoWidgetState();
 }
 
 class _FeedingInfoWidgetState extends State<FeedingInfoWidget> {

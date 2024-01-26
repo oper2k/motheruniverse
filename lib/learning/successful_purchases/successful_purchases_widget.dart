@@ -10,10 +10,10 @@ import 'successful_purchases_model.dart';
 export 'successful_purchases_model.dart';
 
 class SuccessfulPurchasesWidget extends StatefulWidget {
-  const SuccessfulPurchasesWidget({Key? key}) : super(key: key);
+  const SuccessfulPurchasesWidget({super.key});
 
   @override
-  _SuccessfulPurchasesWidgetState createState() =>
+  State<SuccessfulPurchasesWidget> createState() =>
       _SuccessfulPurchasesWidgetState();
 }
 

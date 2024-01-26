@@ -9,10 +9,10 @@ import 'loyalty_registration_bonus_model.dart';
 export 'loyalty_registration_bonus_model.dart';
 
 class LoyaltyRegistrationBonusWidget extends StatefulWidget {
-  const LoyaltyRegistrationBonusWidget({Key? key}) : super(key: key);
+  const LoyaltyRegistrationBonusWidget({super.key});
 
   @override
-  _LoyaltyRegistrationBonusWidgetState createState() =>
+  State<LoyaltyRegistrationBonusWidget> createState() =>
       _LoyaltyRegistrationBonusWidgetState();
 }
 

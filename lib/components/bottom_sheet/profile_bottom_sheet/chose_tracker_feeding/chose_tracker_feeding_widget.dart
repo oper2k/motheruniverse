@@ -12,14 +12,14 @@ export 'chose_tracker_feeding_model.dart';
 
 class ChoseTrackerFeedingWidget extends StatefulWidget {
   const ChoseTrackerFeedingWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _ChoseTrackerFeedingWidgetState createState() =>
+  State<ChoseTrackerFeedingWidget> createState() =>
       _ChoseTrackerFeedingWidgetState();
 }
 

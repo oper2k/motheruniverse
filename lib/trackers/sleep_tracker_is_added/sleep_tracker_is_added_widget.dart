@@ -18,18 +18,18 @@ export 'sleep_tracker_is_added_model.dart';
 
 class SleepTrackerIsAddedWidget extends StatefulWidget {
   const SleepTrackerIsAddedWidget({
-    Key? key,
+    super.key,
     required this.tracker,
     required this.child,
     this.secondDay,
-  }) : super(key: key);
+  });
 
   final TrackersRecord? tracker;
   final ChildrenRecord? child;
   final TrackersRecord? secondDay;
 
   @override
-  _SleepTrackerIsAddedWidgetState createState() =>
+  State<SleepTrackerIsAddedWidget> createState() =>
       _SleepTrackerIsAddedWidgetState();
 }
 

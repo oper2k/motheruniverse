@@ -9,10 +9,10 @@ import 'remind_to_fill_profile_model.dart';
 export 'remind_to_fill_profile_model.dart';
 
 class RemindToFillProfileWidget extends StatefulWidget {
-  const RemindToFillProfileWidget({Key? key}) : super(key: key);
+  const RemindToFillProfileWidget({super.key});
 
   @override
-  _RemindToFillProfileWidgetState createState() =>
+  State<RemindToFillProfileWidget> createState() =>
       _RemindToFillProfileWidgetState();
 }
 

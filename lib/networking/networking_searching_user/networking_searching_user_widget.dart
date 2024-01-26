@@ -17,10 +17,10 @@ import 'networking_searching_user_model.dart';
 export 'networking_searching_user_model.dart';
 
 class NetworkingSearchingUserWidget extends StatefulWidget {
-  const NetworkingSearchingUserWidget({Key? key}) : super(key: key);
+  const NetworkingSearchingUserWidget({super.key});
 
   @override
-  _NetworkingSearchingUserWidgetState createState() =>
+  State<NetworkingSearchingUserWidget> createState() =>
       _NetworkingSearchingUserWidgetState();
 }
 

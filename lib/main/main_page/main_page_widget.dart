@@ -19,10 +19,10 @@ import 'main_page_model.dart';
 export 'main_page_model.dart';
 
 class MainPageWidget extends StatefulWidget {
-  const MainPageWidget({Key? key}) : super(key: key);
+  const MainPageWidget({super.key});
 
   @override
-  _MainPageWidgetState createState() => _MainPageWidgetState();
+  State<MainPageWidget> createState() => _MainPageWidgetState();
 }
 
 class _MainPageWidgetState extends State<MainPageWidget> {
@@ -1186,10 +1186,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                         0.0,
                                                                         0.0),
                                                             child: Text(
-                                                              functions
-                                                                  .getWeeksSince(
-                                                                      childItem
-                                                                          .conceptionDate!),
+                                                              '${functions.getWeeksSince(childItem.conceptionDate!).toString()} неделя',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium

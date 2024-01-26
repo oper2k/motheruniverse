@@ -18,16 +18,16 @@ export 'create_vaccine_page_model.dart';
 
 class CreateVaccinePageWidget extends StatefulWidget {
   const CreateVaccinePageWidget({
-    Key? key,
+    super.key,
     required this.period,
     required this.child,
-  }) : super(key: key);
+  });
 
   final String? period;
   final ChildrenRecord? child;
 
   @override
-  _CreateVaccinePageWidgetState createState() =>
+  State<CreateVaccinePageWidget> createState() =>
       _CreateVaccinePageWidgetState();
 }
 

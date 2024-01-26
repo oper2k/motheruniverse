@@ -15,14 +15,14 @@ export 'view_lesson_page_model.dart';
 
 class ViewLessonPageWidget extends StatefulWidget {
   const ViewLessonPageWidget({
-    Key? key,
+    super.key,
     required this.lesson,
-  }) : super(key: key);
+  });
 
   final LearningRecord? lesson;
 
   @override
-  _ViewLessonPageWidgetState createState() => _ViewLessonPageWidgetState();
+  State<ViewLessonPageWidget> createState() => _ViewLessonPageWidgetState();
 }
 
 class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {

@@ -15,14 +15,14 @@ export 'growth_page_model.dart';
 
 class GrowthPageWidget extends StatefulWidget {
   const GrowthPageWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _GrowthPageWidgetState createState() => _GrowthPageWidgetState();
+  State<GrowthPageWidget> createState() => _GrowthPageWidgetState();
 }
 
 class _GrowthPageWidgetState extends State<GrowthPageWidget> {

@@ -20,14 +20,14 @@ export 'trackers_list_page_model.dart';
 
 class TrackersListPageWidget extends StatefulWidget {
   const TrackersListPageWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _TrackersListPageWidgetState createState() => _TrackersListPageWidgetState();
+  State<TrackersListPageWidget> createState() => _TrackersListPageWidgetState();
 }
 
 class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {

@@ -22,10 +22,10 @@ import 'loyalty_page_model.dart';
 export 'loyalty_page_model.dart';
 
 class LoyaltyPageWidget extends StatefulWidget {
-  const LoyaltyPageWidget({Key? key}) : super(key: key);
+  const LoyaltyPageWidget({super.key});
 
   @override
-  _LoyaltyPageWidgetState createState() => _LoyaltyPageWidgetState();
+  State<LoyaltyPageWidget> createState() => _LoyaltyPageWidgetState();
 }
 
 class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {

@@ -16,16 +16,16 @@ export 'doctor_visiting_page_model.dart';
 
 class DoctorVisitingPageWidget extends StatefulWidget {
   const DoctorVisitingPageWidget({
-    Key? key,
+    super.key,
     required this.currentWeek,
     required this.child,
-  }) : super(key: key);
+  });
 
   final int? currentWeek;
   final ChildrenRecord? child;
 
   @override
-  _DoctorVisitingPageWidgetState createState() =>
+  State<DoctorVisitingPageWidget> createState() =>
       _DoctorVisitingPageWidgetState();
 }
 

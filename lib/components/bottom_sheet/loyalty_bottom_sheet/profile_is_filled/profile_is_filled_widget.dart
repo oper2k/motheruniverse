@@ -9,10 +9,10 @@ import 'profile_is_filled_model.dart';
 export 'profile_is_filled_model.dart';
 
 class ProfileIsFilledWidget extends StatefulWidget {
-  const ProfileIsFilledWidget({Key? key}) : super(key: key);
+  const ProfileIsFilledWidget({super.key});
 
   @override
-  _ProfileIsFilledWidgetState createState() => _ProfileIsFilledWidgetState();
+  State<ProfileIsFilledWidget> createState() => _ProfileIsFilledWidgetState();
 }
 
 class _ProfileIsFilledWidgetState extends State<ProfileIsFilledWidget> {

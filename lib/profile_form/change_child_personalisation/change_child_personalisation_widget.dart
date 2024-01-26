@@ -16,14 +16,14 @@ export 'change_child_personalisation_model.dart';
 
 class ChangeChildPersonalisationWidget extends StatefulWidget {
   const ChangeChildPersonalisationWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _ChangeChildPersonalisationWidgetState createState() =>
+  State<ChangeChildPersonalisationWidget> createState() =>
       _ChangeChildPersonalisationWidgetState();
 }
 

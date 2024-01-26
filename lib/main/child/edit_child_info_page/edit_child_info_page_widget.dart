@@ -22,14 +22,14 @@ export 'edit_child_info_page_model.dart';
 
 class EditChildInfoPageWidget extends StatefulWidget {
   const EditChildInfoPageWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _EditChildInfoPageWidgetState createState() =>
+  State<EditChildInfoPageWidget> createState() =>
       _EditChildInfoPageWidgetState();
 }
 

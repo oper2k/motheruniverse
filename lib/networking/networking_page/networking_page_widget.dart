@@ -18,10 +18,10 @@ import 'networking_page_model.dart';
 export 'networking_page_model.dart';
 
 class NetworkingPageWidget extends StatefulWidget {
-  const NetworkingPageWidget({Key? key}) : super(key: key);
+  const NetworkingPageWidget({super.key});
 
   @override
-  _NetworkingPageWidgetState createState() => _NetworkingPageWidgetState();
+  State<NetworkingPageWidget> createState() => _NetworkingPageWidgetState();
 }
 
 class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {

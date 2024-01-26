@@ -9,10 +9,10 @@ import 'where_spend_bonuses_model.dart';
 export 'where_spend_bonuses_model.dart';
 
 class WhereSpendBonusesWidget extends StatefulWidget {
-  const WhereSpendBonusesWidget({Key? key}) : super(key: key);
+  const WhereSpendBonusesWidget({super.key});
 
   @override
-  _WhereSpendBonusesWidgetState createState() =>
+  State<WhereSpendBonusesWidget> createState() =>
       _WhereSpendBonusesWidgetState();
 }
 

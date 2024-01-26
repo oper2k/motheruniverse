@@ -21,14 +21,14 @@ export 'sleep_tracker_page_model.dart';
 
 class SleepTrackerPageWidget extends StatefulWidget {
   const SleepTrackerPageWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _SleepTrackerPageWidgetState createState() => _SleepTrackerPageWidgetState();
+  State<SleepTrackerPageWidget> createState() => _SleepTrackerPageWidgetState();
 }
 
 class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>

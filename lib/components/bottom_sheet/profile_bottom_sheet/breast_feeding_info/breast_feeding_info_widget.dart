@@ -13,14 +13,14 @@ export 'breast_feeding_info_model.dart';
 
 class BreastFeedingInfoWidget extends StatefulWidget {
   const BreastFeedingInfoWidget({
-    Key? key,
+    super.key,
     required this.track,
-  }) : super(key: key);
+  });
 
   final TrackersRecord? track;
 
   @override
-  _BreastFeedingInfoWidgetState createState() =>
+  State<BreastFeedingInfoWidget> createState() =>
       _BreastFeedingInfoWidgetState();
 }
 

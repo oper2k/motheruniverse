@@ -9,10 +9,10 @@ import 'filling_trackers_bonus_model.dart';
 export 'filling_trackers_bonus_model.dart';
 
 class FillingTrackersBonusWidget extends StatefulWidget {
-  const FillingTrackersBonusWidget({Key? key}) : super(key: key);
+  const FillingTrackersBonusWidget({super.key});
 
   @override
-  _FillingTrackersBonusWidgetState createState() =>
+  State<FillingTrackersBonusWidget> createState() =>
       _FillingTrackersBonusWidgetState();
 }
 

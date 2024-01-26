@@ -15,10 +15,10 @@ import 'registration_model.dart';
 export 'registration_model.dart';
 
 class RegistrationWidget extends StatefulWidget {
-  const RegistrationWidget({Key? key}) : super(key: key);
+  const RegistrationWidget({super.key});
 
   @override
-  _RegistrationWidgetState createState() => _RegistrationWidgetState();
+  State<RegistrationWidget> createState() => _RegistrationWidgetState();
 }
 
 class _RegistrationWidgetState extends State<RegistrationWidget> {

@@ -10,16 +10,16 @@ export 'date_of_birth_model.dart';
 
 class DateOfBirthWidget extends StatefulWidget {
   const DateOfBirthWidget({
-    Key? key,
+    super.key,
     required this.day,
     required this.month,
-  }) : super(key: key);
+  });
 
   final String? day;
   final String? month;
 
   @override
-  _DateOfBirthWidgetState createState() => _DateOfBirthWidgetState();
+  State<DateOfBirthWidget> createState() => _DateOfBirthWidgetState();
 }
 
 class _DateOfBirthWidgetState extends State<DateOfBirthWidget> {

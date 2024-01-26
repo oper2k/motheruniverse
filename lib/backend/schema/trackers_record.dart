@@ -100,8 +100,8 @@ class TrackersRecord extends FirestoreRecord {
           ? parent.collection('trackers')
           : FirebaseFirestore.instance.collectionGroup('trackers');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('trackers').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('trackers').doc(id);
 
   static Stream<TrackersRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => TrackersRecord.fromSnapshot(s));

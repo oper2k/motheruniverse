@@ -11,10 +11,10 @@ import 'all_podcasts_page_model.dart';
 export 'all_podcasts_page_model.dart';
 
 class AllPodcastsPageWidget extends StatefulWidget {
-  const AllPodcastsPageWidget({Key? key}) : super(key: key);
+  const AllPodcastsPageWidget({super.key});
 
   @override
-  _AllPodcastsPageWidgetState createState() => _AllPodcastsPageWidgetState();
+  State<AllPodcastsPageWidget> createState() => _AllPodcastsPageWidgetState();
 }
 
 class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {

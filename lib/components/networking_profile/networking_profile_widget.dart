@@ -11,14 +11,14 @@ export 'networking_profile_model.dart';
 
 class NetworkingProfileWidget extends StatefulWidget {
   const NetworkingProfileWidget({
-    Key? key,
+    super.key,
     required this.user,
-  }) : super(key: key);
+  });
 
   final UsersRecord? user;
 
   @override
-  _NetworkingProfileWidgetState createState() =>
+  State<NetworkingProfileWidget> createState() =>
       _NetworkingProfileWidgetState();
 }
 

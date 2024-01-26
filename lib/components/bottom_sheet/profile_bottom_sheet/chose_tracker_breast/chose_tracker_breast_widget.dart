@@ -12,14 +12,14 @@ export 'chose_tracker_breast_model.dart';
 
 class ChoseTrackerBreastWidget extends StatefulWidget {
   const ChoseTrackerBreastWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _ChoseTrackerBreastWidgetState createState() =>
+  State<ChoseTrackerBreastWidget> createState() =>
       _ChoseTrackerBreastWidgetState();
 }
 

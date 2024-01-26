@@ -18,16 +18,16 @@ export 'feeding_tracker_is_added_model.dart';
 
 class FeedingTrackerIsAddedWidget extends StatefulWidget {
   const FeedingTrackerIsAddedWidget({
-    Key? key,
+    super.key,
     required this.feedTracker,
     required this.child,
-  }) : super(key: key);
+  });
 
   final TrackersRecord? feedTracker;
   final ChildrenRecord? child;
 
   @override
-  _FeedingTrackerIsAddedWidgetState createState() =>
+  State<FeedingTrackerIsAddedWidget> createState() =>
       _FeedingTrackerIsAddedWidgetState();
 }
 

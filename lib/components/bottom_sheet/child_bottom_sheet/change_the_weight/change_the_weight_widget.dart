@@ -14,14 +14,14 @@ export 'change_the_weight_model.dart';
 
 class ChangeTheWeightWidget extends StatefulWidget {
   const ChangeTheWeightWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _ChangeTheWeightWidgetState createState() => _ChangeTheWeightWidgetState();
+  State<ChangeTheWeightWidget> createState() => _ChangeTheWeightWidgetState();
 }
 
 class _ChangeTheWeightWidgetState extends State<ChangeTheWeightWidget> {

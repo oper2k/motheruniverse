@@ -10,14 +10,14 @@ export 'bonuses_for_purchase_model.dart';
 
 class BonusesForPurchaseWidget extends StatefulWidget {
   const BonusesForPurchaseWidget({
-    Key? key,
+    super.key,
     required this.bonuses,
-  }) : super(key: key);
+  });
 
   final double? bonuses;
 
   @override
-  _BonusesForPurchaseWidgetState createState() =>
+  State<BonusesForPurchaseWidget> createState() =>
       _BonusesForPurchaseWidgetState();
 }
 

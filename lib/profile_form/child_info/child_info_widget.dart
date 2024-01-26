@@ -18,10 +18,10 @@ import 'child_info_model.dart';
 export 'child_info_model.dart';
 
 class ChildInfoWidget extends StatefulWidget {
-  const ChildInfoWidget({Key? key}) : super(key: key);
+  const ChildInfoWidget({super.key});
 
   @override
-  _ChildInfoWidgetState createState() => _ChildInfoWidgetState();
+  State<ChildInfoWidget> createState() => _ChildInfoWidgetState();
 }
 
 class _ChildInfoWidgetState extends State<ChildInfoWidget> {

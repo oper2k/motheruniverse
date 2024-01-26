@@ -13,14 +13,14 @@ export 'buy_lesson_page_model.dart';
 
 class BuyLessonPageWidget extends StatefulWidget {
   const BuyLessonPageWidget({
-    Key? key,
+    super.key,
     required this.lesson,
-  }) : super(key: key);
+  });
 
   final LearningRecord? lesson;
 
   @override
-  _BuyLessonPageWidgetState createState() => _BuyLessonPageWidgetState();
+  State<BuyLessonPageWidget> createState() => _BuyLessonPageWidgetState();
 }
 
 class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {

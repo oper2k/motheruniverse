@@ -18,14 +18,14 @@ export 'feeding_tracker_page_model.dart';
 
 class FeedingTrackerPageWidget extends StatefulWidget {
   const FeedingTrackerPageWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _FeedingTrackerPageWidgetState createState() =>
+  State<FeedingTrackerPageWidget> createState() =>
       _FeedingTrackerPageWidgetState();
 }
 

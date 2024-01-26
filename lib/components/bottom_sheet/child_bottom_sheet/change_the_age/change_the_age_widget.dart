@@ -15,14 +15,14 @@ export 'change_the_age_model.dart';
 
 class ChangeTheAgeWidget extends StatefulWidget {
   const ChangeTheAgeWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _ChangeTheAgeWidgetState createState() => _ChangeTheAgeWidgetState();
+  State<ChangeTheAgeWidget> createState() => _ChangeTheAgeWidgetState();
 }
 
 class _ChangeTheAgeWidgetState extends State<ChangeTheAgeWidget> {

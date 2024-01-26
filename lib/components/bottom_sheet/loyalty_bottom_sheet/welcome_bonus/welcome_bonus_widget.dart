@@ -9,10 +9,10 @@ import 'welcome_bonus_model.dart';
 export 'welcome_bonus_model.dart';
 
 class WelcomeBonusWidget extends StatefulWidget {
-  const WelcomeBonusWidget({Key? key}) : super(key: key);
+  const WelcomeBonusWidget({super.key});
 
   @override
-  _WelcomeBonusWidgetState createState() => _WelcomeBonusWidgetState();
+  State<WelcomeBonusWidget> createState() => _WelcomeBonusWidgetState();
 }
 
 class _WelcomeBonusWidgetState extends State<WelcomeBonusWidget> {

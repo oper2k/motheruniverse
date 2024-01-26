@@ -12,14 +12,14 @@ export 'advices_page_model.dart';
 
 class AdvicesPageWidget extends StatefulWidget {
   const AdvicesPageWidget({
-    Key? key,
+    super.key,
     required this.initialIndex,
-  }) : super(key: key);
+  });
 
   final int? initialIndex;
 
   @override
-  _AdvicesPageWidgetState createState() => _AdvicesPageWidgetState();
+  State<AdvicesPageWidget> createState() => _AdvicesPageWidgetState();
 }
 
 class _AdvicesPageWidgetState extends State<AdvicesPageWidget> {

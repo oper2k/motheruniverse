@@ -15,14 +15,14 @@ export 'sleep_norms_page_model.dart';
 
 class SleepNormsPageWidget extends StatefulWidget {
   const SleepNormsPageWidget({
-    Key? key,
+    super.key,
     this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _SleepNormsPageWidgetState createState() => _SleepNormsPageWidgetState();
+  State<SleepNormsPageWidget> createState() => _SleepNormsPageWidgetState();
 }
 
 class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
@@ -497,51 +497,6 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                       ),
                                                 ),
                                               ),
-                                            Text(
-                                              functions
-                                                  .addMonthsToBirthday(
-                                                      widget.child!.birthDate!,
-                                                      _model.pickedMonthIndex)
-                                                  .toString(),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  -1.0, -1.0),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 20.0, 0.0, 0.0),
-                                                child: Text(
-                                                  functions
-                                                      .addMonthsToBirthday(
-                                                          widget.child!
-                                                              .birthDate!,
-                                                          _model.pickedMonthIndex +
-                                                              1)
-                                                      .toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  -1.0, 1.0),
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  widget.child?.birthDate
-                                                      ?.toString(),
-                                                  '0',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ),
                                           ],
                                         ),
                                       );

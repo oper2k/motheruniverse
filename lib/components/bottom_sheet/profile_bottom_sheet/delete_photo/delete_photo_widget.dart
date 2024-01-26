@@ -10,10 +10,10 @@ import 'delete_photo_model.dart';
 export 'delete_photo_model.dart';
 
 class DeletePhotoWidget extends StatefulWidget {
-  const DeletePhotoWidget({Key? key}) : super(key: key);
+  const DeletePhotoWidget({super.key});
 
   @override
-  _DeletePhotoWidgetState createState() => _DeletePhotoWidgetState();
+  State<DeletePhotoWidget> createState() => _DeletePhotoWidgetState();
 }
 
 class _DeletePhotoWidgetState extends State<DeletePhotoWidget> {

@@ -12,10 +12,10 @@ import 'chose_the_date_of_tracker_model.dart';
 export 'chose_the_date_of_tracker_model.dart';
 
 class ChoseTheDateOfTrackerWidget extends StatefulWidget {
-  const ChoseTheDateOfTrackerWidget({Key? key}) : super(key: key);
+  const ChoseTheDateOfTrackerWidget({super.key});
 
   @override
-  _ChoseTheDateOfTrackerWidgetState createState() =>
+  State<ChoseTheDateOfTrackerWidget> createState() =>
       _ChoseTheDateOfTrackerWidgetState();
 }
 

@@ -10,10 +10,10 @@ import 'reset_feeding_tracker_model.dart';
 export 'reset_feeding_tracker_model.dart';
 
 class ResetFeedingTrackerWidget extends StatefulWidget {
-  const ResetFeedingTrackerWidget({Key? key}) : super(key: key);
+  const ResetFeedingTrackerWidget({super.key});
 
   @override
-  _ResetFeedingTrackerWidgetState createState() =>
+  State<ResetFeedingTrackerWidget> createState() =>
       _ResetFeedingTrackerWidgetState();
 }
 

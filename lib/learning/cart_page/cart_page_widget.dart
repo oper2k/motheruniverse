@@ -12,10 +12,10 @@ import 'cart_page_model.dart';
 export 'cart_page_model.dart';
 
 class CartPageWidget extends StatefulWidget {
-  const CartPageWidget({Key? key}) : super(key: key);
+  const CartPageWidget({super.key});
 
   @override
-  _CartPageWidgetState createState() => _CartPageWidgetState();
+  State<CartPageWidget> createState() => _CartPageWidgetState();
 }
 
 class _CartPageWidgetState extends State<CartPageWidget> {

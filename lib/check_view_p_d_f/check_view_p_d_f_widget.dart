@@ -12,14 +12,14 @@ export 'check_view_p_d_f_model.dart';
 
 class CheckViewPDFWidget extends StatefulWidget {
   const CheckViewPDFWidget({
-    Key? key,
+    super.key,
     required this.check,
-  }) : super(key: key);
+  });
 
   final CheckListRecord? check;
 
   @override
-  _CheckViewPDFWidgetState createState() => _CheckViewPDFWidgetState();
+  State<CheckViewPDFWidget> createState() => _CheckViewPDFWidgetState();
 }
 
 class _CheckViewPDFWidgetState extends State<CheckViewPDFWidget> {

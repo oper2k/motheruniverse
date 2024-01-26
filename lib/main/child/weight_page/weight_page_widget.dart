@@ -15,14 +15,14 @@ export 'weight_page_model.dart';
 
 class WeightPageWidget extends StatefulWidget {
   const WeightPageWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _WeightPageWidgetState createState() => _WeightPageWidgetState();
+  State<WeightPageWidget> createState() => _WeightPageWidgetState();
 }
 
 class _WeightPageWidgetState extends State<WeightPageWidget> {

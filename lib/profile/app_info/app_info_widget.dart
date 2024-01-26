@@ -9,10 +9,10 @@ import 'app_info_model.dart';
 export 'app_info_model.dart';
 
 class AppInfoWidget extends StatefulWidget {
-  const AppInfoWidget({Key? key}) : super(key: key);
+  const AppInfoWidget({super.key});
 
   @override
-  _AppInfoWidgetState createState() => _AppInfoWidgetState();
+  State<AppInfoWidget> createState() => _AppInfoWidgetState();
 }
 
 class _AppInfoWidgetState extends State<AppInfoWidget> {

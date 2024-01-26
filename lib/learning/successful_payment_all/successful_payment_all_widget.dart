@@ -10,10 +10,10 @@ import 'successful_payment_all_model.dart';
 export 'successful_payment_all_model.dart';
 
 class SuccessfulPaymentAllWidget extends StatefulWidget {
-  const SuccessfulPaymentAllWidget({Key? key}) : super(key: key);
+  const SuccessfulPaymentAllWidget({super.key});
 
   @override
-  _SuccessfulPaymentAllWidgetState createState() =>
+  State<SuccessfulPaymentAllWidget> createState() =>
       _SuccessfulPaymentAllWidgetState();
 }
 

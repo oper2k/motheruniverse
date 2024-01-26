@@ -95,26 +95,11 @@ DateTime createDateTimeFromIndices(
   return date;
 }
 
-String getWeeksSince(DateTime startDate) {
+int getWeeksSince(DateTime startDate) {
   DateTime currentDate = DateTime.now();
   Duration difference = currentDate.difference(startDate);
 
-  int weeks = difference.inDays ~/ 7;
-  String weeksWord = 'неделя';
-
-  if (weeks == 0) {
-    return 'менее недели';
-  } else if (weeks % 10 == 1 && weeks % 100 != 11) {
-    weeksWord = 'неделя';
-  } else if (weeks % 10 >= 2 &&
-      weeks % 10 <= 4 &&
-      (weeks % 100 < 10 || weeks % 100 >= 20)) {
-    weeksWord = 'недели';
-  } else {
-    weeksWord = 'недель';
-  }
-
-  return '$weeks $weeksWord';
+  return difference.inDays ~/ 7 + 1;
 }
 
 String formatDateAfter40Weeks(DateTime dateTime) {

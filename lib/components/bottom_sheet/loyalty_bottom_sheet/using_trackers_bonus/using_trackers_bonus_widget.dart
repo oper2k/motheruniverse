@@ -9,10 +9,10 @@ import 'using_trackers_bonus_model.dart';
 export 'using_trackers_bonus_model.dart';
 
 class UsingTrackersBonusWidget extends StatefulWidget {
-  const UsingTrackersBonusWidget({Key? key}) : super(key: key);
+  const UsingTrackersBonusWidget({super.key});
 
   @override
-  _UsingTrackersBonusWidgetState createState() =>
+  State<UsingTrackersBonusWidget> createState() =>
       _UsingTrackersBonusWidgetState();
 }
 

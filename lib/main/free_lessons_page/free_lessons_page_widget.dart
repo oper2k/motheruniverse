@@ -11,10 +11,10 @@ import 'free_lessons_page_model.dart';
 export 'free_lessons_page_model.dart';
 
 class FreeLessonsPageWidget extends StatefulWidget {
-  const FreeLessonsPageWidget({Key? key}) : super(key: key);
+  const FreeLessonsPageWidget({super.key});
 
   @override
-  _FreeLessonsPageWidgetState createState() => _FreeLessonsPageWidgetState();
+  State<FreeLessonsPageWidget> createState() => _FreeLessonsPageWidgetState();
 }
 
 class _FreeLessonsPageWidgetState extends State<FreeLessonsPageWidget> {

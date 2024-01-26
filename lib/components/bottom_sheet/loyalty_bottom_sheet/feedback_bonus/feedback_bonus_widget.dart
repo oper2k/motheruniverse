@@ -11,10 +11,10 @@ import 'feedback_bonus_model.dart';
 export 'feedback_bonus_model.dart';
 
 class FeedbackBonusWidget extends StatefulWidget {
-  const FeedbackBonusWidget({Key? key}) : super(key: key);
+  const FeedbackBonusWidget({super.key});
 
   @override
-  _FeedbackBonusWidgetState createState() => _FeedbackBonusWidgetState();
+  State<FeedbackBonusWidget> createState() => _FeedbackBonusWidgetState();
 }
 
 class _FeedbackBonusWidgetState extends State<FeedbackBonusWidget> {

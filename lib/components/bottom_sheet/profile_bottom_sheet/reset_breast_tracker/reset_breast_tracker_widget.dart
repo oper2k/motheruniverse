@@ -10,10 +10,10 @@ import 'reset_breast_tracker_model.dart';
 export 'reset_breast_tracker_model.dart';
 
 class ResetBreastTrackerWidget extends StatefulWidget {
-  const ResetBreastTrackerWidget({Key? key}) : super(key: key);
+  const ResetBreastTrackerWidget({super.key});
 
   @override
-  _ResetBreastTrackerWidgetState createState() =>
+  State<ResetBreastTrackerWidget> createState() =>
       _ResetBreastTrackerWidgetState();
 }
 

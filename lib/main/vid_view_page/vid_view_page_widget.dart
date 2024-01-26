@@ -12,14 +12,14 @@ export 'vid_view_page_model.dart';
 
 class VidViewPageWidget extends StatefulWidget {
   const VidViewPageWidget({
-    Key? key,
+    super.key,
     required this.video,
-  }) : super(key: key);
+  });
 
   final VideoRecord? video;
 
   @override
-  _VidViewPageWidgetState createState() => _VidViewPageWidgetState();
+  State<VidViewPageWidget> createState() => _VidViewPageWidgetState();
 }
 
 class _VidViewPageWidgetState extends State<VidViewPageWidget> {

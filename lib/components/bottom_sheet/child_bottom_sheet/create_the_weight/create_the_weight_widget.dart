@@ -14,14 +14,14 @@ export 'create_the_weight_model.dart';
 
 class CreateTheWeightWidget extends StatefulWidget {
   const CreateTheWeightWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _CreateTheWeightWidgetState createState() => _CreateTheWeightWidgetState();
+  State<CreateTheWeightWidget> createState() => _CreateTheWeightWidgetState();
 }
 
 class _CreateTheWeightWidgetState extends State<CreateTheWeightWidget> {

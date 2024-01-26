@@ -15,10 +15,10 @@ import 'reset_pass_model.dart';
 export 'reset_pass_model.dart';
 
 class ResetPassWidget extends StatefulWidget {
-  const ResetPassWidget({Key? key}) : super(key: key);
+  const ResetPassWidget({super.key});
 
   @override
-  _ResetPassWidgetState createState() => _ResetPassWidgetState();
+  State<ResetPassWidget> createState() => _ResetPassWidgetState();
 }
 
 class _ResetPassWidgetState extends State<ResetPassWidget>

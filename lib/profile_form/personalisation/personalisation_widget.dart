@@ -14,10 +14,10 @@ import 'personalisation_model.dart';
 export 'personalisation_model.dart';
 
 class PersonalisationWidget extends StatefulWidget {
-  const PersonalisationWidget({Key? key}) : super(key: key);
+  const PersonalisationWidget({super.key});
 
   @override
-  _PersonalisationWidgetState createState() => _PersonalisationWidgetState();
+  State<PersonalisationWidget> createState() => _PersonalisationWidgetState();
 }
 
 class _PersonalisationWidgetState extends State<PersonalisationWidget> {

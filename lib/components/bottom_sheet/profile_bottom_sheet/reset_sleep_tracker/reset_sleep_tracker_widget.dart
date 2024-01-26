@@ -10,10 +10,10 @@ import 'reset_sleep_tracker_model.dart';
 export 'reset_sleep_tracker_model.dart';
 
 class ResetSleepTrackerWidget extends StatefulWidget {
-  const ResetSleepTrackerWidget({Key? key}) : super(key: key);
+  const ResetSleepTrackerWidget({super.key});
 
   @override
-  _ResetSleepTrackerWidgetState createState() =>
+  State<ResetSleepTrackerWidget> createState() =>
       _ResetSleepTrackerWidgetState();
 }
 

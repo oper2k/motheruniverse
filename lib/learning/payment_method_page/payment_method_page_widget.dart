@@ -16,12 +16,12 @@ export 'payment_method_page_model.dart';
 
 class PaymentMethodPageWidget extends StatefulWidget {
   const PaymentMethodPageWidget({
-    Key? key,
+    super.key,
     required this.goodsCount,
     required this.price,
     required this.buyingAll,
     required this.lessonsReferences,
-  }) : super(key: key);
+  });
 
   final int? goodsCount;
   final double? price;
@@ -29,7 +29,7 @@ class PaymentMethodPageWidget extends StatefulWidget {
   final List<String>? lessonsReferences;
 
   @override
-  _PaymentMethodPageWidgetState createState() =>
+  State<PaymentMethodPageWidget> createState() =>
       _PaymentMethodPageWidgetState();
 }
 

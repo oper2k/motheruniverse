@@ -13,14 +13,14 @@ export 'nutritional_advice_model.dart';
 
 class NutritionalAdviceWidget extends StatefulWidget {
   const NutritionalAdviceWidget({
-    Key? key,
+    super.key,
     required this.currentWeek,
-  }) : super(key: key);
+  });
 
   final int? currentWeek;
 
   @override
-  _NutritionalAdviceWidgetState createState() =>
+  State<NutritionalAdviceWidget> createState() =>
       _NutritionalAdviceWidgetState();
 }
 

@@ -18,10 +18,10 @@ import 'fill_profile_model.dart';
 export 'fill_profile_model.dart';
 
 class FillProfileWidget extends StatefulWidget {
-  const FillProfileWidget({Key? key}) : super(key: key);
+  const FillProfileWidget({super.key});
 
   @override
-  _FillProfileWidgetState createState() => _FillProfileWidgetState();
+  State<FillProfileWidget> createState() => _FillProfileWidgetState();
 }
 
 class _FillProfileWidgetState extends State<FillProfileWidget> {

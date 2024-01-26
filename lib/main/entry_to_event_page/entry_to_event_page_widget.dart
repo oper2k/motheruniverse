@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,14 +14,14 @@ export 'entry_to_event_page_model.dart';
 
 class EntryToEventPageWidget extends StatefulWidget {
   const EntryToEventPageWidget({
-    Key? key,
+    super.key,
     required this.event,
-  }) : super(key: key);
+  });
 
   final EventsRecord? event;
 
   @override
-  _EntryToEventPageWidgetState createState() => _EntryToEventPageWidgetState();
+  State<EntryToEventPageWidget> createState() => _EntryToEventPageWidgetState();
 }
 
 class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
@@ -153,6 +154,11 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                 child: TextFormField(
                                   controller: _model.nameController,
                                   focusNode: _model.nameFocusNode,
+                                  onChanged: (_) => EasyDebounce.debounce(
+                                    '_model.nameController',
+                                    Duration(milliseconds: 200),
+                                    () => setState(() {}),
+                                  ),
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelText: 'Ваше имя',
@@ -217,6 +223,11 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                 child: TextFormField(
                                   controller: _model.phoneController,
                                   focusNode: _model.phoneFocusNode,
+                                  onChanged: (_) => EasyDebounce.debounce(
+                                    '_model.phoneController',
+                                    Duration(milliseconds: 200),
+                                    () => setState(() {}),
+                                  ),
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelText: 'Номер телефона',
@@ -280,6 +291,11 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                               child: TextFormField(
                                 controller: _model.emailController,
                                 focusNode: _model.emailFocusNode,
+                                onChanged: (_) => EasyDebounce.debounce(
+                                  '_model.emailController',
+                                  Duration(milliseconds: 200),
+                                  () => setState(() {}),
+                                ),
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Электронная почта',
@@ -340,6 +356,11 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                               child: TextFormField(
                                 controller: _model.childAgeController,
                                 focusNode: _model.childAgeFocusNode,
+                                onChanged: (_) => EasyDebounce.debounce(
+                                  '_model.childAgeController',
+                                  Duration(milliseconds: 200),
+                                  () => setState(() {}),
+                                ),
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Возраст ребенка',
@@ -400,6 +421,11 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                               child: TextFormField(
                                 controller: _model.solvedCaseController,
                                 focusNode: _model.solvedCaseFocusNode,
+                                onChanged: (_) => EasyDebounce.debounce(
+                                  '_model.solvedCaseController',
+                                  Duration(milliseconds: 200),
+                                  () => setState(() {}),
+                                ),
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText:
@@ -470,13 +496,13 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 45.0),
                 child: FFButtonWidget(
                   onPressed: ((_model.nameController.text == null ||
-                              _model.nameController.text == '') &&
+                              _model.nameController.text == '') ||
                           (_model.phoneController.text == null ||
-                              _model.phoneController.text == '') &&
+                              _model.phoneController.text == '') ||
                           (_model.emailController.text == null ||
-                              _model.emailController.text == '') &&
+                              _model.emailController.text == '') ||
                           (_model.childAgeController.text == null ||
-                              _model.childAgeController.text == '') &&
+                              _model.childAgeController.text == '') ||
                           (_model.solvedCaseController.text == null ||
                               _model.solvedCaseController.text == ''))
                       ? null

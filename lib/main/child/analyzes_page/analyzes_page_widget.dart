@@ -16,14 +16,14 @@ export 'analyzes_page_model.dart';
 
 class AnalyzesPageWidget extends StatefulWidget {
   const AnalyzesPageWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _AnalyzesPageWidgetState createState() => _AnalyzesPageWidgetState();
+  State<AnalyzesPageWidget> createState() => _AnalyzesPageWidgetState();
 }
 
 class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {

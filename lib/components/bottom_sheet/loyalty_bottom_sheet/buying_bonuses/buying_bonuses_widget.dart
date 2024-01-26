@@ -10,10 +10,10 @@ import 'buying_bonuses_model.dart';
 export 'buying_bonuses_model.dart';
 
 class BuyingBonusesWidget extends StatefulWidget {
-  const BuyingBonusesWidget({Key? key}) : super(key: key);
+  const BuyingBonusesWidget({super.key});
 
   @override
-  _BuyingBonusesWidgetState createState() => _BuyingBonusesWidgetState();
+  State<BuyingBonusesWidget> createState() => _BuyingBonusesWidgetState();
 }
 
 class _BuyingBonusesWidgetState extends State<BuyingBonusesWidget> {

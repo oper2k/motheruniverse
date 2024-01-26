@@ -16,10 +16,10 @@ import 'attach_feedback_bonus_model.dart';
 export 'attach_feedback_bonus_model.dart';
 
 class AttachFeedbackBonusWidget extends StatefulWidget {
-  const AttachFeedbackBonusWidget({Key? key}) : super(key: key);
+  const AttachFeedbackBonusWidget({super.key});
 
   @override
-  _AttachFeedbackBonusWidgetState createState() =>
+  State<AttachFeedbackBonusWidget> createState() =>
       _AttachFeedbackBonusWidgetState();
 }
 

@@ -13,14 +13,14 @@ export 'new_view_page_model.dart';
 
 class NewViewPageWidget extends StatefulWidget {
   const NewViewPageWidget({
-    Key? key,
+    super.key,
     required this.newItem,
-  }) : super(key: key);
+  });
 
   final NewsRecord? newItem;
 
   @override
-  _NewViewPageWidgetState createState() => _NewViewPageWidgetState();
+  State<NewViewPageWidget> createState() => _NewViewPageWidgetState();
 }
 
 class _NewViewPageWidgetState extends State<NewViewPageWidget> {

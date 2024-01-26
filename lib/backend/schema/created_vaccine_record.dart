@@ -50,8 +50,8 @@ class CreatedVaccineRecord extends FirestoreRecord {
           ? parent.collection('created_vaccine')
           : FirebaseFirestore.instance.collectionGroup('created_vaccine');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('created_vaccine').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('created_vaccine').doc(id);
 
   static Stream<CreatedVaccineRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => CreatedVaccineRecord.fromSnapshot(s));

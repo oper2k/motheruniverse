@@ -14,14 +14,14 @@ export 'change_the_growth_model.dart';
 
 class ChangeTheGrowthWidget extends StatefulWidget {
   const ChangeTheGrowthWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _ChangeTheGrowthWidgetState createState() => _ChangeTheGrowthWidgetState();
+  State<ChangeTheGrowthWidget> createState() => _ChangeTheGrowthWidgetState();
 }
 
 class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {

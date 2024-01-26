@@ -15,14 +15,14 @@ export 'check_view_page_model.dart';
 
 class CheckViewPageWidget extends StatefulWidget {
   const CheckViewPageWidget({
-    Key? key,
+    super.key,
     required this.checkListParent,
-  }) : super(key: key);
+  });
 
   final CheckListRecord? checkListParent;
 
   @override
-  _CheckViewPageWidgetState createState() => _CheckViewPageWidgetState();
+  State<CheckViewPageWidget> createState() => _CheckViewPageWidgetState();
 }
 
 class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
@@ -244,6 +244,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                             width: double.infinity,
                                             color: Color(0x00000000),
                                             child: ExpandableNotifier(
+                                              initialExpanded: false,
                                               child: ExpandablePanel(
                                                 header: Padding(
                                                   padding: EdgeInsetsDirectional

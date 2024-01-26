@@ -45,8 +45,8 @@ class CreatedDoctorVisitingRecord extends FirestoreRecord {
           : FirebaseFirestore.instance
               .collectionGroup('created_doctor_visiting');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('created_doctor_visiting').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('created_doctor_visiting').doc(id);
 
   static Stream<CreatedDoctorVisitingRecord> getDocument(
           DocumentReference ref) =>

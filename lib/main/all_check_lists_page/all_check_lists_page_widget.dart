@@ -12,10 +12,10 @@ import 'all_check_lists_page_model.dart';
 export 'all_check_lists_page_model.dart';
 
 class AllCheckListsPageWidget extends StatefulWidget {
-  const AllCheckListsPageWidget({Key? key}) : super(key: key);
+  const AllCheckListsPageWidget({super.key});
 
   @override
-  _AllCheckListsPageWidgetState createState() =>
+  State<AllCheckListsPageWidget> createState() =>
       _AllCheckListsPageWidgetState();
 }
 

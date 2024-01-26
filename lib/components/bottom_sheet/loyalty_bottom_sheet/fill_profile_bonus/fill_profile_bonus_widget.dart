@@ -9,10 +9,10 @@ import 'fill_profile_bonus_model.dart';
 export 'fill_profile_bonus_model.dart';
 
 class FillProfileBonusWidget extends StatefulWidget {
-  const FillProfileBonusWidget({Key? key}) : super(key: key);
+  const FillProfileBonusWidget({super.key});
 
   @override
-  _FillProfileBonusWidgetState createState() => _FillProfileBonusWidgetState();
+  State<FillProfileBonusWidget> createState() => _FillProfileBonusWidgetState();
 }
 
 class _FillProfileBonusWidgetState extends State<FillProfileBonusWidget> {

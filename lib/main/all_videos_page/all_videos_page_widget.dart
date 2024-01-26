@@ -12,10 +12,10 @@ import 'all_videos_page_model.dart';
 export 'all_videos_page_model.dart';
 
 class AllVideosPageWidget extends StatefulWidget {
-  const AllVideosPageWidget({Key? key}) : super(key: key);
+  const AllVideosPageWidget({super.key});
 
   @override
-  _AllVideosPageWidgetState createState() => _AllVideosPageWidgetState();
+  State<AllVideosPageWidget> createState() => _AllVideosPageWidgetState();
 }
 
 class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {

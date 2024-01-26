@@ -9,10 +9,10 @@ import 'entry_finished_page_model.dart';
 export 'entry_finished_page_model.dart';
 
 class EntryFinishedPageWidget extends StatefulWidget {
-  const EntryFinishedPageWidget({Key? key}) : super(key: key);
+  const EntryFinishedPageWidget({super.key});
 
   @override
-  _EntryFinishedPageWidgetState createState() =>
+  State<EntryFinishedPageWidget> createState() =>
       _EntryFinishedPageWidgetState();
 }
 

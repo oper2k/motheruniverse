@@ -12,14 +12,14 @@ export 'delete_child_profile_model.dart';
 
 class DeleteChildProfileWidget extends StatefulWidget {
   const DeleteChildProfileWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final ChildrenRecord? child;
 
   @override
-  _DeleteChildProfileWidgetState createState() =>
+  State<DeleteChildProfileWidget> createState() =>
       _DeleteChildProfileWidgetState();
 }
 

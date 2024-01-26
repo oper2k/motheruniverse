@@ -14,10 +14,10 @@ import 'choose_the_age_model.dart';
 export 'choose_the_age_model.dart';
 
 class ChooseTheAgeWidget extends StatefulWidget {
-  const ChooseTheAgeWidget({Key? key}) : super(key: key);
+  const ChooseTheAgeWidget({super.key});
 
   @override
-  _ChooseTheAgeWidgetState createState() => _ChooseTheAgeWidgetState();
+  State<ChooseTheAgeWidget> createState() => _ChooseTheAgeWidgetState();
 }
 
 class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {

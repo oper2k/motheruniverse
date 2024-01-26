@@ -18,16 +18,16 @@ export 'breast_tracker_is_added_model.dart';
 
 class BreastTrackerIsAddedWidget extends StatefulWidget {
   const BreastTrackerIsAddedWidget({
-    Key? key,
+    super.key,
     required this.track,
     required this.child,
-  }) : super(key: key);
+  });
 
   final TrackersRecord? track;
   final ChildrenRecord? child;
 
   @override
-  _BreastTrackerIsAddedWidgetState createState() =>
+  State<BreastTrackerIsAddedWidget> createState() =>
       _BreastTrackerIsAddedWidgetState();
 }
 
