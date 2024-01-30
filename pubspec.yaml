@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+22
+version: 1.0.0+23
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -39,6 +39,7 @@ dependencies:
     git:
       url: https://github.com/oper2k/cloudpayments.git
       ref: master
+  collection: 1.17.2
   device_info_plus: 9.1.0
   device_info_plus_platform_interface: 7.0.0
   dotted_decoration: ^2.0.0

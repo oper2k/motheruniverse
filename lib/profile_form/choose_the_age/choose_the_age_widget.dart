@@ -360,7 +360,7 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                             (e) => e
                               ..conceptionDate =
                                   functions.calculateDateFromWeeksAgo(
-                                      FFAppState().weekPickerIndex1),
+                                      FFAppState().weekPickerIndex1 - 1),
                           );
                         });
                       }

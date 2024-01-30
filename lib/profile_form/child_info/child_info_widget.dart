@@ -1002,9 +1002,17 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                       }()
                                       ..growth = int.tryParse(
                                           _model.growthFieldController.text)
-                                      ..weight = int.parse(_model
-                                              .weightFieldController.text) /
-                                          1000,
+                                      ..weight =
+                                          _model.weightFieldController.text !=
+                                                      null &&
+                                                  _model.weightFieldController
+                                                          .text !=
+                                                      ''
+                                              ? (int.parse(_model
+                                                      .weightFieldController
+                                                      .text) /
+                                                  1000)
+                                              : 0.0,
                                   );
                                 });
 
