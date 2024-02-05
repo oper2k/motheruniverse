@@ -7,11 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'vid_view_page_model.dart';
-export 'vid_view_page_model.dart';
+import 'video_player_model.dart';
+export 'video_player_model.dart';
 
-class VidViewPageWidget extends StatefulWidget {
-  const VidViewPageWidget({
+class VideoPlayerWidget extends StatefulWidget {
+  const VideoPlayerWidget({
     super.key,
     required this.video,
   });
@@ -19,18 +19,18 @@ class VidViewPageWidget extends StatefulWidget {
   final VideoRecord? video;
 
   @override
-  State<VidViewPageWidget> createState() => _VidViewPageWidgetState();
+  State<VideoPlayerWidget> createState() => _VideoPlayerWidgetState();
 }
 
-class _VidViewPageWidgetState extends State<VidViewPageWidget> {
-  late VidViewPageModel _model;
+class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
+  late VideoPlayerModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => VidViewPageModel());
+    _model = createModel(context, () => VideoPlayerModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -112,7 +112,7 @@ class _VidViewPageWidgetState extends State<VidViewPageWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 38.0),
                     child: FlutterFlowVideoPlayer(
-                      path: widget.video!.link,
+                      path: widget.video!.video,
                       videoType: VideoType.network,
                       height: double.infinity,
                       autoPlay: false,

@@ -36,11 +36,17 @@ class VideoRecord extends FirestoreRecord {
   String get link => _link ?? '';
   bool hasLink() => _link != null;
 
+  // "video" field.
+  String? _video;
+  String get video => _video ?? '';
+  bool hasVideo() => _video != null;
+
   void _initializeFields() {
     _preview = snapshotData['preview'] as String?;
     _title = snapshotData['title'] as String?;
     _currentDate = snapshotData['current_date'] as DateTime?;
     _link = snapshotData['link'] as String?;
+    _video = snapshotData['video'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -81,6 +87,7 @@ Map<String, dynamic> createVideoRecordData({
   String? title,
   DateTime? currentDate,
   String? link,
+  String? video,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -88,6 +95,7 @@ Map<String, dynamic> createVideoRecordData({
       'title': title,
       'current_date': currentDate,
       'link': link,
+      'video': video,
     }.withoutNulls,
   );
 
@@ -102,12 +110,13 @@ class VideoRecordDocumentEquality implements Equality<VideoRecord> {
     return e1?.preview == e2?.preview &&
         e1?.title == e2?.title &&
         e1?.currentDate == e2?.currentDate &&
-        e1?.link == e2?.link;
+        e1?.link == e2?.link &&
+        e1?.video == e2?.video;
   }
 
   @override
   int hash(VideoRecord? e) => const ListEquality()
-      .hash([e?.preview, e?.title, e?.currentDate, e?.link]);
+      .hash([e?.preview, e?.title, e?.currentDate, e?.link, e?.video]);
 
   @override
   bool isValidKey(Object? o) => o is VideoRecord;

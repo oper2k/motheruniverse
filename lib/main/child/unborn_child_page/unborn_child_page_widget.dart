@@ -912,7 +912,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                        'AdvicesPage',
+                                        'AdvicesUnbornChild',
                                         queryParameters: {
                                           'initialIndex': serializeParam(
                                             functions.findNumberOfWeek(widget

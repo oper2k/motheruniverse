@@ -408,10 +408,18 @@ String? getTimeAgo(DateTime uploadDate) {
     return 'Месяц назад';
   } else if (difference.inDays < 365) {
     return '${(difference.inDays / 30).floor()} месяцев назад';
-  } else if (difference.inDays < 730) {
-    return 'Год назад';
   } else {
-    return '${(difference.inDays / 365).floor()} лет назад';
+    int years = (difference.inDays / 365).floor();
+    String yearsStr = 'лет';
+    int lastDigit = years % 10;
+    if ((years % 100) / 10 != 1) {
+      if (lastDigit == 1) {
+        yearsStr = 'год';
+      } else if (lastDigit > 1 && lastDigit < 5) {
+        yearsStr = 'года';
+      }
+    }
+    return '$years $yearsStr назад';
   }
 }
 

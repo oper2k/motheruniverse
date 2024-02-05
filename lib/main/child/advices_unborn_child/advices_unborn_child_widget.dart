@@ -7,11 +7,11 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'advices_page_model.dart';
-export 'advices_page_model.dart';
+import 'advices_unborn_child_model.dart';
+export 'advices_unborn_child_model.dart';
 
-class AdvicesPageWidget extends StatefulWidget {
-  const AdvicesPageWidget({
+class AdvicesUnbornChildWidget extends StatefulWidget {
+  const AdvicesUnbornChildWidget({
     super.key,
     required this.initialIndex,
   });
@@ -19,18 +19,19 @@ class AdvicesPageWidget extends StatefulWidget {
   final int? initialIndex;
 
   @override
-  State<AdvicesPageWidget> createState() => _AdvicesPageWidgetState();
+  State<AdvicesUnbornChildWidget> createState() =>
+      _AdvicesUnbornChildWidgetState();
 }
 
-class _AdvicesPageWidgetState extends State<AdvicesPageWidget> {
-  late AdvicesPageModel _model;
+class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
+  late AdvicesUnbornChildModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AdvicesPageModel());
+    _model = createModel(context, () => AdvicesUnbornChildModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {

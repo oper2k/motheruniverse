@@ -1429,18 +1429,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed(
-                                            'VidViewPage',
-                                            queryParameters: {
-                                              'video': serializeParam(
-                                                videoItem,
-                                                ParamType.Document,
-                                              ),
-                                            }.withoutNulls,
-                                            extra: <String, dynamic>{
-                                              'video': videoItem,
-                                            },
-                                          );
+                                          await launchURL(videoItem.link);
                                         },
                                         child: Container(
                                           width: 240.0,
@@ -1669,8 +1658,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     ),
                     StreamBuilder<List<NewsRecord>>(
                       stream: queryNewsRecord(
-                        queryBuilder: (newsRecord) =>
-                            newsRecord.orderBy('sort', descending: true),
+                        queryBuilder: (newsRecord) => newsRecord
+                            .orderBy('creation_date', descending: true),
                       ),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.

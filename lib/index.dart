@@ -24,8 +24,8 @@ export '/main/child/analyzes_page/analyzes_page_widget.dart'
     show AnalyzesPageWidget;
 export '/main/child/nutritional_advice/nutritional_advice_widget.dart'
     show NutritionalAdviceWidget;
-export '/main/child/advices_page/advices_page_widget.dart'
-    show AdvicesPageWidget;
+export '/main/child/advices_unborn_child/advices_unborn_child_widget.dart'
+    show AdvicesUnbornChildWidget;
 export '/main/main_page/main_page_widget.dart' show MainPageWidget;
 export '/main/child/born_child_page/born_child_page_widget.dart'
     show BornChildPageWidget;
@@ -43,7 +43,7 @@ export '/main/child/edit_child_info_page/edit_child_info_page_widget.dart'
     show EditChildInfoPageWidget;
 export '/main/all_videos_page/all_videos_page_widget.dart'
     show AllVideosPageWidget;
-export '/main/vid_view_page/vid_view_page_widget.dart' show VidViewPageWidget;
+export '/main/video_player/video_player_widget.dart' show VideoPlayerWidget;
 export '/main/all_check_lists_page/all_check_lists_page_widget.dart'
     show AllCheckListsPageWidget;
 export '/not_use/check_view_page/check_view_page_widget.dart'
@@ -107,3 +107,7 @@ export '/trackers/sleep_norms_page/sleep_norms_page_widget.dart'
 export '/profile_form/change_child_personalisation/change_child_personalisation_widget.dart'
     show ChangeChildPersonalisationWidget;
 export '/check_view_p_d_f/check_view_p_d_f_widget.dart' show CheckViewPDFWidget;
+export '/main/you_tube_player/you_tube_player_widget.dart'
+    show YouTubePlayerWidget;
+export '/main/child/advices_born_child/advices_born_child_widget.dart'
+    show AdvicesBornChildWidget;

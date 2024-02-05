@@ -109,8 +109,8 @@ class _AllNewsPageWidgetState extends State<AllNewsPageWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: StreamBuilder<List<NewsRecord>>(
                           stream: queryNewsRecord(
-                            queryBuilder: (newsRecord) =>
-                                newsRecord.orderBy('sort', descending: true),
+                            queryBuilder: (newsRecord) => newsRecord
+                                .orderBy('creation_date', descending: true),
                           ),
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.

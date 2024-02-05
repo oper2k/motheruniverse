@@ -31,22 +31,22 @@ class NewsRecord extends FirestoreRecord {
   String get theNew => _theNew ?? '';
   bool hasTheNew() => _theNew != null;
 
-  // "sort" field.
-  int? _sort;
-  int get sort => _sort ?? 0;
-  bool hasSort() => _sort != null;
-
   // "link" field.
   String? _link;
   String get link => _link ?? '';
   bool hasLink() => _link != null;
 
+  // "creation_date" field.
+  DateTime? _creationDate;
+  DateTime? get creationDate => _creationDate;
+  bool hasCreationDate() => _creationDate != null;
+
   void _initializeFields() {
     _title = snapshotData['title'] as String?;
     _image = snapshotData['image'] as String?;
     _theNew = snapshotData['the_new'] as String?;
-    _sort = castToType<int>(snapshotData['sort']);
     _link = snapshotData['link'] as String?;
+    _creationDate = snapshotData['creation_date'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -86,16 +86,16 @@ Map<String, dynamic> createNewsRecordData({
   String? title,
   String? image,
   String? theNew,
-  int? sort,
   String? link,
+  DateTime? creationDate,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'title': title,
       'image': image,
       'the_new': theNew,
-      'sort': sort,
       'link': link,
+      'creation_date': creationDate,
     }.withoutNulls,
   );
 
@@ -110,13 +110,13 @@ class NewsRecordDocumentEquality implements Equality<NewsRecord> {
     return e1?.title == e2?.title &&
         e1?.image == e2?.image &&
         e1?.theNew == e2?.theNew &&
-        e1?.sort == e2?.sort &&
-        e1?.link == e2?.link;
+        e1?.link == e2?.link &&
+        e1?.creationDate == e2?.creationDate;
   }
 
   @override
   int hash(NewsRecord? e) => const ListEquality()
-      .hash([e?.title, e?.image, e?.theNew, e?.sort, e?.link]);
+      .hash([e?.title, e?.image, e?.theNew, e?.link, e?.creationDate]);
 
   @override
   bool isValidKey(Object? o) => o is NewsRecord;

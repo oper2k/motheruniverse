@@ -150,18 +150,7 @@ class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed(
-                                            'VidViewPage',
-                                            queryParameters: {
-                                              'video': serializeParam(
-                                                videoItem,
-                                                ParamType.Document,
-                                              ),
-                                            }.withoutNulls,
-                                            extra: <String, dynamic>{
-                                              'video': videoItem,
-                                            },
-                                          );
+                                          await launchURL(videoItem.link);
                                         },
                                         child: Container(
                                           width: double.infinity,

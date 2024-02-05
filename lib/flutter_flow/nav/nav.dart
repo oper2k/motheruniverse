@@ -181,9 +181,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'AdvicesPage',
-          path: '/advicesPage',
-          builder: (context, params) => AdvicesPageWidget(
+          name: 'AdvicesUnbornChild',
+          path: '/advicesUnbornChild',
+          builder: (context, params) => AdvicesUnbornChildWidget(
             initialIndex: params.getParam('initialIndex', ParamType.int),
           ),
         ),
@@ -279,12 +279,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => AllVideosPageWidget(),
         ),
         FFRoute(
-          name: 'VidViewPage',
-          path: '/vidViewPage',
+          name: 'VideoPlayer',
+          path: '/videoPlayer',
           asyncParams: {
             'video': getDoc(['video'], VideoRecord.fromSnapshot),
           },
-          builder: (context, params) => VidViewPageWidget(
+          builder: (context, params) => VideoPlayerWidget(
             video: params.getParam('video', ParamType.Document),
           ),
         ),
@@ -562,6 +562,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           },
           builder: (context, params) => CheckViewPDFWidget(
             check: params.getParam('check', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'YouTubePlayer',
+          path: '/youTubePlayer',
+          asyncParams: {
+            'video': getDoc(['video'], VideoRecord.fromSnapshot),
+          },
+          builder: (context, params) => YouTubePlayerWidget(
+            video: params.getParam('video', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'AdvicesBornChild',
+          path: '/advicesBornChild',
+          builder: (context, params) => AdvicesBornChildWidget(
+            initialIndex: params.getParam('initialIndex', ParamType.int),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
