@@ -11,7 +11,6 @@ import 'networking_page_widget.dart' show NetworkingPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:provider/provider.dart';
@@ -32,10 +31,12 @@ class NetworkingPageModel extends FlutterFlowModel<NetworkingPageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     navBarModel = createModel(context, () => NavBarModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     navBarModel.dispose();

@@ -76,6 +76,11 @@ class LearningRecord extends FirestoreRecord {
   String get revenueCatID => _revenueCatID ?? '';
   bool hasRevenueCatID() => _revenueCatID != null;
 
+  // "lesson_image" field.
+  String? _lessonImage;
+  String get lessonImage => _lessonImage ?? '';
+  bool hasLessonImage() => _lessonImage != null;
+
   void _initializeFields() {
     _preview = snapshotData['preview'] as String?;
     _title = snapshotData['title'] as String?;
@@ -93,6 +98,7 @@ class LearningRecord extends FirestoreRecord {
     _priceBeforeDiscount =
         castToType<double>(snapshotData['price_before_discount']);
     _revenueCatID = snapshotData['revenueCatID'] as String?;
+    _lessonImage = snapshotData['lesson_image'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -141,6 +147,7 @@ Map<String, dynamic> createLearningRecordData({
   double? price,
   double? priceBeforeDiscount,
   String? revenueCatID,
+  String? lessonImage,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -155,6 +162,7 @@ Map<String, dynamic> createLearningRecordData({
       'price': price,
       'price_before_discount': priceBeforeDiscount,
       'revenueCatID': revenueCatID,
+      'lesson_image': lessonImage,
     }.withoutNulls,
   );
 
@@ -178,7 +186,8 @@ class LearningRecordDocumentEquality implements Equality<LearningRecord> {
         e1?.dateOfPublication == e2?.dateOfPublication &&
         e1?.price == e2?.price &&
         e1?.priceBeforeDiscount == e2?.priceBeforeDiscount &&
-        e1?.revenueCatID == e2?.revenueCatID;
+        e1?.revenueCatID == e2?.revenueCatID &&
+        e1?.lessonImage == e2?.lessonImage;
   }
 
   @override
@@ -194,7 +203,8 @@ class LearningRecordDocumentEquality implements Equality<LearningRecord> {
         e?.dateOfPublication,
         e?.price,
         e?.priceBeforeDiscount,
-        e?.revenueCatID
+        e?.revenueCatID,
+        e?.lessonImage
       ]);
 
   @override

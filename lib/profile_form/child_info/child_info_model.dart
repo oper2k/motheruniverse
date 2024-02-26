@@ -6,13 +6,13 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'dart:async';
 import 'child_info_widget.dart' show ChildInfoWidget;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -52,31 +52,49 @@ class ChildInfoModel extends FlutterFlowModel<ChildInfoWidget> {
 
   // State field(s) for Switch widget.
   bool? switchValue;
-  // State field(s) for GrowthField widget.
-  FocusNode? growthFieldFocusNode;
-  TextEditingController? growthFieldController;
-  String? Function(BuildContext, String?)? growthFieldControllerValidator;
-  // State field(s) for WeightField widget.
-  FocusNode? weightFieldFocusNode;
-  TextEditingController? weightFieldController;
-  String? Function(BuildContext, String?)? weightFieldControllerValidator;
+  // State field(s) for GrowthBirthField widget.
+  FocusNode? growthBirthFieldFocusNode;
+  TextEditingController? growthBirthFieldController;
+  String? Function(BuildContext, String?)? growthBirthFieldControllerValidator;
+  // State field(s) for WeightBirthField widget.
+  FocusNode? weightBirthFieldFocusNode1;
+  TextEditingController? weightBirthFieldController1;
+  String? Function(BuildContext, String?)? weightBirthFieldController1Validator;
+  // State field(s) for GrowtTodayField widget.
+  FocusNode? growtTodayFieldFocusNode;
+  TextEditingController? growtTodayFieldController;
+  String? Function(BuildContext, String?)? growtTodayFieldControllerValidator;
+  // State field(s) for WeightBirthField widget.
+  FocusNode? weightBirthFieldFocusNode2;
+  TextEditingController? weightBirthFieldController2;
+  String? Function(BuildContext, String?)? weightBirthFieldController2Validator;
+  // Stores action output result for [Backend Call - Create Document] action in Button widget.
+  ChildrenRecord? child;
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     nameFieldControllerValidator = _nameFieldControllerValidator;
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     nameFieldFocusNode?.dispose();
     nameFieldController?.dispose();
 
-    growthFieldFocusNode?.dispose();
-    growthFieldController?.dispose();
+    growthBirthFieldFocusNode?.dispose();
+    growthBirthFieldController?.dispose();
 
-    weightFieldFocusNode?.dispose();
-    weightFieldController?.dispose();
+    weightBirthFieldFocusNode1?.dispose();
+    weightBirthFieldController1?.dispose();
+
+    growtTodayFieldFocusNode?.dispose();
+    growtTodayFieldController?.dispose();
+
+    weightBirthFieldFocusNode2?.dispose();
+    weightBirthFieldController2?.dispose();
   }
 
   /// Action blocks are added here.

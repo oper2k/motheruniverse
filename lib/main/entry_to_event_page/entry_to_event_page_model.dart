@@ -38,8 +38,10 @@ class EntryToEventPageModel extends FlutterFlowModel<EntryToEventPageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     nameFocusNode?.dispose();

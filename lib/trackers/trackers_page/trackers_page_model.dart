@@ -39,6 +39,7 @@ class TrackersPageModel extends FlutterFlowModel<TrackersPageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     columnController1 = ScrollController();
     columnController2 = ScrollController();
@@ -46,6 +47,7 @@ class TrackersPageModel extends FlutterFlowModel<TrackersPageWidget> {
     navBarModel = createModel(context, () => NavBarModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     columnController1?.dispose();

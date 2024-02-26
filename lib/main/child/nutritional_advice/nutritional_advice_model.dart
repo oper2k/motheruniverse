@@ -6,7 +6,6 @@ import 'nutritional_advice_widget.dart' show NutritionalAdviceWidget;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -25,8 +24,10 @@ class NutritionalAdviceModel extends FlutterFlowModel<NutritionalAdviceWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
   }

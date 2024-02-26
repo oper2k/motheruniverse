@@ -8,7 +8,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'doctor_visiting_page_model.dart';
@@ -115,9 +114,79 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
         setState(() {
           _model.initialIndex = 14;
         });
-      } else {
+      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
+          48) {
         setState(() {
           _model.initialIndex = 15;
+        });
+      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
+          60) {
+        setState(() {
+          _model.initialIndex = 16;
+        });
+      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
+          72) {
+        setState(() {
+          _model.initialIndex = 17;
+        });
+      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
+          84) {
+        setState(() {
+          _model.initialIndex = 18;
+        });
+      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
+          96) {
+        setState(() {
+          _model.initialIndex = 19;
+        });
+      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
+          108) {
+        setState(() {
+          _model.initialIndex = 20;
+        });
+      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
+          120) {
+        setState(() {
+          _model.initialIndex = 21;
+        });
+      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
+          132) {
+        setState(() {
+          _model.initialIndex = 22;
+        });
+      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
+          144) {
+        setState(() {
+          _model.initialIndex = 23;
+        });
+      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
+          156) {
+        setState(() {
+          _model.initialIndex = 24;
+        });
+      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
+          168) {
+        setState(() {
+          _model.initialIndex = 25;
+        });
+      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
+          180) {
+        setState(() {
+          _model.initialIndex = 26;
+        });
+      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
+          192) {
+        setState(() {
+          _model.initialIndex = 27;
+        });
+      } else if (functions.calculateElapsedMonths(widget.child!.birthDate!) <
+          204) {
+        setState(() {
+          _model.initialIndex = 28;
+        });
+      } else {
+        setState(() {
+          _model.initialIndex = 29;
         });
       }
     });
@@ -134,15 +203,6 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -197,7 +257,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                             ),
                           ),
                           Text(
-                            'Наши рекомедации по датам и врачам, которых необходимо посетить в данный промежуток',
+                            'Наши рекомендации по посещению врачей в данном возрасте',
                             style: FlutterFlowTheme.of(context)
                                 .displayMedium
                                 .override(

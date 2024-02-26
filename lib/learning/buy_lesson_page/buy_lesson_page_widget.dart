@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -45,15 +44,6 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -65,66 +55,69 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Stack(
           children: [
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(0.0),
-                  child: Image.network(
-                    widget.lesson!.preview,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 24.0, 0.0, 0.0),
-                          child: Text(
-                            widget.lesson!.title,
-                            style: FlutterFlowTheme.of(context)
-                                .headlineSmall
-                                .override(
-                                  fontFamily: 'Inter',
-                                  fontSize: 24.0,
-                                  fontWeight: FontWeight.bold,
-                                  lineHeight: 1.16,
-                                ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 8.0, 0.0, 0.0),
-                          child: Text(
-                            '${(widget.lesson!.price.round()).toString()} рублей',
-                            style: FlutterFlowTheme.of(context)
-                                .headlineSmall
-                                .override(
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w600,
-                                  lineHeight: 1.25,
-                                ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 16.0, 0.0, 0.0),
-                          child: Html(
-                            data: widget.lesson!.description,
-                            onLinkTap: (url, _, __, ___) => launchURL(url!),
-                          ),
-                        ),
-                      ],
+            SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(0.0),
+                    child: Image.network(
+                      widget.lesson!.lessonImage,
+                      width: double.infinity,
+                      fit: BoxFit.contain,
                     ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 24.0, 0.0, 0.0),
+                            child: Text(
+                              widget.lesson!.title,
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.bold,
+                                    lineHeight: 1.16,
+                                  ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
+                            child: Text(
+                              '${(widget.lesson!.price.round()).toString()} рублей',
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w600,
+                                    lineHeight: 1.25,
+                                  ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 16.0, 0.0, 0.0),
+                            child: Html(
+                              data: widget.lesson!.description,
+                              onLinkTap: (url, _, __, ___) => launchURL(url!),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             Align(
               alignment: AlignmentDirectional(1.0, -1.0),

@@ -6,7 +6,6 @@ import 'sign_in_widget.dart' show SignInWidget;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -55,12 +54,14 @@ class SignInModel extends FlutterFlowModel<SignInWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     emailFieldControllerValidator = _emailFieldControllerValidator;
     passFieldVisibility = false;
     passFieldControllerValidator = _passFieldControllerValidator;
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     emailFieldFocusNode?.dispose();

@@ -41,12 +41,18 @@ class NewsRecord extends FirestoreRecord {
   DateTime? get creationDate => _creationDate;
   bool hasCreationDate() => _creationDate != null;
 
+  // "button_text" field.
+  String? _buttonText;
+  String get buttonText => _buttonText ?? '';
+  bool hasButtonText() => _buttonText != null;
+
   void _initializeFields() {
     _title = snapshotData['title'] as String?;
     _image = snapshotData['image'] as String?;
     _theNew = snapshotData['the_new'] as String?;
     _link = snapshotData['link'] as String?;
     _creationDate = snapshotData['creation_date'] as DateTime?;
+    _buttonText = snapshotData['button_text'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -88,6 +94,7 @@ Map<String, dynamic> createNewsRecordData({
   String? theNew,
   String? link,
   DateTime? creationDate,
+  String? buttonText,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -96,6 +103,7 @@ Map<String, dynamic> createNewsRecordData({
       'the_new': theNew,
       'link': link,
       'creation_date': creationDate,
+      'button_text': buttonText,
     }.withoutNulls,
   );
 
@@ -111,12 +119,13 @@ class NewsRecordDocumentEquality implements Equality<NewsRecord> {
         e1?.image == e2?.image &&
         e1?.theNew == e2?.theNew &&
         e1?.link == e2?.link &&
-        e1?.creationDate == e2?.creationDate;
+        e1?.creationDate == e2?.creationDate &&
+        e1?.buttonText == e2?.buttonText;
   }
 
   @override
-  int hash(NewsRecord? e) => const ListEquality()
-      .hash([e?.title, e?.image, e?.theNew, e?.link, e?.creationDate]);
+  int hash(NewsRecord? e) => const ListEquality().hash(
+      [e?.title, e?.image, e?.theNew, e?.link, e?.creationDate, e?.buttonText]);
 
   @override
   bool isValidKey(Object? o) => o is NewsRecord;

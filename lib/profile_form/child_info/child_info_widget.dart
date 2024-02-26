@@ -6,12 +6,12 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'dart:async';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'child_info_model.dart';
@@ -37,11 +37,17 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
     _model.nameFieldController ??= TextEditingController();
     _model.nameFieldFocusNode ??= FocusNode();
 
-    _model.growthFieldController ??= TextEditingController();
-    _model.growthFieldFocusNode ??= FocusNode();
+    _model.growthBirthFieldController ??= TextEditingController();
+    _model.growthBirthFieldFocusNode ??= FocusNode();
 
-    _model.weightFieldController ??= TextEditingController();
-    _model.weightFieldFocusNode ??= FocusNode();
+    _model.weightBirthFieldController1 ??= TextEditingController();
+    _model.weightBirthFieldFocusNode1 ??= FocusNode();
+
+    _model.growtTodayFieldController ??= TextEditingController();
+    _model.growtTodayFieldFocusNode ??= FocusNode();
+
+    _model.weightBirthFieldController2 ??= TextEditingController();
+    _model.weightBirthFieldFocusNode2 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -55,15 +61,6 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -782,16 +779,17 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller:
-                                            _model.growthFieldController,
-                                        focusNode: _model.growthFieldFocusNode,
+                                            _model.growthBirthFieldController,
+                                        focusNode:
+                                            _model.growthBirthFieldFocusNode,
                                         onChanged: (_) => EasyDebounce.debounce(
-                                          '_model.growthFieldController',
+                                          '_model.growthBirthFieldController',
                                           Duration(milliseconds: 2000),
                                           () => setState(() {}),
                                         ),
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: 'Рост',
+                                          labelText: 'Рост при рождении',
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .headlineSmall,
@@ -840,12 +838,13 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 22.0, 16.0, 22.0),
                                           suffixIcon: _model
-                                                  .growthFieldController!
+                                                  .growthBirthFieldController!
                                                   .text
                                                   .isNotEmpty
                                               ? InkWell(
                                                   onTap: () async {
-                                                    _model.growthFieldController
+                                                    _model
+                                                        .growthBirthFieldController
                                                         ?.clear();
                                                     setState(() {});
                                                   },
@@ -866,7 +865,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                             FlutterFlowTheme.of(context)
                                                 .overlay,
                                         validator: _model
-                                            .growthFieldControllerValidator
+                                            .growthBirthFieldControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -876,19 +875,20 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                       child: Container(
                                         width: double.infinity,
                                         child: TextFormField(
-                                          controller:
-                                              _model.weightFieldController,
+                                          controller: _model
+                                              .weightBirthFieldController1,
                                           focusNode:
-                                              _model.weightFieldFocusNode,
+                                              _model.weightBirthFieldFocusNode1,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
-                                            '_model.weightFieldController',
+                                            '_model.weightBirthFieldController1',
                                             Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            labelText: 'Вес в граммах',
+                                            labelText:
+                                                'Вес при рождении (в граммах)',
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .headlineSmall,
@@ -937,13 +937,13 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 22.0, 16.0, 22.0),
                                             suffixIcon: _model
-                                                    .weightFieldController!
+                                                    .weightBirthFieldController1!
                                                     .text
                                                     .isNotEmpty
                                                 ? InkWell(
                                                     onTap: () async {
                                                       _model
-                                                          .weightFieldController
+                                                          .weightBirthFieldController1
                                                           ?.clear();
                                                       setState(() {});
                                                     },
@@ -965,7 +965,207 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .overlay,
                                           validator: _model
-                                              .weightFieldControllerValidator
+                                              .weightBirthFieldController1Validator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 16.0, 0.0, 0.0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        child: TextFormField(
+                                          controller:
+                                              _model.growtTodayFieldController,
+                                          focusNode:
+                                              _model.growtTodayFieldFocusNode,
+                                          onChanged: (_) =>
+                                              EasyDebounce.debounce(
+                                            '_model.growtTodayFieldController',
+                                            Duration(milliseconds: 2000),
+                                            () => setState(() {}),
+                                          ),
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            labelText: 'Рост сейчас',
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmall,
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .divider,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                            ),
+                                            contentPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 22.0, 16.0, 22.0),
+                                            suffixIcon: _model
+                                                    .growtTodayFieldController!
+                                                    .text
+                                                    .isNotEmpty
+                                                ? InkWell(
+                                                    onTap: () async {
+                                                      _model
+                                                          .growtTodayFieldController
+                                                          ?.clear();
+                                                      setState(() {});
+                                                    },
+                                                    child: Icon(
+                                                      Icons.clear,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .grey40,
+                                                      size: 24.0,
+                                                    ),
+                                                  )
+                                                : null,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineSmall,
+                                          keyboardType: TextInputType.number,
+                                          cursorColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .overlay,
+                                          validator: _model
+                                              .growtTodayFieldControllerValidator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 16.0, 0.0, 0.0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        child: TextFormField(
+                                          controller: _model
+                                              .weightBirthFieldController2,
+                                          focusNode:
+                                              _model.weightBirthFieldFocusNode2,
+                                          onChanged: (_) =>
+                                              EasyDebounce.debounce(
+                                            '_model.weightBirthFieldController2',
+                                            Duration(milliseconds: 2000),
+                                            () => setState(() {}),
+                                          ),
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            labelText: 'Вес сейчас (в граммах)',
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmall,
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .divider,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                            ),
+                                            contentPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 22.0, 16.0, 22.0),
+                                            suffixIcon: _model
+                                                    .weightBirthFieldController2!
+                                                    .text
+                                                    .isNotEmpty
+                                                ? InkWell(
+                                                    onTap: () async {
+                                                      _model
+                                                          .weightBirthFieldController2
+                                                          ?.clear();
+                                                      setState(() {});
+                                                    },
+                                                    child: Icon(
+                                                      Icons.clear,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .grey40,
+                                                      size: 24.0,
+                                                    ),
+                                                  )
+                                                : null,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineSmall,
+                                          keyboardType: TextInputType.number,
+                                          cursorColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .overlay,
+                                          validator: _model
+                                              .weightBirthFieldController2Validator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -1000,25 +1200,27 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                               .nameFieldController.text;
                                         }
                                       }()
-                                      ..growth = int.tryParse(
-                                          _model.growthFieldController.text)
-                                      ..weight =
-                                          _model.weightFieldController.text !=
-                                                      null &&
-                                                  _model.weightFieldController
-                                                          .text !=
-                                                      ''
-                                              ? (int.parse(_model
-                                                      .weightFieldController
-                                                      .text) /
-                                                  1000)
-                                              : 0.0,
+                                      ..growth = int.tryParse(_model
+                                          .growthBirthFieldController.text)
+                                      ..weight = _model
+                                                      .weightBirthFieldController1
+                                                      .text !=
+                                                  null &&
+                                              _model.weightBirthFieldController1
+                                                      .text !=
+                                                  ''
+                                          ? (int.parse(_model
+                                                  .weightBirthFieldController1
+                                                  .text) /
+                                              1000)
+                                          : 0.0,
                                   );
                                 });
 
-                                await ChildrenRecord.createDoc(
-                                        currentUserReference!)
-                                    .set({
+                                var childrenRecordReference =
+                                    ChildrenRecord.createDoc(
+                                        currentUserReference!);
+                                await childrenRecordReference.set({
                                   ...createChildrenRecordData(
                                     name: FFAppState().tempChild.name,
                                     gender: FFAppState().tempChild.gender,
@@ -1070,6 +1272,105 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                     },
                                   ),
                                 });
+                                _model.child =
+                                    ChildrenRecord.getDocumentFromData({
+                                  ...createChildrenRecordData(
+                                    name: FFAppState().tempChild.name,
+                                    gender: FFAppState().tempChild.gender,
+                                    growth: FFAppState().tempChild.growth,
+                                    weight: FFAppState().tempChild.weight,
+                                    birthDate: FFAppState().tempChild.birthDate,
+                                    photo: FFAppState().tempChild.photo,
+                                    imageLeft: FFAppState().tempChild.imageLeft,
+                                    imageRight:
+                                        FFAppState().tempChild.imageRight,
+                                    childIsBorn:
+                                        FFAppState().tempChild.childIsBorn,
+                                    genderIsUnknown:
+                                        FFAppState().tempChild.genderIsUnknown,
+                                    conceptionDate:
+                                        FFAppState().tempChild.conceptionDate,
+                                    age: FFAppState().tempChild.age,
+                                  ),
+                                  ...mapToFirestore(
+                                    {
+                                      'growth_list': [
+                                        getGrowthListFirestoreData(
+                                          createGrowthListStruct(
+                                            growth:
+                                                FFAppState().tempChild.growth,
+                                            date: FFAppState()
+                                                .tempChild
+                                                .birthDate,
+                                            clearUnsetFields: false,
+                                            create: true,
+                                          ),
+                                          true,
+                                        )
+                                      ],
+                                      'weight_list': [
+                                        getWeightListFirestoreData(
+                                          createWeightListStruct(
+                                            weight:
+                                                FFAppState().tempChild.weight,
+                                            date: FFAppState()
+                                                .tempChild
+                                                .birthDate,
+                                            clearUnsetFields: false,
+                                            create: true,
+                                          ),
+                                          true,
+                                        )
+                                      ],
+                                    },
+                                  ),
+                                }, childrenRecordReference);
+                                if (FFAppState().tempChild.childIsBorn) {
+                                  unawaited(
+                                    () async {
+                                      await _model.child!.reference.update({
+                                        ...mapToFirestore(
+                                          {
+                                            'growth_list':
+                                                FieldValue.arrayUnion([
+                                              getGrowthListFirestoreData(
+                                                createGrowthListStruct(
+                                                  growth: int.tryParse(_model
+                                                      .growtTodayFieldController
+                                                      .text),
+                                                  date: getCurrentTimestamp,
+                                                  clearUnsetFields: false,
+                                                ),
+                                                true,
+                                              )
+                                            ]),
+                                            'weight_list':
+                                                FieldValue.arrayUnion([
+                                              getWeightListFirestoreData(
+                                                createWeightListStruct(
+                                                  weight: _model.weightBirthFieldController2
+                                                                  .text !=
+                                                              null &&
+                                                          _model.weightBirthFieldController2
+                                                                  .text !=
+                                                              ''
+                                                      ? (int.parse(_model
+                                                              .weightBirthFieldController2
+                                                              .text) /
+                                                          1000)
+                                                      : 0.0,
+                                                  date: getCurrentTimestamp,
+                                                  clearUnsetFields: false,
+                                                ),
+                                                true,
+                                              )
+                                            ]),
+                                          },
+                                        ),
+                                      });
+                                    }(),
+                                  );
+                                }
 
                                 await currentUserReference!
                                     .update(createUsersRecordData(
@@ -1077,6 +1378,8 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                 ));
 
                                 context.goNamed('MainPage');
+
+                                setState(() {});
                               },
                               text: 'Продолжить',
                               options: FFButtonOptions(

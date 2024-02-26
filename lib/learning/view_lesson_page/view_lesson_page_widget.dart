@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'view_lesson_page_model.dart';
@@ -47,15 +46,6 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -69,89 +59,90 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(0.0),
-                  child: Image.network(
-                    widget.lesson!.preview,
-                    width: double.infinity,
-                    height: 216.0,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(-1.0, -1.0),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 0.0, 0.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.safePop();
-                      },
-                      child: Container(
-                        width: 36.0,
-                        height: 36.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(13.0),
-                        ),
-                        child: Icon(
-                          FFIcons.kleft,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 24.0,
-                        ),
+            Container(
+              decoration: BoxDecoration(),
+              child: Container(
+                height: MediaQuery.sizeOf(context).width / 1.339,
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(0.0),
+                      child: Image.network(
+                        widget.lesson!.lessonImage,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
                       ),
                     ),
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 79.0, 0.0, 0.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed(
-                          'ViewLessonVid',
-                          queryParameters: {
-                            'lesson': serializeParam(
-                              widget.lesson,
-                              ParamType.Document,
-                            ),
-                          }.withoutNulls,
-                          extra: <String, dynamic>{
-                            'lesson': widget.lesson,
+                    Align(
+                      alignment: AlignmentDirectional(-1.0, -1.0),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 45.0, 0.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.safePop();
                           },
-                        );
-                      },
-                      child: Container(
-                        width: 56.0,
-                        height: 56.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          Icons.play_arrow_rounded,
-                          color: FlutterFlowTheme.of(context).primary,
-                          size: 42.0,
+                          child: Container(
+                            width: 36.0,
+                            height: 36.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(13.0),
+                            ),
+                            child: Icon(
+                              FFIcons.kleft,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 24.0,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                            'ViewLessonVid',
+                            queryParameters: {
+                              'lesson': serializeParam(
+                                widget.lesson,
+                                ParamType.Document,
+                              ),
+                            }.withoutNulls,
+                            extra: <String, dynamic>{
+                              'lesson': widget.lesson,
+                            },
+                          );
+                        },
+                        child: Container(
+                          width: 56.0,
+                          height: 56.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.play_arrow_rounded,
+                            color: FlutterFlowTheme.of(context).primary,
+                            size: 42.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
             Flexible(
               child: SingleChildScrollView(
