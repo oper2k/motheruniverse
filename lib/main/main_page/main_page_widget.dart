@@ -448,7 +448,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       BoxDecoration(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .tertiary,
+                                                                        .info,
                                                                     borderRadius:
                                                                         BorderRadius.circular(
                                                                             16.0),
@@ -457,10 +457,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            28.0,
-                                                                            53.0,
-                                                                            28.0,
-                                                                            53.0),
+                                                                            0.0,
+                                                                            25.0,
+                                                                            0.0,
+                                                                            25.0),
                                                                     child:
                                                                         ClipRRect(
                                                                       borderRadius:
@@ -468,11 +468,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                               0.0),
                                                                       child: Image
                                                                           .asset(
-                                                                        'assets/images/uc7hf_.webp',
+                                                                        'assets/images/boy.webp',
                                                                         width:
-                                                                            64.0,
+                                                                            120.0,
                                                                         height:
-                                                                            64.0,
+                                                                            120.0,
                                                                         fit: BoxFit
                                                                             .contain,
                                                                       ),
@@ -497,7 +497,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       BoxDecoration(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .tertiary,
+                                                                        .info,
                                                                     borderRadius:
                                                                         BorderRadius.circular(
                                                                             16.0),
@@ -506,10 +506,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            28.0,
-                                                                            53.0,
-                                                                            28.0,
-                                                                            53.0),
+                                                                            0.0,
+                                                                            25.0,
+                                                                            0.0,
+                                                                            25.0),
                                                                     child:
                                                                         ClipRRect(
                                                                       borderRadius:
@@ -517,11 +517,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                               0.0),
                                                                       child: Image
                                                                           .asset(
-                                                                        'assets/images/76ydn_.webp',
+                                                                        'assets/images/girl.webp',
                                                                         width:
-                                                                            64.0,
+                                                                            120.0,
                                                                         height:
-                                                                            64.0,
+                                                                            120.0,
                                                                         fit: BoxFit
                                                                             .contain,
                                                                       ),
@@ -544,7 +544,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       BoxDecoration(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .tertiary,
+                                                                        .info,
                                                                     borderRadius:
                                                                         BorderRadius.circular(
                                                                             16.0),
@@ -553,10 +553,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            28.0,
-                                                                            53.0,
-                                                                            28.0,
-                                                                            53.0),
+                                                                            0.0,
+                                                                            25.0,
+                                                                            0.0,
+                                                                            25.0),
                                                                     child:
                                                                         ClipRRect(
                                                                       borderRadius:
@@ -566,9 +566,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                           .asset(
                                                                         'assets/images/f5ei4_.webp',
                                                                         width:
-                                                                            64.0,
+                                                                            120.0,
                                                                         height:
-                                                                            64.0,
+                                                                            120.0,
                                                                         fit: BoxFit
                                                                             .contain,
                                                                       ),
@@ -710,7 +710,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                           .last
                                                                           .growth
                                                                           .toString(),
-                                                                      '-',
+                                                                      '0',
                                                                     )}  см',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -750,7 +750,12 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                           0.0,
                                                                           0.0),
                                                                   child: Text(
-                                                                    '${((childItem.weightList.last.weight * 1000).round()).toString()}  гр',
+                                                                    '${valueOrDefault<String>(
+                                                                      ((childItem.weightList.last.weight * 1000)
+                                                                              .round())
+                                                                          .toString(),
+                                                                      '0',
+                                                                    )}  гр',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .headlineSmall
@@ -932,7 +937,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       BoxDecoration(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .tertiary,
+                                                                        .info,
                                                                     borderRadius:
                                                                         BorderRadius.circular(
                                                                             16.0),
@@ -941,10 +946,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            28.0,
-                                                                            53.0,
-                                                                            28.0,
-                                                                            53.0),
+                                                                            0.0,
+                                                                            25.0,
+                                                                            0.0,
+                                                                            25.0),
                                                                     child:
                                                                         ClipRRect(
                                                                       borderRadius:
@@ -952,11 +957,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                               0.0),
                                                                       child: Image
                                                                           .asset(
-                                                                        'assets/images/uc7hf_.webp',
+                                                                        'assets/images/boy.webp',
                                                                         width:
-                                                                            64.0,
+                                                                            120.0,
                                                                         height:
-                                                                            64.0,
+                                                                            120.0,
                                                                         fit: BoxFit
                                                                             .contain,
                                                                       ),
@@ -981,7 +986,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       BoxDecoration(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .tertiary,
+                                                                        .info,
                                                                     borderRadius:
                                                                         BorderRadius.circular(
                                                                             16.0),
@@ -990,10 +995,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            28.0,
-                                                                            53.0,
-                                                                            28.0,
-                                                                            53.0),
+                                                                            0.0,
+                                                                            25.0,
+                                                                            0.0,
+                                                                            25.0),
                                                                     child:
                                                                         ClipRRect(
                                                                       borderRadius:
@@ -1001,11 +1006,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                               0.0),
                                                                       child: Image
                                                                           .asset(
-                                                                        'assets/images/76ydn_.webp',
+                                                                        'assets/images/girl.webp',
                                                                         width:
-                                                                            64.0,
+                                                                            120.0,
                                                                         height:
-                                                                            64.0,
+                                                                            120.0,
                                                                         fit: BoxFit
                                                                             .contain,
                                                                       ),
@@ -1028,7 +1033,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       BoxDecoration(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .tertiary,
+                                                                        .info,
                                                                     borderRadius:
                                                                         BorderRadius.circular(
                                                                             16.0),
@@ -1037,10 +1042,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            28.0,
-                                                                            53.0,
-                                                                            28.0,
-                                                                            53.0),
+                                                                            0.0,
+                                                                            25.0,
+                                                                            0.0,
+                                                                            25.0),
                                                                     child:
                                                                         ClipRRect(
                                                                       borderRadius:
@@ -1050,9 +1055,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                           .asset(
                                                                         'assets/images/f5ei4_.webp',
                                                                         width:
-                                                                            64.0,
+                                                                            120.0,
                                                                         height:
-                                                                            64.0,
+                                                                            120.0,
                                                                         fit: BoxFit
                                                                             .contain,
                                                                       ),

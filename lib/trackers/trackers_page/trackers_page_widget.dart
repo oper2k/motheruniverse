@@ -264,7 +264,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                             0.0),
                                                                 child:
                                                                     Image.asset(
-                                                                  'assets/images/uc7hf_.webp',
+                                                                  'assets/images/boy.webp',
                                                                   width: 48.0,
                                                                   height: 48.0,
                                                                   fit: BoxFit
@@ -279,7 +279,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                             0.0),
                                                                 child:
                                                                     Image.asset(
-                                                                  'assets/images/76ydn_.webp',
+                                                                  'assets/images/girl.webp',
                                                                   width: 48.0,
                                                                   height: 48.0,
                                                                   fit: BoxFit

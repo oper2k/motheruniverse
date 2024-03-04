@@ -163,18 +163,6 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                 ),
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 0.0),
-                      child: Text(
-                        widget.lesson!.description,
-                        style:
-                            FlutterFlowTheme.of(context).headlineSmall.override(
-                                  fontFamily: 'Inter',
-                                  lineHeight: 1.5,
-                                ),
-                      ),
-                    ),
                     if (widget.lesson!.files.length > 0)
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -275,6 +263,33 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                           },
                         ),
                       ),
+                    if (widget.lesson?.timeCode != null &&
+                        widget.lesson?.timeCode != '')
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 32.0, 20.0, 0.0),
+                        child: Text(
+                          'ТАЙМИНГ ЛЕКЦИИ',
+                          style: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w600,
+                              ),
+                        ),
+                      ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
+                      child: Text(
+                        widget.lesson!.timeCode,
+                        style:
+                            FlutterFlowTheme.of(context).headlineSmall.override(
+                                  fontFamily: 'Inter',
+                                  lineHeight: 1.5,
+                                ),
+                      ),
+                    ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),

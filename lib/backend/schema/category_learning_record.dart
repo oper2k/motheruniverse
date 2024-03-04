@@ -26,9 +26,15 @@ class CategoryLearningRecord extends FirestoreRecord {
   int get sort => _sort ?? 0;
   bool hasSort() => _sort != null;
 
+  // "full_category_name" field.
+  String? _fullCategoryName;
+  String get fullCategoryName => _fullCategoryName ?? '';
+  bool hasFullCategoryName() => _fullCategoryName != null;
+
   void _initializeFields() {
     _categoryName = snapshotData['category_name'] as String?;
     _sort = castToType<int>(snapshotData['sort']);
+    _fullCategoryName = snapshotData['full_category_name'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -69,11 +75,13 @@ class CategoryLearningRecord extends FirestoreRecord {
 Map<String, dynamic> createCategoryLearningRecordData({
   String? categoryName,
   int? sort,
+  String? fullCategoryName,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'category_name': categoryName,
       'sort': sort,
+      'full_category_name': fullCategoryName,
     }.withoutNulls,
   );
 
@@ -86,12 +94,14 @@ class CategoryLearningRecordDocumentEquality
 
   @override
   bool equals(CategoryLearningRecord? e1, CategoryLearningRecord? e2) {
-    return e1?.categoryName == e2?.categoryName && e1?.sort == e2?.sort;
+    return e1?.categoryName == e2?.categoryName &&
+        e1?.sort == e2?.sort &&
+        e1?.fullCategoryName == e2?.fullCategoryName;
   }
 
   @override
-  int hash(CategoryLearningRecord? e) =>
-      const ListEquality().hash([e?.categoryName, e?.sort]);
+  int hash(CategoryLearningRecord? e) => const ListEquality()
+      .hash([e?.categoryName, e?.sort, e?.fullCategoryName]);
 
   @override
   bool isValidKey(Object? o) => o is CategoryLearningRecord;

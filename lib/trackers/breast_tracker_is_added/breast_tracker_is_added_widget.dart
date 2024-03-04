@@ -319,7 +319,7 @@ class _BreastTrackerIsAddedWidgetState
                           },
                         );
                       },
-                      text: 'Начать  заново',
+                      text: 'Начать заново',
                       options: FFButtonOptions(
                         width: 166.0,
                         height: 48.0,

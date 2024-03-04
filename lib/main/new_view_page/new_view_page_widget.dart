@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'new_view_page_model.dart';
@@ -109,68 +108,73 @@ class _NewViewPageWidgetState extends State<NewViewPageWidget> {
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 24.0, 0.0, 0.0),
-                          child: Text(
-                            widget.newItem!.title,
-                            style: FlutterFlowTheme.of(context)
-                                .headlineSmall
-                                .override(
-                                  fontFamily: 'Inter',
-                                  fontSize: 24.0,
-                                  fontWeight: FontWeight.bold,
-                                  lineHeight: 1.16,
-                                ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 16.0, 0.0, 50.0),
-                          child: Html(
-                            data: widget.newItem!.theNew,
-                            onLinkTap: (url, _, __, ___) => launchURL(url!),
-                          ),
-                        ),
-                        if (widget.newItem?.link != null &&
-                            widget.newItem?.link != '')
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 50.0),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                await launchURL(widget.newItem!.link);
-                              },
-                              text: widget.newItem!.buttonText,
-                              options: FFButtonOptions(
-                                width: double.infinity,
-                                height: 56.0,
-                                padding: EdgeInsets.all(0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .displaySmall
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      lineHeight: 1.28,
-                                    ),
-                                elevation: 0.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                ),
-                                borderRadius: BorderRadius.circular(16.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                        child: Text(
+                          widget.newItem!.title,
+                          style: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .override(
+                                fontFamily: 'Inter',
+                                fontSize: 24.0,
+                                fontWeight: FontWeight.bold,
+                                lineHeight: 1.16,
                               ),
-                              showLoadingIndicator: false,
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                        child: Text(
+                          widget.newItem!.theNew,
+                          style: FlutterFlowTheme.of(context)
+                              .displayMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                lineHeight: 1.5,
+                              ),
+                        ),
+                      ),
+                      if (widget.newItem?.link != null &&
+                          widget.newItem?.link != '')
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 50.0, 0.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              await launchURL(widget.newItem!.link);
+                            },
+                            text: widget.newItem!.buttonText,
+                            options: FFButtonOptions(
+                              width: double.infinity,
+                              height: 56.0,
+                              padding: EdgeInsets.all(0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .displaySmall
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    lineHeight: 1.28,
+                                  ),
+                              elevation: 0.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0),
                             ),
+                            showLoadingIndicator: false,
                           ),
-                      ],
-                    ),
+                        ),
+                    ].addToEnd(SizedBox(height: 50.0)),
                   ),
                 ),
               ],

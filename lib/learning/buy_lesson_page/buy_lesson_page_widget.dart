@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'buy_lesson_page_model.dart';
@@ -58,6 +57,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
             SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(0.0),
@@ -107,12 +107,19 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
-                            child: Html(
-                              data: widget.lesson!.description,
-                              onLinkTap: (url, _, __, ___) => launchURL(url!),
+                            child: Text(
+                              widget.lesson!.description,
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    lineHeight: 1.5,
+                                  ),
                             ),
                           ),
-                        ],
+                        ].addToEnd(SizedBox(height: 200.0)),
                       ),
                     ),
                   ),

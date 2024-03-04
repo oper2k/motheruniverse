@@ -228,21 +228,21 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .tertiary,
+                                                .info,
                                             borderRadius:
                                                 BorderRadius.circular(16.0),
                                           ),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    28.0, 53.0, 28.0, 53.0),
+                                                    0.0, 25.0, 0.0, 25.0),
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(0.0),
                                               child: Image.asset(
-                                                'assets/images/uc7hf_.webp',
-                                                width: 64.0,
-                                                height: 64.0,
+                                                'assets/images/boy.webp',
+                                                width: 120.0,
+                                                height: 120.0,
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -257,21 +257,21 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .tertiary,
+                                                .info,
                                             borderRadius:
                                                 BorderRadius.circular(16.0),
                                           ),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    28.0, 53.0, 28.0, 53.0),
+                                                    0.0, 25.0, 0.0, 25.0),
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(0.0),
                                               child: Image.asset(
-                                                'assets/images/76ydn_.webp',
-                                                width: 64.0,
-                                                height: 64.0,
+                                                'assets/images/girl.webp',
+                                                width: 120.0,
+                                                height: 120.0,
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -285,21 +285,21 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .tertiary,
+                                                .info,
                                             borderRadius:
                                                 BorderRadius.circular(16.0),
                                           ),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    28.0, 53.0, 28.0, 53.0),
+                                                    0.0, 25.0, 0.0, 25.0),
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(0.0),
                                               child: Image.asset(
                                                 'assets/images/f5ei4_.webp',
-                                                width: 64.0,
-                                                height: 64.0,
+                                                width: 120.0,
+                                                height: 120.0,
                                                 fit: BoxFit.contain,
                                               ),
                                             ),

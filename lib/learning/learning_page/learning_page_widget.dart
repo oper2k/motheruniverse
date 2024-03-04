@@ -483,11 +483,11 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                     .fromSTEB(
                                                                         20.0,
                                                                         24.0,
-                                                                        0.0,
+                                                                        20.0,
                                                                         0.0),
                                                             child: Text(
                                                               categoryItem
-                                                                  .categoryName,
+                                                                  .fullCategoryName,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .headlineMedium

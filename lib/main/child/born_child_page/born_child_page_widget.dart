@@ -263,23 +263,23 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .tertiary,
+                                                      .info,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           16.0),
                                                 ),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(28.0, 53.0,
-                                                          28.0, 53.0),
+                                                      .fromSTEB(
+                                                          0.0, 25.0, 0.0, 25.0),
                                                   child: ClipRRect(
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             0.0),
                                                     child: Image.asset(
-                                                      'assets/images/uc7hf_.webp',
-                                                      width: 64.0,
-                                                      height: 64.0,
+                                                      'assets/images/boy.webp',
+                                                      width: 120.0,
+                                                      height: 120.0,
                                                       fit: BoxFit.contain,
                                                     ),
                                                   ),
@@ -296,23 +296,23 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .tertiary,
+                                                      .info,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           16.0),
                                                 ),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(28.0, 53.0,
-                                                          28.0, 53.0),
+                                                      .fromSTEB(
+                                                          0.0, 25.0, 0.0, 25.0),
                                                   child: ClipRRect(
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             0.0),
                                                     child: Image.asset(
-                                                      'assets/images/76ydn_.webp',
-                                                      width: 64.0,
-                                                      height: 64.0,
+                                                      'assets/images/girl.webp',
+                                                      width: 120.0,
+                                                      height: 120.0,
                                                       fit: BoxFit.contain,
                                                     ),
                                                   ),
@@ -328,23 +328,23 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .tertiary,
+                                                      .info,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           16.0),
                                                 ),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(28.0, 53.0,
-                                                          28.0, 53.0),
+                                                      .fromSTEB(
+                                                          0.0, 25.0, 0.0, 25.0),
                                                   child: ClipRRect(
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             0.0),
                                                     child: Image.asset(
                                                       'assets/images/f5ei4_.webp',
-                                                      width: 64.0,
-                                                      height: 64.0,
+                                                      width: 120.0,
+                                                      height: 120.0,
                                                       fit: BoxFit.contain,
                                                     ),
                                                   ),
@@ -1110,157 +1110,156 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                             ),
                                           ),
                                         ),
-                                        if (false)
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'AdvicesBornChild',
-                                                queryParameters: {
-                                                  'initialIndex':
-                                                      serializeParam(
-                                                    () {
-                                                      if (functions.getCountOfDays(widget.child!.birthDate!) <
-                                                          30) {
-                                                        return 0;
-                                                      } else if (functions.getCountOfDays(widget.child!.birthDate!) <
-                                                          61) {
-                                                        return 1;
-                                                      } else if (functions.getCountOfDays(widget.child!.birthDate!) <
-                                                          91) {
-                                                        return 2;
-                                                      } else if (functions
-                                                              .getCountOfDays(widget
-                                                                  .child!
-                                                                  .birthDate!) <
-                                                          122) {
-                                                        return 3;
-                                                      } else if (functions
-                                                              .getCountOfDays(widget
-                                                                  .child!
-                                                                  .birthDate!) <
-                                                          152) {
-                                                        return 4;
-                                                      } else if (functions
-                                                              .getCountOfDays(widget
-                                                                  .child!
-                                                                  .birthDate!) <
-                                                          182) {
-                                                        return 5;
-                                                      } else if (functions.getCountOfDays(
-                                                              widget.child!.birthDate!) <
-                                                          213) {
-                                                        return 6;
-                                                      } else if (functions.getCountOfDays(widget.child!.birthDate!) < 244) {
-                                                        return 7;
-                                                      } else if (functions.getCountOfDays(widget.child!.birthDate!) < 274) {
-                                                        return 8;
-                                                      } else if (functions.getCountOfDays(widget.child!.birthDate!) < 305) {
-                                                        return 9;
-                                                      } else if (functions.getCountOfDays(widget.child!.birthDate!) < 335) {
-                                                        return 10;
-                                                      } else if (functions.getCountOfDays(widget.child!.birthDate!) < 365) {
-                                                        return 11;
-                                                      } else if (functions.getCountOfDays(widget.child!.birthDate!) < 395) {
-                                                        return 12;
-                                                      } else if (functions.getCountOfDays(widget.child!.birthDate!) < 426) {
-                                                        return 13;
-                                                      } else if (functions.getCountOfDays(widget.child!.birthDate!) < 456) {
-                                                        return 14;
-                                                      } else {
-                                                        return 15;
-                                                      }
-                                                    }(),
-                                                    ParamType.int,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            child: Container(
-                                              width: 120.0,
-                                              height: 100.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .blueLight,
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                              ),
-                                              child: Padding(
-                                                padding: EdgeInsets.all(14.0),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Expanded(
-                                                          child: AutoSizeText(
-                                                            'Советы',
-                                                            maxLines: 1,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .headlineLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .blue,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  lineHeight:
-                                                                      1.25,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Icon(
-                                                          FFIcons
-                                                              .kmessageCircle,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .blue,
-                                                          size: 24.0,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Text(
-                                                          'Смотреть',
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              'AdvicesBornChild',
+                                              queryParameters: {
+                                                'initialIndex': serializeParam(
+                                                  () {
+                                                    if (functions.getCountOfDays(widget.child!.birthDate!) <
+                                                        30) {
+                                                      return 0;
+                                                    } else if (functions.getCountOfDays(widget.child!.birthDate!) <
+                                                        61) {
+                                                      return 1;
+                                                    } else if (functions.getCountOfDays(
+                                                            widget.child!
+                                                                .birthDate!) <
+                                                        91) {
+                                                      return 2;
+                                                    } else if (functions
+                                                            .getCountOfDays(widget
+                                                                .child!
+                                                                .birthDate!) <
+                                                        122) {
+                                                      return 3;
+                                                    } else if (functions
+                                                            .getCountOfDays(widget
+                                                                .child!
+                                                                .birthDate!) <
+                                                        152) {
+                                                      return 4;
+                                                    } else if (functions.getCountOfDays(
+                                                            widget.child!.birthDate!) <
+                                                        182) {
+                                                      return 5;
+                                                    } else if (functions.getCountOfDays(widget.child!.birthDate!) < 213) {
+                                                      return 6;
+                                                    } else if (functions.getCountOfDays(widget.child!.birthDate!) < 244) {
+                                                      return 7;
+                                                    } else if (functions.getCountOfDays(widget.child!.birthDate!) < 274) {
+                                                      return 8;
+                                                    } else if (functions.getCountOfDays(widget.child!.birthDate!) < 305) {
+                                                      return 9;
+                                                    } else if (functions.getCountOfDays(widget.child!.birthDate!) < 335) {
+                                                      return 10;
+                                                    } else if (functions.getCountOfDays(widget.child!.birthDate!) < 365) {
+                                                      return 11;
+                                                    } else if (functions.getCountOfDays(widget.child!.birthDate!) < 395) {
+                                                      return 12;
+                                                    } else if (functions.getCountOfDays(widget.child!.birthDate!) < 426) {
+                                                      return 13;
+                                                    } else if (functions.getCountOfDays(widget.child!.birthDate!) < 456) {
+                                                      return 14;
+                                                    } else if (functions.getCountOfDays(widget.child!.birthDate!) < 486) {
+                                                      return 15;
+                                                    } else if (functions.getCountOfDays(widget.child!.birthDate!) < 517) {
+                                                      return 16;
+                                                    } else if (functions.getCountOfDays(widget.child!.birthDate!) < 547) {
+                                                      return 17;
+                                                    } else {
+                                                      return 18;
+                                                    }
+                                                  }(),
+                                                  ParamType.int,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          },
+                                          child: Container(
+                                            width: 120.0,
+                                            height: 100.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .blueLight,
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsets.all(14.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Expanded(
+                                                        child: AutoSizeText(
+                                                          'Советы',
+                                                          maxLines: 1,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .headlineSmall
+                                                              .headlineLarge
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
-                                                                fontSize: 14.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .blue,
+                                                                fontSize: 16.0,
                                                                 lineHeight:
-                                                                    1.28,
+                                                                    1.25,
                                                               ),
                                                         ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
+                                                      ),
+                                                      Icon(
+                                                        FFIcons.kmessageCircle,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .blue,
+                                                        size: 24.0,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        'Смотреть',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .headlineSmall
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Inter',
+                                                              fontSize: 14.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              lineHeight: 1.28,
+                                                            ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ),
+                                        ),
                                       ],
                                     ),
                                   ),
