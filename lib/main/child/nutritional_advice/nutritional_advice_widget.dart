@@ -1,12 +1,9 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'nutritional_advice_model.dart';
 export 'nutritional_advice_model.dart';
 
@@ -52,8 +49,6 @@ class _NutritionalAdviceWidgetState extends State<NutritionalAdviceWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -84,12 +79,12 @@ class _NutritionalAdviceWidgetState extends State<NutritionalAdviceWidget> {
             List<NutritionalAdviceRecord> containerNutritionalAdviceRecordList =
                 snapshot.data!;
             return Container(
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: Stack(
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -101,7 +96,7 @@ class _NutritionalAdviceWidgetState extends State<NutritionalAdviceWidget> {
                                   .primaryBackground,
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -113,7 +108,7 @@ class _NutritionalAdviceWidgetState extends State<NutritionalAdviceWidget> {
                                 child: Container(
                                   width: 38.0,
                                   height: 38.0,
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Icon(
                                     FFIcons.kleft,
                                     color: FlutterFlowTheme.of(context)
@@ -139,11 +134,11 @@ class _NutritionalAdviceWidgetState extends State<NutritionalAdviceWidget> {
                                             .displayLarge,
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 24.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Text(
                                             containerNutritionalAdviceRecordList[
                                                     _model.choseWeekIndex]
@@ -163,12 +158,12 @@ class _NutritionalAdviceWidgetState extends State<NutritionalAdviceWidget> {
                               ],
                             ),
                           ),
-                        ].addToEnd(SizedBox(height: 183.0)),
+                        ].addToEnd(const SizedBox(height: 183.0)),
                       ),
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
+                    alignment: const AlignmentDirectional(0.0, 1.0),
                     child: Container(
                       width: double.infinity,
                       height: 171.0,
@@ -177,7 +172,7 @@ class _NutritionalAdviceWidgetState extends State<NutritionalAdviceWidget> {
                       ),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -186,7 +181,7 @@ class _NutritionalAdviceWidgetState extends State<NutritionalAdviceWidget> {
                                 final week =
                                     containerNutritionalAdviceRecordList
                                         .toList();
-                                return Container(
+                                return SizedBox(
                                   width: double.infinity,
                                   height: 78.0,
                                   child: CarouselSlider.builder(

@@ -1,18 +1,15 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:async';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'child_info_model.dart';
 export 'child_info_model.dart';
@@ -71,14 +68,14 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 width: double.infinity,
                 height: 38.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -94,7 +91,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                       child: Container(
                         width: 38.0,
                         height: 38.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Icon(
                           FFIcons.kleft,
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -105,13 +102,13 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                     Expanded(
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 38.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 38.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 8.0, 0.0),
                               child: Container(
                                 width: 48.0,
@@ -123,7 +120,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 8.0, 0.0),
                               child: Container(
                                 width: 48.0,
@@ -158,7 +155,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: AutoSizeText(
                               'Добавьте данные о ребенке',
@@ -168,7 +165,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 0.0),
                             child: AutoSizeText(
                               'Персонализируем приложение \nпо этим данным',
@@ -183,7 +180,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -191,17 +188,16 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                               children: [
                                 Builder(
                                   builder: (context) {
-                                    if (FFAppState().tempChild.photo != null &&
-                                        FFAppState().tempChild.photo != '') {
+                                    if (FFAppState().tempChild.photo != '') {
                                       return Stack(
                                         alignment:
-                                            AlignmentDirectional(1.0, -1.0),
+                                            const AlignmentDirectional(1.0, -1.0),
                                         children: [
                                           Container(
                                             width: 112.0,
                                             height: 112.0,
                                             clipBehavior: Clip.antiAlias,
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               shape: BoxShape.circle,
                                             ),
                                             child: Image.network(
@@ -362,14 +358,12 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        if (FFAppState().tempChild.photo !=
-                                                null &&
-                                            FFAppState().tempChild.photo != '')
+                                        if (FFAppState().tempChild.photo != '')
                                           InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -392,7 +386,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(4.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: AutoSizeText(
@@ -413,7 +407,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                           ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 24.0, 0.0, 0.0),
                                           child: Text(
                                             'Будет отображаться \nв личном кабинете, поможет ускорить работу и персонализирует приложение',
@@ -434,7 +428,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 32.0, 0.0, 0.0),
                             child: Builder(
                               builder: (context) {
@@ -452,7 +446,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 7.0, 16.0, 7.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -512,7 +506,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 7.0, 16.0, 7.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -573,7 +567,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 7.0, 16.0, 7.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -623,14 +617,14 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                   return Form(
                                     key: _model.formKey1,
                                     autovalidateMode: AutovalidateMode.disabled,
-                                    child: Container(
+                                    child: SizedBox(
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller: _model.nameFieldController,
                                         focusNode: _model.nameFieldFocusNode,
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.nameFieldController',
-                                          Duration(milliseconds: 2000),
+                                          const Duration(milliseconds: 2000),
                                           () => setState(() {}),
                                         ),
                                         obscureText: false,
@@ -681,7 +675,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                                 BorderRadius.circular(12.0),
                                           ),
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 22.0, 16.0, 22.0),
                                           suffixIcon: _model
                                                   .nameFieldController!
@@ -719,7 +713,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -739,8 +733,8 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                   value: _model.switchValue ??= false,
                                   onChanged: (newValue) async {
                                     setState(
-                                        () => _model.switchValue = newValue!);
-                                    if (newValue!) {
+                                        () => _model.switchValue = newValue);
+                                    if (newValue) {
                                       setState(() {
                                         _model.nameIsUnknown = true;
                                       });
@@ -767,7 +761,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                           ),
                           if (FFAppState().tempChild.childIsBorn == true)
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 0.0),
                               child: Form(
                                 key: _model.formKey2,
@@ -775,7 +769,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller:
@@ -784,7 +778,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                             _model.growthBirthFieldFocusNode,
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.growthBirthFieldController',
-                                          Duration(milliseconds: 2000),
+                                          const Duration(milliseconds: 2000),
                                           () => setState(() {}),
                                         ),
                                         obscureText: false,
@@ -835,7 +829,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                                 BorderRadius.circular(12.0),
                                           ),
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 22.0, 16.0, 22.0),
                                           suffixIcon: _model
                                                   .growthBirthFieldController!
@@ -870,9 +864,9 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 16.0, 0.0, 0.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model
@@ -882,7 +876,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.weightBirthFieldController1',
-                                            Duration(milliseconds: 2000),
+                                            const Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
                                           obscureText: false,
@@ -934,7 +928,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 22.0, 16.0, 22.0),
                                             suffixIcon: _model
                                                     .weightBirthFieldController1!
@@ -971,9 +965,9 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 16.0, 0.0, 0.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller:
@@ -983,7 +977,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.growtTodayFieldController',
-                                            Duration(milliseconds: 2000),
+                                            const Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
                                           obscureText: false,
@@ -1034,7 +1028,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 22.0, 16.0, 22.0),
                                             suffixIcon: _model
                                                     .growtTodayFieldController!
@@ -1071,9 +1065,9 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 16.0, 0.0, 0.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model
@@ -1083,7 +1077,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.weightBirthFieldController2',
-                                            Duration(milliseconds: 2000),
+                                            const Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
                                           obscureText: false,
@@ -1134,7 +1128,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 22.0, 16.0, 22.0),
                                             suffixIcon: _model
                                                     .weightBirthFieldController2!
@@ -1175,7 +1169,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                               ),
                             ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 57.0, 0.0, 45.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -1202,11 +1196,7 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                       }()
                                       ..growth = int.tryParse(_model
                                           .growthBirthFieldController.text)
-                                      ..weight = _model
-                                                      .weightBirthFieldController1
-                                                      .text !=
-                                                  null &&
-                                              _model.weightBirthFieldController1
+                                      ..weight = _model.weightBirthFieldController1
                                                       .text !=
                                                   ''
                                           ? (int.parse(_model
@@ -1350,9 +1340,6 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                                                 createWeightListStruct(
                                                   weight: _model.weightBirthFieldController2
                                                                   .text !=
-                                                              null &&
-                                                          _model.weightBirthFieldController2
-                                                                  .text !=
                                                               ''
                                                       ? (int.parse(_model
                                                               .weightBirthFieldController2
@@ -1385,14 +1372,14 @@ class _ChildInfoWidgetState extends State<ChildInfoWidget> {
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 56.0,
-                                padding: EdgeInsets.all(0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsets.all(0.0),
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primary,
                                 textStyle:
                                     FlutterFlowTheme.of(context).displaySmall,
                                 elevation: 0.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.transparent,
                                 ),
                                 borderRadius: BorderRadius.circular(16.0),

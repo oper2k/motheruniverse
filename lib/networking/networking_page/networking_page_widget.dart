@@ -5,14 +5,10 @@ import '/components/networking_profile/networking_profile_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
-import 'package:provider/provider.dart';
 import 'networking_page_model.dart';
 export 'networking_page_model.dart';
 
@@ -37,7 +33,7 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
+          await getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0));
       unawaited(
         () async {
           await currentUserReference!.update(createUsersRecordData(
@@ -48,7 +44,7 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
       );
     });
 
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+    getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -62,7 +58,6 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
     if (currentUserLocationValue == null) {
       return Container(
         color: FlutterFlowTheme.of(context).primaryBackground,
@@ -112,9 +107,9 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
             List<UsersRecord> containerUsersRecordList =
                 snapshot.data!.where((u) => u.uid != currentUserUid).toList();
             return Container(
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: Stack(
                   children: [
                     FlutterFlowGoogleMap(
@@ -172,7 +167,7 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
                     PointerInterceptor(
                       intercepting: isWeb,
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 13.0, 20.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
@@ -183,7 +178,7 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
                             context.goNamed(
                               'NetworkingSearchingUser',
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                kTransitionInfoKey: const TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                   duration: Duration(milliseconds: 0),
@@ -204,7 +199,7 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   16.0, 9.0, 16.0, 9.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -216,7 +211,7 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
                                     size: 24.0,
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Найти людей',
@@ -242,7 +237,7 @@ class _NetworkingPageWidgetState extends State<NetworkingPageWidget> {
                       child: wrapWithModel(
                         model: _model.navBarModel,
                         updateCallback: () => setState(() {}),
-                        child: NavBarWidget(
+                        child: const NavBarWidget(
                           nevBarPage: 4,
                         ),
                       ),

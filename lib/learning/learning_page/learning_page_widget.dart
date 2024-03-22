@@ -4,13 +4,11 @@ import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'learning_page_model.dart';
 export 'learning_page_model.dart';
@@ -89,19 +87,19 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
             }
             final containerUsersRecord = snapshot.data!;
             return Container(
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: Stack(
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Stack(
                             children: [
-                              if (_model.filter == null || _model.filter == '')
+                              if (_model.filter == '')
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(0.0),
                                   child: Image.asset(
@@ -110,11 +108,11 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                     fit: BoxFit.cover,
                                   ),
                                 ),
-                              if (_model.filter == null || _model.filter == '')
+                              if (_model.filter == '')
                                 Align(
-                                  alignment: AlignmentDirectional(1.0, 0.0),
+                                  alignment: const AlignmentDirectional(1.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 35.0, 20.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -130,7 +128,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 0.0),
                                           child: Text(
                                             'Взращиваем лучших мам',
@@ -148,7 +146,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                 ),
                               Container(
                                 height: 16.0,
-                                decoration: BoxDecoration(),
+                                decoration: const BoxDecoration(),
                               ),
                             ],
                           ),
@@ -157,16 +155,16 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 0.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 142.0,
                                     child: TextFormField(
                                       controller: _model.textController,
                                       focusNode: _model.textFieldFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.textController',
-                                        Duration(milliseconds: 100),
+                                        const Duration(milliseconds: 100),
                                         () async {
                                           setState(() {
                                             _model.filter =
@@ -188,7 +186,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                               lineHeight: 1.5,
                                             ),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0x00000000),
                                             width: 0.0,
                                           ),
@@ -196,7 +194,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                               BorderRadius.circular(14.0),
                                         ),
                                         focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0x00000000),
                                             width: 0.0,
                                           ),
@@ -204,7 +202,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                               BorderRadius.circular(14.0),
                                         ),
                                         errorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0x00000000),
                                             width: 0.0,
                                           ),
@@ -212,7 +210,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                               BorderRadius.circular(14.0),
                                         ),
                                         focusedErrorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0x00000000),
                                             width: 0.0,
                                           ),
@@ -237,9 +235,9 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                   ),
                                 ),
                               ),
-                              if (_model.filter != null && _model.filter != '')
+                              if (_model.filter != '')
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 20.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -264,9 +262,9 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                 ),
                             ],
                           ),
-                          if (_model.filter == null || _model.filter == '')
+                          if (_model.filter == '')
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 24.0, 20.0, 0.0),
                               child: Container(
                                 width: double.infinity,
@@ -277,7 +275,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                 child: Stack(
                                   children: [
                                     Align(
-                                      alignment: AlignmentDirectional(1.0, 0.0),
+                                      alignment: const AlignmentDirectional(1.0, 0.0),
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(0.0),
@@ -289,7 +287,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 16.0, 0.0, 16.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -309,7 +307,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 4.0, 0.0, 0.0),
                                             child: Text(
                                               'Откройте доступ ко всем\nурокам сразу',
@@ -325,7 +323,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 29.0, 0.0, 0.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
@@ -335,11 +333,11 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                               text: 'Купить',
                                               options: FFButtonOptions(
                                                 height: 40.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -353,7 +351,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                           color: Colors.white,
                                                         ),
                                                 elevation: 0.0,
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),
@@ -370,9 +368,9 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                               ),
                             ),
                           Container(
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 4.0, 0.0, 0.0),
                               child:
                                   StreamBuilder<List<CategoryLearningRecord>>(
@@ -401,7 +399,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                       categoriesCategoryLearningRecordList =
                                       snapshot.data!;
                                   return Container(
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Builder(
                                       builder: (context) {
                                         final category =
@@ -456,7 +454,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                     snapshot.data!;
                                                 return Container(
                                                   width: double.infinity,
-                                                  decoration: BoxDecoration(),
+                                                  decoration: const BoxDecoration(),
                                                   child: Visibility(
                                                     visible: learningLearningRecordList
                                                             .where((e) => functions
@@ -464,12 +462,10 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                     e.title,
                                                                     _model
                                                                         .filter))
-                                                            .toList()
-                                                            .length >
-                                                        0,
+                                                            .toList().isNotEmpty,
                                                     child: Container(
                                                       decoration:
-                                                          BoxDecoration(),
+                                                          const BoxDecoration(),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -479,7 +475,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         20.0,
                                                                         24.0,
@@ -504,7 +500,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         12.0,
@@ -579,7 +575,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                           height:
                                                                               168.0,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
                                                                               Column(
                                                                             mainAxisSize:
@@ -599,20 +595,20 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 0.0),
                                                                                     child: Row(
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       children: [
                                                                                         if (lessonItem.freeLesson == true)
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                                                                                             child: Container(
                                                                                               decoration: BoxDecoration(
                                                                                                 color: FlutterFlowTheme.of(context).blue,
                                                                                                 borderRadius: BorderRadius.circular(20.0),
                                                                                               ),
                                                                                               child: Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 2.0, 5.0, 2.0),
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 2.0, 5.0, 2.0),
                                                                                                 child: AutoSizeText(
                                                                                                   'Бесплатно',
                                                                                                   maxLines: 1,
@@ -628,14 +624,14 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                                           ),
                                                                                         if (functions.checkIfLessonIsNew(lessonItem.dateOfPublication!))
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 0.0),
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 0.0),
                                                                                             child: Container(
                                                                                               decoration: BoxDecoration(
                                                                                                 color: FlutterFlowTheme.of(context).primary,
                                                                                                 borderRadius: BorderRadius.circular(20.0),
                                                                                               ),
                                                                                               child: Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(7.0, 2.0, 7.0, 2.0),
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(7.0, 2.0, 7.0, 2.0),
                                                                                                 child: AutoSizeText(
                                                                                                   'New',
                                                                                                   maxLines: 1,
@@ -653,12 +649,12 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
                                                                                     child: Builder(
                                                                                       builder: (context) {
                                                                                         if (containerUsersRecord.purchasedLessons.contains(lessonItem.reference.id) || (lessonItem.freeLesson == true)) {
                                                                                           return Align(
-                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                            alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                             child: Container(
                                                                                               width: 32.0,
                                                                                               height: 32.0,
@@ -675,7 +671,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                                           );
                                                                                         } else {
                                                                                           return Align(
-                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                            alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                             child: Container(
                                                                                               width: 32.0,
                                                                                               height: 32.0,
@@ -697,7 +693,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                                 ],
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                 child: AutoSizeText(
                                                                                   lessonItem.title.maybeHandleOverflow(
                                                                                     maxChars: 27,
@@ -717,13 +713,13 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                                                         ),
                                                                       );
                                                                     })
-                                                                        .divide(SizedBox(
+                                                                        .divide(const SizedBox(
                                                                             width:
                                                                                 12.0))
-                                                                        .addToStart(SizedBox(
+                                                                        .addToStart(const SizedBox(
                                                                             width:
                                                                                 20.0))
-                                                                        .addToEnd(SizedBox(
+                                                                        .addToEnd(const SizedBox(
                                                                             width:
                                                                                 20.0)),
                                                                   ),
@@ -747,15 +743,15 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                               ),
                             ),
                           ),
-                        ].addToEnd(SizedBox(height: 165.0)),
+                        ].addToEnd(const SizedBox(height: 165.0)),
                       ),
                     ),
                   ),
-                  if (FFAppState().lessonsAddedToCart.length > 0)
+                  if (FFAppState().lessonsAddedToCart.isNotEmpty)
                     Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 101.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
@@ -773,7 +769,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                               borderRadius: BorderRadius.circular(16.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 11.0, 24.0, 11.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -795,7 +791,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                                         .headlineMedium
                                         .override(
                                           fontFamily: 'Inter',
-                                          color: Color(0x98FFFFFF),
+                                          color: const Color(0x98FFFFFF),
                                           fontSize: 12.0,
                                           lineHeight: 1.33,
                                         ),
@@ -813,7 +809,7 @@ class _LearningPageWidgetState extends State<LearningPageWidget> {
                     wrapWithModel(
                       model: _model.navBarModel,
                       updateCallback: () => setState(() {}),
-                      child: NavBarWidget(
+                      child: const NavBarWidget(
                         nevBarPage: 3,
                       ),
                     ),

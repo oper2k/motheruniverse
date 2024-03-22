@@ -3,8 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'welcome_model.dart';
 export 'welcome_model.dart';
 
@@ -37,8 +35,6 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -47,13 +43,13 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(0.0),
                   child: Image.asset(
@@ -65,7 +61,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -77,7 +73,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 26.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 26.0, 0.0, 0.0),
                         child: AutoSizeText(
                           'В нашем приложении мы собрали самое важное для жизни малыша в первые годы',
                           textAlign: TextAlign.center,
@@ -90,7 +86,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                               ),
                         ),
                       ),
-                      Spacer(flex: 3),
+                      const Spacer(flex: 3),
                       FFButtonWidget(
                         onPressed: () async {
                           context.pushNamed('Registration');
@@ -99,13 +95,13 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 56.0,
-                          padding: EdgeInsets.all(0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsets.all(0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle: FlutterFlowTheme.of(context).displaySmall,
                           elevation: 0.0,
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.transparent,
                           ),
                           borderRadius: BorderRadius.circular(16.0),
@@ -113,7 +109,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                         showLoadingIndicator: false,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 0.0, 45.0),
                         child: FFButtonWidget(
                           onPressed: () async {
@@ -123,14 +119,14 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 56.0,
-                            padding: EdgeInsets.all(0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsets.all(0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).tertiary,
                             textStyle:
                                 FlutterFlowTheme.of(context).headlineLarge,
                             elevation: 0.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                             ),
                             borderRadius: BorderRadius.circular(16.0),

@@ -4,14 +4,11 @@ import '/components/bottom_sheet/profile_bottom_sheet/chose_the_date_of_tracker/
 import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'trackers_page_model.dart';
 export 'trackers_page_model.dart';
 
@@ -40,7 +37,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
       await Future.delayed(const Duration(milliseconds: 500));
       await _model.dates?.animateTo(
         _model.dates!.position.maxScrollExtent,
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.ease,
       );
     });
@@ -57,8 +54,6 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -94,21 +89,21 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                 List<ChildrenRecord> childrenChildrenRecordList =
                     snapshot.data!;
                 return Container(
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: SingleChildScrollView(
                     controller: _model.columnController1,
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        if (childrenChildrenRecordList.length == 0)
+                        if (childrenChildrenRecordList.isEmpty)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 45.0, 20.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 30.0, 0.0, 0.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(0.0),
@@ -125,7 +120,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                       FlutterFlowTheme.of(context).displayLarge,
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 26.0, 0.0, 0.0),
                                   child: Text(
                                     'Станут доступны, когда малыш  появится на свет',
@@ -141,7 +136,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                               ],
                             ),
                           ),
-                        if (childrenChildrenRecordList.length >= 1)
+                        if (childrenChildrenRecordList.isNotEmpty)
                           StreamBuilder<ChildrenRecord>(
                             stream: ChildrenRecord.getDocument(
                                 childrenChildrenRecordList[_model.childIndex]
@@ -163,7 +158,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                               }
                               final childChildrenRecord = snapshot.data!;
                               return Container(
-                                decoration: BoxDecoration(),
+                                decoration: const BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -174,7 +169,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 45.0, 20.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -182,7 +177,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 22.0, 0.0, 0.0),
                                                   child: Row(
@@ -227,13 +222,25 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
 
                                                           HapticFeedback
                                                               .heavyImpact();
+                                                          await Future.delayed(
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      600));
+                                                          await _model.dates
+                                                              ?.animateTo(
+                                                            _model
+                                                                .dates!
+                                                                .position
+                                                                .maxScrollExtent,
+                                                            duration: const Duration(
+                                                                milliseconds:
+                                                                    300),
+                                                            curve: Curves.ease,
+                                                          );
                                                         },
                                                         child: Builder(
                                                           builder: (context) {
                                                             if (childChildrenRecord
-                                                                        .photo !=
-                                                                    null &&
-                                                                childChildrenRecord
                                                                         .photo !=
                                                                     '') {
                                                               return Container(
@@ -242,7 +249,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                 clipBehavior: Clip
                                                                     .antiAlias,
                                                                 decoration:
-                                                                    BoxDecoration(
+                                                                    const BoxDecoration(
                                                                   shape: BoxShape
                                                                       .circle,
                                                                 ),
@@ -295,11 +302,11 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 16.0,
                                                                 0.0, 0.0),
                                                     child: StreamBuilder<
@@ -360,8 +367,8 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                           width: 245.0,
                                                           height: 245.0,
                                                           decoration:
-                                                              BoxDecoration(),
-                                                          child: Container(
+                                                              const BoxDecoration(),
+                                                          child: SizedBox(
                                                             width: 250.0,
                                                             height: 250.0,
                                                             child: custom_widgets
@@ -473,7 +480,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                             'child':
                                                                 childChildrenRecord,
                                                             kTransitionInfoKey:
-                                                                TransitionInfo(
+                                                                const TransitionInfo(
                                                               hasTransition:
                                                                   true,
                                                               transitionType:
@@ -499,7 +506,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         4.0,
                                                                         0.0,
@@ -569,7 +576,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         4.0,
                                                                         0.0,
@@ -598,11 +605,11 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 46.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -620,7 +627,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: Row(
@@ -674,7 +681,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                         .circular(
                                                                             20.0),
                                                               ),
-                                                              child: Icon(
+                                                              child: const Icon(
                                                                 FFIcons.kbreast,
                                                                 color: Colors
                                                                     .white,
@@ -683,7 +690,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
@@ -755,7 +762,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                         .circular(
                                                                             20.0),
                                                               ),
-                                                              child: Icon(
+                                                              child: const Icon(
                                                                 FFIcons.kmoon,
                                                                 color: Colors
                                                                     .white,
@@ -764,7 +771,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
@@ -836,7 +843,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                         .circular(
                                                                             20.0),
                                                               ),
-                                                              child: Icon(
+                                                              child: const Icon(
                                                                 FFIcons
                                                                     .kbottle2,
                                                                 color: Colors
@@ -846,7 +853,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
@@ -884,16 +891,16 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 1.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 32.0, 0.0, 0.0),
                                                   child: Container(
                                                     width: double.infinity,
                                                     height: 126.0,
-                                                    decoration: BoxDecoration(),
+                                                    decoration: const BoxDecoration(),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1047,15 +1054,15 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                     },
                                                                   );
                                                                 })
-                                                                    .divide(SizedBox(
+                                                                    .divide(const SizedBox(
                                                                         width:
                                                                             12.0))
                                                                     .addToStart(
-                                                                        SizedBox(
+                                                                        const SizedBox(
                                                                             width:
                                                                                 20.0))
                                                                     .addToEnd(
-                                                                        SizedBox(
+                                                                        const SizedBox(
                                                                             width:
                                                                                 20.0)),
                                                               ),
@@ -1064,7 +1071,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       20.0,
                                                                       20.0,
@@ -1124,7 +1131,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                             padding:
                                                                                 MediaQuery.viewInsetsOf(context),
                                                                             child:
-                                                                                ChoseTheDateOfTrackerWidget(),
+                                                                                const ChoseTheDateOfTrackerWidget(),
                                                                           ),
                                                                         );
                                                                       },
@@ -1197,7 +1204,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                                                           .dates!
                                                                           .position
                                                                           .maxScrollExtent,
-                                                                      duration: Duration(
+                                                                      duration: const Duration(
                                                                           milliseconds:
                                                                               300),
                                                                       curve: Curves
@@ -1237,7 +1244,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
                                               ),
                                             ],
                                           ),
-                                        ].addToEnd(SizedBox(height: 93.0)),
+                                        ].addToEnd(const SizedBox(height: 93.0)),
                                       ),
                                     ),
                                   ],
@@ -1254,7 +1261,7 @@ class _TrackersPageWidgetState extends State<TrackersPageWidget> {
             wrapWithModel(
               model: _model.navBarModel,
               updateCallback: () => setState(() {}),
-              child: NavBarWidget(
+              child: const NavBarWidget(
                 nevBarPage: 2,
               ),
             ),

@@ -7,13 +7,10 @@ import '/components/bottom_sheet/profile_bottom_sheet/sleep_info/sleep_info_widg
 import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'trackers_list_page_model.dart';
 export 'trackers_list_page_model.dart';
 
@@ -48,7 +45,7 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
       await Future.delayed(const Duration(milliseconds: 500));
       await _model.dates?.animateTo(
         _model.dates!.position.maxScrollExtent,
-        duration: Duration(milliseconds: 100),
+        duration: const Duration(milliseconds: 100),
         curve: Curves.ease,
       );
     });
@@ -65,8 +62,6 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -76,128 +71,149 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Stack(
           children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 230.0),
-              child: StreamBuilder<ChildrenRecord>(
-                stream: ChildrenRecord.getDocument(widget.child!.reference),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            FlutterFlowTheme.of(context).primary,
-                          ),
+            StreamBuilder<List<TrackersRecord>>(
+              stream: queryTrackersRecord(
+                parent: currentUserReference,
+                queryBuilder: (trackersRecord) => trackersRecord
+                    .where(
+                      'tracker_start_time',
+                      isLessThan: functions.getStartOfNextDay(_model.date!),
+                    )
+                    .where(
+                      'tracker_start_time',
+                      isGreaterThanOrEqualTo:
+                          functions.getStartOfDay(_model.date!),
+                    )
+                    .where(
+                      'child_ref',
+                      isEqualTo: widget.child?.reference,
+                    )
+                    .orderBy('tracker_start_time'),
+              ),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: SizedBox(
+                      width: 50.0,
+                      height: 50.0,
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          FlutterFlowTheme.of(context).primary,
                         ),
                       ),
-                    );
-                  }
-                  final childChildrenRecord = snapshot.data!;
-                  return Container(
-                    decoration: BoxDecoration(),
-                    child: StreamBuilder<List<TrackersRecord>>(
-                      stream: queryTrackersRecord(
-                        parent: currentUserReference,
-                        queryBuilder: (trackersRecord) => trackersRecord
-                            .where(
-                              'tracker_start_time',
-                              isLessThan:
-                                  functions.getStartOfNextDay(_model.date!),
-                            )
-                            .where(
-                              'tracker_start_time',
-                              isGreaterThanOrEqualTo:
-                                  functions.getStartOfDay(_model.date!),
-                            )
-                            .orderBy('tracker_start_time'),
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  FlutterFlowTheme.of(context).primary,
+                    ),
+                  );
+                }
+                List<TrackersRecord> trackersTrackersRecordList =
+                    snapshot.data!;
+                return Container(
+                  decoration: const BoxDecoration(),
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          height: 38.0,
+                          decoration: const BoxDecoration(),
+                          child: Align(
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.safePop();
+                              },
+                              child: Container(
+                                width: 38.0,
+                                height: 38.0,
+                                decoration: const BoxDecoration(),
+                                child: Align(
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  child: Icon(
+                                    FFIcons.kclose2,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
                                 ),
                               ),
                             ),
-                          );
-                        }
-                        List<TrackersRecord> trackersTrackersRecordList =
-                            snapshot.data!;
-                        return Container(
-                          decoration: BoxDecoration(),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 16.0, 0.0, 0.0),
+                          child: AutoSizeText(
+                            'Просмотр списком',
+                            maxLines: 1,
+                            style: FlutterFlowTheme.of(context).displayLarge,
+                          ),
+                        ),
+                        Flexible(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 45.0, 20.0, 0.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: double.infinity,
-                                  height: 38.0,
-                                  decoration: BoxDecoration(),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.safePop();
-                                      },
-                                      child: Container(
-                                        width: 38.0,
-                                        height: 38.0,
-                                        decoration: BoxDecoration(),
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
-                                          child: Icon(
-                                            FFIcons.kclose2,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 24.0,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 16.0, 0.0, 0.0),
-                                  child: AutoSizeText(
-                                    'Просмотр списком',
-                                    maxLines: 1,
-                                    style: FlutterFlowTheme.of(context)
-                                        .displayLarge,
-                                  ),
-                                ),
-                                Flexible(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 24.0, 0.0, 0.0),
-                                    child: Builder(
-                                      builder: (context) {
-                                        final tracker =
-                                            trackersTrackersRecordList.toList();
-                                        return SingleChildScrollView(
-                                          controller: _model.columnController,
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: List.generate(
-                                                tracker.length, (trackerIndex) {
-                                              final trackerItem =
-                                                  tracker[trackerIndex];
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 24.0, 0.0, 0.0),
+                            child: Builder(
+                              builder: (context) {
+                                final tracker = trackersTrackersRecordList
+                                    .where((e) =>
+                                        e.trackerStartTime !=
+                                        functions.getStartOfDay(_model.date!))
+                                    .toList();
+                                return SingleChildScrollView(
+                                  controller: _model.columnController,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: List.generate(tracker.length,
+                                        (trackerIndex) {
+                                      final trackerItem = tracker[trackerIndex];
+                                      return InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            barrierColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .botomBack,
+                                            context: context,
+                                            builder: (context) {
+                                              return GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: SleepInfoWidget(
+                                                    firstTrack: trackerItem,
+                                                    child: widget.child!,
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+                                        },
+                                        child: Builder(
+                                          builder: (context) {
+                                            if (trackerItem.trackerTitle ==
+                                                'Кормление грудью') {
                                               return InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -231,7 +247,7 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                                               .viewInsetsOf(
                                                                   context),
                                                           child:
-                                                              SleepInfoWidget(
+                                                              BreastFeedingInfoWidget(
                                                             track: trackerItem,
                                                           ),
                                                         ),
@@ -240,21 +256,321 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                                   ).then((value) =>
                                                       safeSetState(() {}));
                                                 },
-                                                child: Builder(
-                                                  builder: (context) {
-                                                    if (trackerItem
-                                                            .trackerTitle ==
-                                                        'Кормление грудью') {
-                                                      return InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  13.0,
+                                                                  0.0,
+                                                                  13.0),
+                                                      child: Icon(
+                                                        FFIcons.kbreast,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .iconColor,
+                                                        size: 40.0,
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Text(
+                                                              trackerItem
+                                                                  .trackerTitle,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .headlineSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    lineHeight:
+                                                                        1.25,
+                                                                  ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'С ${dateTimeFormat(
+                                                                  'Hm',
+                                                                  trackerItem
+                                                                      .trackerStartTime,
+                                                                  locale: FFLocalizations.of(
+                                                                          context)
+                                                                      .languageCode,
+                                                                )} до ${dateTimeFormat(
+                                                                  'Hm',
+                                                                  trackerItem
+                                                                      .breastEndTime,
+                                                                  locale: FFLocalizations.of(
+                                                                          context)
+                                                                      .languageCode,
+                                                                )}',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      lineHeight:
+                                                                          1.28,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Icon(
+                                                      FFIcons.kright2,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            } else if (trackerItem
+                                                    .trackerTitle ==
+                                                'Прикорм') {
+                                              return InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  await showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    barrierColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .botomBack,
+                                                    context: context,
+                                                    builder: (context) {
+                                                      return GestureDetector(
+                                                        onTap: () => _model
+                                                                .unfocusNode
+                                                                .canRequestFocus
+                                                            ? FocusScope.of(
+                                                                    context)
+                                                                .requestFocus(_model
+                                                                    .unfocusNode)
+                                                            : FocusScope.of(
+                                                                    context)
+                                                                .unfocus(),
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child:
+                                                              FeedingInfoWidget(
+                                                            track: trackerItem,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                  ).then((value) =>
+                                                      safeSetState(() {}));
+                                                },
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  13.0,
+                                                                  0.0,
+                                                                  13.0),
+                                                      child: Icon(
+                                                        FFIcons.kbottle,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .redIcon,
+                                                        size: 40.0,
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Text(
+                                                              trackerItem
+                                                                  .trackerTitle,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .headlineSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    lineHeight:
+                                                                        1.25,
+                                                                  ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                '${trackerItem.feedingName} в ${dateTimeFormat(
+                                                                  'Hm',
+                                                                  trackerItem
+                                                                      .trackerStartTime,
+                                                                  locale: FFLocalizations.of(
+                                                                          context)
+                                                                      .languageCode,
+                                                                )}',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      lineHeight:
+                                                                          1.28,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Icon(
+                                                      FFIcons.kright2,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            } else {
+                                              return StreamBuilder<
+                                                  List<TrackersRecord>>(
+                                                stream: queryTrackersRecord(
+                                                  parent: currentUserReference,
+                                                  queryBuilder:
+                                                      (trackersRecord) =>
+                                                          trackersRecord
+                                                              .where(
+                                                                'child_ref',
+                                                                isEqualTo: widget
+                                                                    .child
+                                                                    ?.reference,
+                                                              )
+                                                              .where(
+                                                                'tracker_start_time',
+                                                                isEqualTo: functions
+                                                                    .getStartOfNextDay(
+                                                                        _model
+                                                                            .date!),
+                                                              ),
+                                                  singleRecord: true,
+                                                ),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 50.0,
+                                                        height: 50.0,
+                                                        child:
+                                                            CircularProgressIndicator(
+                                                          valueColor:
+                                                              AlwaysStoppedAnimation<
+                                                                  Color>(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }
+                                                  List<TrackersRecord>
+                                                      containerTrackersRecordList =
+                                                      snapshot.data!;
+                                                  final containerTrackersRecord =
+                                                      containerTrackersRecordList
+                                                              .isNotEmpty
+                                                          ? containerTrackersRecordList
+                                                              .first
+                                                          : null;
+                                                  return Container(
+                                                    decoration: const BoxDecoration(),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        if ((trackerItem
+                                                                    .sleepEndTime ==
+                                                                functions.endOfDay(
+                                                                    _model
+                                                                        .date!)) &&
+                                                            (containerTrackersRecord !=
+                                                                null)) {
                                                           await showModalBottomSheet(
                                                             isScrollControlled:
                                                                 true,
@@ -283,9 +599,13 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                                                       .viewInsetsOf(
                                                                           context),
                                                                   child:
-                                                                      BreastFeedingInfoWidget(
-                                                                    track:
+                                                                      SleepInfoWidget(
+                                                                    firstTrack:
                                                                         trackerItem,
+                                                                    child: widget
+                                                                        .child!,
+                                                                    secondTrack:
+                                                                        containerTrackersRecord,
                                                                   ),
                                                                 ),
                                                               );
@@ -293,115 +613,7 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                                           ).then((value) =>
                                                               safeSetState(
                                                                   () {}));
-                                                        },
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          13.0,
-                                                                          0.0,
-                                                                          13.0),
-                                                              child: Icon(
-                                                                FFIcons.kbreast,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .iconColor,
-                                                                size: 40.0,
-                                                              ),
-                                                            ),
-                                                            Expanded(
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      trackerItem
-                                                                          .trackerTitle,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .headlineSmall
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            fontWeight:
-                                                                                FontWeight.w600,
-                                                                            lineHeight:
-                                                                                1.25,
-                                                                          ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        'С ${dateTimeFormat(
-                                                                          'Hm',
-                                                                          trackerItem
-                                                                              .trackerStartTime,
-                                                                          locale:
-                                                                              FFLocalizations.of(context).languageCode,
-                                                                        )} до ${dateTimeFormat(
-                                                                          'Hm',
-                                                                          trackerItem
-                                                                              .breastEndTime,
-                                                                          locale:
-                                                                              FFLocalizations.of(context).languageCode,
-                                                                        )}',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .headlineMedium
-                                                                            .override(
-                                                                              fontFamily: 'Inter',
-                                                                              lineHeight: 1.28,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            Icon(
-                                                              FFIcons.kright2,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryText,
-                                                              size: 24.0,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    } else if (trackerItem
-                                                            .trackerTitle ==
-                                                        'Прикорм') {
-                                                      return InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
+                                                        } else {
                                                           await showModalBottomSheet(
                                                             isScrollControlled:
                                                                 true,
@@ -430,9 +642,11 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                                                       .viewInsetsOf(
                                                                           context),
                                                                   child:
-                                                                      FeedingInfoWidget(
-                                                                    track:
+                                                                      SleepInfoWidget(
+                                                                    firstTrack:
                                                                         trackerItem,
+                                                                    child: widget
+                                                                        .child!,
                                                                   ),
                                                                 ),
                                                               );
@@ -440,104 +654,15 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                                           ).then((value) =>
                                                               safeSetState(
                                                                   () {}));
-                                                        },
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          13.0,
-                                                                          0.0,
-                                                                          13.0),
-                                                              child: Icon(
-                                                                FFIcons.kbottle,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .redIcon,
-                                                                size: 40.0,
-                                                              ),
-                                                            ),
-                                                            Expanded(
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      trackerItem
-                                                                          .trackerTitle,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .headlineSmall
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            fontWeight:
-                                                                                FontWeight.w600,
-                                                                            lineHeight:
-                                                                                1.25,
-                                                                          ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        '${trackerItem.feedingName} в ${dateTimeFormat(
-                                                                          'Hm',
-                                                                          trackerItem
-                                                                              .trackerStartTime,
-                                                                          locale:
-                                                                              FFLocalizations.of(context).languageCode,
-                                                                        )}',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .headlineMedium
-                                                                            .override(
-                                                                              fontFamily: 'Inter',
-                                                                              lineHeight: 1.28,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            Icon(
-                                                              FFIcons.kright2,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryText,
-                                                              size: 24.0,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    } else {
-                                                      return Row(
+                                                        }
+                                                      },
+                                                      child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         13.0,
@@ -554,7 +679,7 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                                           Expanded(
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -584,26 +709,33 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                                                         ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             4.0,
                                                                             0.0,
                                                                             0.0),
                                                                     child: Text(
-                                                                      'С ${dateTimeFormat(
-                                                                        'Hm',
-                                                                        trackerItem
-                                                                            .trackerStartTime,
-                                                                        locale:
-                                                                            FFLocalizations.of(context).languageCode,
-                                                                      )} до ${dateTimeFormat(
-                                                                        'Hm',
-                                                                        trackerItem
-                                                                            .sleepEndTime,
-                                                                        locale:
-                                                                            FFLocalizations.of(context).languageCode,
-                                                                      )}',
+                                                                      (trackerItem.sleepEndTime == functions.endOfDay(_model.date!)) &&
+                                                                              (containerTrackersRecord != null)
+                                                                          ? 'С ${dateTimeFormat(
+                                                                              'Hm',
+                                                                              trackerItem.trackerStartTime,
+                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                            )} до ${dateTimeFormat(
+                                                                              'Hm',
+                                                                              containerTrackersRecord.sleepEndTime,
+                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                            )}'
+                                                                          : 'С ${dateTimeFormat(
+                                                                              'Hm',
+                                                                              trackerItem.trackerStartTime,
+                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                            )} до ${dateTimeFormat(
+                                                                              'Hm',
+                                                                              trackerItem.sleepEndTime,
+                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                            )}',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .headlineMedium
@@ -627,36 +759,36 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                                             size: 24.0,
                                                           ),
                                                         ],
-                                                      );
-                                                    }
-                                                  },
-                                                ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
                                               );
-                                            }),
-                                          ),
-                                        );
-                                      },
-                                    ),
+                                            }
+                                          },
+                                        ),
+                                      );
+                                    }),
                                   ),
-                                ),
-                              ],
+                                );
+                              },
                             ),
                           ),
-                        );
-                      },
+                        ),
+                      ],
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, 1.0),
+              alignment: const AlignmentDirectional(0.0, 1.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 93.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 93.0),
                 child: Container(
                   width: double.infinity,
                   height: 126.0,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -823,15 +955,15 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                   },
                                 );
                               })
-                                      .divide(SizedBox(width: 12.0))
-                                      .addToStart(SizedBox(width: 20.0))
-                                      .addToEnd(SizedBox(width: 20.0)),
+                                      .divide(const SizedBox(width: 12.0))
+                                      .addToStart(const SizedBox(width: 20.0))
+                                      .addToEnd(const SizedBox(width: 20.0)),
                             ),
                           );
                         },
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 20.0, 20.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -868,7 +1000,7 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: ChoseTheDateOfTrackerWidget(),
+                                          child: const ChoseTheDateOfTrackerWidget(),
                                         ),
                                       );
                                     },
@@ -914,7 +1046,7 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
                                   });
                                   await _model.dates?.animateTo(
                                     _model.dates!.position.maxScrollExtent,
-                                    duration: Duration(milliseconds: 300),
+                                    duration: const Duration(milliseconds: 300),
                                     curve: Curves.ease,
                                   );
                                 },
@@ -952,7 +1084,7 @@ class _TrackersListPageWidgetState extends State<TrackersListPageWidget> {
             wrapWithModel(
               model: _model.navBarModel,
               updateCallback: () => setState(() {}),
-              child: NavBarWidget(
+              child: const NavBarWidget(
                 nevBarPage: 2,
               ),
             ),

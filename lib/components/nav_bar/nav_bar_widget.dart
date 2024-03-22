@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'nav_bar_model.dart';
 export 'nav_bar_model.dart';
 
@@ -45,16 +43,14 @@ class _NavBarWidgetState extends State<NavBarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
-      alignment: AlignmentDirectional(0.0, 1.0),
+      alignment: const AlignmentDirectional(0.0, 1.0),
       child: Container(
         width: double.infinity,
         height: 85.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).backgroundMain,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(16.0),
@@ -62,7 +58,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(27.0, 16.0, 27.0, 16.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(27.0, 16.0, 27.0, 16.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,7 +76,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                     context.goNamed(
                       'MainPage',
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 0),
@@ -125,7 +121,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                     context.goNamed(
                       'TrackersPage',
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 0),
@@ -169,7 +165,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                     context.goNamed(
                       'LearningPage',
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 0),
@@ -213,7 +209,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                     context.goNamed(
                       'NetworkingPage',
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 0),
@@ -257,7 +253,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                     context.goNamed(
                       'ProfilePage',
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 0),
@@ -289,7 +285,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   ),
                 ),
               ),
-            ].divide(SizedBox(width: 38.0)),
+            ].divide(const SizedBox(width: 38.0)),
           ),
         ),
       ),

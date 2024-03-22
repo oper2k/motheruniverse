@@ -1,16 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/bottom_sheet/loyalty_bottom_sheet/loyalty_registration_bonus/loyalty_registration_bonus_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'choose_the_gender_model.dart';
 export 'choose_the_gender_model.dart';
@@ -50,7 +47,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                     : FocusScope.of(context).unfocus(),
                 child: Padding(
                   padding: MediaQuery.viewInsetsOf(context),
-                  child: LoyaltyRegistrationBonusWidget(),
+                  child: const LoyaltyRegistrationBonusWidget(),
                 ),
               );
             },
@@ -89,14 +86,14 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
                 width: double.infinity,
                 height: 38.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -112,7 +109,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                       child: Container(
                         width: 30.0,
                         height: 38.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Icon(
                           FFIcons.kleft,
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -123,13 +120,13 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                     Expanded(
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 8.0, 0.0),
                               child: Container(
                                 width: 48.0,
@@ -141,7 +138,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 8.0, 0.0),
                               child: Container(
                                 width: 48.0,
@@ -168,7 +165,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                 child: Text(
                   'Выберите пол ребенка',
                   textAlign: TextAlign.center,
@@ -176,7 +173,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: AutoSizeText(
                   'Точнее расчитаем корректные значения для роста, веса и других показателей',
                   textAlign: TextAlign.center,
@@ -188,12 +185,12 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                 child: Stack(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -228,7 +225,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                               width: 2.0,
                             ),
                           ),
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -256,7 +253,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                     ),
                     if (_model.malePicked)
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             104.0, 104.0, 0.0, 0.0),
                         child: Container(
                           width: 36.0,
@@ -281,12 +278,12 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Stack(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -321,7 +318,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                               width: 2.0,
                             ),
                           ),
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -349,7 +346,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                     ),
                     if (_model.femalePicked)
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             104.0, 104.0, 0.0, 0.0),
                         child: Container(
                           width: 36.0,
@@ -373,9 +370,9 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                   ],
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -392,8 +389,8 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                     Switch.adaptive(
                       value: _model.switchValue ??= false,
                       onChanged: (newValue) async {
-                        setState(() => _model.switchValue = newValue!);
-                        if (newValue!) {
+                        setState(() => _model.switchValue = newValue);
+                        if (newValue) {
                           setState(() {
                             FFAppState().updateTempChildStruct(
                               (e) => e
@@ -428,7 +425,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 45.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 45.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     if (_model.genderSelected) {
@@ -443,7 +440,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                       context.pushNamed(
                         'ChooseTheAge',
                         extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
+                          kTransitionInfoKey: const TransitionInfo(
                             hasTransition: true,
                             transitionType: PageTransitionType.fade,
                             duration: Duration(milliseconds: 0),
@@ -456,9 +453,9 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 56.0,
-                    padding: EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: _model.genderSelected
                         ? FlutterFlowTheme.of(context).primary
                         : FlutterFlowTheme.of(context).grey20,
@@ -470,7 +467,7 @@ class _ChooseTheGenderWidgetState extends State<ChooseTheGenderWidget> {
                                   : FlutterFlowTheme.of(context).grey60,
                             ),
                     elevation: 0.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                     ),
                     borderRadius: BorderRadius.circular(16.0),

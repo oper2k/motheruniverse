@@ -3,11 +3,9 @@ import '/components/bottom_sheet/loyalty_bottom_sheet/family_super_power/family_
 import '/components/bottom_sheet/loyalty_bottom_sheet/remind_to_fill_profile/remind_to_fill_profile_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'entry_page_model.dart';
 export 'entry_page_model.dart';
@@ -42,7 +40,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget> {
             context.goNamed(
               'MainPage',
               extra: <String, dynamic>{
-                kTransitionInfoKey: TransitionInfo(
+                kTransitionInfoKey: const TransitionInfo(
                   hasTransition: true,
                   transitionType: PageTransitionType.fade,
                   duration: Duration(milliseconds: 0),
@@ -63,7 +61,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget> {
                       : FocusScope.of(context).unfocus(),
                   child: Padding(
                     padding: MediaQuery.viewInsetsOf(context),
-                    child: FamilySuperPowerWidget(),
+                    child: const FamilySuperPowerWidget(),
                   ),
                 );
               },
@@ -73,7 +71,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget> {
               context.goNamed(
                 'MainPage',
                 extra: <String, dynamic>{
-                  kTransitionInfoKey: TransitionInfo(
+                  kTransitionInfoKey: const TransitionInfo(
                     hasTransition: true,
                     transitionType: PageTransitionType.fade,
                     duration: Duration(milliseconds: 0),
@@ -95,7 +93,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget> {
                         : FocusScope.of(context).unfocus(),
                     child: Padding(
                       padding: MediaQuery.viewInsetsOf(context),
-                      child: RemindToFillProfileWidget(),
+                      child: const RemindToFillProfileWidget(),
                     ),
                   );
                 },
@@ -104,7 +102,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget> {
               context.goNamed(
                 'MainPage',
                 extra: <String, dynamic>{
-                  kTransitionInfoKey: TransitionInfo(
+                  kTransitionInfoKey: const TransitionInfo(
                     hasTransition: true,
                     transitionType: PageTransitionType.fade,
                     duration: Duration(milliseconds: 0),
@@ -117,7 +115,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget> {
           context.goNamed(
             'ChooseTheGender',
             extra: <String, dynamic>{
-              kTransitionInfoKey: TransitionInfo(
+              kTransitionInfoKey: const TransitionInfo(
                 hasTransition: true,
                 transitionType: PageTransitionType.fade,
                 duration: Duration(milliseconds: 0),
@@ -129,7 +127,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget> {
         context.goNamed(
           'FillProfile',
           extra: <String, dynamic>{
-            kTransitionInfoKey: TransitionInfo(
+            kTransitionInfoKey: const TransitionInfo(
               hasTransition: true,
               transitionType: PageTransitionType.fade,
               duration: Duration(milliseconds: 0),

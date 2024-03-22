@@ -1,14 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'view_lesson_page_model.dart';
 export 'view_lesson_page_model.dart';
 
@@ -46,8 +42,6 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -60,8 +54,8 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              decoration: BoxDecoration(),
-              child: Container(
+              decoration: const BoxDecoration(),
+              child: SizedBox(
                 height: MediaQuery.sizeOf(context).width / 1.339,
                 child: Stack(
                   children: [
@@ -74,9 +68,9 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-1.0, -1.0),
+                      alignment: const AlignmentDirectional(-1.0, -1.0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 45.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
@@ -104,7 +98,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -152,7 +146,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 0.0),
                       child: Text(
                         widget.lesson!.title,
                         style:
@@ -163,9 +157,9 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                 ),
                       ),
                     ),
-                    if (widget.lesson!.files.length > 0)
+                    if (widget.lesson!.files.isNotEmpty)
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 32.0, 20.0, 0.0),
                         child: Text(
                           'МАТЕРИАЛЫ',
@@ -177,13 +171,13 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                               ),
                         ),
                       ),
-                    if (widget.lesson!.files.length > 0)
+                    if (widget.lesson!.files.isNotEmpty)
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                         child: Builder(
                           builder: (context) {
-                            final files = widget.lesson?.files?.toList() ?? [];
+                            final files = widget.lesson?.files.toList() ?? [];
                             return SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Row(
@@ -209,7 +203,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                             BorderRadius.circular(16.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsets.all(12.0),
+                                        padding: const EdgeInsets.all(12.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
@@ -224,7 +218,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                 child: Text(
@@ -240,7 +234,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 '${filesItem.type} • ${filesItem.size}',
@@ -255,9 +249,9 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                     ),
                                   );
                                 })
-                                        .divide(SizedBox(width: 12.0))
-                                        .addToStart(SizedBox(width: 20.0))
-                                        .addToEnd(SizedBox(width: 20.0)),
+                                        .divide(const SizedBox(width: 12.0))
+                                        .addToStart(const SizedBox(width: 20.0))
+                                        .addToEnd(const SizedBox(width: 20.0)),
                               ),
                             );
                           },
@@ -266,7 +260,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                     if (widget.lesson?.timeCode != null &&
                         widget.lesson?.timeCode != '')
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 32.0, 20.0, 0.0),
                         child: Text(
                           'ТАЙМИНГ ЛЕКЦИИ',
@@ -280,7 +274,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                       ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
                       child: Text(
                         widget.lesson!.timeCode,
                         style:
@@ -292,7 +286,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                       child: StreamBuilder<UsersRecord>(
                         stream: UsersRecord.getDocument(currentUserReference!),
                         builder: (context, snapshot) {
@@ -312,7 +306,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                           }
                           final containerUsersRecord = snapshot.data!;
                           return Container(
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: StreamBuilder<List<LearningRecord>>(
                               stream: queryLearningRecord(
                                 queryBuilder: (learningRecord) => learningRecord
@@ -342,7 +336,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                     learningQueryLearningRecordList =
                                     snapshot.data!;
                                 return Container(
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Visibility(
                                     visible:
                                         learningQueryLearningRecordList.length >
@@ -354,7 +348,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 0.0, 20.0, 0.0),
                                           child: Text(
                                             'ЕЩЕ ПО ЭТОЙ ТЕМЕ',
@@ -368,7 +362,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 0.0, 0.0),
                                           child: Builder(
                                             builder: (context) {
@@ -455,7 +449,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                                         width: 120.0,
                                                         height: 168.0,
                                                         decoration:
-                                                            BoxDecoration(),
+                                                            const BoxDecoration(),
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -497,7 +491,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           2.0,
                                                                           0.0,
@@ -510,14 +504,14 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                                                           if (lessonItem.freeLesson ==
                                                                               true)
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 0.0),
                                                                               child: Container(
                                                                                 decoration: BoxDecoration(
                                                                                   color: FlutterFlowTheme.of(context).blue,
                                                                                   borderRadius: BorderRadius.circular(20.0),
                                                                                 ),
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 2.0, 4.0, 2.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(4.0, 2.0, 4.0, 2.0),
                                                                                   child: AutoSizeText(
                                                                                     'Бесплатно',
                                                                                     maxLines: 1,
@@ -534,14 +528,14 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                                                           if (functions
                                                                               .checkIfLessonIsNew(lessonItem.dateOfPublication!))
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 0.0),
                                                                               child: Container(
                                                                                 decoration: BoxDecoration(
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                   borderRadius: BorderRadius.circular(20.0),
                                                                                 ),
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(7.0, 2.0, 7.0, 2.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(7.0, 2.0, 7.0, 2.0),
                                                                                   child: AutoSizeText(
                                                                                     'New',
                                                                                     maxLines: 1,
@@ -566,7 +560,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                                                                 true)) {
                                                                           return Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                                const AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 Container(
                                                                               width: 32.0,
@@ -585,7 +579,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                                                         } else {
                                                                           return Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                                const AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 Container(
                                                                               width: 32.0,
@@ -610,7 +604,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
@@ -648,11 +642,11 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                                                   );
                                                 })
                                                     .divide(
-                                                        SizedBox(width: 12.0))
+                                                        const SizedBox(width: 12.0))
                                                     .addToStart(
-                                                        SizedBox(width: 20.0))
+                                                        const SizedBox(width: 20.0))
                                                     .addToEnd(
-                                                        SizedBox(width: 20.0)),
+                                                        const SizedBox(width: 20.0)),
                                               );
                                             },
                                           ),
@@ -667,7 +661,7 @@ class _ViewLessonPageWidgetState extends State<ViewLessonPageWidget> {
                         },
                       ),
                     ),
-                  ].addToEnd(SizedBox(height: 150.0)),
+                  ].addToEnd(const SizedBox(height: 150.0)),
                 ),
               ),
             ),

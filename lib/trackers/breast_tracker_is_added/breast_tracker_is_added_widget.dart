@@ -7,11 +7,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'breast_tracker_is_added_model.dart';
 export 'breast_tracker_is_added_model.dart';
 
@@ -43,7 +40,7 @@ class _BreastTrackerIsAddedWidgetState
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (((currentUserDocument?.trackersAddingDates?.toList() ?? []).length >=
+      if (((currentUserDocument?.trackersAddingDates.toList() ?? []).length >=
               10) &&
           valueOrDefault<bool>(
               currentUserDocument?.loyaltyProgramActivated, false)) {
@@ -55,7 +52,7 @@ class _BreastTrackerIsAddedWidgetState
           ...mapToFirestore(
             {
               'trackers_adding_dates': functions.clearDateTimeList(
-                  (currentUserDocument?.trackersAddingDates?.toList() ?? [])
+                  (currentUserDocument?.trackersAddingDates.toList() ?? [])
                       .toList()),
             },
           ),
@@ -72,7 +69,7 @@ class _BreastTrackerIsAddedWidgetState
                   : FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: FillingTrackersBonusWidget(),
+                child: const FillingTrackersBonusWidget(),
               ),
             );
           },
@@ -92,8 +89,6 @@ class _BreastTrackerIsAddedWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -102,30 +97,30 @@ class _BreastTrackerIsAddedWidgetState
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
                 width: double.infinity,
                 height: 38.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.goNamed('TrackersPage');
+                      context.safePop();
                     },
                     child: Container(
                       width: 38.0,
                       height: 38.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Icon(
                           FFIcons.kleft,
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -137,14 +132,14 @@ class _BreastTrackerIsAddedWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                 child: Text(
                   'Трек добавлен!',
                   style: FlutterFlowTheme.of(context).displayLarge,
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(0.0),
                   child: Image.asset(
@@ -155,7 +150,7 @@ class _BreastTrackerIsAddedWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 37.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 37.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -173,7 +168,7 @@ class _BreastTrackerIsAddedWidgetState
                                   ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 2.0, 0.0, 0.0),
                           child: Text(
                             functions
@@ -204,7 +199,7 @@ class _BreastTrackerIsAddedWidgetState
                                   ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 2.0, 0.0, 0.0),
                           child: Text(
                             functions
@@ -226,7 +221,7 @@ class _BreastTrackerIsAddedWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                 child: Text(
                   'Общее время',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -236,7 +231,7 @@ class _BreastTrackerIsAddedWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                 child: Text(
                   functions.calculateMinutesAndSecondsFromMilliseconds(
                       widget.track!.breastTotalDuration),
@@ -248,9 +243,9 @@ class _BreastTrackerIsAddedWidgetState
                       ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 45.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 45.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -323,10 +318,10 @@ class _BreastTrackerIsAddedWidgetState
                       options: FFButtonOptions(
                         width: 166.0,
                         height: 48.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).yellow,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
@@ -334,7 +329,7 @@ class _BreastTrackerIsAddedWidgetState
                                   color: Colors.white,
                                 ),
                         elevation: 0.0,
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),

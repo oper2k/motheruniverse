@@ -2,12 +2,10 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'sleep_norms_page_model.dart';
 export 'sleep_norms_page_model.dart';
@@ -44,7 +42,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
       await Future.delayed(const Duration(milliseconds: 500));
       await _model.months?.animateTo(
         _model.months!.position.maxScrollExtent,
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.ease,
       );
       if (functions.isWithinNDays(widget.child!.birthDate!, 31) &&
@@ -99,22 +97,22 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
         body: Stack(
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                     child: Container(
                       height: 38.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -126,8 +124,8 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                               child: Container(
                                 width: 38.0,
                                 height: 38.0,
-                                decoration: BoxDecoration(),
-                                child: Align(
+                                decoration: const BoxDecoration(),
+                                child: const Align(
                                   alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Icon(
                                     FFIcons.kleft,
@@ -139,9 +137,9 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                           ),
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     6.0, 0.0, 30.0, 0.0),
                                 child: Text(
                                   'График нормы сна',
@@ -168,7 +166,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 16.0, 20.0, 0.0),
                             child: Container(
                               width: double.infinity,
@@ -179,7 +177,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.all(2.0),
+                                padding: const EdgeInsets.all(2.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -199,7 +197,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                             _model.months!.position
                                                 .maxScrollExtent,
                                             duration:
-                                                Duration(milliseconds: 300),
+                                                const Duration(milliseconds: 300),
                                             curve: Curves.ease,
                                           );
                                         },
@@ -218,7 +216,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               'Месяц',
                                               style: FlutterFlowTheme.of(
@@ -267,7 +265,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               'Неделя',
                                               style: FlutterFlowTheme.of(
@@ -290,13 +288,13 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(SizedBox(width: 7.0)),
+                                  ].divide(const SizedBox(width: 7.0)),
                                 ),
                               ),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: Builder(
                               builder: (context) {
@@ -340,7 +338,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                       return Container(
                                         width: 320.0,
                                         height: 300.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Stack(
                                           children: [
                                             if (functions
@@ -382,10 +380,8 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                             .toList()
                                                             .map((e) => e.sleepEndTime)
                                                             .withoutNulls
-                                                            .toList())
-                                                    .length >
-                                                0)
-                                              Container(
+                                                            .toList()).isNotEmpty)
+                                              SizedBox(
                                                 width: double.infinity,
                                                 height: double.infinity,
                                                 child:
@@ -470,11 +466,9 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                             .toList()
                                                             .map((e) => e.sleepEndTime)
                                                             .withoutNulls
-                                                            .toList())
-                                                    .length ==
-                                                0)
+                                                            .toList()).isEmpty)
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Text(
                                                   'Недостаточно данных',
@@ -532,7 +526,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                       return Container(
                                         width: 320.0,
                                         height: 300.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Stack(
                                           children: [
                                             if (functions
@@ -562,10 +556,8 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                             .map((e) =>
                                                                 e.sleepEndTime)
                                                             .withoutNulls
-                                                            .toList())
-                                                    .length >
-                                                0)
-                                              Container(
+                                                            .toList()).isNotEmpty)
+                                              SizedBox(
                                                 width: double.infinity,
                                                 height: double.infinity,
                                                 child:
@@ -634,11 +626,9 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                             .map((e) =>
                                                                 e.sleepEndTime)
                                                             .withoutNulls
-                                                            .toList())
-                                                    .length ==
-                                                0)
+                                                            .toList()).isEmpty)
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Text(
                                                   'Недостаточно данных',
@@ -661,7 +651,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 12.0, 20.0, 0.0),
                             child: Builder(
                               builder: (context) {
@@ -807,7 +797,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 12.0, 20.0, 125.0),
                             child: Container(
                               decoration: BoxDecoration(
@@ -815,7 +805,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                 borderRadius: BorderRadius.circular(16.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.all(16.0),
+                                padding: const EdgeInsets.all(16.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -831,7 +821,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'Совет',
@@ -855,11 +845,11 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                 0)) {
                                           return Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 0.0),
                                             child: AuthUserStreamWidget(
                                               builder: (context) => Text(
-                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != null && valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
+                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineSmall
@@ -878,11 +868,11 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                 0)) {
                                           return Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 0.0),
                                             child: AuthUserStreamWidget(
                                               builder: (context) => Text(
-                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != null && valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
+                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineSmall
@@ -900,11 +890,11 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                 0)) {
                                           return Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 0.0),
                                             child: AuthUserStreamWidget(
                                               builder: (context) => Text(
-                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != null && valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
+                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineSmall
@@ -924,11 +914,11 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                 0)) {
                                           return Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 0.0),
                                             child: AuthUserStreamWidget(
                                               builder: (context) => Text(
-                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != null && valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
+                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineSmall
@@ -945,11 +935,11 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                             (FFAppState().firstTipWasShowed == 0)) {
                                           return Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 0.0),
                                             child: AuthUserStreamWidget(
                                               builder: (context) => Text(
-                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != null && valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
+                                                'Привет, ${valueOrDefault(currentUserDocument?.firstName, '') != '' ? valueOrDefault(currentUserDocument?.firstName, '') : 'мама'}!  На графике сна, появилось первое отклонение в режиме сна и бодрствования малыша, оно отмечено оранжевым цветом.  В зависимости от количества отклонений мы будем отправлять подсказки как наладить режим.  Мы хотим быть рядом и помочь во всех вопросах и моментах твоего материнства. Желаем тебе отличного дня. ',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineSmall
@@ -969,7 +959,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                   (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
                                                       11)) {
                                                 return Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 8.0, 0.0, 0.0),
                                                   child: Text(
@@ -992,7 +982,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                   (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
                                                       8)) {
                                                 return Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 8.0, 0.0, 0.0),
                                                   child: Text(
@@ -1015,7 +1005,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                   (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
                                                       7)) {
                                                 return Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 8.0, 0.0, 0.0),
                                                   child: Text(
@@ -1038,7 +1028,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                   (functions.countDates(widget.child!.unnormalSleepDate.toList()) >=
                                                       6)) {
                                                 return Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 8.0, 0.0, 0.0),
                                                   child: Text(
@@ -1057,7 +1047,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                 );
                                               } else if (functions.countDates(widget.child!.unnormalSleepDate.toList()) >= 5) {
                                                 return Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 8.0, 0.0, 0.0),
                                                   child: Text(
@@ -1076,7 +1066,7 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                                 );
                                               } else {
                                                 return Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 8.0, 0.0, 0.0),
                                                   child: Text(
@@ -1110,13 +1100,13 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
             ),
             if (FFAppState().viewSleepNorms == 0)
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     height: 126.0,
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -1274,9 +1264,9 @@ class _SleepNormsPageWidgetState extends State<SleepNormsPageWidget> {
                                     },
                                   );
                                 })
-                                        .divide(SizedBox(width: 12.0))
-                                        .addToStart(SizedBox(width: 20.0))
-                                        .addToEnd(SizedBox(width: 20.0)),
+                                        .divide(const SizedBox(width: 12.0))
+                                        .addToStart(const SizedBox(width: 20.0))
+                                        .addToEnd(const SizedBox(width: 20.0)),
                               ),
                             );
                           },

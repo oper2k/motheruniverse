@@ -1,15 +1,11 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'change_child_personalisation_model.dart';
 export 'change_child_personalisation_model.dart';
 
@@ -57,8 +53,6 @@ class _ChangeChildPersonalisationWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -67,17 +61,17 @@ class _ChangeChildPersonalisationWidgetState
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
           child: Stack(
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(-1.0, -1.0),
+                      alignment: const AlignmentDirectional(-1.0, -1.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -102,10 +96,10 @@ class _ChangeChildPersonalisationWidgetState
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: AutoSizeText(
                           'Персонализация',
                           textAlign: TextAlign.center,
@@ -116,19 +110,19 @@ class _ChangeChildPersonalisationWidgetState
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(32.0, 6.0, 32.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(32.0, 6.0, 32.0, 0.0),
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: Container(
                                 width: 236.0,
                                 height: 236.0,
                                 clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.network(
@@ -139,9 +133,9 @@ class _ChangeChildPersonalisationWidgetState
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(1.0, 0.0),
+                            alignment: const AlignmentDirectional(1.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 8.0, 0.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(20.0),
@@ -150,8 +144,8 @@ class _ChangeChildPersonalisationWidgetState
                                   height: 100.0,
                                   decoration: BoxDecoration(
                                     color: _model.rightImageIsChanging
-                                        ? Color(0x34E28C13)
-                                        : Color(0x19747474),
+                                        ? const Color(0x34E28C13)
+                                        : const Color(0x19747474),
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   child: Builder(
@@ -186,9 +180,9 @@ class _ChangeChildPersonalisationWidgetState
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(1.0, 0.0),
+                            alignment: const AlignmentDirectional(1.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 8.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -201,7 +195,7 @@ class _ChangeChildPersonalisationWidgetState
                                     _model.rightImageIsChanging = true;
                                   });
                                 },
-                                child: Container(
+                                child: SizedBox(
                                   width: 100.0,
                                   height: 100.0,
                                   child: custom_widgets.DottedContainer(
@@ -223,7 +217,7 @@ class _ChangeChildPersonalisationWidgetState
                           if (_model.rightPhoto != null &&
                               _model.rightPhoto != '')
                             Align(
-                              alignment: AlignmentDirectional(1.0, 0.0),
+                              alignment: const AlignmentDirectional(1.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -251,7 +245,7 @@ class _ChangeChildPersonalisationWidgetState
                               ),
                             ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 164.0, 0.0, 0.0),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20.0),
@@ -260,8 +254,8 @@ class _ChangeChildPersonalisationWidgetState
                                 height: 100.0,
                                 decoration: BoxDecoration(
                                   color: _model.leftImageIsChanging
-                                      ? Color(0x34E28C13)
-                                      : Color(0x19747474),
+                                      ? const Color(0x34E28C13)
+                                      : const Color(0x19747474),
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 child: Builder(
@@ -295,7 +289,7 @@ class _ChangeChildPersonalisationWidgetState
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 164.0, 0.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -308,7 +302,7 @@ class _ChangeChildPersonalisationWidgetState
                                   _model.leftImageIsChanging = true;
                                 });
                               },
-                              child: Container(
+                              child: SizedBox(
                                 width: 100.0,
                                 height: 100.0,
                                 child: custom_widgets.DottedContainer(
@@ -329,7 +323,7 @@ class _ChangeChildPersonalisationWidgetState
                           if (_model.leftPhoto != null &&
                               _model.leftPhoto != '')
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 156.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -362,7 +356,7 @@ class _ChangeChildPersonalisationWidgetState
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                       child: Text(
                         'Выбери рисунок',
                         style:
@@ -377,7 +371,7 @@ class _ChangeChildPersonalisationWidgetState
                     Flexible(
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: StreamBuilder<List<PaintsRecord>>(
                           stream: queryPaintsRecord(),
                           builder: (context, snapshot) {
@@ -406,10 +400,10 @@ class _ChangeChildPersonalisationWidgetState
                                   final paintsPaintsRecord =
                                       paintsPaintsRecordList[paintsIndex];
                                   return Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 24.0),
                                     child: Container(
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Color(0x00FDF5F1),
                                       ),
                                       child: Column(
@@ -429,11 +423,11 @@ class _ChangeChildPersonalisationWidgetState
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 0.0),
                                             child: Container(
                                               width: double.infinity,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Builder(
                                                 builder: (context) {
                                                   final paints =
@@ -442,7 +436,7 @@ class _ChangeChildPersonalisationWidgetState
                                                   return GridView.builder(
                                                     padding: EdgeInsets.zero,
                                                     gridDelegate:
-                                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                                        const SliverGridDelegateWithFixedCrossAxisCount(
                                                       crossAxisCount: 5,
                                                       crossAxisSpacing: 20.0,
                                                       mainAxisSpacing: 10.0,
@@ -507,8 +501,8 @@ class _ChangeChildPersonalisationWidgetState
                                     ),
                                   );
                                 })
-                                        .addToStart(SizedBox(height: 4.0))
-                                        .addToEnd(SizedBox(height: 160.0)),
+                                        .addToStart(const SizedBox(height: 4.0))
+                                        .addToEnd(const SizedBox(height: 160.0)),
                               ),
                             );
                           },
@@ -519,9 +513,9 @@ class _ChangeChildPersonalisationWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 45.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 45.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       await widget.child!.reference
@@ -535,13 +529,13 @@ class _ChangeChildPersonalisationWidgetState
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 56.0,
-                      padding: EdgeInsets.all(0.0),
+                      padding: const EdgeInsets.all(0.0),
                       iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
                       textStyle: FlutterFlowTheme.of(context).displaySmall,
                       elevation: 0.0,
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.transparent,
                       ),
                       borderRadius: BorderRadius.circular(16.0),

@@ -14,10 +14,10 @@ enum VideoType {
   network,
 }
 
-Set<VideoPlayerController> _videoPlayers = Set();
+Set<VideoPlayerController> _videoPlayers = {};
 
 class FlutterFlowVideoPlayer extends StatefulWidget {
-  const FlutterFlowVideoPlayer({
+  const FlutterFlowVideoPlayer({super.key, 
     required this.path,
     this.videoType = VideoType.network,
     this.width,
@@ -118,7 +118,7 @@ class _FlutterFlowVideoPlayerState extends State<FlutterFlowVideoPlayer>
 
   Future _initializePlayer() async {
     _videoPlayerController = widget.videoType == VideoType.network
-        ? VideoPlayerController.network(widget.path)
+        ? VideoPlayerController.networkUrl(Uri.parse(widget.path))
         : VideoPlayerController.asset(widget.path);
     if (kIsWeb && widget.autoPlay) {
       // Browsers generally don't allow autoplay unless it's muted.
@@ -154,14 +154,14 @@ class _FlutterFlowVideoPlayerState extends State<FlutterFlowVideoPlayer>
       }
       // Stop all other players when one video is playing.
       if (_videoPlayerController!.value.isPlaying) {
-        _videoPlayers.forEach((otherPlayer) {
+        for (var otherPlayer in _videoPlayers) {
           if (otherPlayer != _videoPlayerController &&
               otherPlayer.value.isPlaying) {
             setState(() {
               otherPlayer.pause();
             });
           }
-        });
+        }
       }
     });
 
@@ -186,7 +186,7 @@ class _FlutterFlowVideoPlayerState extends State<FlutterFlowVideoPlayer>
   @override
   Widget build(BuildContext context) => FittedBox(
         fit: BoxFit.cover,
-        child: Container(
+        child: SizedBox(
           height: height,
           width: width,
           child: _chewieController != null &&
@@ -196,10 +196,10 @@ class _FlutterFlowVideoPlayerState extends State<FlutterFlowVideoPlayer>
               ? Chewie(controller: _chewieController!)
               : (_chewieController != null &&
                       _chewieController!.videoPlayerController.value.hasError)
-                  ? Text('Error playing video')
-                  : Column(
+                  ? const Text('Error playing video')
+                  : const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         CircularProgressIndicator(),
                         SizedBox(height: 20),
                         Text('Loading'),

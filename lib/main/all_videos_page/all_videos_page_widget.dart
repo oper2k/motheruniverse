@@ -1,12 +1,9 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'all_videos_page_model.dart';
 export 'all_videos_page_model.dart';
 
@@ -39,8 +36,6 @@ class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -49,7 +44,7 @@ class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 45.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 45.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +55,7 @@ class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: const AlignmentDirectional(-1.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -72,7 +67,7 @@ class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {
                   child: Container(
                     width: 38.0,
                     height: 38.0,
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                     child: Icon(
                       FFIcons.kleft,
                       color: FlutterFlowTheme.of(context).secondaryText,
@@ -89,7 +84,7 @@ class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: Text(
                           'Видео',
                           style: FlutterFlowTheme.of(context).displayLarge,
@@ -97,7 +92,7 @@ class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: StreamBuilder<List<VideoRecord>>(
                           stream: queryVideoRecord(
                             queryBuilder: (videoRecord) => videoRecord
@@ -122,7 +117,7 @@ class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {
                                 snapshot.data!;
                             return Container(
                               width: double.infinity,
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: Builder(
                                 builder: (context) {
                                   final video =
@@ -144,7 +139,7 @@ class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
@@ -161,7 +156,7 @@ class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 12.0, 0.0, 0.0),
                                                 child: AutoSizeText(
@@ -183,7 +178,7 @@ class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                 child: Text(
@@ -199,8 +194,8 @@ class _AllVideosPageWidgetState extends State<AllVideosPageWidget> {
                                         ),
                                       );
                                     })
-                                        .divide(SizedBox(height: 16.0))
-                                        .addToEnd(SizedBox(height: 45.0)),
+                                        .divide(const SizedBox(height: 16.0))
+                                        .addToEnd(const SizedBox(height: 45.0)),
                                   );
                                 },
                               ),

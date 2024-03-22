@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'buy_lesson_page_model.dart';
 export 'buy_lesson_page_model.dart';
@@ -69,14 +68,14 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 24.0, 0.0, 0.0),
                             child: Text(
                               widget.lesson!.title,
@@ -91,7 +90,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               '${(widget.lesson!.price.round()).toString()} рублей',
@@ -105,7 +104,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: Text(
                               widget.lesson!.description,
@@ -119,7 +118,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                   ),
                             ),
                           ),
-                        ].addToEnd(SizedBox(height: 200.0)),
+                        ].addToEnd(const SizedBox(height: 200.0)),
                       ),
                     ),
                   ),
@@ -127,9 +126,9 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(1.0, -1.0),
+              alignment: const AlignmentDirectional(1.0, -1.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 20.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -155,7 +154,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, 1.0),
+              alignment: const AlignmentDirectional(0.0, 1.0),
               child: StreamBuilder<List<LearningRecord>>(
                 stream: queryLearningRecord(
                   queryBuilder: (learningRecord) => learningRecord
@@ -186,10 +185,10 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                   List<LearningRecord> learningLearningRecordList =
                       snapshot.data!;
                   return Container(
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 45.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 45.0),
                       child: Builder(
                         builder: (context) {
                           if (functions.containsAllThemeReferencesInCart(
@@ -209,9 +208,9 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                     options: FFButtonOptions(
                                       width: double.infinity,
                                       height: 56.0,
-                                      padding: EdgeInsets.all(0.0),
+                                      padding: const EdgeInsets.all(0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
                                           .purpleLight,
@@ -223,7 +222,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                                 .purple,
                                           ),
                                       elevation: 0.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                       ),
                                       borderRadius: BorderRadius.circular(16.0),
@@ -232,7 +231,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -265,7 +264,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                             BorderRadius.circular(16.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             1.0, 0.0, 0.0, 0.0),
                                         child: Icon(
                                           FFIcons.ktrashCan,
@@ -294,9 +293,9 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                     options: FFButtonOptions(
                                       width: double.infinity,
                                       height: 56.0,
-                                      padding: EdgeInsets.all(0.0),
+                                      padding: const EdgeInsets.all(0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).tertiary,
@@ -308,7 +307,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                                 .secondary,
                                           ),
                                       elevation: 0.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                       ),
                                       borderRadius: BorderRadius.circular(16.0),
@@ -317,7 +316,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -341,7 +340,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                             BorderRadius.circular(16.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             1.0, 0.0, 0.0, 0.0),
                                         child: Icon(
                                           FFIcons.ktrashCan,
@@ -380,14 +379,14 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     height: 56.0,
-                                    padding: EdgeInsets.all(0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsets.all(0.0),
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).purple,
                                     textStyle: FlutterFlowTheme.of(context)
                                         .displaySmall,
                                     elevation: 0.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),
@@ -395,7 +394,7 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                   showLoadingIndicator: false,
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
@@ -408,16 +407,16 @@ class _BuyLessonPageWidgetState extends State<BuyLessonPageWidget> {
                                     options: FFButtonOptions(
                                       width: double.infinity,
                                       height: 56.0,
-                                      padding: EdgeInsets.all(0.0),
+                                      padding: const EdgeInsets.all(0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).primary,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .displaySmall,
                                       elevation: 0.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                       ),
                                       borderRadius: BorderRadius.circular(16.0),

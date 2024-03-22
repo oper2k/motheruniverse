@@ -5,8 +5,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'sign_in_model.dart';
 export 'sign_in_model.dart';
 
@@ -45,8 +43,6 @@ class _SignInWidgetState extends State<SignInWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -57,14 +53,14 @@ class _SignInWidgetState extends State<SignInWidget> {
         body: Stack(
           children: [
             Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
+                      alignment: const AlignmentDirectional(-1.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -76,11 +72,11 @@ class _SignInWidgetState extends State<SignInWidget> {
                         child: Container(
                           width: 38.0,
                           height: 38.0,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Color(0x00FFFFFF),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Icon(
                               FFIcons.kleft,
                               color: FlutterFlowTheme.of(context).overlay,
@@ -92,7 +88,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 37.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 37.0, 0.0, 0.0),
                       child: Text(
                         'Вход',
                         style: FlutterFlowTheme.of(context).displayLarge,
@@ -100,7 +96,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -136,7 +132,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     4.0, 3.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -182,7 +178,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 25.0, 0.0, 0.0),
                             child: Form(
                               key: _model.formKey,
@@ -190,14 +186,14 @@ class _SignInWidgetState extends State<SignInWidget> {
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     width: double.infinity,
                                     child: TextFormField(
                                       controller: _model.emailFieldController,
                                       focusNode: _model.emailFieldFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.emailFieldController',
-                                        Duration(milliseconds: 2000),
+                                        const Duration(milliseconds: 2000),
                                         () => setState(() {}),
                                       ),
                                       obscureText: false,
@@ -208,7 +204,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                             .override(
                                               fontFamily: 'Inter',
                                               color: _model.emailIsChanging
-                                                  ? Color(0xFFE28C13)
+                                                  ? const Color(0xFFE28C13)
                                                   : FlutterFlowTheme.of(context)
                                                       .divider,
                                             ),
@@ -249,7 +245,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                               BorderRadius.circular(12.0),
                                         ),
                                         contentPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 16.0, 22.0, 16.0, 22.0),
                                         suffixIcon: _model.emailFieldController!
                                                 .text.isNotEmpty
@@ -280,9 +276,9 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 16.0, 0.0, 0.0),
-                                    child: Container(
+                                    child: SizedBox(
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller: _model.passFieldController,
@@ -303,7 +299,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                     fontFamily: 'Inter',
                                                     color: _model
                                                             .passwordIsChanging
-                                                        ? Color(0xFFE28C13)
+                                                        ? const Color(0xFFE28C13)
                                                         : FlutterFlowTheme.of(
                                                                 context)
                                                             .divider,
@@ -350,7 +346,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                 BorderRadius.circular(12.0),
                                           ),
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 22.0, 16.0, 22.0),
                                           suffixIcon: InkWell(
                                             onTap: () => setState(
@@ -389,9 +385,9 @@ class _SignInWidgetState extends State<SignInWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(1.0, -1.0),
+                            alignment: const AlignmentDirectional(1.0, -1.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -416,12 +412,12 @@ class _SignInWidgetState extends State<SignInWidget> {
                         ],
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 45.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 45.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             if (_model.formKey.currentState == null ||
@@ -463,14 +459,14 @@ class _SignInWidgetState extends State<SignInWidget> {
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 56.0,
-                            padding: EdgeInsets.all(0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsets.all(0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle:
                                 FlutterFlowTheme.of(context).displaySmall,
                             elevation: 0.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                             ),
                             borderRadius: BorderRadius.circular(16.0),
@@ -484,9 +480,9 @@ class _SignInWidgetState extends State<SignInWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, -1.0),
+              alignment: const AlignmentDirectional(0.0, -1.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 67.0, 100.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 67.0, 100.0, 0.0),
                 child: Image.asset(
                   'assets/images/3_arrows.webp',
                   height: 99.0,

@@ -2,14 +2,10 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'payment_method_page_model.dart';
 export 'payment_method_page_model.dart';
 
@@ -54,8 +50,6 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -64,16 +58,16 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 45.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 45.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
                 width: double.infinity,
                 height: 38.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -85,9 +79,9 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                     child: Container(
                       width: 38.0,
                       height: 38.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Icon(
                           FFIcons.kleft,
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -105,7 +99,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                 style: FlutterFlowTheme.of(context).displayLarge,
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -164,10 +158,10 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                     );
                   },
                   child: Container(
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 18.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 18.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -178,7 +172,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Оплата картой',
@@ -193,7 +187,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 0.0, 0.0),
                             child: Icon(
                               FFIcons.kright2,
@@ -236,7 +230,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                     List<LearningRecord> containerLearningRecordList =
                         snapshot.data!;
                     return Container(
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Builder(
                         builder: (context) {
                           final lesson = containerLearningRecordList
@@ -270,7 +264,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                                                 functions.mergeLists(
                                                     (currentUserDocument
                                                                 ?.purchasedLessons
-                                                                ?.toList() ??
+                                                                .toList() ??
                                                             [])
                                                         .toList(),
                                                     widget.lessonsReferences!
@@ -296,7 +290,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                                             ),
                                           ),
                                           duration:
-                                              Duration(milliseconds: 4000),
+                                              const Duration(milliseconds: 4000),
                                           backgroundColor:
                                               FlutterFlowTheme.of(context)
                                                   .secondary,
@@ -307,9 +301,9 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                                     setState(() {});
                                   },
                                   child: Container(
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 18.0, 0.0, 18.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -322,7 +316,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                                           ),
                                           Expanded(
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
@@ -341,7 +335,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),
                                             child: Icon(
                                               FFIcons.kright2,
@@ -364,7 +358,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                     );
                   },
                 ),
-              Spacer(),
+              const Spacer(),
               if (valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0) >
                   0.0)
                 AuthUserStreamWidget(
@@ -376,7 +370,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                       borderRadius: BorderRadius.circular(16.0),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
+                      padding: const EdgeInsetsDirectional.fromSTEB(
                           20.0, 16.0, 20.0, 16.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -392,7 +386,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Списать ${valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0) > widget.price! ? ((widget.price!).round() - 1).toString() : (valueOrDefault(currentUserDocument?.loyaltyBonuses, 0.0).round()).toString()} бонусов',
@@ -407,13 +401,13 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 0.0, 0.0),
                             child: Switch.adaptive(
                               value: _model.switchValue ??= false,
                               onChanged: (newValue) async {
-                                setState(() => _model.switchValue = newValue!);
-                                if (newValue!) {
+                                setState(() => _model.switchValue = newValue);
+                                if (newValue) {
                                   setState(() {
                                     _model.useBonuses = true;
                                   });
@@ -438,7 +432,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                   ),
                 ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 23.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 23.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -484,7 +478,7 @@ class _PaymentMethodPageWidgetState extends State<PaymentMethodPageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,

@@ -7,10 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'attach_feedback_bonus_model.dart';
 export 'attach_feedback_bonus_model.dart';
 
@@ -48,15 +45,13 @@ class _AttachFeedbackBonusWidgetState extends State<AttachFeedbackBonusWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
-      alignment: AlignmentDirectional(0.0, 1.0),
+      alignment: const AlignmentDirectional(0.0, 1.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).backgroundMain,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(24.0),
@@ -64,7 +59,7 @@ class _AttachFeedbackBonusWidgetState extends State<AttachFeedbackBonusWidget> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -77,7 +72,7 @@ class _AttachFeedbackBonusWidgetState extends State<AttachFeedbackBonusWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -120,7 +115,7 @@ class _AttachFeedbackBonusWidgetState extends State<AttachFeedbackBonusWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -129,13 +124,13 @@ class _AttachFeedbackBonusWidgetState extends State<AttachFeedbackBonusWidget> {
                         if (_model.screenshot != null &&
                             _model.screenshot != '') {
                           return Stack(
-                            alignment: AlignmentDirectional(1.0, -1.0),
+                            alignment: const AlignmentDirectional(1.0, -1.0),
                             children: [
                               Container(
                                 width: 112.0,
                                 height: 112.0,
                                 clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.network(
@@ -262,7 +257,7 @@ class _AttachFeedbackBonusWidgetState extends State<AttachFeedbackBonusWidget> {
                     Expanded(
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'Сделайте скриншот вашего отзыва и отправьте на подтверждение администратору',
                           style: FlutterFlowTheme.of(context)
@@ -279,7 +274,7 @@ class _AttachFeedbackBonusWidgetState extends State<AttachFeedbackBonusWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 65.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 65.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -303,7 +298,7 @@ class _AttachFeedbackBonusWidgetState extends State<AttachFeedbackBonusWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                       child: Text(
                         '100 баллов',
                         style:
@@ -318,7 +313,7 @@ class _AttachFeedbackBonusWidgetState extends State<AttachFeedbackBonusWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 45.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 45.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     if (_model.screenshot != null && _model.screenshot != '') {
@@ -345,7 +340,7 @@ class _AttachFeedbackBonusWidgetState extends State<AttachFeedbackBonusWidget> {
                         builder: (context) {
                           return Padding(
                             padding: MediaQuery.viewInsetsOf(context),
-                            child: FeedbackIsSentWidget(),
+                            child: const FeedbackIsSentWidget(),
                           );
                         },
                       ).then((value) => safeSetState(() {}));
@@ -355,13 +350,13 @@ class _AttachFeedbackBonusWidgetState extends State<AttachFeedbackBonusWidget> {
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 56.0,
-                    padding: EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).displaySmall,
                     elevation: 0.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                     ),
                     borderRadius: BorderRadius.circular(16.0),

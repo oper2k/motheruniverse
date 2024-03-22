@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/bottom_sheet/loyalty_bottom_sheet/happy_birthday/happy_birthday_widget.dart';
 import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -9,11 +8,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'main_page_model.dart';
 export 'main_page_model.dart';
 
@@ -37,7 +33,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (functions.todayIsBirthday(currentUserDocument!.birthday!) &&
-          !(currentUserDocument?.birthdayBonusClaimedYears?.toList() ?? [])
+          !(currentUserDocument?.birthdayBonusClaimedYears.toList() ?? [])
               .contains(
                   functions.extractYearFromDateTime(getCurrentTimestamp)) &&
           valueOrDefault<bool>(
@@ -67,7 +63,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                   : FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: HappyBirthdayWidget(),
+                child: const HappyBirthdayWidget(),
               ),
             );
           },
@@ -87,8 +83,6 @@ class _MainPageWidgetState extends State<MainPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -99,21 +93,21 @@ class _MainPageWidgetState extends State<MainPageWidget> {
         body: Stack(
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 35.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -137,7 +131,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                       .bodyMedium,
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 0.0, 0.0, 0.0),
                                               child: ClipRRect(
                                                 borderRadius:
@@ -164,7 +158,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                       .bodyMedium,
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 0.0, 0.0, 0.0),
                                               child: ClipRRect(
                                                 borderRadius:
@@ -191,7 +185,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                       .bodyMedium,
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 0.0, 0.0, 0.0),
                                               child: ClipRRect(
                                                 borderRadius:
@@ -216,7 +210,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                       .bodyMedium,
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 0.0, 0.0, 0.0),
                                               child: ClipRRect(
                                                 borderRadius:
@@ -258,14 +252,14 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 15.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 15.0, 20.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 4.0),
                             child: Text(
                               'МОИ ДЕТИ',
@@ -293,9 +287,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                             child: Container(
                               width: 35.0,
                               height: 35.0,
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: Align(
-                                alignment: AlignmentDirectional(1.0, 0.0),
+                                alignment: const AlignmentDirectional(1.0, 0.0),
                                 child: Icon(
                                   FFIcons.kright15,
                                   color: FlutterFlowTheme.of(context).primary,
@@ -309,7 +303,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 20.0, 0.0),
                       child: StreamBuilder<List<ChildrenRecord>>(
                         stream: queryChildrenRecord(
                           parent: currentUserReference,
@@ -333,16 +327,16 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                               snapshot.data!;
                           return Container(
                             height: 205.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Builder(
                               builder: (context) {
                                 final child =
                                     containerChildrenRecordList.toList();
-                                return Container(
+                                return SizedBox(
                                   width: double.infinity,
                                   height: 500.0,
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 40.0),
                                     child: PageView.builder(
                                       controller: _model.pageViewController ??=
@@ -384,20 +378,17 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                   children: [
                                                     Stack(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               1.0, -1.0),
                                                       children: [
                                                         Builder(
                                                           builder: (context) {
                                                             if (childItem
                                                                         .photo !=
-                                                                    null &&
-                                                                childItem
-                                                                        .photo !=
                                                                     '') {
                                                               return Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             15.0,
                                                                             8.0,
@@ -412,11 +403,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   child:
                                                                       CachedNetworkImage(
                                                                     fadeInDuration:
-                                                                        Duration(
+                                                                        const Duration(
                                                                             milliseconds:
                                                                                 200),
                                                                     fadeOutDuration:
-                                                                        Duration(
+                                                                        const Duration(
                                                                             milliseconds:
                                                                                 200),
                                                                     imageUrl:
@@ -436,7 +427,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                 'male') {
                                                               return Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             15.0,
                                                                             8.0,
@@ -455,7 +446,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             25.0,
@@ -485,7 +476,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                 'female') {
                                                               return Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             15.0,
                                                                             8.0,
@@ -504,7 +495,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             25.0,
@@ -532,7 +523,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                             } else {
                                                               return Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             15.0,
                                                                             8.0,
@@ -551,7 +542,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             25.0,
@@ -581,9 +572,6 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                         ),
                                                         if (childItem
                                                                     .imageRight !=
-                                                                null &&
-                                                            childItem
-                                                                    .imageRight !=
                                                                 '')
                                                           ClipRRect(
                                                             borderRadius:
@@ -602,13 +590,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                           ),
                                                         if (childItem
                                                                     .imageLeft !=
-                                                                null &&
-                                                            childItem
-                                                                    .imageLeft !=
                                                                 '')
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         123.0,
@@ -634,7 +619,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   8.0,
@@ -666,7 +651,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         2.0,
@@ -697,7 +682,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   size: 24.0,
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -743,7 +728,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   size: 24.0,
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -774,7 +759,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         18.0,
@@ -809,11 +794,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                 width: 100.0,
                                                                 height: 36.0,
                                                                 padding:
-                                                                    EdgeInsets
+                                                                    const EdgeInsets
                                                                         .all(
                                                                             0.0),
                                                                 iconPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -827,7 +812,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                     .headlineLarge,
                                                                 elevation: 0.0,
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Colors
                                                                       .transparent,
                                                                 ),
@@ -873,20 +858,17 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                   children: [
                                                     Stack(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               1.0, -1.0),
                                                       children: [
                                                         Builder(
                                                           builder: (context) {
                                                             if (childItem
                                                                         .photo !=
-                                                                    null &&
-                                                                childItem
-                                                                        .photo !=
                                                                     '') {
                                                               return Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             15.0,
                                                                             8.0,
@@ -901,11 +883,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   child:
                                                                       CachedNetworkImage(
                                                                     fadeInDuration:
-                                                                        Duration(
+                                                                        const Duration(
                                                                             milliseconds:
                                                                                 200),
                                                                     fadeOutDuration:
-                                                                        Duration(
+                                                                        const Duration(
                                                                             milliseconds:
                                                                                 200),
                                                                     imageUrl:
@@ -925,7 +907,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                 'male') {
                                                               return Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             15.0,
                                                                             8.0,
@@ -944,7 +926,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             25.0,
@@ -974,7 +956,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                 'female') {
                                                               return Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             15.0,
                                                                             8.0,
@@ -993,7 +975,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             25.0,
@@ -1021,7 +1003,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                             } else {
                                                               return Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             15.0,
                                                                             8.0,
@@ -1040,7 +1022,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             25.0,
@@ -1070,13 +1052,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                         ),
                                                         if (childItem
                                                                     .imageLeft !=
-                                                                null &&
-                                                            childItem
-                                                                    .imageLeft !=
                                                                 '')
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         123.0,
@@ -1090,11 +1069,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                               child:
                                                                   CachedNetworkImage(
                                                                 fadeInDuration:
-                                                                    Duration(
+                                                                    const Duration(
                                                                         milliseconds:
                                                                             500),
                                                                 fadeOutDuration:
-                                                                    Duration(
+                                                                    const Duration(
                                                                         milliseconds:
                                                                             500),
                                                                 imageUrl: childItem
@@ -1108,9 +1087,6 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                           ),
                                                         if (childItem
                                                                     .imageRight !=
-                                                                null &&
-                                                            childItem
-                                                                    .imageRight !=
                                                                 '')
                                                           ClipRRect(
                                                             borderRadius:
@@ -1120,11 +1096,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                             child:
                                                                 CachedNetworkImage(
                                                               fadeInDuration:
-                                                                  Duration(
+                                                                  const Duration(
                                                                       milliseconds:
                                                                           500),
                                                               fadeOutDuration:
-                                                                  Duration(
+                                                                  const Duration(
                                                                       milliseconds:
                                                                           500),
                                                               imageUrl: childItem
@@ -1139,7 +1115,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   8.0,
@@ -1174,7 +1150,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         2.0,
@@ -1195,7 +1171,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         12.0,
@@ -1226,7 +1202,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                       ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           2.0,
                                                                           0.0,
@@ -1253,7 +1229,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                           Expanded(
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           5.0,
@@ -1300,10 +1276,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                               width: 100.0,
                                                               height: 36.0,
                                                               padding:
-                                                                  EdgeInsets
+                                                                  const EdgeInsets
                                                                       .all(0.0),
                                                               iconPadding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1317,7 +1293,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   .headlineLarge,
                                                               elevation: 0.0,
                                                               borderSide:
-                                                                  BorderSide(
+                                                                  const BorderSide(
                                                                 color: Colors
                                                                     .transparent,
                                                               ),
@@ -1348,7 +1324,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -1382,7 +1358,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                       child: StreamBuilder<List<VideoRecord>>(
                         stream: queryVideoRecord(
                           queryBuilder: (videoRecord) => videoRecord
@@ -1407,7 +1383,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                               snapshot.data!;
                           return Container(
                             width: double.infinity,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Builder(
                               builder: (context) {
                                 final video = videoVideoRecordList.toList();
@@ -1428,7 +1404,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                         },
                                         child: Container(
                                           width: 240.0,
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
@@ -1438,9 +1414,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                 borderRadius:
                                                     BorderRadius.circular(12.0),
                                                 child: CachedNetworkImage(
-                                                  fadeInDuration: Duration(
+                                                  fadeInDuration: const Duration(
                                                       milliseconds: 200),
-                                                  fadeOutDuration: Duration(
+                                                  fadeOutDuration: const Duration(
                                                       milliseconds: 200),
                                                   imageUrl: videoItem.preview,
                                                   width: 240.0,
@@ -1449,7 +1425,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 12.0, 0.0, 0.0),
                                                 child: AutoSizeText(
@@ -1486,9 +1462,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                         ),
                                       );
                                     })
-                                        .divide(SizedBox(width: 16.0))
-                                        .addToStart(SizedBox(width: 20.0))
-                                        .addToEnd(SizedBox(width: 20.0)),
+                                        .divide(const SizedBox(width: 16.0))
+                                        .addToStart(const SizedBox(width: 20.0))
+                                        .addToEnd(const SizedBox(width: 20.0)),
                                   ),
                                 );
                               },
@@ -1499,7 +1475,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 32.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 32.0, 20.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -1533,7 +1509,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                       child: StreamBuilder<List<CheckListRecord>>(
                         stream: queryCheckListRecord(
                           queryBuilder: (checkListRecord) =>
@@ -1557,9 +1533,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                           List<CheckListRecord> containerCheckListRecordList =
                               snapshot.data!;
                           return Container(
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Builder(
                                 builder: (context) {
                                   final checkList =
@@ -1595,7 +1571,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                           },
                                           child: Container(
                                             width: 124.0,
-                                            decoration: BoxDecoration(),
+                                            decoration: const BoxDecoration(),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -1606,9 +1582,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                       BorderRadius.circular(
                                                           20.0),
                                                   child: CachedNetworkImage(
-                                                    fadeInDuration: Duration(
+                                                    fadeInDuration: const Duration(
                                                         milliseconds: 200),
-                                                    fadeOutDuration: Duration(
+                                                    fadeOutDuration: const Duration(
                                                         milliseconds: 200),
                                                     imageUrl:
                                                         checkListItem.image,
@@ -1618,7 +1594,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 8.0, 0.0, 0.0),
                                                   child: Text(
@@ -1639,9 +1615,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                           ),
                                         );
                                       })
-                                          .divide(SizedBox(width: 12.0))
-                                          .addToStart(SizedBox(width: 20.0))
-                                          .addToEnd(SizedBox(width: 20.0)),
+                                          .divide(const SizedBox(width: 12.0))
+                                          .addToStart(const SizedBox(width: 20.0))
+                                          .addToEnd(const SizedBox(width: 20.0)),
                                     ),
                                   );
                                 },
@@ -1675,17 +1651,17 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                             snapshot.data!;
                         return Container(
                           width: double.infinity,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Visibility(
-                            visible: containerNewsRecordList.length > 0,
+                            visible: containerNewsRecordList.isNotEmpty,
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 32.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 20.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -1721,11 +1697,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Container(
                                       width: double.infinity,
-                                      decoration: BoxDecoration(),
+                                      decoration: const BoxDecoration(),
                                       child: Builder(
                                         builder: (context) {
                                           final news =
@@ -1767,9 +1743,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                         BorderRadius.circular(
                                                             16.0),
                                                     child: CachedNetworkImage(
-                                                      fadeInDuration: Duration(
+                                                      fadeInDuration: const Duration(
                                                           milliseconds: 200),
-                                                      fadeOutDuration: Duration(
+                                                      fadeOutDuration: const Duration(
                                                           milliseconds: 200),
                                                       imageUrl: newsItem.image,
                                                       width: 300.0,
@@ -1779,11 +1755,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                   ),
                                                 );
                                               })
-                                                  .divide(SizedBox(width: 16.0))
+                                                  .divide(const SizedBox(width: 16.0))
                                                   .addToStart(
-                                                      SizedBox(width: 20.0))
+                                                      const SizedBox(width: 20.0))
                                                   .addToEnd(
-                                                      SizedBox(width: 20.0)),
+                                                      const SizedBox(width: 20.0)),
                                             ),
                                           );
                                         },
@@ -1800,7 +1776,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     if (false)
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                         child: StreamBuilder<List<LearningRecord>>(
                           stream: queryLearningRecord(
                             queryBuilder: (learningRecord) => learningRecord
@@ -1829,18 +1805,18 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                 snapshot.data!;
                             return Container(
                               width: double.infinity,
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: Visibility(
                                 visible:
-                                    freeLessonsLearningRecordList.length > 0,
+                                    freeLessonsLearningRecordList.isNotEmpty,
                                 child: Container(
                                   width: double.infinity,
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             20.0, 0.0, 20.0, 0.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
@@ -1881,10 +1857,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
+                                            const AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 0.0, 0.0),
                                           child: Builder(
                                             builder: (context) {
@@ -1933,7 +1909,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                         width: 120.0,
                                                         height: 168.0,
                                                         decoration:
-                                                            BoxDecoration(),
+                                                            const BoxDecoration(),
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -1951,11 +1927,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   child:
                                                                       CachedNetworkImage(
                                                                     fadeInDuration:
-                                                                        Duration(
+                                                                        const Duration(
                                                                             milliseconds:
                                                                                 200),
                                                                     fadeOutDuration:
-                                                                        Duration(
+                                                                        const Duration(
                                                                             milliseconds:
                                                                                 200),
                                                                     imageUrl:
@@ -1970,7 +1946,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           2.0,
                                                                           2.0,
@@ -1993,7 +1969,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                     child:
                                                                         Align(
                                                                       alignment:
-                                                                          AlignmentDirectional(
+                                                                          const AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       child:
@@ -2013,7 +1989,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           44.0,
                                                                           44.0,
@@ -2047,7 +2023,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
@@ -2087,10 +2063,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                     );
                                                   })
                                                       .divide(
-                                                          SizedBox(width: 16.0))
+                                                          const SizedBox(width: 16.0))
                                                       .addToStart(
-                                                          SizedBox(width: 20.0))
-                                                      .addToEnd(SizedBox(
+                                                          const SizedBox(width: 20.0))
+                                                      .addToEnd(const SizedBox(
                                                           width: 20.0)),
                                                 ),
                                               );
@@ -2108,7 +2084,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                       ),
                     if (false)
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 32.0, 20.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
@@ -2143,7 +2119,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                       ),
                     if (false)
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 6.0, 20.0, 0.0),
                         child: StreamBuilder<List<EventsRecord>>(
                           stream: queryEventsRecord(
@@ -2170,7 +2146,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                 snapshot.data!;
                             return Container(
                               width: double.infinity,
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: Builder(
                                 builder: (context) {
                                   final event =
@@ -2183,20 +2159,19 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                       return Container(
                                         width: double.infinity,
                                         height: 122.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Container(
                                               width: 64.0,
                                               height: 45.0,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     -1.0, 0.0),
                                                 child: Text(
-                                                  eventItem.date != null &&
-                                                          eventItem.date != ''
+                                                  eventItem.date != ''
                                                       ? eventItem.date
                                                       : 'Скоро',
                                                   textAlign: TextAlign.center,
@@ -2211,7 +2186,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(6.0, 0.0, 0.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -2257,7 +2232,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 0.0, 0.0, 0.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
@@ -2302,7 +2277,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 16.0,
                                                                 12.0,
@@ -2351,7 +2326,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           4.0,
                                                                           0.0,
@@ -2359,8 +2334,6 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                           0.0),
                                                               child: Text(
                                                                 eventItem.time !=
-                                                                            null &&
-                                                                        eventItem.time !=
                                                                             ''
                                                                     ? eventItem
                                                                         .time
@@ -2397,7 +2370,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                       ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 32.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 32.0, 20.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -2431,7 +2404,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                       child: StreamBuilder<List<PodcastsRecord>>(
                         stream: queryPodcastsRecord(
                           queryBuilder: (podcastsRecord) =>
@@ -2456,7 +2429,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                               snapshot.data!;
                           return Container(
                             width: double.infinity,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Builder(
                               builder: (context) {
                                 final podcasts =
@@ -2471,7 +2444,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                           podcasts[podcastsIndex];
                                       return Container(
                                         width: 124.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -2489,9 +2462,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                 borderRadius:
                                                     BorderRadius.circular(16.0),
                                                 child: CachedNetworkImage(
-                                                  fadeInDuration: Duration(
+                                                  fadeInDuration: const Duration(
                                                       milliseconds: 200),
-                                                  fadeOutDuration: Duration(
+                                                  fadeOutDuration: const Duration(
                                                       milliseconds: 200),
                                                   imageUrl: podcastsItem.image,
                                                   width: 124.0,
@@ -2500,7 +2473,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 8.0, 0.0, 0.0),
                                                 child: Text(
@@ -2522,7 +2495,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                 child: Text(
@@ -2541,9 +2514,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                         ),
                                       );
                                     })
-                                        .divide(SizedBox(width: 15.0))
-                                        .addToStart(SizedBox(width: 20.0))
-                                        .addToEnd(SizedBox(width: 20.0)),
+                                        .divide(const SizedBox(width: 15.0))
+                                        .addToStart(const SizedBox(width: 20.0))
+                                        .addToEnd(const SizedBox(width: 20.0)),
                                   ),
                                 );
                               },
@@ -2554,7 +2527,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 32.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 32.0, 20.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -2564,7 +2537,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                           context.pushNamed(
                             'LearningPage',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),
@@ -2597,7 +2570,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                       child: StreamBuilder<List<CategoryLearningRecord>>(
                         stream: queryCategoryLearningRecord(
                           queryBuilder: (categoryLearningRecord) =>
@@ -2623,7 +2596,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                               snapshot.data!;
                           return Container(
                             width: double.infinity,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: StreamBuilder<List<LearningRecord>>(
                               stream: queryLearningRecord(
                                 queryBuilder: (learningRecord) => learningRecord
@@ -2657,7 +2630,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                     snapshot.data!;
                                 return Container(
                                   width: double.infinity,
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -2716,7 +2689,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         6.0,
@@ -2759,7 +2732,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         6.0,
@@ -2791,17 +2764,17 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                   ),
                                                 );
                                               })
-                                                  .divide(SizedBox(width: 8.0))
+                                                  .divide(const SizedBox(width: 8.0))
                                                   .addToStart(
-                                                      SizedBox(width: 20.0))
+                                                      const SizedBox(width: 20.0))
                                                   .addToEnd(
-                                                      SizedBox(width: 20.0)),
+                                                      const SizedBox(width: 20.0)),
                                             ),
                                           );
                                         },
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 16.0, 0.0, 0.0),
                                         child: Builder(
                                           builder: (context) {
@@ -2829,7 +2802,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                     onTap: () async {
                                                       if ((currentUserDocument
                                                                       ?.purchasedLessons
-                                                                      ?.toList() ??
+                                                                      .toList() ??
                                                                   [])
                                                               .contains(
                                                                   learningItem
@@ -2877,7 +2850,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                       width: 120.0,
                                                       height: 168.0,
                                                       decoration:
-                                                          BoxDecoration(),
+                                                          const BoxDecoration(),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -2895,11 +2868,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                 child:
                                                                     CachedNetworkImage(
                                                                   fadeInDuration:
-                                                                      Duration(
+                                                                      const Duration(
                                                                           milliseconds:
                                                                               200),
                                                                   fadeOutDuration:
-                                                                      Duration(
+                                                                      const Duration(
                                                                           milliseconds:
                                                                               200),
                                                                   imageUrl:
@@ -2912,7 +2885,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                                 ),
                                                               ),
                                                               Padding(
-                                                                padding: EdgeInsetsDirectional
+                                                                padding: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         44.0,
                                                                         44.0,
@@ -2944,7 +2917,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         8.0,
@@ -2980,11 +2953,11 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                                                   );
                                                 })
                                                     .divide(
-                                                        SizedBox(width: 16.0))
+                                                        const SizedBox(width: 16.0))
                                                     .addToStart(
-                                                        SizedBox(width: 20.0))
+                                                        const SizedBox(width: 20.0))
                                                     .addToEnd(
-                                                        SizedBox(width: 20.0)),
+                                                        const SizedBox(width: 20.0)),
                                               ),
                                             );
                                           },
@@ -3001,7 +2974,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     ),
                     if (_model.selectedCategory != 0)
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 16.0, 20.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () {
@@ -3011,14 +2984,14 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 56.0,
-                            padding: EdgeInsets.all(0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsets.all(0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).tertiary,
                             textStyle:
                                 FlutterFlowTheme.of(context).headlineLarge,
                             elevation: 0.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                             ),
                             borderRadius: BorderRadius.circular(16.0),
@@ -3027,7 +3000,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                       ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           context.pushNamed('GetAllLessonsPage');
@@ -3036,13 +3009,13 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 56.0,
-                          padding: EdgeInsets.all(0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsets.all(0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle: FlutterFlowTheme.of(context).displaySmall,
                           elevation: 0.0,
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.transparent,
                           ),
                           borderRadius: BorderRadius.circular(16.0),
@@ -3050,16 +3023,16 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                         showLoadingIndicator: false,
                       ),
                     ),
-                  ].addToEnd(SizedBox(height: 140.0)),
+                  ].addToEnd(const SizedBox(height: 140.0)),
                 ),
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: wrapWithModel(
                 model: _model.navBarModel,
                 updateCallback: () => setState(() {}),
-                child: NavBarWidget(
+                child: const NavBarWidget(
                   nevBarPage: 1,
                 ),
               ),

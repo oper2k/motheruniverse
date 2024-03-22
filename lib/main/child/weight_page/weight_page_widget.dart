@@ -4,11 +4,8 @@ import '/components/bottom_sheet/child_bottom_sheet/create_the_weight/create_the
 import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'weight_page_model.dart';
 export 'weight_page_model.dart';
 
@@ -46,8 +43,6 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -74,9 +69,9 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
             }
             final containerChildrenRecord = snapshot.data!;
             return Container(
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,9 +96,9 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                             child: Container(
                               width: 30.0,
                               height: 38.0,
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: Align(
-                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                alignment: const AlignmentDirectional(-1.0, 0.0),
                                 child: Icon(
                                   FFIcons.kleft,
                                   color: FlutterFlowTheme.of(context)
@@ -115,7 +110,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 30.0, 0.0),
                               child: Text(
                                 'График нормы веса',
@@ -140,7 +135,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 16.0, 0.0, 0.0),
                               child: Text(
                                 'ТЕКУЩИЙ ВЕС',
@@ -173,7 +168,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                           ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -242,7 +237,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                           .languageCode,
                                     ))
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -304,7 +299,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                               style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 14.0, 0.0, 0.0),
                               child: Builder(
                                 builder: (context) {
@@ -316,17 +311,17 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Container(
+                                        SizedBox(
                                           height: 326.0,
                                           child: Stack(
                                             children: [
                                               ClipRRect(
                                                 child: Container(
                                                   height: 326.0,
-                                                  decoration: BoxDecoration(),
+                                                  decoration: const BoxDecoration(),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 20.0, 0.0),
                                                     child: ClipRRect(
@@ -371,8 +366,8 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                                   .date!)
                                                           .toDouble(),
                                                       decoration:
-                                                          BoxDecoration(),
-                                                      child: Container(
+                                                          const BoxDecoration(),
+                                                      child: SizedBox(
                                                         width: double.infinity,
                                                         height: 326.0,
                                                         child:
@@ -403,21 +398,21 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                             )
                                                           ],
                                                           chartStylingInfo:
-                                                              ChartStylingInfo(
+                                                              const ChartStylingInfo(
                                                             backgroundColor:
                                                                 Color(
                                                                     0x00FFFFFF),
                                                             showBorder: false,
                                                           ),
                                                           axisBounds:
-                                                              AxisBounds(
+                                                              const AxisBounds(
                                                             minY: 1.0,
                                                             maxY: 17.0,
                                                           ),
                                                           xAxisLabelInfo:
-                                                              AxisLabelInfo(),
+                                                              const AxisLabelInfo(),
                                                           yAxisLabelInfo:
-                                                              AxisLabelInfo(),
+                                                              const AxisLabelInfo(),
                                                         ),
                                                       ),
                                                     ),
@@ -425,7 +420,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                   Container(
                                                     width: 20.0,
                                                     height: 326.0,
-                                                    decoration: BoxDecoration(),
+                                                    decoration: const BoxDecoration(),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -545,7 +540,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 6.0, 20.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -653,7 +648,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 24.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.min,
@@ -669,7 +664,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -685,7 +680,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         39.0, 0.0, 0.0, 0.0),
                                                 child: Container(
@@ -700,7 +695,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -735,13 +730,13 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 77.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 50.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -793,7 +788,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                       ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -869,7 +864,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                       ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -957,7 +952,7 @@ class _WeightPageWidgetState extends State<WeightPageWidget> {
                                                       ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Text(

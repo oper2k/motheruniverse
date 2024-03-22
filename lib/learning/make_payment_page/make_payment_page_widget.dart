@@ -6,11 +6,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'make_payment_page_model.dart';
 export 'make_payment_page_model.dart';
@@ -76,16 +74,16 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 45.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 45.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
                 width: double.infinity,
                 height: 38.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -97,9 +95,9 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                     child: Container(
                       width: 38.0,
                       height: 38.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Icon(
                           FFIcons.kleft,
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -111,7 +109,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                 child: Text(
                   'Произведите оплату',
                   textAlign: TextAlign.center,
@@ -119,15 +117,15 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
-                child: Container(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                child: SizedBox(
                   width: double.infinity,
                   child: TextFormField(
                     controller: _model.textController1,
                     focusNode: _model.textFieldFocusNode1,
                     onChanged: (_) => EasyDebounce.debounce(
                       '_model.textController1',
-                      Duration(milliseconds: 200),
+                      const Duration(milliseconds: 200),
                       () => setState(() {}),
                     ),
                     obscureText: false,
@@ -162,7 +160,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                         ),
                         borderRadius: BorderRadius.circular(12.0),
                       ),
-                      contentPadding: EdgeInsetsDirectional.fromSTEB(
+                      contentPadding: const EdgeInsetsDirectional.fromSTEB(
                           16.0, 22.0, 16.0, 22.0),
                     ),
                     style: FlutterFlowTheme.of(context).headlineSmall,
@@ -175,19 +173,19 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                         width: double.infinity,
                         child: TextFormField(
                           controller: _model.textController2,
                           focusNode: _model.textFieldFocusNode2,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.textController2',
-                            Duration(milliseconds: 200),
+                            const Duration(milliseconds: 200),
                             () => setState(() {}),
                           ),
                           obscureText: false,
@@ -223,7 +221,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                               ),
                               borderRadius: BorderRadius.circular(12.0),
                             ),
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                            contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 22.0, 16.0, 22.0),
                           ),
                           style: FlutterFlowTheme.of(context).headlineSmall,
@@ -237,15 +235,15 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                      child: Container(
+                          const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                      child: SizedBox(
                         width: 120.0,
                         child: TextFormField(
                           controller: _model.textController3,
                           focusNode: _model.textFieldFocusNode3,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.textController3',
-                            Duration(milliseconds: 200),
+                            const Duration(milliseconds: 200),
                             () => setState(() {}),
                           ),
                           obscureText: false,
@@ -281,7 +279,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                               ),
                               borderRadius: BorderRadius.circular(12.0),
                             ),
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                            contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 22.0, 16.0, 22.0),
                           ),
                           style: FlutterFlowTheme.of(context).headlineSmall,
@@ -296,7 +294,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                   ],
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -322,7 +320,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: StreamBuilder<List<LearningRecord>>(
                   stream: queryLearningRecord(),
                   builder: (context, snapshot) {
@@ -343,7 +341,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                     List<LearningRecord> containerLearningRecordList =
                         snapshot.data!;
                     return Container(
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Builder(
                         builder: (context) {
                           final lesson = containerLearningRecordList
@@ -358,29 +356,25 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                               final lessonItem = lesson[lessonIndex];
                               return FFButtonWidget(
                                 onPressed: !((_model.textController1.text !=
-                                                null &&
-                                            _model.textController1.text !=
                                                 '') &&
-                                        (_model.textController2.text != null &&
-                                            _model.textController2.text !=
+                                        (_model.textController2.text !=
                                                 '') &&
-                                        (_model.textController3.text != null &&
-                                            _model.textController3.text != ''))
+                                        (_model.textController3.text != ''))
                                     ? null
                                     : () async {
-                                        var _shouldSetState = false;
+                                        var shouldSetState = false;
                                         _model.validateCartNumber =
                                             await actions.validateCardNumber(
                                           _model.textController1.text,
                                         );
-                                        _shouldSetState = true;
+                                        shouldSetState = true;
                                         if (_model.validateCartNumber!) {
                                           _model.validateCardDate =
                                               await actions
                                                   .validateCardExpireDate(
                                             _model.textController2.text,
                                           );
-                                          _shouldSetState = true;
+                                          shouldSetState = true;
                                           if (_model.validateCardDate!) {
                                             _model.cryptogramCard = await actions
                                                 .returnStringCardCryptogramForCloudpayments(
@@ -389,7 +383,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                               _model.textController3.text,
                                               FFAppState().cloudPublicID,
                                             );
-                                            _shouldSetState = true;
+                                            shouldSetState = true;
                                             _model.apiResult2li =
                                                 await CloudpaymentsGroup
                                                     .payByCardCall
@@ -402,7 +396,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                               email: currentUserEmail,
                                               accountId: currentUserEmail,
                                             );
-                                            _shouldSetState = true;
+                                            shouldSetState = true;
                                             if ((_model
                                                     .apiResult2li?.succeeded ??
                                                 true)) {
@@ -433,7 +427,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                                 .primary,
                                                       ),
                                                     ),
-                                                    duration: Duration(
+                                                    duration: const Duration(
                                                         milliseconds: 4000),
                                                     backgroundColor:
                                                         FlutterFlowTheme.of(
@@ -460,7 +454,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                             functions.mergeLists(
                                                                 (currentUserDocument
                                                                             ?.purchasedLessons
-                                                                            ?.toList() ??
+                                                                            .toList() ??
                                                                         [])
                                                                     .toList(),
                                                                 widget
@@ -506,7 +500,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                             functions.mergeLists(
                                                                 (currentUserDocument
                                                                             ?.purchasedLessons
-                                                                            ?.toList() ??
+                                                                            .toList() ??
                                                                         [])
                                                                     .toList(),
                                                                 widget
@@ -562,7 +556,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                               .primary,
                                                         ),
                                                       ),
-                                                      duration: Duration(
+                                                      duration: const Duration(
                                                           milliseconds: 4000),
                                                       backgroundColor:
                                                           FlutterFlowTheme.of(
@@ -570,8 +564,9 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                               .tertiary,
                                                     ),
                                                   );
-                                                  if (_shouldSetState)
+                                                  if (shouldSetState) {
                                                     setState(() {});
+                                                  }
                                                   return;
                                                 }
                                                 if (CloudpaymentsGroup
@@ -615,9 +610,8 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                           ''),
                                                     )!,
                                                   );
-                                                  _shouldSetState = true;
-                                                  if (_model.check3DS!.length >
-                                                      0) {
+                                                  shouldSetState = true;
+                                                  if (_model.check3DS!.isNotEmpty) {
                                                     _model.apiResult5ny =
                                                         await CloudpaymentsGroup
                                                             .checkDSCall
@@ -628,7 +622,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                       paRes:
                                                           _model.check3DS?.last,
                                                     );
-                                                    _shouldSetState = true;
+                                                    shouldSetState = true;
                                                     if ((_model.apiResult5ny
                                                             ?.succeeded ??
                                                         true)) {
@@ -660,7 +654,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                                     .primary,
                                                               ),
                                                             ),
-                                                            duration: Duration(
+                                                            duration: const Duration(
                                                                 milliseconds:
                                                                     4000),
                                                             backgroundColor:
@@ -684,7 +678,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                             ...mapToFirestore(
                                                               {
                                                                 'purchased_lessons': functions.mergeLists(
-                                                                    (currentUserDocument?.purchasedLessons?.toList() ??
+                                                                    (currentUserDocument?.purchasedLessons.toList() ??
                                                                             [])
                                                                         .toList(),
                                                                     widget
@@ -725,7 +719,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                             ...mapToFirestore(
                                                               {
                                                                 'purchased_lessons': functions.mergeLists(
-                                                                    (currentUserDocument?.purchasedLessons?.toList() ??
+                                                                    (currentUserDocument?.purchasedLessons.toList() ??
                                                                             [])
                                                                         .toList(),
                                                                     widget
@@ -777,7 +771,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                                     .primary,
                                                               ),
                                                             ),
-                                                            duration: Duration(
+                                                            duration: const Duration(
                                                                 milliseconds:
                                                                     4000),
                                                             backgroundColor:
@@ -802,7 +796,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                                   .primary,
                                                             ),
                                                           ),
-                                                          duration: Duration(
+                                                          duration: const Duration(
                                                               milliseconds:
                                                                   4000),
                                                           backgroundColor:
@@ -827,7 +821,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                                 .primary,
                                                           ),
                                                         ),
-                                                        duration: Duration(
+                                                        duration: const Duration(
                                                             milliseconds: 4000),
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(
@@ -854,7 +848,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                               .primary,
                                                         ),
                                                       ),
-                                                      duration: Duration(
+                                                      duration: const Duration(
                                                           milliseconds: 4000),
                                                       backgroundColor:
                                                           FlutterFlowTheme.of(
@@ -878,7 +872,7 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                               .primary,
                                                     ),
                                                   ),
-                                                  duration: Duration(
+                                                  duration: const Duration(
                                                       milliseconds: 4000),
                                                   backgroundColor:
                                                       FlutterFlowTheme.of(
@@ -900,15 +894,16 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                         .primary,
                                                   ),
                                                 ),
-                                                duration: Duration(
+                                                duration: const Duration(
                                                     milliseconds: 4000),
                                                 backgroundColor:
                                                     FlutterFlowTheme.of(context)
                                                         .tertiary,
                                               ),
                                             );
-                                            if (_shouldSetState)
+                                            if (shouldSetState) {
                                               setState(() {});
+                                            }
                                             return;
                                           }
                                         } else {
@@ -925,30 +920,30 @@ class _MakePaymentPageWidgetState extends State<MakePaymentPageWidget> {
                                                 ),
                                               ),
                                               duration:
-                                                  Duration(milliseconds: 4000),
+                                                  const Duration(milliseconds: 4000),
                                               backgroundColor:
                                                   FlutterFlowTheme.of(context)
                                                       .tertiary,
                                             ),
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (shouldSetState) setState(() {});
                                           return;
                                         }
 
-                                        if (_shouldSetState) setState(() {});
+                                        if (shouldSetState) setState(() {});
                                       },
                                 text: 'Продолжить',
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 56.0,
-                                  padding: EdgeInsets.all(0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsets.all(0.0),
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,
                                   textStyle:
                                       FlutterFlowTheme.of(context).displaySmall,
                                   elevation: 0.0,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.transparent,
                                   ),
                                   borderRadius: BorderRadius.circular(16.0),

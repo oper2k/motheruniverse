@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/bottom_sheet/child_bottom_sheet/change_the_age/change_the_age_widget.dart';
@@ -10,11 +9,8 @@ import '/flutter_flow/upload_data.dart';
 import 'dart:async';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'edit_child_info_page_model.dart';
 export 'edit_child_info_page_model.dart';
@@ -75,7 +71,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -100,9 +96,9 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                       child: Container(
                         width: 38.0,
                         height: 38.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
                           child: Icon(
                             FFIcons.kleft,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -142,9 +138,9 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                       child: Container(
                         width: 38.0,
                         height: 38.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(1.0, 0.0),
+                          alignment: const AlignmentDirectional(1.0, 0.0),
                           child: Icon(
                             FFIcons.kdel,
                             color: FlutterFlowTheme.of(context).error,
@@ -176,13 +172,13 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                   final containerChildrenRecord = snapshot.data!;
                   return Container(
                     width: double.infinity,
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 0.0),
                           child: AutoSizeText(
                             'Изменить данные',
@@ -192,7 +188,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -204,13 +200,13 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                                       _model.tempPhoto != '') {
                                     return Stack(
                                       alignment:
-                                          AlignmentDirectional(1.0, -1.0),
+                                          const AlignmentDirectional(1.0, -1.0),
                                       children: [
                                         Container(
                                           width: 112.0,
                                           height: 112.0,
                                           clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
                                           child: Image.network(
@@ -354,14 +350,12 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      if (FFAppState().tempChild.photo !=
-                                              null &&
-                                          FFAppState().tempChild.photo != '')
+                                      if (FFAppState().tempChild.photo != '')
                                         InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -393,7 +387,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                                               ),
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: AutoSizeText(
@@ -413,7 +407,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                                           ),
                                         ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 24.0, 0.0, 0.0),
                                         child: Text(
                                           'Будет отображаться \nв личном кабинете, поможет ускорить работу и персонализирует приложение',
@@ -434,9 +428,9 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 32.0, 0.0, 0.0),
-                          child: Container(
+                          child: SizedBox(
                             width: double.infinity,
                             child: TextFormField(
                               controller: _model.textController,
@@ -474,7 +468,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 17.0, 16.0, 17.0),
                               ),
                               style: FlutterFlowTheme.of(context).headlineSmall,
@@ -486,7 +480,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                         ),
                         if (widget.child?.birthDate != null)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -537,7 +531,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       16.0, 4.0, 16.0, 4.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -590,7 +584,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                           ),
                         if (widget.child?.birthDate == null)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -598,7 +592,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                final _datePickedDate = await showDatePicker(
+                                final datePickedDate = await showDatePicker(
                                   context: context,
                                   initialDate:
                                       (containerChildrenRecord.conceptionDate ??
@@ -639,12 +633,12 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                                   },
                                 );
 
-                                if (_datePickedDate != null) {
+                                if (datePickedDate != null) {
                                   safeSetState(() {
                                     _model.datePicked = DateTime(
-                                      _datePickedDate.year,
-                                      _datePickedDate.month,
-                                      _datePickedDate.day,
+                                      datePickedDate.year,
+                                      datePickedDate.month,
+                                      datePickedDate.day,
                                     );
                                   });
                                 }
@@ -665,7 +659,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       16.0, 4.0, 16.0, 4.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -717,7 +711,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                           ),
                         if (widget.child?.birthDate != null)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 0.0, 0.0),
                             child: Text(
                               functions.calculateAgeAndMonths(
@@ -726,7 +720,7 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                             ),
                           ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 57.0, 0.0, 45.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -776,14 +770,14 @@ class _EditChildInfoPageWidgetState extends State<EditChildInfoPageWidget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 56.0,
-                              padding: EdgeInsets.all(0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsets.all(0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle:
                                   FlutterFlowTheme.of(context).displaySmall,
                               elevation: 0.0,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                               ),
                               borderRadius: BorderRadius.circular(16.0),

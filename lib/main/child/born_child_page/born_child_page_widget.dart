@@ -1,12 +1,9 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'born_child_page_model.dart';
 export 'born_child_page_model.dart';
 
@@ -44,8 +41,6 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -54,12 +49,12 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                 child: Container(
                   width: double.infinity,
                   height: 38.0,
@@ -67,7 +62,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                     color: FlutterFlowTheme.of(context).primaryBackground,
                   ),
                   child: Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
+                    alignment: const AlignmentDirectional(-1.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -79,9 +74,9 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                       child: Container(
                         width: 38.0,
                         height: 38.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
                           child: Icon(
                             FFIcons.kleft,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -114,14 +109,14 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                     final childQueryChildrenRecord = snapshot.data!;
                     return Container(
                       width: double.infinity,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 7.0, 14.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -130,9 +125,9 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, -1.0),
+                                    alignment: const AlignmentDirectional(0.0, -1.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
@@ -154,7 +149,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 61.0, 0.0, 0.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -192,7 +187,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 12.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -230,16 +225,14 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                     ),
                                   ),
                                   Stack(
-                                    alignment: AlignmentDirectional(1.0, -1.0),
+                                    alignment: const AlignmentDirectional(1.0, -1.0),
                                     children: [
                                       Builder(
                                         builder: (context) {
                                           if (childQueryChildrenRecord.photo !=
-                                                  null &&
-                                              childQueryChildrenRecord.photo !=
                                                   '') {
                                             return Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       15.0, 8.0, 6.0, 0.0),
                                               child: ClipRRect(
@@ -256,7 +249,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                           } else if (widget.child?.gender ==
                                               'male') {
                                             return Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       15.0, 8.0, 6.0, 0.0),
                                               child: Container(
@@ -269,7 +262,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                           16.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 25.0, 0.0, 25.0),
                                                   child: ClipRRect(
@@ -289,7 +282,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                           } else if (widget.child?.gender ==
                                               'female') {
                                             return Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       15.0, 8.0, 6.0, 0.0),
                                               child: Container(
@@ -302,7 +295,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                           16.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 25.0, 0.0, 25.0),
                                                   child: ClipRRect(
@@ -321,7 +314,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                             );
                                           } else {
                                             return Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       15.0, 8.0, 6.0, 0.0),
                                               child: Container(
@@ -334,7 +327,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                           16.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 25.0, 0.0, 25.0),
                                                   child: ClipRRect(
@@ -373,7 +366,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                           widget.child?.imageLeft != '')
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 123.0, 93.0, 0.0),
                                           child: ClipRRect(
                                             borderRadius:
@@ -392,7 +385,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 24.0, 20.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -409,12 +402,12 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                         ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 8.0, 0.0, 50.0),
                                     child: GridView(
                                       padding: EdgeInsets.zero,
                                       gridDelegate:
-                                          SliverGridDelegateWithFixedCrossAxisCount(
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 2,
                                         crossAxisSpacing: 15.0,
                                         mainAxisSpacing: 15.0,
@@ -454,7 +447,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                   BorderRadius.circular(16.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsets.all(14.0),
+                                              padding: const EdgeInsets.all(14.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 mainAxisAlignment:
@@ -526,7 +519,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     4.0,
                                                                     0.0,
@@ -582,7 +575,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                   BorderRadius.circular(16.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsets.all(14.0),
+                                              padding: const EdgeInsets.all(14.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 mainAxisAlignment:
@@ -657,7 +650,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     4.0,
                                                                     0.0,
@@ -742,7 +735,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                           16.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsets.all(14.0),
+                                                  padding: const EdgeInsets.all(14.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.min,
@@ -971,7 +964,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                           Flexible(
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           4.0,
                                                                           0.0,
@@ -1042,7 +1035,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                   BorderRadius.circular(16.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsets.all(14.0),
+                                              padding: const EdgeInsets.all(14.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 mainAxisAlignment:
@@ -1192,7 +1185,7 @@ class _BornChildPageWidgetState extends State<BornChildPageWidget> {
                                                   BorderRadius.circular(16.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsets.all(14.0),
+                                              padding: const EdgeInsets.all(14.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 mainAxisAlignment:

@@ -1,10 +1,8 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'advices_born_child_model.dart';
 export 'advices_born_child_model.dart';
@@ -59,7 +57,7 @@ class _AdvicesBornChildWidgetState extends State<AdvicesBornChildWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +69,7 @@ class _AdvicesBornChildWidgetState extends State<AdvicesBornChildWidget> {
                   color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
                 child: Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -83,7 +81,7 @@ class _AdvicesBornChildWidgetState extends State<AdvicesBornChildWidget> {
                     child: Container(
                       width: 38.0,
                       height: 38.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Icon(
                         FFIcons.kleft,
                         color: FlutterFlowTheme.of(context).secondaryText,
@@ -98,7 +96,7 @@ class _AdvicesBornChildWidgetState extends State<AdvicesBornChildWidget> {
                 style: FlutterFlowTheme.of(context).displayLarge,
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 23.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 23.0, 0.0, 0.0),
                 child: FutureBuilder<List<AdvicesForBornRecord>>(
                   future: queryAdvicesForBornRecordOnce(
                     queryBuilder: (advicesForBornRecord) =>
@@ -122,7 +120,7 @@ class _AdvicesBornChildWidgetState extends State<AdvicesBornChildWidget> {
                     List<AdvicesForBornRecord>
                         containerAdvicesForBornRecordList = snapshot.data!;
                     return Container(
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -136,7 +134,7 @@ class _AdvicesBornChildWidgetState extends State<AdvicesBornChildWidget> {
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   await _model.pageViewController?.previousPage(
-                                    duration: Duration(milliseconds: 300),
+                                    duration: const Duration(milliseconds: 300),
                                     curve: Curves.ease,
                                   );
                                 },
@@ -157,7 +155,7 @@ class _AdvicesBornChildWidgetState extends State<AdvicesBornChildWidget> {
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     containerAdvicesForBornRecordList[
@@ -170,7 +168,7 @@ class _AdvicesBornChildWidgetState extends State<AdvicesBornChildWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -179,7 +177,7 @@ class _AdvicesBornChildWidgetState extends State<AdvicesBornChildWidget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     await _model.pageViewController?.nextPage(
-                                      duration: Duration(milliseconds: 300),
+                                      duration: const Duration(milliseconds: 300),
                                       curve: Curves.ease,
                                     );
                                   },
@@ -203,16 +201,16 @@ class _AdvicesBornChildWidgetState extends State<AdvicesBornChildWidget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: Container(
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: Builder(
                                 builder: (context) {
                                   final advices =
                                       containerAdvicesForBornRecordList
                                           .toList();
-                                  return Container(
+                                  return SizedBox(
                                     width: double.infinity,
                                     height:
                                         MediaQuery.sizeOf(context).height - 220,
@@ -246,13 +244,13 @@ class _AdvicesBornChildWidgetState extends State<AdvicesBornChildWidget> {
                                                           eachAdviceIndex];
                                                   return Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 25.0),
                                                     child: Container(
                                                       width: double.infinity,
                                                       decoration:
-                                                          BoxDecoration(),
+                                                          const BoxDecoration(),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -266,7 +264,7 @@ class _AdvicesBornChildWidgetState extends State<AdvicesBornChildWidget> {
                                                               1)
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           10.0,
                                                                           10.0,
@@ -288,7 +286,7 @@ class _AdvicesBornChildWidgetState extends State<AdvicesBornChildWidget> {
                                                           Expanded(
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           10.0,
                                                                           0.0,
@@ -313,7 +311,7 @@ class _AdvicesBornChildWidgetState extends State<AdvicesBornChildWidget> {
                                                     ),
                                                   );
                                                 }).addToEnd(
-                                                    SizedBox(height: 60.0)),
+                                                    const SizedBox(height: 60.0)),
                                               ),
                                             );
                                           },

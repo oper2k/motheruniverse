@@ -5,13 +5,9 @@ import '/components/bottom_sheet/profile_bottom_sheet/add_sleeping_tracker/add_s
 import '/components/bottom_sheet/profile_bottom_sheet/chose_tracker_sleeping/chose_tracker_sleeping_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'sleep_tracker_is_added_model.dart';
 export 'sleep_tracker_is_added_model.dart';
 
@@ -44,7 +40,7 @@ class _SleepTrackerIsAddedWidgetState extends State<SleepTrackerIsAddedWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (((currentUserDocument?.trackersAddingDates?.toList() ?? []).length >=
+      if (((currentUserDocument?.trackersAddingDates.toList() ?? []).length >=
               10) &&
           valueOrDefault<bool>(
               currentUserDocument?.loyaltyProgramActivated, false)) {
@@ -56,7 +52,7 @@ class _SleepTrackerIsAddedWidgetState extends State<SleepTrackerIsAddedWidget> {
           ...mapToFirestore(
             {
               'trackers_adding_dates': functions.clearDateTimeList(
-                  (currentUserDocument?.trackersAddingDates?.toList() ?? [])
+                  (currentUserDocument?.trackersAddingDates.toList() ?? [])
                       .toList()),
             },
           ),
@@ -73,7 +69,7 @@ class _SleepTrackerIsAddedWidgetState extends State<SleepTrackerIsAddedWidget> {
                   : FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: FillingTrackersBonusWidget(),
+                child: const FillingTrackersBonusWidget(),
               ),
             );
           },
@@ -93,8 +89,6 @@ class _SleepTrackerIsAddedWidgetState extends State<SleepTrackerIsAddedWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -121,32 +115,32 @@ class _SleepTrackerIsAddedWidgetState extends State<SleepTrackerIsAddedWidget> {
             }
             final containerChildrenRecord = snapshot.data!;
             return Container(
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
                       width: double.infinity,
                       height: 38.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.goNamed('TrackersPage');
+                            context.safePop();
                           },
                           child: Container(
                             width: 38.0,
                             height: 38.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Icon(
                                 FFIcons.kleft,
                                 color:
@@ -160,7 +154,7 @@ class _SleepTrackerIsAddedWidgetState extends State<SleepTrackerIsAddedWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                       child: Text(
                         'Трек добавлен!',
                         style: FlutterFlowTheme.of(context).displayLarge,
@@ -168,7 +162,7 @@ class _SleepTrackerIsAddedWidgetState extends State<SleepTrackerIsAddedWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(0.0),
                         child: Image.asset(
@@ -178,7 +172,7 @@ class _SleepTrackerIsAddedWidgetState extends State<SleepTrackerIsAddedWidget> {
                         ),
                       ),
                     ),
-                    Spacer(flex: 89),
+                    const Spacer(flex: 89),
                     Text(
                       'Общее время',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -188,7 +182,7 @@ class _SleepTrackerIsAddedWidgetState extends State<SleepTrackerIsAddedWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                       child: Text(
                         widget.secondDay != null
                             ? functions.calculeteSleepDuratioin(
@@ -208,7 +202,7 @@ class _SleepTrackerIsAddedWidgetState extends State<SleepTrackerIsAddedWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                       child: Text(
                         'Начало в ${dateTimeFormat(
                           'Hm',
@@ -224,10 +218,10 @@ class _SleepTrackerIsAddedWidgetState extends State<SleepTrackerIsAddedWidget> {
                                 ),
                       ),
                     ),
-                    Spacer(flex: 127),
+                    const Spacer(flex: 127),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 45.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 45.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -310,7 +304,7 @@ class _SleepTrackerIsAddedWidgetState extends State<SleepTrackerIsAddedWidget> {
                                 borderRadius: BorderRadius.circular(14.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 12.0, 24.0, 12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,

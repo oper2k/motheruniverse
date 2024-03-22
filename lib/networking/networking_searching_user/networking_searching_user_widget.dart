@@ -4,13 +4,10 @@ import '/components/nav_bar/nav_bar_widget.dart';
 import '/components/networking_profile/networking_profile_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'networking_searching_user_model.dart';
 export 'networking_searching_user_model.dart';
@@ -38,7 +35,7 @@ class _NetworkingSearchingUserWidgetState
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
+          await getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0));
 
       await currentUserReference!.update(createUsersRecordData(
         lastTimeCheckedLocation: getCurrentTimestamp,
@@ -71,14 +68,14 @@ class _NetworkingSearchingUserWidgetState
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Container(
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
             child: Stack(
               children: [
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 13.0, 20.0, 0.0),
+                      const EdgeInsetsDirectional.fromSTEB(20.0, 13.0, 20.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,14 +84,14 @@ class _NetworkingSearchingUserWidgetState
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Expanded(
-                            child: Container(
+                            child: SizedBox(
                               width: 100.0,
                               child: TextFormField(
                                 controller: _model.textController,
                                 focusNode: _model.textFieldFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.textController',
-                                  Duration(milliseconds: 200),
+                                  const Duration(milliseconds: 200),
                                   () async {
                                     setState(() {
                                       _model.input = _model.textController.text;
@@ -151,7 +148,7 @@ class _NetworkingSearchingUserWidgetState
                                   fillColor: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
+                                      const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 15.0, 16.0, 15.0),
                                   prefixIcon: Icon(
                                     FFIcons.ksearch,
@@ -169,7 +166,7 @@ class _NetworkingSearchingUserWidgetState
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 0.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -180,7 +177,7 @@ class _NetworkingSearchingUserWidgetState
                                 context.goNamed(
                                   'NetworkingPage',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 0),
@@ -205,11 +202,10 @@ class _NetworkingSearchingUserWidgetState
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          if ((FFAppState().lastResultsUser.length > 0) &&
-                              (_model.firstName == null ||
-                                  _model.firstName == ''))
+                          if ((FFAppState().lastResultsUser.isNotEmpty) &&
+                              (_model.firstName == ''))
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 19.0, 0.0, 0.0),
                               child: SingleChildScrollView(
                                 child: Column(
@@ -250,7 +246,7 @@ class _NetworkingSearchingUserWidgetState
                                       ],
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
                                       child: Builder(
                                         builder: (context) {
@@ -297,7 +293,7 @@ class _NetworkingSearchingUserWidgetState
                                                       width: double.infinity,
                                                       height: 48.0,
                                                       decoration:
-                                                          BoxDecoration(),
+                                                          const BoxDecoration(),
                                                       child: InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -365,9 +361,6 @@ class _NetworkingSearchingUserWidgetState
                                                                   (context) {
                                                                 if (containerUsersRecord
                                                                             .photoUrl !=
-                                                                        null &&
-                                                                    containerUsersRecord
-                                                                            .photoUrl !=
                                                                         '') {
                                                                   return Container(
                                                                     width: 48.0,
@@ -376,7 +369,7 @@ class _NetworkingSearchingUserWidgetState
                                                                     clipBehavior:
                                                                         Clip.antiAlias,
                                                                     decoration:
-                                                                        BoxDecoration(
+                                                                        const BoxDecoration(
                                                                       shape: BoxShape
                                                                           .circle,
                                                                     ),
@@ -417,7 +410,7 @@ class _NetworkingSearchingUserWidgetState
                                                             Expanded(
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
                                                                             0.0,
@@ -446,9 +439,9 @@ class _NetworkingSearchingUserWidgetState
                                                 );
                                               })
                                                   .divide(
-                                                      SizedBox(height: 14.0))
+                                                      const SizedBox(height: 14.0))
                                                   .addToStart(
-                                                      SizedBox(height: 7.0)),
+                                                      const SizedBox(height: 7.0)),
                                             ),
                                           );
                                         },
@@ -458,10 +451,9 @@ class _NetworkingSearchingUserWidgetState
                                 ),
                               ),
                             ),
-                          if (_model.firstName != null &&
-                              _model.firstName != '')
+                          if (_model.firstName != '')
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 19.0, 0.0, 0.0),
                               child: StreamBuilder<List<UsersRecord>>(
                                 stream: queryUsersRecord(
@@ -503,14 +495,14 @@ class _NetworkingSearchingUserWidgetState
                                           .toList();
                                   return Container(
                                     width: double.infinity,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Text(
                                               '${searchResultsUsersRecordList.length.toString()} ${functions.formOfResultWord(searchResultsUsersRecordList.length)}',
                                               style:
@@ -526,7 +518,7 @@ class _NetworkingSearchingUserWidgetState
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 0.0),
                                             child: Builder(
                                               builder: (context) {
@@ -546,7 +538,7 @@ class _NetworkingSearchingUserWidgetState
                                                         width: double.infinity,
                                                         height: 48.0,
                                                         decoration:
-                                                            BoxDecoration(),
+                                                            const BoxDecoration(),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -616,8 +608,6 @@ class _NetworkingSearchingUserWidgetState
                                                                 builder:
                                                                     (context) {
                                                                   if (userItem.photoUrl !=
-                                                                          null &&
-                                                                      userItem.photoUrl !=
                                                                           '') {
                                                                     return Container(
                                                                       width:
@@ -627,7 +617,7 @@ class _NetworkingSearchingUserWidgetState
                                                                       clipBehavior:
                                                                           Clip.antiAlias,
                                                                       decoration:
-                                                                          BoxDecoration(
+                                                                          const BoxDecoration(
                                                                         shape: BoxShape
                                                                             .circle,
                                                                       ),
@@ -667,7 +657,7 @@ class _NetworkingSearchingUserWidgetState
                                                               ),
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -694,9 +684,9 @@ class _NetworkingSearchingUserWidgetState
                                                         ),
                                                       );
                                                     })
-                                                        .divide(SizedBox(
+                                                        .divide(const SizedBox(
                                                             height: 14.0))
-                                                        .addToStart(SizedBox(
+                                                        .addToStart(const SizedBox(
                                                             height: 7.0)),
                                                   ),
                                                 );
@@ -718,7 +708,7 @@ class _NetworkingSearchingUserWidgetState
                 wrapWithModel(
                   model: _model.navBarModel,
                   updateCallback: () => setState(() {}),
-                  child: NavBarWidget(
+                  child: const NavBarWidget(
                     nevBarPage: 4,
                   ),
                 ),

@@ -2,10 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'check_view_p_d_f_model.dart';
 export 'check_view_p_d_f_model.dart';
 
@@ -43,8 +40,6 @@ class _CheckViewPDFWidgetState extends State<CheckViewPDFWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -53,12 +48,12 @@ class _CheckViewPDFWidgetState extends State<CheckViewPDFWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 45.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 45.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,9 +69,9 @@ class _CheckViewPDFWidgetState extends State<CheckViewPDFWidget> {
                       child: Container(
                         width: 38.0,
                         height: 38.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
                           child: Icon(
                             FFIcons.kleft,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -95,9 +90,9 @@ class _CheckViewPDFWidgetState extends State<CheckViewPDFWidget> {
                       },
                       child: Container(
                         height: 38.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(1.0, 0.0),
+                          alignment: const AlignmentDirectional(1.0, 0.0),
                           child: Text(
                             'Скачать',
                             style: FlutterFlowTheme.of(context).headlineLarge,

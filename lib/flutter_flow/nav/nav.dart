@@ -1,21 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -80,78 +73,78 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? EntryPageWidget() : WelcomeWidget(),
+          appStateNotifier.loggedIn ? const EntryPageWidget() : const WelcomeWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? EntryPageWidget() : WelcomeWidget(),
+              appStateNotifier.loggedIn ? const EntryPageWidget() : const WelcomeWidget(),
         ),
         FFRoute(
           name: 'Welcome',
           path: '/welcome',
-          builder: (context, params) => WelcomeWidget(),
+          builder: (context, params) => const WelcomeWidget(),
         ),
         FFRoute(
           name: 'Registration',
           path: '/registration',
-          builder: (context, params) => RegistrationWidget(),
+          builder: (context, params) => const RegistrationWidget(),
         ),
         FFRoute(
           name: 'SignIn',
           path: '/signIn',
-          builder: (context, params) => SignInWidget(),
+          builder: (context, params) => const SignInWidget(),
         ),
         FFRoute(
           name: 'ResetPass',
           path: '/resetPass',
-          builder: (context, params) => ResetPassWidget(),
+          builder: (context, params) => const ResetPassWidget(),
         ),
         FFRoute(
           name: 'FillProfile',
           path: '/fillProfile',
-          builder: (context, params) => FillProfileWidget(),
+          builder: (context, params) => const FillProfileWidget(),
         ),
         FFRoute(
           name: 'ChooseTheAge',
           path: '/chooseTheAge',
-          builder: (context, params) => ChooseTheAgeWidget(),
+          builder: (context, params) => const ChooseTheAgeWidget(),
         ),
         FFRoute(
           name: 'ChooseTheGender',
           path: '/chooseTheGender',
-          builder: (context, params) => ChooseTheGenderWidget(),
+          builder: (context, params) => const ChooseTheGenderWidget(),
         ),
         FFRoute(
           name: 'ChildInfo',
           path: '/childInfo',
-          builder: (context, params) => ChildInfoWidget(),
+          builder: (context, params) => const ChildInfoWidget(),
         ),
         FFRoute(
           name: 'Personalisation',
           path: '/personalisation',
-          builder: (context, params) => PersonalisationWidget(),
+          builder: (context, params) => const PersonalisationWidget(),
         ),
         FFRoute(
           name: 'ProfilePage',
           path: '/profilePage',
-          builder: (context, params) => ProfilePageWidget(),
+          builder: (context, params) => const ProfilePageWidget(),
         ),
         FFRoute(
           name: 'EditProfile',
           path: '/editProfile',
-          builder: (context, params) => EditProfileWidget(),
+          builder: (context, params) => const EditProfileWidget(),
         ),
         FFRoute(
           name: 'AppInfo',
           path: '/appInfo',
-          builder: (context, params) => AppInfoWidget(),
+          builder: (context, params) => const AppInfoWidget(),
         ),
         FFRoute(
           name: 'LoyaltyPage',
           path: '/loyaltyPage',
-          builder: (context, params) => LoyaltyPageWidget(),
+          builder: (context, params) => const LoyaltyPageWidget(),
         ),
         FFRoute(
           name: 'UnbornChildPage',
@@ -190,7 +183,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'MainPage',
           path: '/mainPage',
-          builder: (context, params) => MainPageWidget(),
+          builder: (context, params) => const MainPageWidget(),
         ),
         FFRoute(
           name: 'BornChildPage',
@@ -276,7 +269,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'AllVideosPage',
           path: '/allVideosPage',
-          builder: (context, params) => AllVideosPageWidget(),
+          builder: (context, params) => const AllVideosPageWidget(),
         ),
         FFRoute(
           name: 'VideoPlayer',
@@ -291,7 +284,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'AllCheckListsPage',
           path: '/allCheckListsPage',
-          builder: (context, params) => AllCheckListsPageWidget(),
+          builder: (context, params) => const AllCheckListsPageWidget(),
         ),
         FFRoute(
           name: 'CheckViewPage',
@@ -318,17 +311,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'FreeLessonsPage',
           path: '/freeLessonsPage',
-          builder: (context, params) => FreeLessonsPageWidget(),
+          builder: (context, params) => const FreeLessonsPageWidget(),
         ),
         FFRoute(
           name: 'AllPodcastsPage',
           path: '/allPodcastsPage',
-          builder: (context, params) => AllPodcastsPageWidget(),
+          builder: (context, params) => const AllPodcastsPageWidget(),
         ),
         FFRoute(
           name: 'CalendarOfEventsPage',
           path: '/calendarOfEventsPage',
-          builder: (context, params) => CalendarOfEventsPageWidget(),
+          builder: (context, params) => const CalendarOfEventsPageWidget(),
         ),
         FFRoute(
           name: 'EntryToEventPage',
@@ -343,17 +336,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'EntryFinishedPage',
           path: '/entryFinishedPage',
-          builder: (context, params) => EntryFinishedPageWidget(),
+          builder: (context, params) => const EntryFinishedPageWidget(),
         ),
         FFRoute(
           name: 'AllNewsPage',
           path: '/allNewsPage',
-          builder: (context, params) => AllNewsPageWidget(),
+          builder: (context, params) => const AllNewsPageWidget(),
         ),
         FFRoute(
           name: 'TrackersPage',
           path: '/trackersPage',
-          builder: (context, params) => TrackersPageWidget(),
+          builder: (context, params) => const TrackersPageWidget(),
         ),
         FFRoute(
           name: 'TrackersListPage',
@@ -439,17 +432,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'LearningPage',
           path: '/learningPage',
-          builder: (context, params) => LearningPageWidget(),
+          builder: (context, params) => const LearningPageWidget(),
         ),
         FFRoute(
           name: 'GetAllLessonsPage',
           path: '/getAllLessonsPage',
-          builder: (context, params) => GetAllLessonsPageWidget(),
+          builder: (context, params) => const GetAllLessonsPageWidget(),
         ),
         FFRoute(
           name: 'CartPage',
           path: '/cartPage',
-          builder: (context, params) => CartPageWidget(),
+          builder: (context, params) => const CartPageWidget(),
         ),
         FFRoute(
           name: 'BuyLessonPage',
@@ -487,17 +480,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'SuccessfulPaymentAll',
           path: '/successfulPaymentAll',
-          builder: (context, params) => SuccessfulPaymentAllWidget(),
+          builder: (context, params) => const SuccessfulPaymentAllWidget(),
         ),
         FFRoute(
           name: 'FailedPayment',
           path: '/failedPayment',
-          builder: (context, params) => FailedPaymentWidget(),
+          builder: (context, params) => const FailedPaymentWidget(),
         ),
         FFRoute(
           name: 'SuccessfulPurchases',
           path: '/successfulPurchases',
-          builder: (context, params) => SuccessfulPurchasesWidget(),
+          builder: (context, params) => const SuccessfulPurchasesWidget(),
         ),
         FFRoute(
           name: 'ViewLessonVid',
@@ -522,17 +515,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'NetworkingPage',
           path: '/networkingPage',
-          builder: (context, params) => NetworkingPageWidget(),
+          builder: (context, params) => const NetworkingPageWidget(),
         ),
         FFRoute(
           name: 'NetworkingSearchingUser',
           path: '/networkingSearchingUser',
-          builder: (context, params) => NetworkingSearchingUserWidget(),
+          builder: (context, params) => const NetworkingSearchingUserWidget(),
         ),
         FFRoute(
           name: 'EntryPage',
           path: '/entryPage',
-          builder: (context, params) => EntryPageWidget(),
+          builder: (context, params) => const EntryPageWidget(),
         ),
         FFRoute(
           name: 'SleepNormsPage',
@@ -580,6 +573,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => AdvicesBornChildWidget(
             initialIndex: params.getParam('initialIndex', ParamType.int),
           ),
+        ),
+        FFRoute(
+          name: 'asdadqwdqw',
+          path: '/asdadqwdqw',
+          builder: (context, params) => const AsdadqwdqwWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -813,7 +811,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

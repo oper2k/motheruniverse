@@ -3,8 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'networking_profile_model.dart';
 export 'networking_profile_model.dart';
 
@@ -47,15 +45,13 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
-      alignment: AlignmentDirectional(0.0, 1.0),
+      alignment: const AlignmentDirectional(0.0, 1.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).backgroundMain,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(24.0),
@@ -63,7 +59,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -78,10 +74,10 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
               Stack(
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(1.0, 0.0),
+                    alignment: const AlignmentDirectional(1.0, 0.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -114,10 +110,10 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 26.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 26.0, 0.0, 0.0),
                       child: Builder(
                         builder: (context) {
                           if (widget.user?.photoUrl != null &&
@@ -126,7 +122,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                               width: 120.0,
                               height: 120.0,
                               clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
                               child: Image.network(
@@ -136,7 +132,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                             );
                           } else {
                             return Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Container(
                                 width: 120.0,
                                 height: 120.0,
@@ -159,14 +155,14 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                 child: Text(
                   widget.user!.firstName,
                   style: FlutterFlowTheme.of(context).displayLarge,
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: StreamBuilder<List<ChildrenRecord>>(
                   stream: queryChildrenRecord(
                     parent: widget.user?.reference,
@@ -193,10 +189,10 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                     List<ChildrenRecord> containerChildrenRecordList =
                         snapshot.data!;
                     return Container(
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Builder(
                         builder: (context) {
-                          if (containerChildrenRecordList.length >= 1) {
+                          if (containerChildrenRecordList.isNotEmpty) {
                             return Builder(
                               builder: (context) {
                                 final child =
@@ -210,7 +206,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                                         (childIndex) {
                                       final childItem = child[childIndex];
                                       return Container(
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -237,7 +233,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                                               },
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 functions.calculateAgeAndMonths(
@@ -251,7 +247,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                                                 containerChildrenRecordList
                                                     .last.reference.id)
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         11.0, 0.0, 11.0, 0.0),
                                                 child: Container(
@@ -291,7 +287,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -315,17 +311,17 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Icon(
+                                  const Icon(
                                     FFIcons.ktelegram,
                                     color: Colors.white,
                                     size: 24.0,
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Telegram',
@@ -366,17 +362,17 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Icon(
+                                  const Icon(
                                     FFIcons.kinstagram,
                                     color: Colors.white,
                                     size: 24.0,
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Instagram',
@@ -397,7 +393,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                           ),
                         ),
                       ),
-                  ].divide(SizedBox(width: 15.0)),
+                  ].divide(const SizedBox(width: 15.0)),
                 ),
               ),
               Builder(
@@ -408,12 +404,12 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                       visible: widget.user?.userInfo != null &&
                           widget.user?.userInfo != '',
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 0.0, 45.0),
                         child: Container(
                           width: double.infinity,
                           height: 150.0,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
@@ -426,9 +422,9 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 20.0, 0.0, 0.0),
                                     child: Text(
                                       'О себе',
@@ -445,9 +441,9 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 4.0, 0.0, 0.0),
                                     child: Text(
                                       widget.user!.userInfo,
@@ -470,7 +466,7 @@ class _NetworkingProfileWidgetState extends State<NetworkingProfileWidget> {
                   } else {
                     return Container(
                       height: 100.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                     );
                   }
                 },

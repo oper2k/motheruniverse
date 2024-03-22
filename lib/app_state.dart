@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import 'backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
@@ -59,8 +57,8 @@ class FFAppState extends ChangeNotifier {
 
   ChildStruct _tempChild = ChildStruct();
   ChildStruct get tempChild => _tempChild;
-  set tempChild(ChildStruct _value) {
-    _tempChild = _value;
+  set tempChild(ChildStruct value) {
+    _tempChild = value;
   }
 
   void updateTempChildStruct(Function(ChildStruct) updateFn) {
@@ -82,163 +80,163 @@ class FFAppState extends ChangeNotifier {
     'Декабрь'
   ];
   List<String> get monthsList => _monthsList;
-  set monthsList(List<String> _value) {
-    _monthsList = _value;
-    prefs.setStringList('ff_monthsList', _value);
+  set monthsList(List<String> value) {
+    _monthsList = value;
+    prefs.setStringList('ff_monthsList', value);
   }
 
-  void addToMonthsList(String _value) {
-    _monthsList.add(_value);
+  void addToMonthsList(String value) {
+    _monthsList.add(value);
     prefs.setStringList('ff_monthsList', _monthsList);
   }
 
-  void removeFromMonthsList(String _value) {
-    _monthsList.remove(_value);
+  void removeFromMonthsList(String value) {
+    _monthsList.remove(value);
     prefs.setStringList('ff_monthsList', _monthsList);
   }
 
-  void removeAtIndexFromMonthsList(int _index) {
-    _monthsList.removeAt(_index);
+  void removeAtIndexFromMonthsList(int index) {
+    _monthsList.removeAt(index);
     prefs.setStringList('ff_monthsList', _monthsList);
   }
 
   void updateMonthsListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _monthsList[_index] = updateFn(_monthsList[_index]);
+    _monthsList[index] = updateFn(_monthsList[index]);
     prefs.setStringList('ff_monthsList', _monthsList);
   }
 
-  void insertAtIndexInMonthsList(int _index, String _value) {
-    _monthsList.insert(_index, _value);
+  void insertAtIndexInMonthsList(int index, String value) {
+    _monthsList.insert(index, value);
     prefs.setStringList('ff_monthsList', _monthsList);
   }
 
   int _customPickerItemIndex1 = 0;
   int get customPickerItemIndex1 => _customPickerItemIndex1;
-  set customPickerItemIndex1(int _value) {
-    _customPickerItemIndex1 = _value;
+  set customPickerItemIndex1(int value) {
+    _customPickerItemIndex1 = value;
   }
 
   int _customPickerItemIndex2 = 0;
   int get customPickerItemIndex2 => _customPickerItemIndex2;
-  set customPickerItemIndex2(int _value) {
-    _customPickerItemIndex2 = _value;
+  set customPickerItemIndex2(int value) {
+    _customPickerItemIndex2 = value;
   }
 
   int _customPickerItemIndex3 = 0;
   int get customPickerItemIndex3 => _customPickerItemIndex3;
-  set customPickerItemIndex3(int _value) {
-    _customPickerItemIndex3 = _value;
+  set customPickerItemIndex3(int value) {
+    _customPickerItemIndex3 = value;
   }
 
   int _weekPickerIndex1 = 0;
   int get weekPickerIndex1 => _weekPickerIndex1;
-  set weekPickerIndex1(int _value) {
-    _weekPickerIndex1 = _value;
+  set weekPickerIndex1(int value) {
+    _weekPickerIndex1 = value;
   }
 
   String _userTempPhoto = '';
   String get userTempPhoto => _userTempPhoto;
-  set userTempPhoto(String _value) {
-    _userTempPhoto = _value;
+  set userTempPhoto(String value) {
+    _userTempPhoto = value;
   }
 
   List<String> _lessonsAddedToCart = [];
   List<String> get lessonsAddedToCart => _lessonsAddedToCart;
-  set lessonsAddedToCart(List<String> _value) {
-    _lessonsAddedToCart = _value;
-    prefs.setStringList('ff_lessonsAddedToCart', _value);
+  set lessonsAddedToCart(List<String> value) {
+    _lessonsAddedToCart = value;
+    prefs.setStringList('ff_lessonsAddedToCart', value);
   }
 
-  void addToLessonsAddedToCart(String _value) {
-    _lessonsAddedToCart.add(_value);
+  void addToLessonsAddedToCart(String value) {
+    _lessonsAddedToCart.add(value);
     prefs.setStringList('ff_lessonsAddedToCart', _lessonsAddedToCart);
   }
 
-  void removeFromLessonsAddedToCart(String _value) {
-    _lessonsAddedToCart.remove(_value);
+  void removeFromLessonsAddedToCart(String value) {
+    _lessonsAddedToCart.remove(value);
     prefs.setStringList('ff_lessonsAddedToCart', _lessonsAddedToCart);
   }
 
-  void removeAtIndexFromLessonsAddedToCart(int _index) {
-    _lessonsAddedToCart.removeAt(_index);
+  void removeAtIndexFromLessonsAddedToCart(int index) {
+    _lessonsAddedToCart.removeAt(index);
     prefs.setStringList('ff_lessonsAddedToCart', _lessonsAddedToCart);
   }
 
   void updateLessonsAddedToCartAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _lessonsAddedToCart[_index] = updateFn(_lessonsAddedToCart[_index]);
+    _lessonsAddedToCart[index] = updateFn(_lessonsAddedToCart[index]);
     prefs.setStringList('ff_lessonsAddedToCart', _lessonsAddedToCart);
   }
 
-  void insertAtIndexInLessonsAddedToCart(int _index, String _value) {
-    _lessonsAddedToCart.insert(_index, _value);
+  void insertAtIndexInLessonsAddedToCart(int index, String value) {
+    _lessonsAddedToCart.insert(index, value);
     prefs.setStringList('ff_lessonsAddedToCart', _lessonsAddedToCart);
   }
 
   List<DocumentReference> _lastResultsUser = [];
   List<DocumentReference> get lastResultsUser => _lastResultsUser;
-  set lastResultsUser(List<DocumentReference> _value) {
-    _lastResultsUser = _value;
+  set lastResultsUser(List<DocumentReference> value) {
+    _lastResultsUser = value;
     prefs.setStringList(
-        'ff_lastResultsUser', _value.map((x) => x.path).toList());
+        'ff_lastResultsUser', value.map((x) => x.path).toList());
   }
 
-  void addToLastResultsUser(DocumentReference _value) {
-    _lastResultsUser.add(_value);
-    prefs.setStringList(
-        'ff_lastResultsUser', _lastResultsUser.map((x) => x.path).toList());
-  }
-
-  void removeFromLastResultsUser(DocumentReference _value) {
-    _lastResultsUser.remove(_value);
+  void addToLastResultsUser(DocumentReference value) {
+    _lastResultsUser.add(value);
     prefs.setStringList(
         'ff_lastResultsUser', _lastResultsUser.map((x) => x.path).toList());
   }
 
-  void removeAtIndexFromLastResultsUser(int _index) {
-    _lastResultsUser.removeAt(_index);
+  void removeFromLastResultsUser(DocumentReference value) {
+    _lastResultsUser.remove(value);
+    prefs.setStringList(
+        'ff_lastResultsUser', _lastResultsUser.map((x) => x.path).toList());
+  }
+
+  void removeAtIndexFromLastResultsUser(int index) {
+    _lastResultsUser.removeAt(index);
     prefs.setStringList(
         'ff_lastResultsUser', _lastResultsUser.map((x) => x.path).toList());
   }
 
   void updateLastResultsUserAtIndex(
-    int _index,
+    int index,
     DocumentReference Function(DocumentReference) updateFn,
   ) {
-    _lastResultsUser[_index] = updateFn(_lastResultsUser[_index]);
+    _lastResultsUser[index] = updateFn(_lastResultsUser[index]);
     prefs.setStringList(
         'ff_lastResultsUser', _lastResultsUser.map((x) => x.path).toList());
   }
 
-  void insertAtIndexInLastResultsUser(int _index, DocumentReference _value) {
-    _lastResultsUser.insert(_index, _value);
+  void insertAtIndexInLastResultsUser(int index, DocumentReference value) {
+    _lastResultsUser.insert(index, value);
     prefs.setStringList(
         'ff_lastResultsUser', _lastResultsUser.map((x) => x.path).toList());
   }
 
   int _entryCounter = 0;
   int get entryCounter => _entryCounter;
-  set entryCounter(int _value) {
-    _entryCounter = _value;
-    prefs.setInt('ff_entryCounter', _value);
+  set entryCounter(int value) {
+    _entryCounter = value;
+    prefs.setInt('ff_entryCounter', value);
   }
 
   String _cloudPublicID = 'pk_480c7674892e642b5baa1d3d2057a';
   String get cloudPublicID => _cloudPublicID;
-  set cloudPublicID(String _value) {
-    _cloudPublicID = _value;
-    prefs.setString('ff_cloudPublicID', _value);
+  set cloudPublicID(String value) {
+    _cloudPublicID = value;
+    prefs.setString('ff_cloudPublicID', value);
   }
 
   int _viewSleepNorms = 0;
   int get viewSleepNorms => _viewSleepNorms;
-  set viewSleepNorms(int _value) {
-    _viewSleepNorms = _value;
+  set viewSleepNorms(int value) {
+    _viewSleepNorms = value;
   }
 
   List<String> _randomSleepTip = [
@@ -254,44 +252,44 @@ class FFAppState extends ChangeNotifier {
     'Если не сил и ты чувствуешь себя опустошенной, мы хотим в этот момент быть твоим островком поддержки и помощи. Загляни в нашу библиотеку.'
   ];
   List<String> get randomSleepTip => _randomSleepTip;
-  set randomSleepTip(List<String> _value) {
-    _randomSleepTip = _value;
-    prefs.setStringList('ff_randomSleepTip', _value);
+  set randomSleepTip(List<String> value) {
+    _randomSleepTip = value;
+    prefs.setStringList('ff_randomSleepTip', value);
   }
 
-  void addToRandomSleepTip(String _value) {
-    _randomSleepTip.add(_value);
+  void addToRandomSleepTip(String value) {
+    _randomSleepTip.add(value);
     prefs.setStringList('ff_randomSleepTip', _randomSleepTip);
   }
 
-  void removeFromRandomSleepTip(String _value) {
-    _randomSleepTip.remove(_value);
+  void removeFromRandomSleepTip(String value) {
+    _randomSleepTip.remove(value);
     prefs.setStringList('ff_randomSleepTip', _randomSleepTip);
   }
 
-  void removeAtIndexFromRandomSleepTip(int _index) {
-    _randomSleepTip.removeAt(_index);
+  void removeAtIndexFromRandomSleepTip(int index) {
+    _randomSleepTip.removeAt(index);
     prefs.setStringList('ff_randomSleepTip', _randomSleepTip);
   }
 
   void updateRandomSleepTipAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _randomSleepTip[_index] = updateFn(_randomSleepTip[_index]);
+    _randomSleepTip[index] = updateFn(_randomSleepTip[index]);
     prefs.setStringList('ff_randomSleepTip', _randomSleepTip);
   }
 
-  void insertAtIndexInRandomSleepTip(int _index, String _value) {
-    _randomSleepTip.insert(_index, _value);
+  void insertAtIndexInRandomSleepTip(int index, String value) {
+    _randomSleepTip.insert(index, value);
     prefs.setStringList('ff_randomSleepTip', _randomSleepTip);
   }
 
   int _firstTipWasShowed = 0;
   int get firstTipWasShowed => _firstTipWasShowed;
-  set firstTipWasShowed(int _value) {
-    _firstTipWasShowed = _value;
-    prefs.setInt('ff_firstTipWasShowed', _value);
+  set firstTipWasShowed(int value) {
+    _firstTipWasShowed = value;
+    prefs.setInt('ff_firstTipWasShowed', value);
   }
 }
 

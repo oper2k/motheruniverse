@@ -1295,3 +1295,21 @@ int findNumberOfWeek(DateTime startDate) {
   /// Возвращает Int номер недели беременности
   return DateTime.now().difference(startDate).inDays ~/ 7;
 }
+
+DateTime getDateTimeAnHourLater(DateTime dateTime) {
+  return dateTime.add(Duration(hours: 1));
+}
+
+bool hasMoreThan23HoursPassed(
+  DateTime start,
+  DateTime end,
+) {
+  Duration difference = end.difference(start);
+  return difference.inHours >= 23;
+}
+
+DateTime endOfNextDay(DateTime date) {
+  DateTime nextDay = date.add(Duration(days: 2));
+  return DateTime(nextDay.year, nextDay.month, nextDay.day)
+      .subtract(Duration(seconds: 1));
+}

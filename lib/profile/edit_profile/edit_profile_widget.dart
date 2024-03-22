@@ -11,12 +11,9 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'edit_profile_model.dart';
 export 'edit_profile_model.dart';
@@ -90,7 +87,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Stack(
             children: [
               Column(
@@ -111,9 +108,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         child: Container(
                           width: 38.0,
                           height: 38.0,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Icon(
                               FFIcons.kleft,
                               color: FlutterFlowTheme.of(context).secondaryText,
@@ -142,7 +139,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     : FocusScope.of(context).unfocus(),
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: DeleteAccountWidget(),
+                                  child: const DeleteAccountWidget(),
                                 ),
                               );
                             },
@@ -151,9 +148,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         child: Container(
                           width: 38.0,
                           height: 38.0,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Align(
-                            alignment: AlignmentDirectional(1.0, 0.0),
+                            alignment: const AlignmentDirectional(1.0, 0.0),
                             child: Icon(
                               FFIcons.kdel,
                               color: FlutterFlowTheme.of(context).error,
@@ -170,7 +167,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: AutoSizeText(
                               'Изменить профиль',
@@ -179,7 +176,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -187,17 +184,16 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               children: [
                                 Builder(
                                   builder: (context) {
-                                    if (FFAppState().userTempPhoto != null &&
-                                        FFAppState().userTempPhoto != '') {
+                                    if (FFAppState().userTempPhoto != '') {
                                       return Stack(
                                         alignment:
-                                            AlignmentDirectional(1.0, -1.0),
+                                            const AlignmentDirectional(1.0, -1.0),
                                         children: [
                                           Container(
                                             width: 112.0,
                                             height: 112.0,
                                             clipBehavior: Clip.antiAlias,
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               shape: BoxShape.circle,
                                             ),
                                             child: Image.network(
@@ -234,7 +230,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                           .viewInsetsOf(
                                                               context),
                                                       child:
-                                                          DeletePhotoWidget(),
+                                                          const DeletePhotoWidget(),
                                                     ),
                                                   );
                                                 },
@@ -373,7 +369,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -396,7 +392,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 32.0, 0.0, 0.0),
                             child: Form(
                               key: _model.formKey,
@@ -405,14 +401,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   AuthUserStreamWidget(
-                                    builder: (context) => Container(
+                                    builder: (context) => SizedBox(
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller: _model.nameController,
                                         focusNode: _model.nameFocusNode,
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.nameController',
-                                          Duration(milliseconds: 2000),
+                                          const Duration(milliseconds: 2000),
                                           () => setState(() {}),
                                         ),
                                         obscureText: false,
@@ -463,7 +459,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                 BorderRadius.circular(12.0),
                                           ),
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 22.0, 16.0, 22.0),
                                           suffixIcon: _model.nameController!
                                                   .text.isNotEmpty
@@ -495,10 +491,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 16.0, 0.0, 0.0),
                                     child: AuthUserStreamWidget(
-                                      builder: (context) => Container(
+                                      builder: (context) => SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller:
@@ -507,7 +503,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.secondNameController',
-                                            Duration(milliseconds: 2000),
+                                            const Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
                                           obscureText: false,
@@ -558,7 +554,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 22.0, 16.0, 22.0),
                                             suffixIcon: _model
                                                     .secondNameController!
@@ -595,10 +591,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 16.0, 0.0, 0.0),
                                     child: AuthUserStreamWidget(
-                                      builder: (context) => Container(
+                                      builder: (context) => SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model.phoneController,
@@ -606,7 +602,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.phoneController',
-                                            Duration(milliseconds: 2000),
+                                            const Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
                                           obscureText: false,
@@ -657,7 +653,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 22.0, 16.0, 22.0),
                                             suffixIcon: _model.phoneController!
                                                     .text.isNotEmpty
@@ -691,10 +687,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 16.0, 0.0, 0.0),
                                     child: AuthUserStreamWidget(
-                                      builder: (context) => Container(
+                                      builder: (context) => SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model.telegramController,
@@ -702,7 +698,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.telegramController',
-                                            Duration(milliseconds: 2000),
+                                            const Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
                                           obscureText: false,
@@ -753,7 +749,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 22.0, 16.0, 22.0),
                                             suffixIcon: _model
                                                     .telegramController!
@@ -789,10 +785,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 16.0, 0.0, 0.0),
                                     child: AuthUserStreamWidget(
-                                      builder: (context) => Container(
+                                      builder: (context) => SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller:
@@ -801,7 +797,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.instagramController',
-                                            Duration(milliseconds: 2000),
+                                            const Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
                                           obscureText: false,
@@ -852,7 +848,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 22.0, 16.0, 22.0),
                                             suffixIcon: _model
                                                     .instagramController!
@@ -888,10 +884,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 16.0, 0.0, 0.0),
                                     child: AuthUserStreamWidget(
-                                      builder: (context) => Container(
+                                      builder: (context) => SizedBox(
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
@@ -901,7 +897,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.userInfoController',
-                                            Duration(milliseconds: 2000),
+                                            const Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
                                           obscureText: false,
@@ -952,7 +948,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 22.0, 16.0, 22.0),
                                             suffixIcon: _model
                                                     .userInfoController!
@@ -993,7 +989,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: Container(
                               width: double.infinity,
@@ -1011,7 +1007,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  final _datePickedDate = await showDatePicker(
+                                  final datePickedDate = await showDatePicker(
                                     context: context,
                                     initialDate: getCurrentTimestamp,
                                     firstDate: DateTime(1900),
@@ -1052,12 +1048,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     },
                                   );
 
-                                  if (_datePickedDate != null) {
+                                  if (datePickedDate != null) {
                                     safeSetState(() {
                                       _model.datePicked = DateTime(
-                                        _datePickedDate.year,
-                                        _datePickedDate.month,
-                                        _datePickedDate.day,
+                                        datePickedDate.year,
+                                        datePickedDate.month,
+                                        datePickedDate.day,
                                       );
                                     });
                                   }
@@ -1070,10 +1066,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     if (_model.birthday != null) {
                                       return Align(
                                         alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
+                                            const AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 0.0, 16.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -1113,10 +1109,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     } else {
                                       return Align(
                                         alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
+                                            const AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 0.0, 16.0, 0.0),
                                           child: Text(
                                             'Дата рождения',
@@ -1136,7 +1132,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 40.0, 0.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -1160,7 +1156,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                       child: Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
-                                        child: ChangePasswordWidget(),
+                                        child: const ChangePasswordWidget(),
                                       ),
                                     );
                                   },
@@ -1170,7 +1166,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 12.0, 0.0),
                                     child: Icon(
                                       FFIcons.kchain2,
@@ -1192,7 +1188,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Icon(
                                       FFIcons.kright2,
@@ -1206,9 +1202,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: const AlignmentDirectional(0.0, 1.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 60.0, 0.0, 45.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
@@ -1225,30 +1221,24 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     birthday: _model.birthday,
                                   ));
                                   context.safePop();
-                                  if ((valueOrDefault(currentUserDocument?.firstName, '') != null &&
-                                          valueOrDefault(
+                                  if ((valueOrDefault(
                                                   currentUserDocument
                                                       ?.firstName,
                                                   '') !=
                                               '') &&
-                                      (valueOrDefault(currentUserDocument?.secondName, '') != null &&
-                                          valueOrDefault(currentUserDocument?.secondName, '') !=
+                                      (valueOrDefault(currentUserDocument?.secondName, '') !=
                                               '') &&
-                                      (currentPhoneNumber != null &&
-                                          currentPhoneNumber != '') &&
-                                      (valueOrDefault(currentUserDocument?.telegram, '') != null &&
-                                          valueOrDefault(
+                                      (currentPhoneNumber != '') &&
+                                      (valueOrDefault(
                                                   currentUserDocument?.telegram,
                                                   '') !=
                                               '') &&
-                                      (valueOrDefault(currentUserDocument?.instagram, '') != null &&
-                                          valueOrDefault(
+                                      (valueOrDefault(
                                                   currentUserDocument
                                                       ?.instagram,
                                                   '') !=
                                               '') &&
-                                      (valueOrDefault(currentUserDocument?.userInfo, '') != null &&
-                                          valueOrDefault(currentUserDocument?.userInfo, '') !=
+                                      (valueOrDefault(currentUserDocument?.userInfo, '') !=
                                               '') &&
                                       (currentUserDocument?.birthday != null) &&
                                       (valueOrDefault<bool>(
@@ -1284,7 +1274,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: ProfileIsFilledWidget(),
+                                            child: const ProfileIsFilledWidget(),
                                           ),
                                         );
                                       },
@@ -1295,14 +1285,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 56.0,
-                                  padding: EdgeInsets.all(0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsets.all(0.0),
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,
                                   textStyle:
                                       FlutterFlowTheme.of(context).displaySmall,
                                   elevation: 0.0,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.transparent,
                                   ),
                                   borderRadius: BorderRadius.circular(16.0),

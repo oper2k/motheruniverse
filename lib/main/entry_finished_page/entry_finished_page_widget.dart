@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'entry_finished_page_model.dart';
 export 'entry_finished_page_model.dart';
 
@@ -37,8 +35,6 @@ class _EntryFinishedPageWidgetState extends State<EntryFinishedPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -47,9 +43,9 @@ class _EntryFinishedPageWidgetState extends State<EntryFinishedPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Align(
-          alignment: AlignmentDirectional(0.0, 0.0),
+          alignment: const AlignmentDirectional(0.0, 0.0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -62,7 +58,7 @@ class _EntryFinishedPageWidgetState extends State<EntryFinishedPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: Text(
                     'Вы успешно',
                     textAlign: TextAlign.center,
@@ -70,7 +66,7 @@ class _EntryFinishedPageWidgetState extends State<EntryFinishedPageWidget> {
                   ),
                 ),
                 Stack(
-                  alignment: AlignmentDirectional(1.0, 1.0),
+                  alignment: const AlignmentDirectional(1.0, 1.0),
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
@@ -82,7 +78,7 @@ class _EntryFinishedPageWidgetState extends State<EntryFinishedPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'записаны   ',
                         style: FlutterFlowTheme.of(context).displayLarge,
@@ -99,9 +95,9 @@ class _EntryFinishedPageWidgetState extends State<EntryFinishedPageWidget> {
                         lineHeight: 1.5,
                       ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 45.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 45.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       context.goNamed('CalendarOfEventsPage');
@@ -110,13 +106,13 @@ class _EntryFinishedPageWidgetState extends State<EntryFinishedPageWidget> {
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 56.0,
-                      padding: EdgeInsets.all(0.0),
+                      padding: const EdgeInsets.all(0.0),
                       iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
                       textStyle: FlutterFlowTheme.of(context).displaySmall,
                       elevation: 0.0,
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.transparent,
                       ),
                       borderRadius: BorderRadius.circular(16.0),

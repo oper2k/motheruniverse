@@ -6,14 +6,11 @@ import '/components/bottom_sheet/profile_bottom_sheet/reset_sleep_tracker/reset_
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/instant_timer.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'sleep_tracker_page_model.dart';
 export 'sleep_tracker_page_model.dart';
@@ -45,15 +42,15 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 3000.ms,
-          begin: Offset(1.0, 1.0),
-          end: Offset(0.8, 0.8),
+          begin: const Offset(1.0, 1.0),
+          end: const Offset(0.8, 0.8),
         ),
         ScaleEffect(
           curve: Curves.easeIn,
           delay: 0.ms,
           duration: 3000.ms,
-          begin: Offset(0.8, 0.8),
-          end: Offset(1.0, 1.0),
+          begin: const Offset(0.8, 0.8),
+          end: const Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -67,7 +64,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.instantTimer = InstantTimer.periodic(
-        duration: Duration(milliseconds: 1000),
+        duration: const Duration(milliseconds: 1000),
         callback: (timer) async {
           setState(() {});
         },
@@ -115,18 +112,18 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
             }
             final containerChildrenRecord = snapshot.data!;
             return Container(
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
                       width: double.infinity,
                       height: 38.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -138,9 +135,9 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                           child: Container(
                             width: 38.0,
                             height: 38.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Icon(
                                 FFIcons.kleft,
                                 color:
@@ -154,16 +151,16 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                       child: Text(
                         'Трекер сна',
                         style: FlutterFlowTheme.of(context).displayLarge,
                       ),
                     ),
                     if (containerChildrenRecord.tempStartSleepTime == null)
-                      Spacer(flex: 136),
+                      const Spacer(flex: 136),
                     if (containerChildrenRecord.tempStartSleepTime != null)
-                      Spacer(flex: 64),
+                      const Spacer(flex: 64),
                     Builder(
                       builder: (context) {
                         if (containerChildrenRecord.tempStartSleepTime !=
@@ -181,7 +178,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                               ).animateOnPageLoad(
                                   animationsMap['imageOnPageLoadAnimation']!),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 37.0, 0.0, 0.0),
                                 child: Text(
                                   'Общее время',
@@ -207,7 +204,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Text(
                                   'Начало  в ${dateTimeFormat(
@@ -231,9 +228,9 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                         } else {
                           return Container(
                             width: double.infinity,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Stack(
-                              alignment: AlignmentDirectional(0.0, -1.0),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               children: [
                                 InkWell(
                                   splashColor: Colors.transparent,
@@ -256,7 +253,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 123.0, 98.0, 0.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(0.0),
@@ -268,7 +265,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 210.0, 0.0, 0.0),
                                   child: Text(
                                     'Нажми на кнопку, чтобы начать',
@@ -289,12 +286,12 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                       },
                     ),
                     if (containerChildrenRecord.tempStartSleepTime != null)
-                      Spacer(flex: 143),
+                      const Spacer(flex: 143),
                     if (containerChildrenRecord.tempStartSleepTime == null)
-                      Spacer(flex: 173),
+                      const Spacer(flex: 173),
                     if (containerChildrenRecord.tempStartSleepTime != null)
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -316,7 +313,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                                           : FocusScope.of(context).unfocus(),
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
-                                    child: ResetSleepTrackerWidget(),
+                                    child: const ResetSleepTrackerWidget(),
                                   ),
                                 );
                               },
@@ -349,7 +346,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 0.0, 0.0),
                                 child: Icon(
                                   FFIcons.kreset,
@@ -364,7 +361,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                       ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 45.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 45.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -536,15 +533,17 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                                                     .processDateList(
                                                         (currentUserDocument
                                                                     ?.trackersAddingDates
-                                                                    ?.toList() ??
+                                                                    .toList() ??
                                                                 [])
                                                             .toList())
                                                     .toList()),
                                           },
                                         ),
                                       });
-
-                                      context.goNamed(
+                                      if (Navigator.of(context).canPop()) {
+                                        context.pop();
+                                      }
+                                      context.pushNamed(
                                         'SleepTrackerIsAdded',
                                         queryParameters: {
                                           'tracker': serializeParam(
@@ -559,13 +558,6 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                                         extra: <String, dynamic>{
                                           'tracker': _model.trackerDoc,
                                           'child': widget.child,
-                                          kTransitionInfoKey: TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.rightToLeft,
-                                            duration:
-                                                Duration(milliseconds: 300),
-                                          ),
                                         },
                                       );
                                     } else {
@@ -664,15 +656,17 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                                                     .processDateList(
                                                         (currentUserDocument
                                                                     ?.trackersAddingDates
-                                                                    ?.toList() ??
+                                                                    .toList() ??
                                                                 [])
                                                             .toList())
                                                     .toList()),
                                           },
                                         ),
                                       });
-
-                                      context.goNamed(
+                                      if (Navigator.of(context).canPop()) {
+                                        context.pop();
+                                      }
+                                      context.pushNamed(
                                         'SleepTrackerIsAdded',
                                         queryParameters: {
                                           'tracker': serializeParam(
@@ -692,13 +686,6 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                                           'tracker': _model.trackerDoc1,
                                           'child': widget.child,
                                           'secondDay': _model.secondDay,
-                                          kTransitionInfoKey: TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.rightToLeft,
-                                            duration:
-                                                Duration(milliseconds: 300),
-                                          ),
                                         },
                                       );
                                     }
@@ -714,7 +701,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                                       borderRadius: BorderRadius.circular(14.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           24.0, 12.0, 24.0, 12.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -734,7 +721,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 0.0, 0.0),
                                             child: Icon(
                                               FFIcons.kflag,
@@ -758,7 +745,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                                     borderRadius: BorderRadius.circular(14.0),
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         24.0, 12.0, 24.0, 12.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -778,7 +765,7 @@ class _SleepTrackerPageWidgetState extends State<SleepTrackerPageWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: Icon(
                                             FFIcons.kflag,

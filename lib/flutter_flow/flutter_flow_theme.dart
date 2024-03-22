@@ -144,29 +144,29 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color error = const Color(0xFFC64141);
   late Color info = const Color(0xFFFFFFFF);
 
-  late Color backgroundMain = Color(0xFFF5F5EE);
-  late Color overlay = Color(0xFF1C1C1C);
-  late Color grey20 = Color(0xFFEBEAEA);
-  late Color grey40 = Color(0xFFAAA7A5);
-  late Color grey60 = Color(0xFF747474);
-  late Color errorDark = Color(0xFFB22929);
-  late Color divider = Color(0x33000000);
-  late Color gift = Color(0xFF739977);
-  late Color purple = Color(0xFF8765A2);
-  late Color blue = Color(0xFF367CBC);
-  late Color iconColor = Color(0xFFFA8449);
-  late Color botomBack = Color(0x801C1C1C);
-  late Color divider10 = Color(0x1A1C1C1C);
-  late Color yellowLight = Color(0xFFF2ECDC);
-  late Color purpleLight = Color(0xFFEFE9F1);
-  late Color successLight = Color(0xFFDDECDF);
-  late Color blueLight = Color(0xFFDCE3ED);
-  late Color yellow = Color(0xFFB49B72);
-  late Color redIcon = Color(0xFFFB3A68);
-  late Color redLight = Color(0xFFFFD9D9);
-  late Color blueWidget = Color(0xFFCBCAF3);
-  late Color primaryBacking = Color(0xFFE4E5D9);
-  late Color previewApp = Color(0xFFE7D7C8);
+  late Color backgroundMain = const Color(0xFFF5F5EE);
+  late Color overlay = const Color(0xFF1C1C1C);
+  late Color grey20 = const Color(0xFFEBEAEA);
+  late Color grey40 = const Color(0xFFAAA7A5);
+  late Color grey60 = const Color(0xFF747474);
+  late Color errorDark = const Color(0xFFB22929);
+  late Color divider = const Color(0x33000000);
+  late Color gift = const Color(0xFF739977);
+  late Color purple = const Color(0xFF8765A2);
+  late Color blue = const Color(0xFF367CBC);
+  late Color iconColor = const Color(0xFFFA8449);
+  late Color botomBack = const Color(0x801C1C1C);
+  late Color divider10 = const Color(0x1A1C1C1C);
+  late Color yellowLight = const Color(0xFFF2ECDC);
+  late Color purpleLight = const Color(0xFFEFE9F1);
+  late Color successLight = const Color(0xFFDDECDF);
+  late Color blueLight = const Color(0xFFDCE3ED);
+  late Color yellow = const Color(0xFFB49B72);
+  late Color redIcon = const Color(0xFFFB3A68);
+  late Color redLight = const Color(0xFFFFD9D9);
+  late Color blueWidget = const Color(0xFFCBCAF3);
+  late Color primaryBacking = const Color(0xFFE4E5D9);
+  late Color previewApp = const Color(0xFFE7D7C8);
 }
 
 abstract class Typography {

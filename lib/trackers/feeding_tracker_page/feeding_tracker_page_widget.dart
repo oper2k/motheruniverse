@@ -5,13 +5,9 @@ import '/components/bottom_sheet/profile_bottom_sheet/chose_tracker_feeding/chos
 import '/components/bottom_sheet/profile_bottom_sheet/reset_feeding_tracker/reset_feeding_tracker_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'feeding_tracker_page_model.dart';
 export 'feeding_tracker_page_model.dart';
 
@@ -61,8 +57,6 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -71,7 +65,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,9 +73,9 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
               Container(
                 width: double.infinity,
                 height: 38.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -93,9 +87,9 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                     child: Container(
                       width: 38.0,
                       height: 38.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Icon(
                           FFIcons.kleft,
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -107,9 +101,9 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Text(
                     'Трекер прикорма',
                     style: FlutterFlowTheme.of(context).displayLarge,
@@ -117,15 +111,15 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
-                child: Container(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                child: SizedBox(
                   width: double.infinity,
                   child: TextFormField(
                     controller: _model.feedingNameController,
                     focusNode: _model.feedingNameFocusNode,
                     onChanged: (_) => EasyDebounce.debounce(
                       '_model.feedingNameController',
-                      Duration(milliseconds: 100),
+                      const Duration(milliseconds: 100),
                       () => setState(() {}),
                     ),
                     obscureText: false,
@@ -164,7 +158,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                         ),
                         borderRadius: BorderRadius.circular(12.0),
                       ),
-                      contentPadding: EdgeInsetsDirectional.fromSTEB(
+                      contentPadding: const EdgeInsetsDirectional.fromSTEB(
                           16.0, 22.0, 16.0, 22.0),
                     ),
                     style: FlutterFlowTheme.of(context).headlineSmall,
@@ -175,7 +169,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                 child: Text(
                   'Смотри наши рекомендации',
                   style: FlutterFlowTheme.of(context).headlineSmall.override(
@@ -186,15 +180,15 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
-                child: Container(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                child: SizedBox(
                   width: double.infinity,
                   child: TextFormField(
                     controller: _model.amountController,
                     focusNode: _model.amountFocusNode,
                     onChanged: (_) => EasyDebounce.debounce(
                       '_model.amountController',
-                      Duration(milliseconds: 100),
+                      const Duration(milliseconds: 100),
                       () => setState(() {}),
                     ),
                     obscureText: false,
@@ -233,7 +227,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                         ),
                         borderRadius: BorderRadius.circular(12.0),
                       ),
-                      contentPadding: EdgeInsetsDirectional.fromSTEB(
+                      contentPadding: const EdgeInsetsDirectional.fromSTEB(
                           16.0, 22.0, 16.0, 22.0),
                     ),
                     style: FlutterFlowTheme.of(context).headlineSmall,
@@ -245,7 +239,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -268,9 +262,9 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
                             child: Text(
                               'Граммы',
@@ -290,7 +284,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -310,9 +304,9 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 12.0, 0.0),
                               child: Text(
                                 'Миллилитры',
@@ -336,8 +330,8 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
               ),
               if (false)
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                  child: Container(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  child: SizedBox(
                     width: double.infinity,
                     child: TextFormField(
                       controller: _model.textController3,
@@ -380,7 +374,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                           ),
                           borderRadius: BorderRadius.circular(12.0),
                         ),
-                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                        contentPadding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 22.0, 16.0, 22.0),
                       ),
                       style:
@@ -394,9 +388,9 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                     ),
                   ),
                 ),
-              Spacer(),
+              const Spacer(),
               Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -416,7 +410,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                               : FocusScope.of(context).unfocus(),
                           child: Padding(
                             padding: MediaQuery.viewInsetsOf(context),
-                            child: ResetFeedingTrackerWidget(),
+                            child: const ResetFeedingTrackerWidget(),
                           ),
                         );
                       },
@@ -444,7 +438,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Icon(
                           FFIcons.kreset,
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -456,7 +450,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 45.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 45.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -505,10 +499,8 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                     ),
                     Builder(
                       builder: (context) {
-                        if ((_model.feedingNameController.text != null &&
-                                _model.feedingNameController.text != '') &&
-                            (_model.amountController.text != null &&
-                                _model.amountController.text != '')) {
+                        if ((_model.feedingNameController.text != '') &&
+                            (_model.amountController.text != '')) {
                           return InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -569,15 +561,17 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                                           functions.processDateList(functions
                                               .processDateList((currentUserDocument
                                                           ?.trackersAddingDates
-                                                          ?.toList() ??
+                                                          .toList() ??
                                                       [])
                                                   .toList())
                                               .toList()),
                                     },
                                   ),
                                 });
-
-                                context.goNamed(
+                                if (Navigator.of(context).canPop()) {
+                                  context.pop();
+                                }
+                                context.pushNamed(
                                   'FeedingTrackerIsAdded',
                                   queryParameters: {
                                     'feedTracker': serializeParam(
@@ -592,12 +586,6 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                                   extra: <String, dynamic>{
                                     'feedTracker': _model.feedingTrack,
                                     'child': widget.child,
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.rightToLeft,
-                                      duration: Duration(milliseconds: 300),
-                                    ),
                                   },
                                 );
                               } else {
@@ -658,15 +646,17 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                                           functions.processDateList(functions
                                               .processDateList((currentUserDocument
                                                           ?.trackersAddingDates
-                                                          ?.toList() ??
+                                                          .toList() ??
                                                       [])
                                                   .toList())
                                               .toList()),
                                     },
                                   ),
                                 });
-
-                                context.goNamed(
+                                if (Navigator.of(context).canPop()) {
+                                  context.pop();
+                                }
+                                context.pushNamed(
                                   'FeedingTrackerIsAdded',
                                   queryParameters: {
                                     'feedTracker': serializeParam(
@@ -681,12 +671,6 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                                   extra: <String, dynamic>{
                                     'feedTracker': _model.feedingTrack1,
                                     'child': widget.child,
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.rightToLeft,
-                                      duration: Duration(milliseconds: 300),
-                                    ),
                                   },
                                 );
                               }
@@ -701,7 +685,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                                 borderRadius: BorderRadius.circular(14.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 12.0, 24.0, 12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -717,7 +701,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                                             lineHeight: 1.25,
                                           ),
                                     ),
-                                    Padding(
+                                    const Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: Icon(
@@ -740,7 +724,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                               borderRadius: BorderRadius.circular(14.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 12.0, 24.0, 12.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -758,7 +742,7 @@ class _FeedingTrackerPageWidgetState extends State<FeedingTrackerPageWidget> {
                                         ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 0.0, 0.0, 0.0),
                                     child: Icon(
                                       FFIcons.kflag,

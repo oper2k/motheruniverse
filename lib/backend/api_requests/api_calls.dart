@@ -1,7 +1,5 @@
 import 'dart:convert';
-import 'dart:typed_data';
 import '../cloud_functions/cloud_functions.dart';
-import '../schema/structs/index.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
@@ -64,7 +62,7 @@ class PayByCardCall {
         response,
         r'''$.Model.PaReq''',
       ));
-  dynamic? message(dynamic response) => getJsonField(
+  dynamic message(dynamic response) => getJsonField(
         response,
         r'''$.Message''',
       );

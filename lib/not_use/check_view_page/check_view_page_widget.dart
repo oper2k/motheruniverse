@@ -1,14 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'check_view_page_model.dart';
 export 'check_view_page_model.dart';
 
@@ -46,8 +41,6 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -56,7 +49,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,9 +75,9 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                       child: Container(
                         width: 38.0,
                         height: 38.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
                           child: Icon(
                             FFIcons.kleft,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -106,7 +99,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                         child: Container(
                           width: 38.0,
                           height: 38.0,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Icon(
                             FFIcons.kcloudDownload,
                             color: FlutterFlowTheme.of(context).primary,
@@ -125,7 +118,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: Text(
                           widget.checkListParent!.title,
                           style: FlutterFlowTheme.of(context).displayLarge,
@@ -133,7 +126,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: Text(
                           widget.checkListParent!.description,
                           style: FlutterFlowTheme.of(context)
@@ -146,7 +139,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: Text(
                           'Выберите этап',
                           style: FlutterFlowTheme.of(context)
@@ -181,11 +174,11 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                           final usersQueryUsersRecord = snapshot.data!;
                           return Container(
                             width: double.infinity,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Builder(
                               builder: (context) {
                                 final groups =
-                                    widget.checkListParent?.groups?.toList() ??
+                                    widget.checkListParent?.groups.toList() ??
                                         [];
                                 return Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -229,15 +222,15 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                             subcollectionQueryCheckListGroupItemsRecordList =
                                             snapshot.data!;
                                         return Container(
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Container(
                                             width: double.infinity,
-                                            color: Color(0x00000000),
+                                            color: const Color(0x00000000),
                                             child: ExpandableNotifier(
                                               initialExpanded: false,
                                               child: ExpandablePanel(
                                                 header: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 15.0, 0.0, 15.0),
                                                   child: Text(
@@ -266,7 +259,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                 ),
                                                 expanded: Container(
                                                   width: double.infinity,
-                                                  decoration: BoxDecoration(),
+                                                  decoration: const BoxDecoration(),
                                                   child: Builder(
                                                     builder: (context) {
                                                       final check =
@@ -284,7 +277,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                             width:
                                                                 double.infinity,
                                                             decoration:
-                                                                BoxDecoration(),
+                                                                const BoxDecoration(),
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -295,12 +288,9 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                               children: [
                                                                 if (checkItem
                                                                             .attentionTitle !=
-                                                                        null &&
-                                                                    checkItem
-                                                                            .attentionTitle !=
                                                                         '')
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             12.0,
@@ -320,7 +310,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                       child:
                                                                           Padding(
                                                                         padding:
-                                                                            EdgeInsets.all(12.0),
+                                                                            const EdgeInsets.all(12.0),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
@@ -328,14 +318,14 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                           crossAxisAlignment:
                                                                               CrossAxisAlignment.start,
                                                                           children: [
-                                                                            Icon(
+                                                                            const Icon(
                                                                               FFIcons.kinfoCircle,
                                                                               color: Colors.white,
                                                                               size: 24.0,
                                                                             ),
                                                                             Expanded(
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                                                                                 child: Column(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -402,10 +392,10 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                           width:
                                                                               double.infinity,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
                                                                               Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 12.0,
                                                                                 0.0,
@@ -428,9 +418,9 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                                               lineHeight: 1.25,
                                                                                             ),
                                                                                       ),
-                                                                                      if (checkItem.checkDescription != null && checkItem.checkDescription != '')
+                                                                                      if (checkItem.checkDescription != '')
                                                                                         Text(
-                                                                                          '${checkItem.checkDescription}',
+                                                                                          checkItem.checkDescription,
                                                                                           style: FlutterFlowTheme.of(context).headlineMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 fontWeight: FontWeight.w500,
@@ -441,7 +431,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                   child: Container(
                                                                                     width: 30.0,
                                                                                     height: 30.0,
@@ -489,10 +479,10 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                           width:
                                                                               double.infinity,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
                                                                               Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 12.0,
                                                                                 0.0,
@@ -517,7 +507,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                                               lineHeight: 1.25,
                                                                                             ),
                                                                                       ),
-                                                                                      if (checkItem.checkDescription != null && checkItem.checkDescription != '')
+                                                                                      if (checkItem.checkDescription != '')
                                                                                         Text(
                                                                                           checkItem.checkDescription,
                                                                                           style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -530,7 +520,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                   child: Container(
                                                                                     width: 30.0,
                                                                                     height: 30.0,
@@ -542,7 +532,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                                         width: 1.0,
                                                                                       ),
                                                                                     ),
-                                                                                    child: Icon(
+                                                                                    child: const Icon(
                                                                                       FFIcons.kcheckMini,
                                                                                       color: Colors.white,
                                                                                       size: 24.0,
@@ -558,15 +548,11 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                   },
                                                                 ),
                                                                 if ((checkItem.warningBlack !=
-                                                                            null &&
-                                                                        checkItem.warningBlack !=
                                                                             '') ||
                                                                     (checkItem.warningRed !=
-                                                                            null &&
-                                                                        checkItem.warningRed !=
                                                                             ''))
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             10.0,
@@ -577,7 +563,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                                                       width: double
                                                                           .infinity,
                                                                       decoration:
-                                                                          BoxDecoration(),
+                                                                          const BoxDecoration(),
                                                                       child:
                                                                           Column(
                                                                         mainAxisSize:
@@ -659,7 +645,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                       if (widget.checkListParent?.recommendedTitle != null &&
                           widget.checkListParent?.recommendedTitle != '')
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 112.0),
                           child: Container(
                             width: double.infinity,
@@ -671,7 +657,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(12.0),
+                              padding: const EdgeInsets.all(12.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -684,7 +670,7 @@ class _CheckViewPageWidgetState extends State<CheckViewPageWidget> {
                                   ),
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,

@@ -6,8 +6,6 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'child_size_model.dart';
 export 'child_size_model.dart';
 
@@ -61,10 +59,8 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
-      alignment: AlignmentDirectional(0.0, 1.0),
+      alignment: const AlignmentDirectional(0.0, 1.0),
       child: StreamBuilder<List<ChildSizeRecord>>(
         stream: queryChildSizeRecord(
           queryBuilder: (childSizeRecord) =>
@@ -90,7 +86,7 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
             width: double.infinity,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).backgroundMain,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(0.0),
                 bottomRight: Radius.circular(0.0),
                 topLeft: Radius.circular(24.0),
@@ -98,7 +94,7 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
               ),
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -112,7 +108,7 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -157,7 +153,7 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(0.0),
                       child: Image.network(
@@ -171,7 +167,7 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 0.0),
                     child: Builder(
                       builder: (context) {
                         if (_model.choseWeekIndex < widget.currentWeek!) {
@@ -215,7 +211,7 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
                   if (_model.choseWeekIndex == widget.currentWeek)
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -234,7 +230,7 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
                             borderRadius: BorderRadius.circular(16.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 15.0, 24.0, 15.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -251,7 +247,7 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
                                       ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 0.0, 0.0),
                                   child: Icon(
                                     FFIcons.kshare2,
@@ -267,10 +263,10 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
                     ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 73.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 73.0, 0.0, 0.0),
                     child: Container(
                       width: double.infinity,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -278,7 +274,7 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
                             builder: (context) {
                               final weeks =
                                   containerChildSizeRecordList.toList();
-                              return Container(
+                              return SizedBox(
                                 width: double.infinity,
                                 height: 78.0,
                                 child: CarouselSlider.builder(
@@ -472,7 +468,7 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 42.0, 20.0, 45.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 42.0, 20.0, 45.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         Navigator.pop(context);
@@ -481,13 +477,13 @@ class _ChildSizeWidgetState extends State<ChildSizeWidget> {
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 56.0,
-                        padding: EdgeInsets.all(0.0),
+                        padding: const EdgeInsets.all(0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).tertiary,
                         textStyle: FlutterFlowTheme.of(context).headlineLarge,
                         elevation: 0.0,
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.transparent,
                         ),
                         borderRadius: BorderRadius.circular(16.0),

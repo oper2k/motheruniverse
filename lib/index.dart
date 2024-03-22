@@ -111,3 +111,4 @@ export '/main/you_tube_player/you_tube_player_widget.dart'
     show YouTubePlayerWidget;
 export '/main/child/advices_born_child/advices_born_child_widget.dart'
     show AdvicesBornChildWidget;
+export '/asdadqwdqw/asdadqwdqw_widget.dart' show AsdadqwdqwWidget;

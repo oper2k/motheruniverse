@@ -1,10 +1,8 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'advices_unborn_child_model.dart';
 export 'advices_unborn_child_model.dart';
@@ -60,7 +58,7 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,7 +70,7 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
                   color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
                 child: Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -84,7 +82,7 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
                     child: Container(
                       width: 38.0,
                       height: 38.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Icon(
                         FFIcons.kleft,
                         color: FlutterFlowTheme.of(context).secondaryText,
@@ -105,7 +103,7 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 23.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 23.0, 0.0, 0.0),
                       child: FutureBuilder<List<AdvicesRecord>>(
                         future: queryAdvicesRecordOnce(
                           queryBuilder: (advicesRecord) =>
@@ -129,7 +127,7 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
                           List<AdvicesRecord> containerAdvicesRecordList =
                               snapshot.data!;
                           return Container(
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -144,7 +142,7 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
                                       onTap: () async {
                                         await _model.pageViewController
                                             ?.previousPage(
-                                          duration: Duration(milliseconds: 300),
+                                          duration: const Duration(milliseconds: 300),
                                           curve: Curves.ease,
                                         );
                                       },
@@ -167,7 +165,7 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
                                     ),
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             20.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           containerAdvicesRecordList[
@@ -180,7 +178,7 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           20.0, 0.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -191,7 +189,7 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
                                           await _model.pageViewController
                                               ?.nextPage(
                                             duration:
-                                                Duration(milliseconds: 300),
+                                                const Duration(milliseconds: 300),
                                             curve: Curves.ease,
                                           );
                                         },
@@ -216,20 +214,20 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
                                   ],
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 0.0),
                                   child: Container(
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Builder(
                                       builder: (context) {
                                         final advices =
                                             containerAdvicesRecordList.toList();
-                                        return Container(
+                                        return SizedBox(
                                           width: double.infinity,
                                           height: 500.0,
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 40.0),
                                             child: PageView.builder(
                                               controller: _model
@@ -267,7 +265,7 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
                                                                   eachAdviceIndex];
                                                           return Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -277,7 +275,7 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
                                                               width: double
                                                                   .infinity,
                                                               decoration:
-                                                                  BoxDecoration(),
+                                                                  const BoxDecoration(),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -291,7 +289,7 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
                                                                           .length >
                                                                       1)
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           10.0,
                                                                           10.0,
                                                                           0.0,
@@ -314,7 +312,7 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
                                                                   Expanded(
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           10.0,
                                                                           0.0,
                                                                           0.0,
@@ -335,7 +333,7 @@ class _AdvicesUnbornChildWidgetState extends State<AdvicesUnbornChildWidget> {
                                                               ),
                                                             ),
                                                           );
-                                                        }).addToEnd(SizedBox(
+                                                        }).addToEnd(const SizedBox(
                                                             height: 45.0)),
                                                       ),
                                                     );

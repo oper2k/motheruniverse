@@ -3,12 +3,9 @@ import '/components/bottom_sheet/child_bottom_sheet/child_size/child_size_widget
 import '/components/bottom_sheet/child_bottom_sheet/date_of_birth/date_of_birth_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'unborn_child_page_model.dart';
 export 'unborn_child_page_model.dart';
 
@@ -46,8 +43,6 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -56,12 +51,12 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                 child: Container(
                   width: double.infinity,
                   height: 38.0,
@@ -69,7 +64,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                     color: FlutterFlowTheme.of(context).primaryBackground,
                   ),
                   child: Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
+                    alignment: const AlignmentDirectional(-1.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -81,9 +76,9 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                       child: Container(
                         width: 38.0,
                         height: 38.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
                           child: Icon(
                             FFIcons.kleft,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -102,7 +97,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 7.0, 14.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -110,9 +105,9 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
@@ -130,7 +125,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                           .bodyMedium,
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 61.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -164,7 +159,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 12.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -201,14 +196,14 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                               ),
                             ),
                             Stack(
-                              alignment: AlignmentDirectional(1.0, -1.0),
+                              alignment: const AlignmentDirectional(1.0, -1.0),
                               children: [
                                 Builder(
                                   builder: (context) {
                                     if (widget.child?.photo != null &&
                                         widget.child?.photo != '') {
                                       return Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             15.0, 8.0, 6.0, 0.0),
                                         child: ClipRRect(
                                           borderRadius:
@@ -223,7 +218,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                       );
                                     } else if (widget.child?.gender == 'male') {
                                       return Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             15.0, 8.0, 6.0, 0.0),
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -234,7 +229,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 25.0, 0.0, 25.0),
                                             child: ClipRRect(
                                               borderRadius:
@@ -252,7 +247,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                     } else if (widget.child?.gender ==
                                         'female') {
                                       return Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             15.0, 8.0, 6.0, 0.0),
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -263,7 +258,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 25.0, 0.0, 25.0),
                                             child: ClipRRect(
                                               borderRadius:
@@ -280,7 +275,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                       );
                                     } else {
                                       return Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             15.0, 8.0, 6.0, 0.0),
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -291,7 +286,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 25.0, 0.0, 25.0),
                                             child: ClipRRect(
                                               borderRadius:
@@ -326,7 +321,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                 if (widget.child?.imageLeft != null &&
                                     widget.child?.imageLeft != '')
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 123.0, 93.0, 0.0),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(0.0),
@@ -344,7 +339,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 20.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -361,12 +356,12 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                   ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 50.0),
                               child: GridView(
                                 padding: EdgeInsets.zero,
                                 gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2,
                                   crossAxisSpacing: 15.0,
                                   mainAxisSpacing: 15.0,
@@ -427,7 +422,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                             BorderRadius.circular(16.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsets.all(14.0),
+                                        padding: const EdgeInsets.all(14.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:
@@ -484,7 +479,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                                       ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -592,7 +587,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                                 BorderRadius.circular(16.0),
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(14.0),
+                                            padding: const EdgeInsets.all(14.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.min,
                                               mainAxisAlignment:
@@ -656,7 +651,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     4.0,
                                                                     0.0,
@@ -708,7 +703,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                             BorderRadius.circular(16.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsets.all(14.0),
+                                        padding: const EdgeInsets.all(14.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:
@@ -766,7 +761,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                                 Flexible(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(4.0, 0.0,
                                                                 0.0, 1.0),
                                                     child: AutoSizeText(
@@ -835,7 +830,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                             BorderRadius.circular(16.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsets.all(14.0),
+                                        padding: const EdgeInsets.all(14.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:
@@ -923,7 +918,7 @@ class _UnbornChildPageWidgetState extends State<UnbornChildPageWidget> {
                                             BorderRadius.circular(16.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsets.all(14.0),
+                                        padding: const EdgeInsets.all(14.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:

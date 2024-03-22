@@ -8,8 +8,6 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'reset_pass_model.dart';
 export 'reset_pass_model.dart';
 
@@ -36,15 +34,15 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 500.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 100.0),
+          end: const Offset(0.0, 0.0),
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 3000.ms,
           duration: 500.ms,
-          begin: Offset(0.0, 0.0),
-          end: Offset(0.0, 100.0),
+          begin: const Offset(0.0, 0.0),
+          end: const Offset(0.0, 100.0),
         ),
       ],
     ),
@@ -84,8 +82,6 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -96,7 +92,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
         body: Stack(
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -104,7 +100,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -116,11 +112,11 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
                           child: Container(
                             width: 38.0,
                             height: 38.0,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0x00FFFFFF),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Icon(
                                 FFIcons.kleft,
                                 color: FlutterFlowTheme.of(context).overlay,
@@ -134,7 +130,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 37.0, 0.0, 8.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 37.0, 0.0, 8.0),
                     child: Wrap(
                       spacing: 0.0,
                       runSpacing: 0.0,
@@ -170,18 +166,18 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 17.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 17.0, 0.0, 0.0),
                     child: Form(
                       key: _model.formKey,
                       autovalidateMode: AutovalidateMode.disabled,
-                      child: Container(
+                      child: SizedBox(
                         width: double.infinity,
                         child: TextFormField(
                           controller: _model.emailFieldController,
                           focusNode: _model.emailFieldFocusNode,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.emailFieldController',
-                            Duration(milliseconds: 2000),
+                            const Duration(milliseconds: 2000),
                             () => setState(() {}),
                           ),
                           obscureText: false,
@@ -217,7 +213,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
                               ),
                               borderRadius: BorderRadius.circular(12.0),
                             ),
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                            contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 22.0, 16.0, 22.0),
                             suffixIcon: _model
                                     .emailFieldController!.text.isNotEmpty
@@ -249,9 +245,9 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
             ),
             if (_model.emailIsSent)
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 136.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 136.0),
                   child: Container(
                     width: 214.0,
                     height: 40.0,
@@ -263,7 +259,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 8.0, 0.0),
                           child: Icon(
                             FFIcons.kcheck,
@@ -283,9 +279,9 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
                 ),
               ),
             Align(
-              alignment: AlignmentDirectional(0.0, 1.0),
+              alignment: const AlignmentDirectional(0.0, 1.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 45.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 45.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     if (_model.formKey.currentState == null ||
@@ -294,7 +290,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
                     }
                     if (_model.emailFieldController.text.isEmpty) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
+                        const SnackBar(
                           content: Text(
                             'Поле Email обязательно!',
                           ),
@@ -318,13 +314,13 @@ class _ResetPassWidgetState extends State<ResetPassWidget>
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 56.0,
-                    padding: EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).displaySmall,
                     elevation: 0.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                     ),
                     borderRadius: BorderRadius.circular(16.0),

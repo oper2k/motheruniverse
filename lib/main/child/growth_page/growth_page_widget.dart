@@ -4,11 +4,8 @@ import '/components/bottom_sheet/child_bottom_sheet/create_the_growth/create_the
 import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'growth_page_model.dart';
 export 'growth_page_model.dart';
 
@@ -46,8 +43,6 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -74,9 +69,9 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
             }
             final containerChildrenRecord = snapshot.data!;
             return Container(
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,9 +96,9 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                             child: Container(
                               width: 30.0,
                               height: 38.0,
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: Align(
-                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                alignment: const AlignmentDirectional(-1.0, 0.0),
                                 child: Icon(
                                   FFIcons.kleft,
                                   color: FlutterFlowTheme.of(context)
@@ -115,7 +110,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 30.0, 0.0),
                               child: Text(
                                 'График нормы роста',
@@ -140,7 +135,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 16.0, 0.0, 0.0),
                               child: Text(
                                 'ТЕКУЩИЙ РОСТ',
@@ -173,7 +168,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                           ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -242,7 +237,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                           .languageCode,
                                     ))
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -304,7 +299,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                               style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 14.0, 0.0, 0.0),
                               child: Builder(
                                 builder: (context) {
@@ -316,7 +311,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Container(
+                                        SizedBox(
                                           width: double.infinity,
                                           height: 326.0,
                                           child: Stack(
@@ -324,10 +319,10 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                               ClipRRect(
                                                 child: Container(
                                                   height: 326.0,
-                                                  decoration: BoxDecoration(),
+                                                  decoration: const BoxDecoration(),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 20.0, 0.0),
                                                     child: ClipRRect(
@@ -368,8 +363,8 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                                                   .date!)
                                                           .toDouble(),
                                                       decoration:
-                                                          BoxDecoration(),
-                                                      child: Container(
+                                                          const BoxDecoration(),
+                                                      child: SizedBox(
                                                         width: double.infinity,
                                                         height: 326.0,
                                                         child:
@@ -400,21 +395,21 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                                             )
                                                           ],
                                                           chartStylingInfo:
-                                                              ChartStylingInfo(
+                                                              const ChartStylingInfo(
                                                             backgroundColor:
                                                                 Color(
                                                                     0x00FFFFFF),
                                                             showBorder: false,
                                                           ),
                                                           axisBounds:
-                                                              AxisBounds(
+                                                              const AxisBounds(
                                                             minY: 30.0,
                                                             maxY: 90.0,
                                                           ),
                                                           xAxisLabelInfo:
-                                                              AxisLabelInfo(),
+                                                              const AxisLabelInfo(),
                                                           yAxisLabelInfo:
-                                                              AxisLabelInfo(),
+                                                              const AxisLabelInfo(),
                                                         ),
                                                       ),
                                                     ),
@@ -422,7 +417,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                                   Container(
                                                     width: 20.0,
                                                     height: 326.0,
-                                                    decoration: BoxDecoration(),
+                                                    decoration: const BoxDecoration(),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -531,7 +526,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 6.0, 20.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -639,7 +634,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 24.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.min,
@@ -655,7 +650,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -671,20 +666,20 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         39.0, 0.0, 0.0, 0.0),
                                                 child: Container(
                                                   width: 12.0,
                                                   height: 12.0,
-                                                  decoration: BoxDecoration(
+                                                  decoration: const BoxDecoration(
                                                     color: Color(0x665A61F7),
                                                     shape: BoxShape.circle,
                                                   ),
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -719,7 +714,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 50.0, 0.0, 77.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -754,8 +749,8 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                               Text(
                                                 valueOrDefault<String>(
                                                   widget.child?.growthList
-                                                      ?.first?.growth
-                                                      ?.toString(),
+                                                      .first.growth
+                                                      .toString(),
                                                   '-',
                                                 ),
                                                 style:
@@ -770,7 +765,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                                         ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         4.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -838,7 +833,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                                         ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         4.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -910,7 +905,7 @@ class _GrowthPageWidgetState extends State<GrowthPageWidget> {
                                                         ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         4.0, 0.0, 0.0, 0.0),
                                                 child: Text(

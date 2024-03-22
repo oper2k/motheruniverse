@@ -1,9 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'app_info_model.dart';
 export 'app_info_model.dart';
 
@@ -36,8 +33,6 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -46,7 +41,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,9 +57,9 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
                 child: Container(
                   width: 38.0,
                   height: 38.0,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
+                    alignment: const AlignmentDirectional(-1.0, 0.0),
                     child: Icon(
                       FFIcons.kleft,
                       color: FlutterFlowTheme.of(context).secondaryText,
@@ -74,14 +69,14 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 30.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 30.0),
                 child: Text(
                   'О приложении',
                   style: FlutterFlowTheme.of(context).displayLarge,
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 7.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 7.0),
                 child: Text(
                   'Версия',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -91,7 +86,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 21.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 21.0),
                 child: Text(
                   '1.0.0',
                   style: FlutterFlowTheme.of(context).headlineSmall.override(
@@ -102,7 +97,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 7.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 7.0),
                 child: Text(
                   'Размер',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -112,7 +107,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 21.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 21.0),
                 child: Text(
                   '83 Мб',
                   style: FlutterFlowTheme.of(context).headlineSmall.override(
@@ -123,7 +118,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                 child: Text(
                   'Разработка приложения',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -161,7 +156,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -183,7 +178,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
                         child: Icon(
                           FFIcons.kright2,
                           color: FlutterFlowTheme.of(context).grey40,
@@ -195,7 +190,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 28.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 28.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,

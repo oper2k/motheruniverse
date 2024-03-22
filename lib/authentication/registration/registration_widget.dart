@@ -8,8 +8,6 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'registration_model.dart';
 export 'registration_model.dart';
 
@@ -67,8 +65,6 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -79,14 +75,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
         body: Stack(
           children: [
             Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 45.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 45.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
+                      alignment: const AlignmentDirectional(-1.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -98,11 +94,11 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                         child: Container(
                           width: 38.0,
                           height: 38.0,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Color(0x00FFFFFF),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Icon(
                               FFIcons.kleft,
                               color: FlutterFlowTheme.of(context).overlay,
@@ -114,7 +110,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 37.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 37.0, 0.0, 0.0),
                       child: Text(
                         'Регистрация',
                         style: FlutterFlowTheme.of(context).displayLarge,
@@ -122,7 +118,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                       child: Wrap(
                         spacing: 0.0,
                         runSpacing: 0.0,
@@ -191,21 +187,21 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                       child: Form(
                         key: _model.formKey,
                         autovalidateMode: AutovalidateMode.disabled,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Container(
+                            SizedBox(
                               width: double.infinity,
                               child: TextFormField(
                                 controller: _model.emailFieldController,
                                 focusNode: _model.emailFieldFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.emailFieldController',
-                                  Duration(milliseconds: 2000),
+                                  const Duration(milliseconds: 2000),
                                   () => setState(() {}),
                                 ),
                                 onFieldSubmitted: (_) async {
@@ -250,7 +246,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
+                                      const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 22.0, 16.0, 22.0),
                                   suffixIcon: _model
                                           .emailFieldController!.text.isNotEmpty
@@ -279,16 +275,16 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 16.0, 0.0, 0.0),
-                              child: Container(
+                              child: SizedBox(
                                 width: double.infinity,
                                 child: TextFormField(
                                   controller: _model.passFieldController,
                                   focusNode: _model.passFieldFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.passFieldController',
-                                    Duration(milliseconds: 100),
+                                    const Duration(milliseconds: 100),
                                     () => setState(() {}),
                                   ),
                                   onFieldSubmitted: (_) async {
@@ -332,7 +328,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     contentPadding:
-                                        EdgeInsetsDirectional.fromSTEB(
+                                        const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 22.0, 16.0, 22.0),
                                     suffixIcon: InkWell(
                                       onTap: () => setState(
@@ -368,9 +364,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, -1.0),
+              alignment: const AlignmentDirectional(0.0, -1.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(250.0, 67.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(250.0, 67.0, 0.0, 0.0),
                 child: Image.asset(
                   'assets/images/rounded_arrow_1.webp',
                   height: 75.0,
@@ -379,13 +375,13 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, 1.0),
+              alignment: const AlignmentDirectional(0.0, 1.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         if (_model.formKey.currentState == null ||
@@ -409,13 +405,13 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 56.0,
-                        padding: EdgeInsets.all(0.0),
+                        padding: const EdgeInsets.all(0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle: FlutterFlowTheme.of(context).displaySmall,
                         elevation: 0.0,
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.transparent,
                         ),
                         borderRadius: BorderRadius.circular(16.0),
@@ -428,14 +424,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                       : _isKeyboardVisible)
                     Container(
                       height: 15.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                     ),
                   if (!(isWeb
                       ? MediaQuery.viewInsetsOf(context).bottom > 0
                       : _isKeyboardVisible))
                     Container(
                       height: 45.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                     ),
                 ],
               ),

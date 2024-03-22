@@ -12,11 +12,8 @@ import '/components/bottom_sheet/loyalty_bottom_sheet/where_spend_bonuses/where_
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'loyalty_page_model.dart';
 export 'loyalty_page_model.dart';
 
@@ -49,8 +46,6 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -75,13 +70,13 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 45.0, 20.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -93,9 +88,9 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                 child: Container(
                                   width: 38.0,
                                   height: 38.0,
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Icon(
                                       FFIcons.kclose2,
                                       color: FlutterFlowTheme.of(context)
@@ -107,7 +102,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 230.0, 0.0, 0.0),
                               child: Text(
                                 'Family Super Power',
@@ -116,7 +111,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 0.0),
                               child: Text(
                                 'Получай очки лояльности и трать  их в приложении',
@@ -130,7 +125,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 18.0, 0.0, 0.0),
                               child: StreamBuilder<UsersRecord>(
                                 stream: UsersRecord.getDocument(
@@ -160,7 +155,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       borderRadius: BorderRadius.circular(16.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 16.0, 0.0, 16.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -184,7 +179,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                                         ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         4.0, 0.0, 0.0, 0.0),
                                                 child: InkWell(
@@ -224,7 +219,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                                                 .viewInsetsOf(
                                                                     context),
                                                             child:
-                                                                CountingSystemWidget(),
+                                                                const CountingSystemWidget(),
                                                           ),
                                                         );
                                                       },
@@ -244,7 +239,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 4.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -272,7 +267,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                                       ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -294,7 +289,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 6.0, 0.0, 0.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -329,7 +324,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            WhereSpendBonusesWidget(),
+                                                            const WhereSpendBonusesWidget(),
                                                       ),
                                                     );
                                                   },
@@ -352,9 +347,9 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 28.0, 0.0, 0.0),
                                 child: Text(
                                   'КАК ПОЛУЧИТЬ БАЛЛЫ?',
@@ -369,7 +364,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -394,7 +389,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: WelcomeBonusWidget(),
+                                          child: const WelcomeBonusWidget(),
                                         ),
                                       );
                                     },
@@ -414,7 +409,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '1',
                                           style: FlutterFlowTheme.of(context)
@@ -430,7 +425,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                     ),
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           'За регистрацию в программе лояльности',
@@ -445,7 +440,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Icon(
                                         FFIcons.kright2,
@@ -459,7 +454,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -484,7 +479,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: FillProfileBonusWidget(),
+                                          child: const FillProfileBonusWidget(),
                                         ),
                                       );
                                     },
@@ -504,7 +499,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '2',
                                           style: FlutterFlowTheme.of(context)
@@ -520,7 +515,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                     ),
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           'За заполнение профиля',
@@ -535,7 +530,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Icon(
                                         FFIcons.kright2,
@@ -549,7 +544,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -574,7 +569,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: FeedbackBonusWidget(),
+                                          child: const FeedbackBonusWidget(),
                                         ),
                                       );
                                     },
@@ -594,7 +589,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '3',
                                           style: FlutterFlowTheme.of(context)
@@ -610,7 +605,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                     ),
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           'За отзыв о приложении',
@@ -625,7 +620,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Icon(
                                         FFIcons.kright2,
@@ -639,7 +634,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -664,7 +659,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: BirthdayBonusWidget(),
+                                          child: const BirthdayBonusWidget(),
                                         ),
                                       );
                                     },
@@ -684,7 +679,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '4',
                                           style: FlutterFlowTheme.of(context)
@@ -700,7 +695,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                     ),
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           'Бонус в честь дня рождения',
@@ -715,7 +710,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Icon(
                                         FFIcons.kright2,
@@ -729,7 +724,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -754,7 +749,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: BuyingBonusesWidget(),
+                                          child: const BuyingBonusesWidget(),
                                         ),
                                       );
                                     },
@@ -774,7 +769,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '5',
                                           style: FlutterFlowTheme.of(context)
@@ -790,7 +785,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                     ),
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           'За покупку продуктов',
@@ -805,7 +800,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Icon(
                                         FFIcons.kright2,
@@ -819,7 +814,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 50.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -844,7 +839,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: UsingTrackersBonusWidget(),
+                                          child: const UsingTrackersBonusWidget(),
                                         ),
                                       );
                                     },
@@ -864,7 +859,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '6',
                                           style: FlutterFlowTheme.of(context)
@@ -880,7 +875,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                     ),
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           'За использование трекеров',
@@ -895,7 +890,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Icon(
                                         FFIcons.kright2,
@@ -918,13 +913,11 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                               false) ==
                           false) &&
                       (valueOrDefault(currentUserDocument?.firstName, '') !=
-                              null &&
-                          valueOrDefault(currentUserDocument?.firstName, '') !=
                               ''))
                     AuthUserStreamWidget(
                       builder: (context) => Container(
                         height: 180.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                       ),
                     ),
                 ],
@@ -933,10 +926,9 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
             if ((valueOrDefault<bool>(
                         currentUserDocument?.loyaltyProgramActivated, false) ==
                     false) &&
-                (valueOrDefault(currentUserDocument?.firstName, '') != null &&
-                    valueOrDefault(currentUserDocument?.firstName, '') != ''))
+                (valueOrDefault(currentUserDocument?.firstName, '') != ''))
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: AuthUserStreamWidget(
                   builder: (context) => Container(
                     width: double.infinity,
@@ -946,12 +938,12 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                     ),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 12.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -978,7 +970,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                                 .primary,
                                             shape: BoxShape.circle,
                                           ),
-                                          child: Icon(
+                                          child: const Icon(
                                             FFIcons.kcheckMini,
                                             color: Colors.white,
                                             size: 24.0,
@@ -1016,11 +1008,11 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 0.0, 0.0),
                                     child: RichText(
-                                      textScaleFactor: MediaQuery.of(context)
-                                          .textScaleFactor,
+                                      textScaler:
+                                          MediaQuery.of(context).textScaler,
                                       text: TextSpan(
                                         children: [
                                           TextSpan(
@@ -1093,7 +1085,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            WelcomeBonusWidget(),
+                                                            const WelcomeBonusWidget(),
                                                       ),
                                                     );
                                                   },
@@ -1123,7 +1115,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 29.0, 0.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -1153,7 +1145,7 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
                                           child:
-                                              LoyaltyRegistrationBonusWidget(),
+                                              const LoyaltyRegistrationBonusWidget(),
                                         ),
                                       );
                                     },
@@ -1164,14 +1156,14 @@ class _LoyaltyPageWidgetState extends State<LoyaltyPageWidget> {
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 56.0,
-                                padding: EdgeInsets.all(0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsets.all(0.0),
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primary,
                                 textStyle:
                                     FlutterFlowTheme.of(context).displaySmall,
                                 elevation: 0.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.transparent,
                                 ),
                                 borderRadius: BorderRadius.circular(16.0),

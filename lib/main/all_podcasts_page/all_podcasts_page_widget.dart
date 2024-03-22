@@ -1,11 +1,8 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'all_podcasts_page_model.dart';
 export 'all_podcasts_page_model.dart';
 
@@ -38,8 +35,6 @@ class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -48,7 +43,7 @@ class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +55,7 @@ class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {
                   color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
                 child: Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -72,9 +67,9 @@ class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {
                     child: Container(
                       width: 38.0,
                       height: 38.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Icon(
                           FFIcons.kleft,
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -93,7 +88,7 @@ class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: Text(
                           'Подкасты',
                           style: FlutterFlowTheme.of(context).displayLarge,
@@ -101,7 +96,7 @@ class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: StreamBuilder<List<PodcastsRecord>>(
                           stream: queryPodcastsRecord(
                             queryBuilder: (podcastsRecord) => podcastsRecord
@@ -125,7 +120,7 @@ class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {
                             List<PodcastsRecord> containerPodcastsRecordList =
                                 snapshot.data!;
                             return Container(
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: Builder(
                                 builder: (context) {
                                   final podcasts =
@@ -133,7 +128,7 @@ class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {
                                   return GridView.builder(
                                     padding: EdgeInsets.zero,
                                     gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 2,
                                       crossAxisSpacing: 15.0,
                                       mainAxisSpacing: 16.0,
@@ -155,7 +150,7 @@ class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {
                                           await launchURL(podcastsItem.link);
                                         },
                                         child: Container(
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
                                             crossAxisAlignment:
@@ -175,7 +170,7 @@ class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                 child: AutoSizeText(
@@ -197,7 +192,7 @@ class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 8.0, 0.0, 0.0),
                                                 child: AutoSizeText(
@@ -228,7 +223,7 @@ class _AllPodcastsPageWidgetState extends State<AllPodcastsPageWidget> {
                           },
                         ),
                       ),
-                    ].addToEnd(SizedBox(height: 45.0)),
+                    ].addToEnd(const SizedBox(height: 45.0)),
                   ),
                 ),
               ),

@@ -4,11 +4,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'vaccination_calendar_page_model.dart';
 export 'vaccination_calendar_page_model.dart';
 
@@ -121,8 +118,6 @@ class _VaccinationCalendarPageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -153,14 +148,14 @@ class _VaccinationCalendarPageWidgetState
             List<VaccinatePeriodRecord> containerVaccinatePeriodRecordList =
                 snapshot.data!;
             return Container(
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                 child: Stack(
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -172,7 +167,7 @@ class _VaccinationCalendarPageWidgetState
                                   .primaryBackground,
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.0, -1.0),
+                              alignment: const AlignmentDirectional(-1.0, -1.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -184,7 +179,7 @@ class _VaccinationCalendarPageWidgetState
                                 child: Container(
                                   width: 38.0,
                                   height: 38.0,
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Icon(
                                     FFIcons.kleft,
                                     color: FlutterFlowTheme.of(context)
@@ -201,7 +196,7 @@ class _VaccinationCalendarPageWidgetState
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 16.0, 0.0, 0.0),
                                     child: Text(
                                       'Календарь прививок',
@@ -219,7 +214,7 @@ class _VaccinationCalendarPageWidgetState
                                         ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 24.0, 0.0, 0.0),
                                     child: StreamBuilder<
                                         List<VaccinatePeriodRecord>>(
@@ -250,7 +245,7 @@ class _VaccinationCalendarPageWidgetState
                                             vacinationPeriodQueryVaccinatePeriodRecordList =
                                             snapshot.data!;
                                         return Container(
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -270,7 +265,7 @@ class _VaccinationCalendarPageWidgetState
                                                       await _model
                                                           .pageViewController
                                                           ?.previousPage(
-                                                        duration: Duration(
+                                                        duration: const Duration(
                                                             milliseconds: 300),
                                                         curve: Curves.ease,
                                                       );
@@ -304,7 +299,7 @@ class _VaccinationCalendarPageWidgetState
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   0.0,
@@ -326,7 +321,7 @@ class _VaccinationCalendarPageWidgetState
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(20.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: InkWell(
@@ -342,7 +337,7 @@ class _VaccinationCalendarPageWidgetState
                                                         await _model
                                                             .pageViewController
                                                             ?.nextPage(
-                                                          duration: Duration(
+                                                          duration: const Duration(
                                                               milliseconds:
                                                                   300),
                                                           curve: Curves.ease,
@@ -379,7 +374,7 @@ class _VaccinationCalendarPageWidgetState
                                                 ],
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 16.0, 0.0, 0.0),
                                                 child:
@@ -411,7 +406,7 @@ class _VaccinationCalendarPageWidgetState
                                                         snapshot.data!;
                                                     return Container(
                                                       decoration:
-                                                          BoxDecoration(),
+                                                          const BoxDecoration(),
                                                       child: StreamBuilder<
                                                           List<
                                                               CreatedVaccineRecord>>(
@@ -465,7 +460,7 @@ class _VaccinationCalendarPageWidgetState
                                                             width:
                                                                 double.infinity,
                                                             decoration:
-                                                                BoxDecoration(),
+                                                                const BoxDecoration(),
                                                             child: StreamBuilder<
                                                                 List<
                                                                     VaccinationsRecord>>(
@@ -510,7 +505,7 @@ class _VaccinationCalendarPageWidgetState
                                                                         .data!;
                                                                 return Container(
                                                                   decoration:
-                                                                      BoxDecoration(),
+                                                                      const BoxDecoration(),
                                                                   child:
                                                                       Builder(
                                                                     builder:
@@ -518,14 +513,14 @@ class _VaccinationCalendarPageWidgetState
                                                                       final weeksCounter =
                                                                           vacinationPeriodQueryVaccinatePeriodRecordList
                                                                               .toList();
-                                                                      return Container(
+                                                                      return SizedBox(
                                                                         width: double
                                                                             .infinity,
                                                                         height:
                                                                             500.0,
                                                                         child:
                                                                             Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,
@@ -589,15 +584,15 @@ class _VaccinationCalendarPageWidgetState
                                                                                                 List<PassedVaccineRecord> containerPassedVaccineRecordList = snapshot.data!;
                                                                                                 return Container(
                                                                                                   width: double.infinity,
-                                                                                                  decoration: BoxDecoration(),
+                                                                                                  decoration: const BoxDecoration(),
                                                                                                   child: Builder(
                                                                                                     builder: (context) {
-                                                                                                      if (containerPassedVaccineRecordList.where((e) => e.child == widget.child?.reference).toList().length == 0) {
+                                                                                                      if (containerPassedVaccineRecordList.where((e) => e.child == widget.child?.reference).toList().isEmpty) {
                                                                                                         return Column(
                                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                                           children: [
                                                                                                             Padding(
-                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                                                                                                               child: InkWell(
                                                                                                                 splashColor: Colors.transparent,
                                                                                                                 focusColor: Colors.transparent,
@@ -668,7 +663,7 @@ class _VaccinationCalendarPageWidgetState
                                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                                           children: [
                                                                                                             Padding(
-                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                                                                                                               child: InkWell(
                                                                                                                 splashColor: Colors.transparent,
                                                                                                                 focusColor: Colors.transparent,
@@ -708,7 +703,7 @@ class _VaccinationCalendarPageWidgetState
                                                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                                                         shape: BoxShape.circle,
                                                                                                                       ),
-                                                                                                                      child: Icon(
+                                                                                                                      child: const Icon(
                                                                                                                         FFIcons.kcheckMini,
                                                                                                                         color: Colors.white,
                                                                                                                         size: 24.0,
@@ -738,7 +733,7 @@ class _VaccinationCalendarPageWidgetState
                                                                                       },
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 120.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 120.0),
                                                                                       child: Builder(
                                                                                         builder: (context) {
                                                                                           final usersVaccines = createdVaccinesQueryCreatedVaccineRecordList.toList();
@@ -748,7 +743,7 @@ class _VaccinationCalendarPageWidgetState
                                                                                               final usersVaccinesItem = usersVaccines[usersVaccinesIndex];
                                                                                               return Container(
                                                                                                 width: double.infinity,
-                                                                                                decoration: BoxDecoration(),
+                                                                                                decoration: const BoxDecoration(),
                                                                                                 child: StreamBuilder<List<PassedVaccineRecord>>(
                                                                                                   stream: queryPassedVaccineRecord(
                                                                                                     parent: currentUserReference,
@@ -775,15 +770,15 @@ class _VaccinationCalendarPageWidgetState
                                                                                                     List<PassedVaccineRecord> containerPassedVaccineRecordList = snapshot.data!;
                                                                                                     return Container(
                                                                                                       width: double.infinity,
-                                                                                                      decoration: BoxDecoration(),
+                                                                                                      decoration: const BoxDecoration(),
                                                                                                       child: Builder(
                                                                                                         builder: (context) {
-                                                                                                          if (containerPassedVaccineRecordList.where((e) => e.child == widget.child?.reference).toList().length == 0) {
+                                                                                                          if (containerPassedVaccineRecordList.where((e) => e.child == widget.child?.reference).toList().isEmpty) {
                                                                                                             return Column(
                                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                                               children: [
                                                                                                                 Padding(
-                                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                                                                                                                   child: InkWell(
                                                                                                                     splashColor: Colors.transparent,
                                                                                                                     focusColor: Colors.transparent,
@@ -850,7 +845,7 @@ class _VaccinationCalendarPageWidgetState
                                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                                               children: [
                                                                                                                 Padding(
-                                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                                                                                                                   child: InkWell(
                                                                                                                     splashColor: Colors.transparent,
                                                                                                                     focusColor: Colors.transparent,
@@ -894,7 +889,7 @@ class _VaccinationCalendarPageWidgetState
                                                                                                                             color: FlutterFlowTheme.of(context).primary,
                                                                                                                             shape: BoxShape.circle,
                                                                                                                           ),
-                                                                                                                          child: Icon(
+                                                                                                                          child: const Icon(
                                                                                                                             FFIcons.kcheckMini,
                                                                                                                             color: Colors.white,
                                                                                                                             size: 24.0,
@@ -950,7 +945,7 @@ class _VaccinationCalendarPageWidgetState
                                       },
                                     ),
                                   ),
-                                ].addToEnd(SizedBox(height: 120.0)),
+                                ].addToEnd(const SizedBox(height: 120.0)),
                               ),
                             ),
                           ),
@@ -958,10 +953,10 @@ class _VaccinationCalendarPageWidgetState
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 45.0),
+                            const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 45.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             context.pushNamed(
@@ -987,14 +982,14 @@ class _VaccinationCalendarPageWidgetState
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 56.0,
-                            padding: EdgeInsets.all(0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsets.all(0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle:
                                 FlutterFlowTheme.of(context).displaySmall,
                             elevation: 0.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                             ),
                             borderRadius: BorderRadius.circular(16.0),

@@ -5,13 +5,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'add_feeding_tracker_model.dart';
 export 'add_feeding_tracker_model.dart';
 
@@ -67,15 +63,13 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
-      alignment: AlignmentDirectional(0.0, 1.0),
+      alignment: const AlignmentDirectional(0.0, 1.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).backgroundMain,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(24.0),
@@ -83,7 +77,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -96,7 +90,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -105,7 +99,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                     Expanded(
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(28.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(28.0, 0.0, 0.0, 0.0),
                         child: AutoSizeText(
                           'Новый трек',
                           textAlign: TextAlign.center,
@@ -146,9 +140,9 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: const AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Text(
                     'ВЫБЕРИТЕ ДАТУ',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -160,14 +154,14 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    final _datePickedDate = await showDatePicker(
+                    final datePickedDate = await showDatePicker(
                       context: context,
                       initialDate: getCurrentTimestamp,
                       firstDate: DateTime(1900),
@@ -202,9 +196,9 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                       },
                     );
 
-                    TimeOfDay? _datePickedTime;
-                    if (_datePickedDate != null) {
-                      _datePickedTime = await showTimePicker(
+                    TimeOfDay? datePickedTime;
+                    if (datePickedDate != null) {
+                      datePickedTime = await showTimePicker(
                         context: context,
                         initialTime:
                             TimeOfDay.fromDateTime(getCurrentTimestamp),
@@ -239,14 +233,14 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                       );
                     }
 
-                    if (_datePickedDate != null && _datePickedTime != null) {
+                    if (datePickedDate != null && datePickedTime != null) {
                       safeSetState(() {
                         _model.datePicked = DateTime(
-                          _datePickedDate.year,
-                          _datePickedDate.month,
-                          _datePickedDate.day,
-                          _datePickedTime!.hour,
-                          _datePickedTime.minute,
+                          datePickedDate.year,
+                          datePickedDate.month,
+                          datePickedDate.day,
+                          datePickedTime!.hour,
+                          datePickedTime.minute,
                         );
                       });
                     }
@@ -271,7 +265,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               16.0, 7.0, 16.0, 7.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -298,7 +292,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               15.0, 0.0, 0.0, 0.0),
                           child: Container(
                             decoration: BoxDecoration(
@@ -311,7 +305,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   16.0, 7.0, 16.0, 7.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -347,9 +341,9 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: const AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 28.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 28.0, 0.0, 0.0),
                   child: Text(
                     'ВВЕДИТЕ ДАННЫЕ',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -361,15 +355,15 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                child: Container(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                child: SizedBox(
                   width: double.infinity,
                   child: TextFormField(
                     controller: _model.feedingNameController,
                     focusNode: _model.feedingNameFocusNode,
                     onChanged: (_) => EasyDebounce.debounce(
                       '_model.feedingNameController',
-                      Duration(milliseconds: 100),
+                      const Duration(milliseconds: 100),
                       () => setState(() {}),
                     ),
                     obscureText: false,
@@ -408,7 +402,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                         ),
                         borderRadius: BorderRadius.circular(12.0),
                       ),
-                      contentPadding: EdgeInsetsDirectional.fromSTEB(
+                      contentPadding: const EdgeInsetsDirectional.fromSTEB(
                           16.0, 22.0, 16.0, 22.0),
                     ),
                     style: FlutterFlowTheme.of(context).headlineSmall,
@@ -419,15 +413,15 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                child: Container(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                child: SizedBox(
                   width: double.infinity,
                   child: TextFormField(
                     controller: _model.amountController,
                     focusNode: _model.amountFocusNode,
                     onChanged: (_) => EasyDebounce.debounce(
                       '_model.amountController',
-                      Duration(milliseconds: 100),
+                      const Duration(milliseconds: 100),
                       () => setState(() {}),
                     ),
                     obscureText: false,
@@ -466,7 +460,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                         ),
                         borderRadius: BorderRadius.circular(12.0),
                       ),
-                      contentPadding: EdgeInsetsDirectional.fromSTEB(
+                      contentPadding: const EdgeInsetsDirectional.fromSTEB(
                           16.0, 22.0, 16.0, 22.0),
                     ),
                     style: FlutterFlowTheme.of(context).headlineSmall,
@@ -478,7 +472,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -501,9 +495,9 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
                             child: Text(
                               'Граммы',
@@ -523,7 +517,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -543,9 +537,9 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 12.0, 0.0),
                               child: Text(
                                 'Миллилитры',
@@ -569,13 +563,11 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
               ),
               Builder(
                 builder: (context) {
-                  if ((_model.feedingNameController.text != null &&
-                          _model.feedingNameController.text != '') &&
-                      (_model.amountController.text != null &&
-                          _model.amountController.text != '')) {
+                  if ((_model.feedingNameController.text != '') &&
+                      (_model.amountController.text != '')) {
                     return Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 38.0, 0.0, 45.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 38.0, 0.0, 45.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           if (dateTimeFormat(
@@ -627,15 +619,17 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                                       functions.processDateList(functions
                                           .processDateList((currentUserDocument
                                                       ?.trackersAddingDates
-                                                      ?.toList() ??
+                                                      .toList() ??
                                                   [])
                                               .toList())
                                           .toList()),
                                 },
                               ),
                             });
-
-                            context.goNamed(
+                            if (Navigator.of(context).canPop()) {
+                              context.pop();
+                            }
+                            context.pushNamed(
                               'FeedingTrackerIsAdded',
                               queryParameters: {
                                 'feedTracker': serializeParam(
@@ -650,12 +644,6 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                               extra: <String, dynamic>{
                                 'feedTracker': _model.feedingTrack,
                                 'child': widget.child,
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType:
-                                      PageTransitionType.rightToLeft,
-                                  duration: Duration(milliseconds: 300),
-                                ),
                               },
                             );
                           } else {
@@ -710,15 +698,17 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                                       functions.processDateList(functions
                                           .processDateList((currentUserDocument
                                                       ?.trackersAddingDates
-                                                      ?.toList() ??
+                                                      .toList() ??
                                                   [])
                                               .toList())
                                           .toList()),
                                 },
                               ),
                             });
-
-                            context.goNamed(
+                            if (Navigator.of(context).canPop()) {
+                              context.pop();
+                            }
+                            context.pushNamed(
                               'FeedingTrackerIsAdded',
                               queryParameters: {
                                 'feedTracker': serializeParam(
@@ -733,12 +723,6 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                               extra: <String, dynamic>{
                                 'feedTracker': _model.feedingTrack1,
                                 'child': widget.child,
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType:
-                                      PageTransitionType.rightToLeft,
-                                  duration: Duration(milliseconds: 300),
-                                ),
                               },
                             );
                           }
@@ -751,8 +735,8 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 56.0,
-                          padding: EdgeInsets.all(0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsets.all(0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).error,
                           textStyle: FlutterFlowTheme.of(context)
@@ -762,7 +746,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                                 color: Colors.white,
                               ),
                           elevation: 0.0,
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.transparent,
                           ),
                           borderRadius: BorderRadius.circular(16.0),
@@ -772,7 +756,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                   } else {
                     return Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 38.0, 0.0, 45.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 38.0, 0.0, 45.0),
                       child: FFButtonWidget(
                         onPressed: () {
                           print('Button pressed ...');
@@ -781,8 +765,8 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 56.0,
-                          padding: EdgeInsets.all(0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsets.all(0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).grey20,
                           textStyle: FlutterFlowTheme.of(context)
@@ -792,7 +776,7 @@ class _AddFeedingTrackerWidgetState extends State<AddFeedingTrackerWidget> {
                                 color: FlutterFlowTheme.of(context).primaryText,
                               ),
                           elevation: 0.0,
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.transparent,
                           ),
                           borderRadius: BorderRadius.circular(16.0),

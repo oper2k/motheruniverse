@@ -5,14 +5,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:provider/provider.dart';
 import 'fill_profile_model.dart';
 export 'fill_profile_model.dart';
 
@@ -67,8 +63,6 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -77,7 +71,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -85,7 +79,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                 Container(
                   width: double.infinity,
                   height: 38.0,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0x00FFFFFF),
                   ),
                   child: Row(
@@ -107,9 +101,9 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                         child: Container(
                           width: 38.0,
                           height: 38.0,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Icon(
                               FFIcons.kleft,
                               color: FlutterFlowTheme.of(context).overlay,
@@ -135,14 +129,14 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Text(
                     'Расскажи о себе',
                     style: FlutterFlowTheme.of(context).displayLarge,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                   child: AutoSizeText(
                     'Изменить данные можно в профиле',
                     maxLines: 1,
@@ -150,21 +144,21 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                   child: Form(
                     key: _model.formKey,
                     autovalidateMode: AutovalidateMode.disabled,
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
+                        SizedBox(
                           width: double.infinity,
                           child: TextFormField(
                             controller: _model.nameFieldController,
                             focusNode: _model.nameFieldFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.nameFieldController',
-                              Duration(milliseconds: 2000),
+                              const Duration(milliseconds: 2000),
                               () => setState(() {}),
                             ),
                             obscureText: false,
@@ -200,7 +194,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
-                              contentPadding: EdgeInsetsDirectional.fromSTEB(
+                              contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                   16.0, 22.0, 16.0, 22.0),
                               suffixIcon: _model
                                       .nameFieldController!.text.isNotEmpty
@@ -225,16 +219,16 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 0.0),
-                          child: Container(
+                          child: SizedBox(
                             width: double.infinity,
                             child: TextFormField(
                               controller: _model.secondNameFieldController,
                               focusNode: _model.secondNameFieldFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.secondNameFieldController',
-                                Duration(milliseconds: 2000),
+                                const Duration(milliseconds: 2000),
                                 () => setState(() {}),
                               ),
                               obscureText: false,
@@ -270,7 +264,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 22.0, 16.0, 22.0),
                                 suffixIcon: _model.secondNameFieldController!
                                         .text.isNotEmpty
@@ -298,16 +292,16 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 0.0),
-                          child: Container(
+                          child: SizedBox(
                             width: double.infinity,
                             child: TextFormField(
                               controller: _model.phoneNumberFieldController,
                               focusNode: _model.phoneNumberFieldFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.phoneNumberFieldController',
-                                Duration(milliseconds: 2000),
+                                const Duration(milliseconds: 2000),
                                 () => setState(() {}),
                               ),
                               obscureText: false,
@@ -343,7 +337,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 22.0, 16.0, 22.0),
                                 suffixIcon: _model.phoneNumberFieldController!
                                         .text.isNotEmpty
@@ -373,16 +367,16 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 0.0),
-                          child: Container(
+                          child: SizedBox(
                             width: double.infinity,
                             child: TextFormField(
                               controller: _model.telegramController,
                               focusNode: _model.telegramFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.telegramController',
-                                Duration(milliseconds: 2000),
+                                const Duration(milliseconds: 2000),
                                 () => setState(() {}),
                               ),
                               obscureText: false,
@@ -418,7 +412,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 22.0, 16.0, 22.0),
                                 suffixIcon: _model
                                         .telegramController!.text.isNotEmpty
@@ -444,16 +438,16 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 0.0),
-                          child: Container(
+                          child: SizedBox(
                             width: double.infinity,
                             child: TextFormField(
                               controller: _model.instagramController,
                               focusNode: _model.instagramFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.instagramController',
-                                Duration(milliseconds: 2000),
+                                const Duration(milliseconds: 2000),
                                 () => setState(() {}),
                               ),
                               obscureText: false,
@@ -489,7 +483,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 22.0, 16.0, 22.0),
                                 suffixIcon: _model
                                         .instagramController!.text.isNotEmpty
@@ -519,7 +513,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 21.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 21.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -550,7 +544,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                                   color: FlutterFlowTheme.of(context).primary,
                                   shape: BoxShape.circle,
                                 ),
-                                child: Icon(
+                                child: const Icon(
                                   FFIcons.kcheck,
                                   color: Colors.white,
                                   size: 24.0,
@@ -575,11 +569,10 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: RichText(
-                            textScaleFactor:
-                                MediaQuery.of(context).textScaleFactor,
+                            textScaler: MediaQuery.of(context).textScaler,
                             text: TextSpan(
                               children: [
                                 TextSpan(
@@ -659,7 +652,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
-                                              child: WelcomeBonusWidget(),
+                                              child: const WelcomeBonusWidget(),
                                             ),
                                           );
                                         },
@@ -694,7 +687,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 29.0, 0.0, 50.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 29.0, 0.0, 50.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       if (_model.formKey.currentState == null ||
@@ -732,13 +725,13 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 56.0,
-                      padding: EdgeInsets.all(0.0),
+                      padding: const EdgeInsets.all(0.0),
                       iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
                       textStyle: FlutterFlowTheme.of(context).displaySmall,
                       elevation: 0.0,
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.transparent,
                       ),
                       borderRadius: BorderRadius.circular(16.0),

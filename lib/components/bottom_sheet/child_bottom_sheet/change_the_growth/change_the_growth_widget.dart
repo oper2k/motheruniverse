@@ -1,13 +1,9 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'change_the_growth_model.dart';
 export 'change_the_growth_model.dart';
 
@@ -51,10 +47,8 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
-      alignment: AlignmentDirectional(0.0, 1.0),
+      alignment: const AlignmentDirectional(0.0, 1.0),
       child: StreamBuilder<ChildrenRecord>(
         stream: ChildrenRecord.getDocument(widget.child!.reference),
         builder: (context, snapshot) {
@@ -77,7 +71,7 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
             width: double.infinity,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).backgroundMain,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(0.0),
                 bottomRight: Radius.circular(0.0),
                 topLeft: Radius.circular(24.0),
@@ -85,13 +79,13 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
               ),
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Container(
                       width: 40.0,
                       height: 4.0,
@@ -103,7 +97,7 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -148,8 +142,8 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 28.0, 0.0, 0.0),
-                    child: Container(
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 28.0, 0.0, 0.0),
+                    child: SizedBox(
                       width: double.infinity,
                       child: TextFormField(
                         controller: _model.textController ??=
@@ -160,7 +154,7 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                         focusNode: _model.textFieldFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
                           '_model.textController',
-                          Duration(milliseconds: 2000),
+                          const Duration(milliseconds: 2000),
                           () => setState(() {}),
                         ),
                         obscureText: false,
@@ -196,7 +190,7 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                             ),
                             borderRadius: BorderRadius.circular(12.0),
                           ),
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
+                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
                               16.0, 22.0, 16.0, 22.0),
                           suffixIcon: _model.textController!.text.isNotEmpty
                               ? InkWell(
@@ -224,7 +218,7 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                     child: Text(
                       'Текущее значение ${containerChildrenRecord.growthList.last.growth.toString()} см',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -235,14 +229,14 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 68.0, 0.0, 45.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 68.0, 0.0, 45.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         _model.childRead = await ChildrenRecord.getDocumentOnce(
                             widget.child!.reference);
                         setState(() {
                           _model.tempDate =
-                              _model.childRead?.growthList?.last?.date;
+                              _model.childRead?.growthList.last.date;
                         });
 
                         await widget.child!.reference.update({
@@ -251,7 +245,7 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                               'growth_list': FieldValue.arrayRemove([
                                 getGrowthListFirestoreData(
                                   updateGrowthListStruct(
-                                    _model.childRead?.growthList?.last,
+                                    _model.childRead?.growthList.last,
                                     clearUnsetFields: false,
                                   ),
                                   true,
@@ -286,13 +280,13 @@ class _ChangeTheGrowthWidgetState extends State<ChangeTheGrowthWidget> {
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 56.0,
-                        padding: EdgeInsets.all(0.0),
+                        padding: const EdgeInsets.all(0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle: FlutterFlowTheme.of(context).displaySmall,
                         elevation: 0.0,
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.transparent,
                         ),
                         borderRadius: BorderRadius.circular(16.0),

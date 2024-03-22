@@ -1,12 +1,9 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'all_check_lists_page_model.dart';
 export 'all_check_lists_page_model.dart';
 
@@ -43,8 +40,6 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -53,7 +48,7 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +59,7 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: const AlignmentDirectional(-1.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -76,9 +71,9 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
                   child: Container(
                     width: 38.0,
                     height: 38.0,
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                     child: Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
+                      alignment: const AlignmentDirectional(-1.0, 0.0),
                       child: Icon(
                         FFIcons.kleft,
                         color: FlutterFlowTheme.of(context).secondaryText,
@@ -96,7 +91,7 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: Text(
                           'Чек-листы',
                           style: FlutterFlowTheme.of(context).displayLarge,
@@ -107,7 +102,7 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
                         focusNode: _model.textFieldFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
                           '_model.textController',
-                          Duration(milliseconds: 100),
+                          const Duration(milliseconds: 100),
                           () async {
                             setState(() {
                               _model.filter = _model.textController.text;
@@ -125,28 +120,28 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
                                     lineHeight: 1.5,
                                   ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 0.0,
                             ),
                             borderRadius: BorderRadius.circular(14.0),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 0.0,
                             ),
                             borderRadius: BorderRadius.circular(14.0),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 0.0,
                             ),
                             borderRadius: BorderRadius.circular(14.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 0.0,
                             ),
@@ -187,9 +182,9 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
                           List<CheckListRecord> containerCheckListRecordList =
                               snapshot.data!;
                           return Container(
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 24.0, 0.0, 0.0),
                               child: Builder(
                                 builder: (context) {
@@ -201,7 +196,7 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
                                   return GridView.builder(
                                     padding: EdgeInsets.zero,
                                     gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 2,
                                       crossAxisSpacing: 16.0,
                                       mainAxisSpacing: 16.0,
@@ -233,7 +228,7 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
                                           );
                                         },
                                         child: Container(
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
                                             crossAxisAlignment:
@@ -250,7 +245,7 @@ class _AllCheckListsPageWidgetState extends State<AllCheckListsPageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 8.0, 0.0, 0.0),
                                                 child: Text(

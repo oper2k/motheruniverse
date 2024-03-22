@@ -4,14 +4,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/instant_timer.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'add_sleeping_tracker_model.dart';
 export 'add_sleeping_tracker_model.dart';
@@ -46,10 +42,11 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
-        _model.time = getCurrentTimestamp;
+        _model.startTime = getCurrentTimestamp;
+        _model.endTime = functions.getDateTimeAnHourLater(_model.startTime!);
       });
       _model.instantTimer = InstantTimer.periodic(
-        duration: Duration(milliseconds: 1000),
+        duration: const Duration(milliseconds: 1000),
         callback: (timer) async {
           setState(() {});
         },
@@ -72,12 +69,12 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 1.0),
+      alignment: const AlignmentDirectional(0.0, 1.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).backgroundMain,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(24.0),
@@ -85,9 +82,10 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 45.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
                 width: 40.0,
@@ -98,7 +96,7 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -107,7 +105,7 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                     Expanded(
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(28.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(28.0, 0.0, 0.0, 0.0),
                         child: AutoSizeText(
                           'Новый трек',
                           textAlign: TextAlign.center,
@@ -148,11 +146,11 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: const AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Text(
-                    'ВЫБЕРИТЕ ДАТУ',
+                    'ВЫБЕРИТЕ ДАТУ И ВРЕМЯ НАЧАЛА СНА',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w600,
@@ -162,14 +160,14 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    final _datePickedDate = await showDatePicker(
+                    final datePicked1Date = await showDatePicker(
                       context: context,
                       initialDate: getCurrentTimestamp,
                       firstDate: DateTime(1900),
@@ -204,9 +202,9 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                       },
                     );
 
-                    TimeOfDay? _datePickedTime;
-                    if (_datePickedDate != null) {
-                      _datePickedTime = await showTimePicker(
+                    TimeOfDay? datePicked1Time;
+                    if (datePicked1Date != null) {
+                      datePicked1Time = await showTimePicker(
                         context: context,
                         initialTime:
                             TimeOfDay.fromDateTime(getCurrentTimestamp),
@@ -241,20 +239,22 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                       );
                     }
 
-                    if (_datePickedDate != null && _datePickedTime != null) {
+                    if (datePicked1Date != null && datePicked1Time != null) {
                       safeSetState(() {
-                        _model.datePicked = DateTime(
-                          _datePickedDate.year,
-                          _datePickedDate.month,
-                          _datePickedDate.day,
-                          _datePickedTime!.hour,
-                          _datePickedTime.minute,
+                        _model.datePicked1 = DateTime(
+                          datePicked1Date.year,
+                          datePicked1Date.month,
+                          datePicked1Date.day,
+                          datePicked1Time!.hour,
+                          datePicked1Time.minute,
                         );
                       });
                     }
-                    if (_model.datePicked != null) {
+                    if (_model.datePicked1 != null) {
                       setState(() {
-                        _model.time = _model.datePicked;
+                        _model.startTime = _model.datePicked1;
+                        _model.endTime =
+                            functions.getDateTimeAnHourLater(_model.startTime!);
                       });
                     }
                   },
@@ -273,7 +273,7 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               16.0, 7.0, 16.0, 7.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -286,7 +286,7 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                               Text(
                                 functions
                                     .formatDateInDayNumberMonthStringYearNumber(
-                                        _model.time!),
+                                        _model.startTime!),
                                 style: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(
@@ -300,7 +300,7 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               15.0, 0.0, 0.0, 0.0),
                           child: Container(
                             decoration: BoxDecoration(
@@ -313,7 +313,7 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   16.0, 7.0, 16.0, 7.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -327,7 +327,7 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                                   Text(
                                     dateTimeFormat(
                                       'Hm',
-                                      _model.time,
+                                      _model.startTime,
                                       locale: FFLocalizations.of(context)
                                           .languageCode,
                                     ),
@@ -349,11 +349,11 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: const AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 28.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 28.0, 0.0, 0.0),
                   child: Text(
-                    'ВВЕДИТЕ ВРЕМЯ  СНА',
+                    'ВВЕДИТЕ ДАТУ И ВРЕМЯ ОКОНЧАНИЯ СНА',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w600,
@@ -363,51 +363,229 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-                child: Container(
-                  width: double.infinity,
-                  height: 160.0,
-                  child: custom_widgets.CustomPicker(
-                    width: double.infinity,
-                    height: 160.0,
-                    horizontalPadding: 50.0,
-                    backgroundColor: Colors.transparent,
-                    lineColor: Colors.transparent,
-                    textColor: FlutterFlowTheme.of(context).secondaryText,
-                    initialItemIndexFirst: 0,
-                    initialItemIndexSecond: 0,
-                    initialItemIndexThird: null,
-                    itemExtent: 30.0,
-                    borderRadius: 0.0,
-                    textSizeItem1: 24.0,
-                    textSizeItem2: 24.0,
-                    textSizeItem3: 24.0,
-                    items1: functions.returnListOf24Hours(),
-                    items2: functions.returnListOf59Minutes(),
-                    items3: functions.nullList(),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    final datePicked2Date = await showDatePicker(
+                      context: context,
+                      initialDate: (_model.endTime ?? DateTime.now()),
+                      firstDate: DateTime(1900),
+                      lastDate: DateTime(2050),
+                      builder: (context, child) {
+                        return wrapInMaterialDatePickerTheme(
+                          context,
+                          child!,
+                          headerBackgroundColor:
+                              FlutterFlowTheme.of(context).primary,
+                          headerForegroundColor:
+                              FlutterFlowTheme.of(context).info,
+                          headerTextStyle: FlutterFlowTheme.of(context)
+                              .headlineLarge
+                              .override(
+                                fontFamily: 'Inter',
+                                fontSize: 32.0,
+                                fontWeight: FontWeight.w600,
+                              ),
+                          pickerBackgroundColor:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          pickerForegroundColor:
+                              FlutterFlowTheme.of(context).primaryText,
+                          selectedDateTimeBackgroundColor:
+                              FlutterFlowTheme.of(context).primary,
+                          selectedDateTimeForegroundColor:
+                              FlutterFlowTheme.of(context).info,
+                          actionButtonForegroundColor:
+                              FlutterFlowTheme.of(context).primaryText,
+                          iconSize: 24.0,
+                        );
+                      },
+                    );
+
+                    TimeOfDay? datePicked2Time;
+                    if (datePicked2Date != null) {
+                      datePicked2Time = await showTimePicker(
+                        context: context,
+                        initialTime: TimeOfDay.fromDateTime(
+                            (_model.endTime ?? DateTime.now())),
+                        builder: (context, child) {
+                          return wrapInMaterialTimePickerTheme(
+                            context,
+                            child!,
+                            headerBackgroundColor:
+                                FlutterFlowTheme.of(context).primary,
+                            headerForegroundColor:
+                                FlutterFlowTheme.of(context).info,
+                            headerTextStyle: FlutterFlowTheme.of(context)
+                                .headlineLarge
+                                .override(
+                                  fontFamily: 'Inter',
+                                  fontSize: 32.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                            pickerBackgroundColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            pickerForegroundColor:
+                                FlutterFlowTheme.of(context).primaryText,
+                            selectedDateTimeBackgroundColor:
+                                FlutterFlowTheme.of(context).primary,
+                            selectedDateTimeForegroundColor:
+                                FlutterFlowTheme.of(context).info,
+                            actionButtonForegroundColor:
+                                FlutterFlowTheme.of(context).primaryText,
+                            iconSize: 24.0,
+                          );
+                        },
+                      );
+                    }
+
+                    if (datePicked2Date != null && datePicked2Time != null) {
+                      safeSetState(() {
+                        _model.datePicked2 = DateTime(
+                          datePicked2Date.year,
+                          datePicked2Date.month,
+                          datePicked2Date.day,
+                          datePicked2Time!.hour,
+                          datePicked2Time.minute,
+                        );
+                      });
+                    }
+                    if (_model.datePicked2 != null) {
+                      setState(() {
+                        _model.endTime = _model.datePicked2;
+                      });
+                    }
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(12.0),
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).divider,
+                            width: 1.0,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16.0, 7.0, 16.0, 7.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Дата',
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                              Text(
+                                functions
+                                    .formatDateInDayNumberMonthStringYearNumber(
+                                        _model.endTime!),
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      lineHeight: 1.5,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              15.0, 0.0, 0.0, 0.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(12.0),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).divider,
+                                width: 1.0,
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 7.0, 16.0, 7.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Время',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                  Text(
+                                    dateTimeFormat(
+                                      'Hm',
+                                      _model.endTime,
+                                      locale: FFLocalizations.of(context)
+                                          .languageCode,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          lineHeight: 1.5,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              Builder(
-                builder: (context) {
-                  if ((FFAppState().customPickerItemIndex1 > 0) ||
-                      (FFAppState().customPickerItemIndex2 > 0)) {
-                    return Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 38.0, 0.0, 45.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
+              if ((_model.endTime! < _model.startTime!) ||
+                  functions.hasMoreThan23HoursPassed(
+                      _model.startTime!, _model.endTime!))
+                Align(
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                    child: Text(
+                      'Проверьте правильность введенных данных',
+                      style:
+                          FlutterFlowTheme.of(context).displayMedium.override(
+                                fontFamily: 'Inter',
+                                lineHeight: 1.28,
+                              ),
+                    ),
+                  ),
+                ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 38.0, 0.0, 0.0),
+                child: FFButtonWidget(
+                  onPressed: ((_model.endTime! < _model.startTime!) ||
+                          functions.hasMoreThan23HoursPassed(
+                              _model.startTime!, _model.endTime!))
+                      ? null
+                      : () async {
                           if (dateTimeFormat(
                                 'Md',
                                 functions.addHoursAndMinutesToTime(
                                     '${functions.returnListOf24Hours()[FFAppState().customPickerItemIndex1]} ${functions.returnListOf59Minutes()[FFAppState().customPickerItemIndex2]}',
-                                    _model.time!),
+                                    _model.startTime!),
                                 locale:
                                     FFLocalizations.of(context).languageCode,
                               ) ==
                               dateTimeFormat(
                                 'Md',
-                                _model.time,
+                                _model.endTime,
                                 locale:
                                     FFLocalizations.of(context).languageCode,
                               )) {
@@ -416,28 +594,23 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                             await trackersRecordReference1
                                 .set(createTrackersRecordData(
                               trackerTitle:
-                                  functions.checkIfNightSleep(_model.time!)
+                                  functions.checkIfNightSleep(_model.startTime!)
                                       ? 'Ночной сон'
                                       : 'Дневной сон',
                               childRef: widget.child?.reference,
-                              sleepEndTime: functions.addHoursAndMinutesToTime(
-                                  '${functions.returnListOf24Hours()[FFAppState().customPickerItemIndex1]} ${functions.returnListOf59Minutes()[FFAppState().customPickerItemIndex2]}',
-                                  _model.time!),
-                              trackerStartTime: _model.time,
+                              sleepEndTime: _model.endTime,
+                              trackerStartTime: _model.startTime,
                             ));
                             _model.trackerDoc =
                                 TrackersRecord.getDocumentFromData(
                                     createTrackersRecordData(
-                                      trackerTitle: functions
-                                              .checkIfNightSleep(_model.time!)
+                                      trackerTitle: functions.checkIfNightSleep(
+                                              _model.startTime!)
                                           ? 'Ночной сон'
                                           : 'Дневной сон',
                                       childRef: widget.child?.reference,
-                                      sleepEndTime:
-                                          functions.addHoursAndMinutesToTime(
-                                              '${functions.returnListOf24Hours()[FFAppState().customPickerItemIndex1]} ${functions.returnListOf59Minutes()[FFAppState().customPickerItemIndex2]}',
-                                              _model.time!),
-                                      trackerStartTime: _model.time,
+                                      sleepEndTime: _model.endTime,
+                                      trackerStartTime: _model.startTime,
                                     ),
                                     trackersRecordReference1);
 
@@ -448,7 +621,7 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                                       functions.processDateList(functions
                                           .processDateList((currentUserDocument
                                                       ?.trackersAddingDates
-                                                      ?.toList() ??
+                                                      .toList() ??
                                                   [])
                                               .toList())
                                           .toList()),
@@ -502,7 +675,10 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                               });
                             }
 
-                            context.goNamed(
+                            if (Navigator.of(context).canPop()) {
+                              context.pop();
+                            }
+                            context.pushNamed(
                               'SleepTrackerIsAdded',
                               queryParameters: {
                                 'tracker': serializeParam(
@@ -525,24 +701,25 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                             await trackersRecordReference2
                                 .set(createTrackersRecordData(
                               trackerTitle:
-                                  functions.checkIfNightSleep(_model.time!)
+                                  functions.checkIfNightSleep(_model.startTime!)
                                       ? 'Ночной сон'
                                       : 'Дневной сон',
                               childRef: widget.child?.reference,
-                              sleepEndTime: functions.endOfDay(_model.time!),
-                              trackerStartTime: _model.time,
+                              sleepEndTime:
+                                  functions.endOfDay(_model.startTime!),
+                              trackerStartTime: _model.startTime,
                             ));
                             _model.trackerDoc1 =
                                 TrackersRecord.getDocumentFromData(
                                     createTrackersRecordData(
-                                      trackerTitle: functions
-                                              .checkIfNightSleep(_model.time!)
+                                      trackerTitle: functions.checkIfNightSleep(
+                                              _model.startTime!)
                                           ? 'Ночной сон'
                                           : 'Дневной сон',
                                       childRef: widget.child?.reference,
                                       sleepEndTime:
-                                          functions.endOfDay(_model.time!),
-                                      trackerStartTime: _model.time,
+                                          functions.endOfDay(_model.startTime!),
+                                      trackerStartTime: _model.startTime,
                                     ),
                                     trackersRecordReference2);
 
@@ -551,34 +728,25 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                             await trackersRecordReference3
                                 .set(createTrackersRecordData(
                               trackerTitle:
-                                  functions.checkIfNightSleep(_model.time!)
+                                  functions.checkIfNightSleep(_model.startTime!)
                                       ? 'Ночной сон'
                                       : 'Дневной  сон',
                               childRef: widget.child?.reference,
-                              sleepEndTime: functions.addHoursAndMinutesToTime(
-                                  '${functions.returnListOf24Hours()[FFAppState().customPickerItemIndex1]} ${functions.returnListOf59Minutes()[FFAppState().customPickerItemIndex2]}',
-                                  _model.time!),
-                              trackerStartTime: functions.startOfDay(
-                                  functions.addHoursAndMinutesToTime(
-                                      '${functions.returnListOf24Hours()[FFAppState().customPickerItemIndex1]} ${functions.returnListOf59Minutes()[FFAppState().customPickerItemIndex2]}',
-                                      _model.time!)),
+                              sleepEndTime: _model.endTime,
+                              trackerStartTime:
+                                  functions.startOfDay(_model.endTime!),
                             ));
                             _model.secondDay =
                                 TrackersRecord.getDocumentFromData(
                                     createTrackersRecordData(
-                                      trackerTitle: functions
-                                              .checkIfNightSleep(_model.time!)
+                                      trackerTitle: functions.checkIfNightSleep(
+                                              _model.startTime!)
                                           ? 'Ночной сон'
                                           : 'Дневной  сон',
                                       childRef: widget.child?.reference,
-                                      sleepEndTime:
-                                          functions.addHoursAndMinutesToTime(
-                                              '${functions.returnListOf24Hours()[FFAppState().customPickerItemIndex1]} ${functions.returnListOf59Minutes()[FFAppState().customPickerItemIndex2]}',
-                                              _model.time!),
-                                      trackerStartTime: functions.startOfDay(
-                                          functions.addHoursAndMinutesToTime(
-                                              '${functions.returnListOf24Hours()[FFAppState().customPickerItemIndex1]} ${functions.returnListOf59Minutes()[FFAppState().customPickerItemIndex2]}',
-                                              _model.time!)),
+                                      sleepEndTime: _model.endTime,
+                                      trackerStartTime:
+                                          functions.startOfDay(_model.endTime!),
                                     ),
                                     trackersRecordReference3);
 
@@ -589,15 +757,17 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
                                       functions.processDateList(functions
                                           .processDateList((currentUserDocument
                                                       ?.trackersAddingDates
-                                                      ?.toList() ??
+                                                      .toList() ??
                                                   [])
                                               .toList())
                                           .toList()),
                                 },
                               ),
                             });
-
-                            context.goNamed(
+                            if (Navigator.of(context).canPop()) {
+                              context.pop();
+                            }
+                            context.pushNamed(
                               'SleepTrackerIsAdded',
                               queryParameters: {
                                 'tracker': serializeParam(
@@ -625,60 +795,28 @@ class _AddSleepingTrackerWidgetState extends State<AddSleepingTrackerWidget> {
 
                           setState(() {});
                         },
-                        text: 'Применить',
-                        options: FFButtonOptions(
-                          width: double.infinity,
-                          height: 56.0,
-                          padding: EdgeInsets.all(0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).purple,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .headlineLarge
-                              .override(
-                                fontFamily: 'Inter',
-                                color: Colors.white,
-                              ),
-                          elevation: 0.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                          ),
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                      ),
-                    );
-                  } else {
-                    return Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 38.0, 0.0, 45.0),
-                      child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: 'Применить',
-                        options: FFButtonOptions(
-                          width: double.infinity,
-                          height: 56.0,
-                          padding: EdgeInsets.all(0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).grey20,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .headlineLarge
-                              .override(
-                                fontFamily: 'Inter',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                              ),
-                          elevation: 0.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                          ),
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                      ),
-                    );
-                  }
-                },
+                  text: 'Применить',
+                  options: FFButtonOptions(
+                    width: double.infinity,
+                    height: 56.0,
+                    padding: const EdgeInsets.all(0.0),
+                    iconPadding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).purple,
+                    textStyle:
+                        FlutterFlowTheme.of(context).headlineLarge.override(
+                              fontFamily: 'Inter',
+                              color: Colors.white,
+                            ),
+                    elevation: 0.0,
+                    borderSide: const BorderSide(
+                      color: Colors.transparent,
+                    ),
+                    borderRadius: BorderRadius.circular(16.0),
+                    disabledColor: FlutterFlowTheme.of(context).alternate,
+                    disabledTextColor: FlutterFlowTheme.of(context).primaryText,
+                  ),
+                ),
               ),
             ],
           ),

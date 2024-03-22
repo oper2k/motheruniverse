@@ -4,12 +4,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'doctor_visiting_page_model.dart';
 export 'doctor_visiting_page_model.dart';
 
@@ -203,8 +199,6 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -213,16 +207,16 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
           child: Stack(
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 110.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 110.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(-1.0, -1.0),
+                      alignment: const AlignmentDirectional(-1.0, -1.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -234,7 +228,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                         child: Container(
                           width: 38.0,
                           height: 38.0,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Icon(
                             FFIcons.kleft,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -249,7 +243,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: Text(
                               'Посещение врачей',
@@ -266,7 +260,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                 ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 24.0, 0.0, 0.0),
                             child: StreamBuilder<List<AgeRecord>>(
                               stream: queryAgeRecord(
@@ -292,7 +286,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                 List<AgeRecord> ageQueryAgeRecordList =
                                     snapshot.data!;
                                 return Container(
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -308,7 +302,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                               await _model.pageViewController
                                                   ?.previousPage(
                                                 duration:
-                                                    Duration(milliseconds: 300),
+                                                    const Duration(milliseconds: 300),
                                                 curve: Curves.ease,
                                               );
                                               setState(() {
@@ -337,7 +331,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                           ),
                                           Expanded(
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 0.0, 0.0),
                                               child: Text(
@@ -353,7 +347,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -364,7 +358,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                               onTap: () async {
                                                 await _model.pageViewController
                                                     ?.nextPage(
-                                                  duration: Duration(
+                                                  duration: const Duration(
                                                       milliseconds: 300),
                                                   curve: Curves.ease,
                                                 );
@@ -397,7 +391,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                         ],
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 16.0, 0.0, 0.0),
                                         child: StreamBuilder<UsersRecord>(
                                           stream: UsersRecord.getDocument(
@@ -425,7 +419,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                             final usersQueryUsersRecord =
                                                 snapshot.data!;
                                             return Container(
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: StreamBuilder<
                                                   List<
                                                       CreatedDoctorVisitingRecord>>(
@@ -469,7 +463,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                       snapshot.data!;
                                                   return Container(
                                                     width: double.infinity,
-                                                    decoration: BoxDecoration(),
+                                                    decoration: const BoxDecoration(),
                                                     child: StreamBuilder<
                                                         List<DoctorsRecord>>(
                                                       stream:
@@ -512,18 +506,18 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                             snapshot.data!;
                                                         return Container(
                                                           decoration:
-                                                              BoxDecoration(),
+                                                              const BoxDecoration(),
                                                           child: Builder(
                                                             builder: (context) {
                                                               final ageCounter =
                                                                   ageQueryAgeRecordList
                                                                       .toList();
-                                                              return Container(
+                                                              return SizedBox(
                                                                 width: double
                                                                     .infinity,
                                                                 height: 500.0,
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -573,7 +567,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                     final currentDoctorsItem = currentDoctors[currentDoctorsIndex];
                                                                                     return Container(
                                                                                       width: double.infinity,
-                                                                                      decoration: BoxDecoration(),
+                                                                                      decoration: const BoxDecoration(),
                                                                                       child: Builder(
                                                                                         builder: (context) {
                                                                                           if (!usersQueryUsersRecord.passedDoctors.contains(currentDoctorsItem.reference.id)) {
@@ -581,7 +575,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               children: [
                                                                                                 Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                                                                                                   child: InkWell(
                                                                                                     splashColor: Colors.transparent,
                                                                                                     focusColor: Colors.transparent,
@@ -603,7 +597,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                                       children: [
                                                                                                         Expanded(
                                                                                                           child: RichText(
-                                                                                                            textScaleFactor: MediaQuery.of(context).textScaleFactor,
+                                                                                                            textScaler: MediaQuery.of(context).textScaler,
                                                                                                             text: TextSpan(
                                                                                                               children: [
                                                                                                                 TextSpan(
@@ -616,7 +610,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                                                 ),
                                                                                                                 TextSpan(
                                                                                                                   text: ' ${currentDoctorsItem.description}',
-                                                                                                                  style: TextStyle(),
+                                                                                                                  style: const TextStyle(),
                                                                                                                 )
                                                                                                               ],
                                                                                                               style: FlutterFlowTheme.of(context).headlineSmall.override(
@@ -656,7 +650,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               children: [
                                                                                                 Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                                                                                                   child: InkWell(
                                                                                                     splashColor: Colors.transparent,
                                                                                                     focusColor: Colors.transparent,
@@ -678,7 +672,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                                       children: [
                                                                                                         Expanded(
                                                                                                           child: RichText(
-                                                                                                            textScaleFactor: MediaQuery.of(context).textScaleFactor,
+                                                                                                            textScaler: MediaQuery.of(context).textScaler,
                                                                                                             text: TextSpan(
                                                                                                               children: [
                                                                                                                 TextSpan(
@@ -713,7 +707,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                                             color: FlutterFlowTheme.of(context).primary,
                                                                                                             shape: BoxShape.circle,
                                                                                                           ),
-                                                                                                          child: Icon(
+                                                                                                          child: const Icon(
                                                                                                             FFIcons.kcheckMini,
                                                                                                             color: Colors.white,
                                                                                                             size: 24.0,
@@ -749,7 +743,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                     final usersDoctorsItem = usersDoctors[usersDoctorsIndex];
                                                                                     return Container(
                                                                                       width: double.infinity,
-                                                                                      decoration: BoxDecoration(),
+                                                                                      decoration: const BoxDecoration(),
                                                                                       child: Builder(
                                                                                         builder: (context) {
                                                                                           if (!usersQueryUsersRecord.passedDoctors.contains(usersDoctorsItem.reference.id)) {
@@ -757,7 +751,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               children: [
                                                                                                 Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                                                                                                   child: InkWell(
                                                                                                     splashColor: Colors.transparent,
                                                                                                     focusColor: Colors.transparent,
@@ -779,7 +773,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                                       children: [
                                                                                                         Expanded(
                                                                                                           child: RichText(
-                                                                                                            textScaleFactor: MediaQuery.of(context).textScaleFactor,
+                                                                                                            textScaler: MediaQuery.of(context).textScaler,
                                                                                                             text: TextSpan(
                                                                                                               children: [
                                                                                                                 TextSpan(
@@ -792,7 +786,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                                                 ),
                                                                                                                 TextSpan(
                                                                                                                   text: ' ${usersDoctorsItem.description}',
-                                                                                                                  style: TextStyle(),
+                                                                                                                  style: const TextStyle(),
                                                                                                                 )
                                                                                                               ],
                                                                                                               style: FlutterFlowTheme.of(context).headlineSmall.override(
@@ -832,7 +826,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               children: [
                                                                                                 Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                                                                                                   child: InkWell(
                                                                                                     splashColor: Colors.transparent,
                                                                                                     focusColor: Colors.transparent,
@@ -854,7 +848,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                                       children: [
                                                                                                         Expanded(
                                                                                                           child: RichText(
-                                                                                                            textScaleFactor: MediaQuery.of(context).textScaleFactor,
+                                                                                                            textScaler: MediaQuery.of(context).textScaler,
                                                                                                             text: TextSpan(
                                                                                                               children: [
                                                                                                                 TextSpan(
@@ -889,7 +883,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                                             color: FlutterFlowTheme.of(context).primary,
                                                                                                             shape: BoxShape.circle,
                                                                                                           ),
-                                                                                                          child: Icon(
+                                                                                                          child: const Icon(
                                                                                                             FFIcons.kcheckMini,
                                                                                                             color: Colors.white,
                                                                                                             size: 24.0,
@@ -916,7 +910,7 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                                                                                 );
                                                                               },
                                                                             ),
-                                                                          ].addToEnd(SizedBox(height: 10.0)),
+                                                                          ].addToEnd(const SizedBox(height: 10.0)),
                                                                         ),
                                                                       );
                                                                     },
@@ -948,9 +942,9 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 45.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 45.0),
                   child: StreamBuilder<List<AgeRecord>>(
                     stream: queryAgeRecord(
                       queryBuilder: (ageRecord) => ageRecord.orderBy('sort'),
@@ -987,13 +981,13 @@ class _DoctorVisitingPageWidgetState extends State<DoctorVisitingPageWidget> {
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 56.0,
-                          padding: EdgeInsets.all(0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsets.all(0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle: FlutterFlowTheme.of(context).displaySmall,
                           elevation: 0.0,
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.transparent,
                           ),
                           borderRadius: BorderRadius.circular(16.0),

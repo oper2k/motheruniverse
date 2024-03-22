@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'cart_page_model.dart';
 export 'cart_page_model.dart';
@@ -67,13 +66,13 @@ class _CartPageWidgetState extends State<CartPageWidget> {
             }
             List<LearningRecord> learningLearningRecordList = snapshot.data!;
             return Container(
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: Container(
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Stack(
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
+                      padding: const EdgeInsetsDirectional.fromSTEB(
                           20.0, 45.0, 20.0, 161.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -82,9 +81,9 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                           Container(
                             width: double.infinity,
                             height: 38.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -96,9 +95,9 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                 child: Container(
                                   width: 38.0,
                                   height: 38.0,
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Icon(
                                       FFIcons.kleft,
                                       color: FlutterFlowTheme.of(context)
@@ -116,7 +115,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 0.0),
                                   child: Text(
                                     'Корзина',
@@ -128,9 +127,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                   child: Builder(
                                     builder: (context) {
                                       if (FFAppState()
-                                              .lessonsAddedToCart
-                                              .length >
-                                          0) {
+                                              .lessonsAddedToCart.isNotEmpty) {
                                         return Builder(
                                           builder: (context) {
                                             final lessonInCart =
@@ -150,10 +147,10 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                                       lessonInCart[
                                                           lessonInCartIndex];
                                                   return Container(
-                                                    decoration: BoxDecoration(),
+                                                    decoration: const BoxDecoration(),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   12.0,
@@ -190,7 +187,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             28.0,
                                                                             26.0,
@@ -249,7 +246,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                                                           lessonInCartItem
                                                                               .dateOfPublication!))
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           3.0,
                                                                           3.0,
                                                                           0.0,
@@ -265,7 +262,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                                                         ),
                                                                         child:
                                                                             Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               8.0,
                                                                               2.0,
                                                                               8.0,
@@ -289,7 +286,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             0.0,
@@ -299,10 +296,10 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                                                     Container(
                                                                   height: 90.0,
                                                                   decoration:
-                                                                      BoxDecoration(),
+                                                                      const BoxDecoration(),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -335,7 +332,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 4.0,
                                                                                 0.0,
@@ -363,22 +360,6 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                                                                     lineHeight: 1.3,
                                                                                   ),
                                                                             ),
-                                                                            if (lessonInCartItem.priceBeforeDiscount ==
-                                                                                null)
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                child: Text(
-                                                                                  '${functions.formatDoubleWithSpaces(lessonInCartItem.priceBeforeDiscount)} ₽',
-                                                                                  style: FlutterFlowTheme.of(context).headlineSmall.override(
-                                                                                        fontFamily: 'Inter',
-                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                        fontSize: 15.0,
-                                                                                        fontWeight: FontWeight.normal,
-                                                                                        decoration: TextDecoration.lineThrough,
-                                                                                        lineHeight: 1.73,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
                                                                           ],
                                                                         ),
                                                                       ],
@@ -390,7 +371,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         12.0,
@@ -413,7 +394,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                                     ),
                                                   );
                                                 }).addToStart(
-                                                    SizedBox(height: 12.0)),
+                                                    const SizedBox(height: 12.0)),
                                               ),
                                             );
                                           },
@@ -445,13 +426,13 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          if (FFAppState().lessonsAddedToCart.length > 0)
+                          if (FFAppState().lessonsAddedToCart.isNotEmpty)
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 20.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -483,7 +464,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                   if (FFAppState().lessonsAddedToCart.length >=
                                       5)
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           4.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         '${functions.formatDoubleWithSpaces(functions.returnSumOfPrices(learningLearningRecordList.where((e) => FFAppState().lessonsAddedToCart.contains(e.reference.id)).toList().map((e) => e.price).toList()))} ₽',
@@ -507,9 +488,9 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                             ),
                           Builder(
                             builder: (context) {
-                              if (FFAppState().lessonsAddedToCart.length > 0) {
+                              if (FFAppState().lessonsAddedToCart.isNotEmpty) {
                                 return Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 20.0, 20.0, 45.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
@@ -556,16 +537,16 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                     options: FFButtonOptions(
                                       width: double.infinity,
                                       height: 56.0,
-                                      padding: EdgeInsets.all(0.0),
+                                      padding: const EdgeInsets.all(0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).primary,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .displaySmall,
                                       elevation: 0.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                       ),
                                       borderRadius: BorderRadius.circular(16.0),
@@ -575,7 +556,7 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                 );
                               } else {
                                 return Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 45.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
@@ -585,16 +566,16 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                                     options: FFButtonOptions(
                                       width: double.infinity,
                                       height: 56.0,
-                                      padding: EdgeInsets.all(0.0),
+                                      padding: const EdgeInsets.all(0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).tertiary,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .headlineLarge,
                                       elevation: 0.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                       ),
                                       borderRadius: BorderRadius.circular(16.0),
@@ -607,9 +588,9 @@ class _CartPageWidgetState extends State<CartPageWidget> {
                         ],
                       ),
                     ),
-                    if (FFAppState().lessonsAddedToCart.length == 0)
+                    if (FFAppState().lessonsAddedToCart.isEmpty)
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(0.0),
                           child: Image.asset(

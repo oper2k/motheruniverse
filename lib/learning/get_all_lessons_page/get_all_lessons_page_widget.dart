@@ -3,8 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'get_all_lessons_page_model.dart';
 export 'get_all_lessons_page_model.dart';
 
@@ -38,8 +36,6 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -67,7 +63,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
             List<LearningRecord> allLessonsDocsLearningRecordList =
                 snapshot.data!;
             return Container(
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: StreamBuilder<List<BuyAllContentRecord>>(
                 stream: queryBuyAllContentRecord(),
                 builder: (context, snapshot) {
@@ -89,7 +85,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                       allContentDocQueryBuyAllContentRecordList =
                       snapshot.data!;
                   return Container(
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                     child: Stack(
                       children: [
                         SingleChildScrollView(
@@ -109,9 +105,9 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(1.0, -1.0),
+                                    alignment: const AlignmentDirectional(1.0, -1.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 55.0, 20.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -142,7 +138,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                 ],
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 24.0, 20.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -154,7 +150,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                           .displayLarge,
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Text(
                                         'Уникальный формат обучения, который позволяет получить знания и опыт в удобное для тебя время и место',
@@ -170,7 +166,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 2.0, 0.0, 0.0),
                                 child: Stack(
                                   children: [
@@ -179,7 +175,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 20.0, 20.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -207,7 +203,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           10.0, 10.0, 0.0, 0.0),
                                                   child: Column(
@@ -229,7 +225,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -277,7 +273,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                                 ),
                                                 child: Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           1.0, 1.0),
                                                   child: Column(
                                                     mainAxisSize:
@@ -285,7 +281,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     48.0,
@@ -318,7 +314,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 10.0, 20.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -346,7 +342,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           10.0, 10.0, 0.0, 0.0),
                                                   child: Column(
@@ -368,7 +364,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -415,7 +411,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           12.0, 12.0, 0.0, 0.0),
                                                   child: Column(
@@ -452,7 +448,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(0.31, -1.29),
+                                          const AlignmentDirectional(0.31, -1.29),
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(0.0),
@@ -464,9 +460,9 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment: AlignmentDirectional(1.0, 1.0),
+                                      alignment: const AlignmentDirectional(1.0, 1.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 191.0, 6.0, 0.0),
                                         child: ClipRRect(
                                           borderRadius:
@@ -483,7 +479,7 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 26.0, 20.0, 45.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
@@ -517,14 +513,14 @@ class _GetAllLessonsPageWidgetState extends State<GetAllLessonsPageWidget> {
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     height: 56.0,
-                                    padding: EdgeInsets.all(0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsets.all(0.0),
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
                                         .displaySmall,
                                     elevation: 0.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),

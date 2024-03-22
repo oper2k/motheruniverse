@@ -3,12 +3,9 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'entry_to_event_page_model.dart';
 export 'entry_to_event_page_model.dart';
 
@@ -62,8 +59,6 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -74,7 +69,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
         body: Stack(
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,9 +77,9 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                   Container(
                     width: double.infinity,
                     height: 38.0,
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                     child: Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
+                      alignment: const AlignmentDirectional(-1.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -96,9 +91,9 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                         child: Container(
                           width: 38.0,
                           height: 38.0,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Icon(
                               FFIcons.kleft,
                               color: FlutterFlowTheme.of(context).secondaryText,
@@ -116,7 +111,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: Text(
                               widget.event!.eventName,
@@ -124,7 +119,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               widget.event!.description,
@@ -137,17 +132,17 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 32.0, 0.0, 0.0),
                             child: AuthUserStreamWidget(
-                              builder: (context) => Container(
+                              builder: (context) => SizedBox(
                                 width: double.infinity,
                                 child: TextFormField(
                                   controller: _model.nameController,
                                   focusNode: _model.nameFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.nameController',
-                                    Duration(milliseconds: 200),
+                                    const Duration(milliseconds: 200),
                                     () => setState(() {}),
                                   ),
                                   obscureText: false,
@@ -192,7 +187,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     contentPadding:
-                                        EdgeInsetsDirectional.fromSTEB(
+                                        const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 22.0, 16.0, 22.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -206,17 +201,17 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: AuthUserStreamWidget(
-                              builder: (context) => Container(
+                              builder: (context) => SizedBox(
                                 width: double.infinity,
                                 child: TextFormField(
                                   controller: _model.phoneController,
                                   focusNode: _model.phoneFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.phoneController',
-                                    Duration(milliseconds: 200),
+                                    const Duration(milliseconds: 200),
                                     () => setState(() {}),
                                   ),
                                   obscureText: false,
@@ -261,7 +256,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     contentPadding:
-                                        EdgeInsetsDirectional.fromSTEB(
+                                        const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 22.0, 16.0, 22.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -275,16 +270,16 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
-                            child: Container(
+                            child: SizedBox(
                               width: double.infinity,
                               child: TextFormField(
                                 controller: _model.emailController,
                                 focusNode: _model.emailFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.emailController',
-                                  Duration(milliseconds: 200),
+                                  const Duration(milliseconds: 200),
                                   () => setState(() {}),
                                 ),
                                 obscureText: false,
@@ -327,7 +322,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
+                                      const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 22.0, 16.0, 22.0),
                                 ),
                                 style:
@@ -340,16 +335,16 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
-                            child: Container(
+                            child: SizedBox(
                               width: double.infinity,
                               child: TextFormField(
                                 controller: _model.childAgeController,
                                 focusNode: _model.childAgeFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.childAgeController',
-                                  Duration(milliseconds: 200),
+                                  const Duration(milliseconds: 200),
                                   () => setState(() {}),
                                 ),
                                 obscureText: false,
@@ -392,7 +387,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
+                                      const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 22.0, 16.0, 22.0),
                                 ),
                                 style:
@@ -405,16 +400,16 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
-                            child: Container(
+                            child: SizedBox(
                               width: double.infinity,
                               child: TextFormField(
                                 controller: _model.solvedCaseController,
                                 focusNode: _model.solvedCaseFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.solvedCaseController',
-                                  Duration(milliseconds: 200),
+                                  const Duration(milliseconds: 200),
                                   () => setState(() {}),
                                 ),
                                 obscureText: false,
@@ -458,7 +453,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
+                                      const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 22.0, 16.0, 22.0),
                                 ),
                                 style:
@@ -474,7 +469,7 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                               ),
                             ),
                           ),
-                        ].addToEnd(SizedBox(height: 110.0)),
+                        ].addToEnd(const SizedBox(height: 110.0)),
                       ),
                     ),
                   ),
@@ -482,20 +477,15 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, 1.0),
+              alignment: const AlignmentDirectional(0.0, 1.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 45.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 45.0),
                 child: FFButtonWidget(
-                  onPressed: ((_model.nameController.text == null ||
-                              _model.nameController.text == '') ||
-                          (_model.phoneController.text == null ||
-                              _model.phoneController.text == '') ||
-                          (_model.emailController.text == null ||
-                              _model.emailController.text == '') ||
-                          (_model.childAgeController.text == null ||
-                              _model.childAgeController.text == '') ||
-                          (_model.solvedCaseController.text == null ||
-                              _model.solvedCaseController.text == ''))
+                  onPressed: ((_model.nameController.text == '') ||
+                          (_model.phoneController.text == '') ||
+                          (_model.emailController.text == '') ||
+                          (_model.childAgeController.text == '') ||
+                          (_model.solvedCaseController.text == ''))
                       ? null
                       : () async {
                           await EventEntryRecord.collection
@@ -517,13 +507,13 @@ class _EntryToEventPageWidgetState extends State<EntryToEventPageWidget> {
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 56.0,
-                    padding: EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).displaySmall,
                     elevation: 0.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                     ),
                     borderRadius: BorderRadius.circular(16.0),

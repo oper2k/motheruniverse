@@ -2,14 +2,9 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'analyzes_page_model.dart';
 export 'analyzes_page_model.dart';
 
@@ -170,8 +165,6 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -180,12 +173,12 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: AlignmentDirectional(-1.0, -1.0),
+                alignment: const AlignmentDirectional(-1.0, -1.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -197,7 +190,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                   child: Container(
                     width: 38.0,
                     height: 38.0,
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                     child: Icon(
                       FFIcons.kleft,
                       color: FlutterFlowTheme.of(context).secondaryText,
@@ -207,14 +200,14 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                 child: Text(
                   'Рекомендуемые анализы',
                   style: FlutterFlowTheme.of(context).displayLarge,
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: StreamBuilder<List<WeekRecord>>(
                   stream: queryWeekRecord(
                     queryBuilder: (weekRecord) => weekRecord.orderBy('sort'),
@@ -236,7 +229,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                     }
                     List<WeekRecord> containerWeekRecordList = snapshot.data!;
                     return Container(
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -250,7 +243,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   await _model.pageViewController?.previousPage(
-                                    duration: Duration(milliseconds: 300),
+                                    duration: const Duration(milliseconds: 300),
                                     curve: Curves.ease,
                                   );
                                   setState(() {
@@ -275,7 +268,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     containerWeekRecordList[_model.initialIndex]
@@ -287,7 +280,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -296,7 +289,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     await _model.pageViewController?.nextPage(
-                                      duration: Duration(milliseconds: 300),
+                                      duration: const Duration(milliseconds: 300),
                                       curve: Curves.ease,
                                     );
                                     setState(() {
@@ -324,7 +317,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: StreamBuilder<UsersRecord>(
                               stream: UsersRecord.getDocument(
@@ -347,7 +340,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                 }
                                 final userUsersRecord = snapshot.data!;
                                 return Container(
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: StreamBuilder<
                                       List<RecommendedAnalizesRecord>>(
                                     stream: queryRecommendedAnalizesRecord(
@@ -381,17 +374,17 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                           containerRecommendedAnalizesRecordList =
                                           snapshot.data!;
                                       return Container(
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Builder(
                                           builder: (context) {
                                             final weeksCounter =
                                                 containerWeekRecordList
                                                     .toList();
-                                            return Container(
+                                            return SizedBox(
                                               width: double.infinity,
                                               height: 500.0,
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 40.0),
                                                 child: PageView.builder(
@@ -444,7 +437,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                                                 width: double
                                                                     .infinity,
                                                                 decoration:
-                                                                    BoxDecoration(),
+                                                                    const BoxDecoration(),
                                                                 child: Builder(
                                                                   builder:
                                                                       (context) {
@@ -458,7 +451,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                                                             MainAxisSize.max,
                                                                         children: [
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 12.0,
                                                                                 0.0,
@@ -485,7 +478,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                                                                 children: [
                                                                                   Expanded(
                                                                                     child: RichText(
-                                                                                      textScaleFactor: MediaQuery.of(context).textScaleFactor,
+                                                                                      textScaler: MediaQuery.of(context).textScaler,
                                                                                       text: TextSpan(
                                                                                         children: [
                                                                                           TextSpan(
@@ -505,7 +498,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                                                                           ),
                                                                                           TextSpan(
                                                                                             text: currentAnalizesItem.description,
-                                                                                            style: TextStyle(),
+                                                                                            style: const TextStyle(),
                                                                                           )
                                                                                         ],
                                                                                         style: FlutterFlowTheme.of(context).headlineSmall.override(
@@ -549,7 +542,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                                                             MainAxisSize.max,
                                                                         children: [
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 12.0,
                                                                                 0.0,
@@ -576,7 +569,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                                                                 children: [
                                                                                   Expanded(
                                                                                     child: RichText(
-                                                                                      textScaleFactor: MediaQuery.of(context).textScaleFactor,
+                                                                                      textScaler: MediaQuery.of(context).textScaler,
                                                                                       text: TextSpan(
                                                                                         children: [
                                                                                           TextSpan(
@@ -618,7 +611,7 @@ class _AnalyzesPageWidgetState extends State<AnalyzesPageWidget> {
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       shape: BoxShape.circle,
                                                                                     ),
-                                                                                    child: Icon(
+                                                                                    child: const Icon(
                                                                                       FFIcons.kcheckMini,
                                                                                       color: Colors.white,
                                                                                       size: 24.0,

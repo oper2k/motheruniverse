@@ -1,4 +1,3 @@
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -7,7 +6,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'choose_the_age_model.dart';
 export 'choose_the_age_model.dart';
@@ -56,14 +54,14 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundMain,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 45.0, 20.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
                 width: double.infinity,
                 height: 38.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -79,7 +77,7 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                       child: Container(
                         width: 30.0,
                         height: 38.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Icon(
                           FFIcons.kleft,
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -90,13 +88,13 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                     Expanded(
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 8.0, 0.0),
                               child: Container(
                                 width: 48.0,
@@ -108,7 +106,7 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 8.0, 0.0),
                               child: Container(
                                 width: 48.0,
@@ -135,7 +133,7 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                 child: Text(
                   'Выберите возраст ребенка',
                   textAlign: TextAlign.center,
@@ -143,7 +141,7 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: AutoSizeText(
                   'Подстроим графики и покажем нормальные значения для возраста',
                   textAlign: TextAlign.center,
@@ -157,7 +155,7 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
               Builder(
                 builder: (context) {
                   if (_model.pregnantSwitchValue! && !_model.switchValue!) {
-                    return Container(
+                    return SizedBox(
                       width: double.infinity,
                       height: 220.0,
                       child: custom_widgets.CustomPickerWeeks(
@@ -182,7 +180,7 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                       ),
                     );
                   } else {
-                    return Container(
+                    return SizedBox(
                       width: double.infinity,
                       height: 220.0,
                       child: custom_widgets.CustomPicker(
@@ -212,14 +210,14 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                   }
                 },
               ),
-              Spacer(),
+              const Spacer(),
               if (_model.pregnantSwitchValue ?? true)
                 Container(
                   height: 55.0,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -237,8 +235,8 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                         Switch.adaptive(
                           value: _model.switchValue ??= false,
                           onChanged: (newValue) async {
-                            setState(() => _model.switchValue = newValue!);
-                            if (newValue!) {
+                            setState(() => _model.switchValue = newValue);
+                            if (newValue) {
                               setState(() {
                                 _model.conceptionDateIsKnown = true;
                               });
@@ -265,13 +263,13 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                   ),
                 ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Container(
                   height: 55.0,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -291,8 +289,8 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                               FFAppState().tempChild.genderIsUnknown,
                           onChanged: (newValue) async {
                             setState(
-                                () => _model.pregnantSwitchValue = newValue!);
-                            if (newValue!) {
+                                () => _model.pregnantSwitchValue = newValue);
+                            if (newValue) {
                               setState(() {
                                 _model.stillPregnant = true;
                               });
@@ -329,7 +327,7 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 45.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 45.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     if (_model.pregnantSwitchValue!) {
@@ -372,13 +370,13 @@ class _ChooseTheAgeWidgetState extends State<ChooseTheAgeWidget> {
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 56.0,
-                    padding: EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).displaySmall,
                     elevation: 0.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                     ),
                     borderRadius: BorderRadius.circular(16.0),

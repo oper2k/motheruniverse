@@ -6,11 +6,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'family_super_power_model.dart';
 export 'family_super_power_model.dart';
 
@@ -47,12 +44,10 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
-      alignment: AlignmentDirectional(0.0, 1.0),
+      alignment: const AlignmentDirectional(0.0, 1.0),
       child: ClipRRect(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(24.0),
@@ -62,7 +57,7 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
           width: double.infinity,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).backgroundMain,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
               topLeft: Radius.circular(24.0),
@@ -84,12 +79,12 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(1.0, -1.0),
+                            alignment: const AlignmentDirectional(1.0, -1.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -115,7 +110,7 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 220.0, 0.0, 0.0),
                             child: AutoSizeText(
                               'Family Super Power',
@@ -124,7 +119,7 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 0.0),
                             child: AutoSizeText(
                               'Cтановитесь новым участником программы лояльности и вам автоматически будут начислены баллы. Таким образом мы хотим сказать Вам спасибо за то, что Вы присоединились к нам.',
@@ -139,7 +134,7 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 48.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -164,7 +159,7 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       4.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     '50 баллов',
@@ -181,7 +176,7 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 33.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -208,7 +203,7 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
                                                 .primary,
                                             shape: BoxShape.circle,
                                           ),
-                                          child: Icon(
+                                          child: const Icon(
                                             FFIcons.kcheckMini,
                                             color: Colors.white,
                                             size: 24.0,
@@ -246,11 +241,11 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 0.0, 0.0),
                                     child: RichText(
-                                      textScaleFactor: MediaQuery.of(context)
-                                          .textScaleFactor,
+                                      textScaler:
+                                          MediaQuery.of(context).textScaler,
                                       text: TextSpan(
                                         children: [
                                           TextSpan(
@@ -312,7 +307,7 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
                                                           .viewInsetsOf(
                                                               context),
                                                       child:
-                                                          WelcomeBonusWidget(),
+                                                          const WelcomeBonusWidget(),
                                                     );
                                                   },
                                                 ).then((value) =>
@@ -341,7 +336,7 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 29.0, 0.0, 45.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -363,7 +358,7 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
                                       return Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
-                                        child: LoyaltyRegistrationBonusWidget(),
+                                        child: const LoyaltyRegistrationBonusWidget(),
                                       );
                                     },
                                   ).then((value) => safeSetState(() {}));
@@ -373,14 +368,14 @@ class _FamilySuperPowerWidgetState extends State<FamilySuperPowerWidget> {
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 56.0,
-                                padding: EdgeInsets.all(0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsets.all(0.0),
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primary,
                                 textStyle:
                                     FlutterFlowTheme.of(context).displaySmall,
                                 elevation: 0.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.transparent,
                                 ),
                                 borderRadius: BorderRadius.circular(16.0),
